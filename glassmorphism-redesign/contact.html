@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sへのお問い合わせはこちらから。AI開発、データ分析、システム開発についてご相談ください。">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/black-glass.css">
+    <style>
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 20px;
+            background: var(--black-glass);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background: var(--black-glass-hover);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            color: white;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+        
+        .faq-item {
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-4px);
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: var(--black-glass);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .grid {
+            display: grid;
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .gap-4 {
+            gap: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">AI-Dev's</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="about.html" class="nav-link">会社概要</a></li>
+                <li><a href="services.html" class="nav-link">サービス</a></li>
+                <li><a href="portfolio.html" class="nav-link">実績</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="hero-bg">
+            <canvas id="particle-canvas"></canvas>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">CONTACT US</span>
+                <h1 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">お問い合わせ</h1>
+                <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">
+                    お客様のビジネス課題をAI技術で解決します
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Form -->
+                    <div class="glass-card" data-aos="fade-right">
+                        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">お問い合わせフォーム</h2>
+                        <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div>
+                                <label for="name" class="form-label">お名前 *</label>
+                                <input type="text" id="name" name="name" required class="form-control" placeholder="山田 太郎">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="form-label">メールアドレス *</label>
+                                <input type="email" id="email" name="email" required class="form-control" placeholder="example@email.com">
+                            </div>
+                            
+                            <div>
+                                <label for="company" class="form-label">会社名</label>
+                                <input type="text" id="company" name="company" class="form-control" placeholder="株式会社サンプル">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="form-label">ご希望のサービス</label>
+                                <select id="service" name="service" class="form-control">
+                                    <option value="">選択してください</option>
+                                    <option value="ai">AI開発</option>
+                                    <option value="data">データ分析</option>
+                                    <option value="system">システム開発</option>
+                                    <option value="consulting">コンサルティング</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="form-label">お問い合わせ内容 *</label>
+                                <textarea id="message" name="message" rows="6" required class="form-control" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                                送信する
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div data-aos="fade-left">
+                        <div class="glass-card" style="margin-bottom: 2rem;">
+                            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">連絡先情報</h2>
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">住所</h3>
+                                        <p style="color: var(--text-secondary);">東京都渋谷区1-2-3<br>AIビル 5階</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">電話番号</h3>
+                                        <p style="color: var(--text-secondary);">03-1234-5678</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">メールアドレス</h3>
+                                        <p style="color: var(--text-secondary);">info@ai-devs.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-info-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">営業時間</h3>
+                                        <p style="color: var(--text-secondary);">平日 9:00-18:00<br>土日祝日は休業</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map -->
+                        <div class="glass-card">
+                            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">アクセス</h3>
+                            <div id="map" class="map-container">
+                                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--accent-cyan); opacity: 0.3;"></i>
+                                <p style="position: absolute; bottom: 1rem;">地図を読み込み中...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">FAQ</span>
+                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">よくある質問</h2>
+                <p class="hero-subtitle" style="margin-top: 1rem;">
+                    お客様からよくいただく質問をまとめました
+                </p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="glass-card faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-cyan);">Q. プロジェクトの期間はどのくらいですか？</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        A. プロジェクトの規模や複雑さによって異なりますが、小規模なプロジェクトで1-3ヶ月、大規模なプロジェクトで6ヶ月-1年程度が目安です。詳細はお問い合わせ時にご相談ください。
+                    </p>
+                </div>
+                
+                <div class="glass-card faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-purple);">Q. 料金体系はどうなっていますか？</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        A. プロジェクトの内容に応じて、固定料金制または時間単価制でご提案いたします。初期費用や運用費用についても、お客様の予算に合わせて柔軟に対応いたします。
+                    </p>
+                </div>
+                
+                <div class="glass-card faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-pink);">Q. 導入後のサポートはありますか？</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        A. はい、システム導入後も継続的なサポートを提供いたします。技術サポート、メンテナンス、アップデートなど、お客様のニーズに応じて包括的なサポート体制を整えています。
+                    </p>
+                </div>
+                
+                <div class="glass-card faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-cyan);">Q. データのセキュリティは大丈夫ですか？</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        A. お客様のデータセキュリティを最優先に考えています。暗号化通信、アクセス制御、定期的なセキュリティ監査など、最新のセキュリティ対策を実施しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+                    プロジェクトを始めませんか？
+                </h2>
+                <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 2rem;">
+                    お客様のビジネス課題をAI技術で解決します
+                </p>
+                <a href="#contact-form" class="btn btn-primary" style="scroll-behavior: smooth;">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                    お問い合わせフォームへ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="nav-brand footer-brand">AI-Dev's</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        AI技術で未来を創造する<br>
+                        革新的なソリューションプロバイダー
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">サービス</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#ai-development">AI開発</a></li>
+                        <li><a href="services.html#data-analytics">データ分析</a></li>
+                        <li><a href="services.html#system-development">システム開発</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">企業情報</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="portfolio.html">導入実績</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">フォローする</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI-Dev's. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Contact form validation
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !message) {
+                    alert('必須項目を入力してください。');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('有効なメールアドレスを入力してください。');
+                    return;
+                }
+                
+                // Success message
+                alert('お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。');
+                contactForm.reset();
+            });
+        }
+
+        // Simple particle animation for header
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        const particles = [];
+        const particleCount = 30;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+
+        // Map placeholder
+        const mapContainer = document.getElementById('map');
+        if (mapContainer) {
+            // In a real implementation, you would initialize a map library here
+            // For now, we'll just show a placeholder
+            setTimeout(() => {
+                mapContainer.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; gap: 1rem;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--accent-cyan); opacity: 0.5;"></i>
+                        <p style="color: var(--text-secondary);">インタラクティブな地図を表示</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+    </script>
+    <!-- Mobile Menu Script -->
+    <script src="assets/js/mobile-menu.js"></script>
+</body>
+</html>

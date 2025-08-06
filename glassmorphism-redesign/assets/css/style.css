@@ -1,0 +1,738 @@
+/* カスタムCSS - AI-Dev's Corporate Site (ダークテーマ) */
+
+/* インポート */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* モノクロマティック + アクセントカラーのデザインシステム */
+:root {
+    /* ベースカラー - より深い黒とグレーのグラデーション */
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #141414;
+    --bg-card: #1a1a1a;
+    --bg-elevated: #1f1f1f;
+    
+    /* テキストカラー - 明確な階層 */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1a1;
+    --text-muted: #6b6b6b;
+    --text-disabled: #3a3a3a;
+    
+    /* アクセントカラー - シンプルに2色のみ */
+    --accent-primary: #0ea5e9;     /* スカイブルー - メインアクセント */
+    --accent-primary-dark: #0284c7; /* 暗めのバージョン */
+    --accent-primary-light: #38bdf8; /* 明るめのバージョン */
+    --accent-secondary: #64748b;    /* スレートグレー - セカンダリ */
+    
+    /* ボーダーとシャドウ */
+    --border-color: #262626;
+    --border-light: #1a1a1a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(14, 165, 233, 0.15);
+    
+    /* グラデーション - シンプルに */
+    --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
+    --gradient-dark: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    --gradient-card: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+    
+    /* スペーシング */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* フォント */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    
+    /* アニメーション設定 */
+    --transition-base: 150ms ease;
+    --transition-slow: 300ms ease;
+    --transition-slower: 500ms ease;
+}
+
+/* ベーススタイル */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 背景パターン - 微細なノイズテクスチャ */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at top, rgba(14, 165, 233, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ノイズテクスチャ */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.01) 35px, rgba(255, 255, 255, 0.01) 70px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* セクション共通スタイル */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* コンテナ最大幅の調整 */
+.container {
+    max-width: 1280px;
+}
+
+/* ヘッドライン共通スタイル */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* タイポグラフィ階層 */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+h5 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+}
+
+h6 {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 600;
+}
+
+/* テキストスタイル */
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+.text-7xl { font-size: 4.5rem; line-height: 1; }
+.text-8xl { font-size: 6rem; line-height: 1; }
+.text-9xl { font-size: 8rem; line-height: 1; }
+
+/* タイムラインのスタイル */
+.timeline-container {
+    position: relative;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 4px;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-primary);
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    left: 3px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .timeline-icon {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.timeline-content {
+    margin-left: 3rem;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .timeline-content {
+        margin-left: 4rem;
+    }
+}
+
+/* アニメーション */
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* シンプルなグラデーションテキスト */
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* スクロールアニメーション */
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(8px);
+        opacity: 0;
+    }
+}
+
+.animate-scroll {
+    animation: scroll 2s ease-in-out infinite;
+}
+
+/* ヒーローセクション - クリーンでミニマル */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-card);
+}
+
+/* ナビゲーションリンクのホバーエフェクト */
+.nav-link {
+    position: relative;
+    transition: color var(--transition-base);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-primary);
+    transition: width var(--transition-slow);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* グリッドパターン背景 */
+.bg-grid-pattern {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* カード効果 - シンプル＆ミニマル */
+.feature-card {
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.feature-card:hover {
+    background: var(--bg-elevated);
+    border-color: rgba(14, 165, 233, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(14, 165, 233, 0.1);
+}
+
+/* サービスアイテムのホバー効果 */
+.service-item {
+    transition: all var(--transition-slow);
+    cursor: pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.service-item:hover {
+    transform: translateY(-3px);
+    background: var(--bg-elevated);
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(14, 165, 233, 0.1);
+}
+
+/* お客様の声カード */
+.testimonial-card {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ボタンエフェクト */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ローディングアニメーション */
+.loader {
+    border: 4px solid var(--bg-secondary);
+    border-top: 4px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* フォーム要素のスタイル */
+.form-input {
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.form-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--shadow-color);
+    outline: none;
+}
+
+/* タイプライターエフェクト */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid var(--accent-primary);
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-primary) }
+}
+
+/* パーティクルエフェクト用 */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: 50%;
+    animation: float-up 15s infinite;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* グロー効果 */
+.glow {
+    box-shadow: 0 0 20px var(--glow-color);
+    transition: all 0.3s ease;
+}
+
+.glow:hover {
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+/* テック系の追加スタイル */
+.tech-grid {
+    background: linear-gradient(45deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 98%, var(--accent-primary) 100%),
+        linear-gradient(0deg, transparent 98%, var(--accent-primary) 100%);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+/* テキストエフェクト - 控えめなグロー */
+.text-glow {
+    transition: text-shadow var(--transition-slow);
+}
+
+.text-glow:hover {
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+/* データストリーム効果 */
+.data-stream {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-stream::before {
+    content: '01';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    animation: data-flow 3s linear infinite;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--accent-primary);
+    opacity: 0.3;
+}
+
+@keyframes data-flow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ユーティリティクラス */
+.transition-all {
+    transition: all var(--transition-base);
+}
+
+.transition-slow {
+    transition: all var(--transition-slow);
+}
+
+.transition-slower {
+    transition: all var(--transition-slower);
+}
+
+/* スペーシングユーティリティ */
+.section-padding {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+}
+
+.section-padding-lg {
+    padding-top: calc(var(--space-3xl) * 1.5);
+    padding-bottom: calc(var(--space-3xl) * 1.5);
+}
+
+.content-spacing > * + * {
+    margin-top: var(--space-md);
+}
+
+.content-spacing-lg > * + * {
+    margin-top: var(--space-lg);
+}
+
+/* グリッドレイアウト */
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* フレックスユーティリティ */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    
+    .counter {
+        font-size: 3rem;
+    }
+    
+    .floating-cube {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-glow {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* プリローダー */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+#preloader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* カスタムカーソル */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    z-index: 9998;
+}
+
+.custom-cursor.hover {
+    transform: scale(1.5);
+    background: rgba(0, 255, 136, 0.2);
+}
+
+/* SVGアニメーション用の追加スタイル */
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ニューラルネットワークのアニメーション */
+.neural-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* プレースホルダー画像のスタイル */
+.placeholder-img {
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-card) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+/* ミニマルアクセント効果 */
+.accent-line {
+    position: relative;
+    display: inline-block;
+}
+
+.accent-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* セクションタイトルスタイル */
+.section-title {
+    margin-bottom: var(--space-xl);
+}
+
+.section-title h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
