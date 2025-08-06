@@ -1,25 +1,94 @@
 /* カスタムCSS - AI-Dev's Corporate Site (ダークテーマ) */
 
+/* インポート */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
 /* ダークテーマのベースカラー */
 :root {
     --bg-primary: #0a0a0a;
     --bg-secondary: #111111;
     --bg-tertiary: #1a1a1a;
+    --bg-card: #141414;
     --text-primary: #ffffff;
     --text-secondary: #b3b3b3;
     --text-muted: #666666;
     --accent-primary: #00ff88;
     --accent-secondary: #00ccff;
     --accent-tertiary: #ff0080;
-    --border-color: #333333;
+    --accent-warning: #ffaa00;
+    --border-color: #2a2a2a;
+    --border-light: #1f1f1f;
     --shadow-color: rgba(0, 255, 136, 0.1);
     --glow-color: rgba(0, 255, 136, 0.3);
+    --gradient-1: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    --gradient-2: linear-gradient(135deg, #ff0080 0%, #ffaa00 100%);
+    --gradient-3: linear-gradient(135deg, #00ccff 0%, #ff0080 100%);
+    
+    /* スペーシング */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* フォント */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 /* ベーススタイル */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 背景パターン */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, var(--accent-primary) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--accent-secondary) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, var(--accent-tertiary) 0%, transparent 50%);
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* セクション共通スタイル */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* コンテナ最大幅の調整 */
+.container {
+    max-width: 1280px;
+}
+
+/* ヘッドライン共通スタイル */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 /* タイムラインのスタイル */
@@ -134,6 +203,184 @@ body {
     animation: gradient-animation 4s ease infinite;
 }
 
+.gradient-text-animated {
+    background: linear-gradient(-45deg, #00ff88, #00ccff, #ff0080, #ffaa00, #00ff88);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-animation 6s ease infinite;
+    filter: brightness(1.2);
+}
+
+/* ヒーローセクション新デザイン */
+.hero-section {
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.hero-bg {
+    background: 
+        radial-gradient(ellipse at top left, rgba(0, 255, 136, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at bottom right, rgba(0, 204, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at center, rgba(255, 0, 128, 0.1) 0%, transparent 60%);
+}
+
+.hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-particles::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particle-float 60s linear infinite;
+}
+
+@keyframes particle-float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50px, -50px); }
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+    filter: blur(100px);
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* フローティングキューブ */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.floating-cube {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    transform-style: preserve-3d;
+    animation: float-rotate 20s infinite linear;
+}
+
+.floating-cube::before,
+.floating-cube::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 255, 136, 0.2);
+}
+
+.floating-cube::before {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.floating-cube::after {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.cube-1 {
+    top: 10%;
+    left: 10%;
+    animation-duration: 25s;
+}
+
+.cube-2 {
+    top: 70%;
+    right: 15%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+.cube-3 {
+    bottom: 20%;
+    left: 80%;
+    animation-duration: 35s;
+    animation-delay: -20s;
+}
+
+@keyframes float-rotate {
+    0% {
+        transform: translateY(0) rotateX(0) rotateY(0) rotateZ(0);
+    }
+    25% {
+        transform: translateY(-30px) rotateX(90deg) rotateY(45deg) rotateZ(180deg);
+    }
+    50% {
+        transform: translateY(0) rotateX(180deg) rotateY(90deg) rotateZ(360deg);
+    }
+    75% {
+        transform: translateY(30px) rotateX(270deg) rotateY(135deg) rotateZ(540deg);
+    }
+    100% {
+        transform: translateY(0) rotateX(360deg) rotateY(180deg) rotateZ(720deg);
+    }
+}
+
+/* スクロールインジケーター */
+.scroll-indicator {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    position: relative;
+}
+
+.scroll-down {
+    width: 3px;
+    height: 10px;
+    background: var(--accent-primary);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll-animation 2s ease-in-out infinite;
+}
+
+@keyframes scroll-animation {
+    0% { opacity: 0; top: 10px; }
+    50% { opacity: 1; }
+    100% { opacity: 0; top: 30px; }
+}
+
+/* データストリーム */
+.data-stream-text::before {
+    content: '01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100';
+    position: absolute;
+    white-space: nowrap;
+    color: var(--accent-primary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.3;
+    animation: data-flow-horizontal 20s linear infinite;
+}
+
+@keyframes data-flow-horizontal {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
 /* カスタムスクロールバー */
 ::-webkit-scrollbar {
     width: 10px;
@@ -173,13 +420,22 @@ body {
     width: 100%;
 }
 
+/* グリッドパターン背景 */
+.bg-grid-pattern {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
 /* カード効果 */
 .feature-card {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    background: var(--bg-secondary);
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
 }
 
 .feature-card::before {
@@ -199,7 +455,8 @@ body {
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-color);
+    box-shadow: 0 20px 40px var(--shadow-color);
+    border-color: var(--accent-primary);
 }
 
 /* サービスアイテムのホバー効果 */
@@ -418,14 +675,33 @@ body {
     100% { left: 100%; }
 }
 
+/* アニメーション遅延ユーティリティ */
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
 /* モバイル対応 */
 @media (max-width: 768px) {
     .hero-section h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     
     .counter {
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+    
+    .floating-cube {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-glow {
+        width: 400px;
+        height: 400px;
     }
 }
 
