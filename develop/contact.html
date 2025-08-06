@@ -24,10 +24,10 @@
     <div data-component="header"></div>
 
     <!-- ページヘッダー -->
-    <section class="pt-32 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+    <section class="pt-32 pb-16 bg-black text-white relative overflow-hidden">
         <div class="tech-grid absolute inset-0"></div>
         <div class="container mx-auto px-6 relative z-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 cyber-text" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">
                 お問い合わせ
             </h1>
             <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">
@@ -47,22 +47,22 @@
                         <form id="contact-form" class="space-y-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">お名前 *</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-sky-400 focus:outline-none text-white transition-colors duration-200">
                             </div>
                             
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-300 mb-2">メールアドレス *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-sky-400 focus:outline-none text-white transition-colors duration-200">
                             </div>
                             
                             <div>
                                 <label for="company" class="block text-sm font-medium text-gray-300 mb-2">会社名</label>
-                                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-sky-400 focus:outline-none text-white transition-colors duration-200">
                             </div>
                             
                             <div>
                                 <label for="service" class="block text-sm font-medium text-gray-300 mb-2">ご希望のサービス</label>
-                                <select id="service" name="service" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                                <select id="service" name="service" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-sky-400 focus:outline-none text-white transition-colors duration-200">
                                     <option value="">選択してください</option>
                                     <option value="ai">AI開発</option>
                                     <option value="data">データ分析</option>
@@ -74,10 +74,10 @@
                             
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-300 mb-2">お問い合わせ内容 *</label>
-                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white"></textarea>
+                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-sky-400 focus:outline-none text-white transition-colors duration-200"></textarea>
                             </div>
                             
-                            <button type="submit" class="w-full bg-green-500 text-gray-900 py-3 px-6 rounded-lg hover:bg-green-400 transition font-semibold">
+                            <button type="submit" class="w-full bg-sky-500 text-white py-3 px-6 rounded-lg hover:bg-sky-400 transition font-semibold">
                                 <i class="fas fa-paper-plane mr-2"></i>
                                 送信する
                             </button>
@@ -89,8 +89,8 @@
                         <h2 class="text-3xl font-bold mb-6 text-white">連絡先情報</h2>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-green-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 border border-gray-600">
+                                    <i class="fas fa-map-marker-alt text-sky-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-semibold text-white mb-1">住所</h3>
@@ -99,8 +99,8 @@
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-phone text-white"></i>
+                                <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 border border-gray-600">
+                                    <i class="fas fa-phone text-sky-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-semibold text-white mb-1">電話番号</h3>
@@ -109,8 +109,8 @@
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-purple-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-envelope text-white"></i>
+                                <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 border border-gray-600">
+                                    <i class="fas fa-envelope text-sky-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-semibold text-white mb-1">メールアドレス</h3>
@@ -119,8 +119,8 @@
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-pink-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-clock text-white"></i>
+                                <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 border border-gray-600">
+                                    <i class="fas fa-clock text-sky-400"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-semibold text-white mb-1">営業時間</h3>
@@ -146,7 +146,7 @@
     <section class="py-16 bg-gray-800">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 cyber-text">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     よくある質問
                 </h2>
                 <p class="text-gray-400 text-lg">
@@ -187,15 +187,15 @@
     </section>
 
     <!-- CTAセクション -->
-    <section class="py-16 bg-gradient-to-r from-green-600 to-blue-600">
+    <section class="py-16 bg-black border-t border-gray-800">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" data-aos="fade-up">
                 プロジェクトを始めませんか？
             </h2>
-            <p class="text-xl mb-8 text-green-100" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-xl mb-8 text-gray-400" data-aos="fade-up" data-aos-delay="100">
                 お客様のビジネス課題をAI技術で解決します
             </p>
-            <a href="#contact" class="btn-primary bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition inline-block" data-aos="fade-up" data-aos-delay="200">
+            <a href="#contact-form" class="inline-flex items-center px-8 py-3 bg-sky-500 text-white rounded-lg hover:bg-sky-400 transition font-semibold" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-paper-plane mr-2"></i>
                 お問い合わせ
             </a>
