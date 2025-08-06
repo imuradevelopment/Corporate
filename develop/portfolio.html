@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実績 - AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sの実績をご紹介します。AI開発、データ分析、システム開発の成功事例をご覧ください。">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- ヘッダーコンポーネント -->
+    <div data-component="header"></div>
+
+    <!-- ページヘッダー -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+        <div class="tech-grid absolute inset-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 cyber-text" data-aos="fade-up">
+                実績
+            </h1>
+            <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">
+                お客様との成功事例
+            </p>
+        </div>
+    </section>
+
+    <!-- フィルター -->
+    <section class="py-8 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <button class="filter-btn active bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-400 transition" data-filter="all">
+                    すべて
+                </button>
+                <button class="filter-btn bg-gray-700 text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-600 transition" data-filter="ai">
+                    AI開発
+                </button>
+                <button class="filter-btn bg-gray-700 text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-600 transition" data-filter="data">
+                    データ分析
+                </button>
+                <button class="filter-btn bg-gray-700 text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-600 transition" data-filter="system">
+                    システム開発
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ポートフォリオ -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- プロジェクト1 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="ai" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-brain text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">予知保全システム</h3>
+                    <p class="text-gray-400 mb-4">製造業向けの設備故障予測AIシステム</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">Python</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">TensorFlow</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">IoT</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        設備稼働率15%向上
+                    </p>
+                </div>
+                
+                <!-- プロジェクト2 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="data" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">顧客分析ダッシュボード</h3>
+                    <p class="text-gray-400 mb-4">ECサイト向けの顧客行動分析システム</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">Python</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">Pandas</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">React</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        売上30%増加
+                    </p>
+                </div>
+                
+                <!-- プロジェクト3 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="system" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-code text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">クラウド管理システム</h3>
+                    <p class="text-gray-400 mb-4">企業向けの統合クラウド管理プラットフォーム</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">Node.js</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">React</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">AWS</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        運用コスト40%削減
+                    </p>
+                </div>
+                
+                <!-- プロジェクト4 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="ai" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-full h-48 bg-gradient-to-br from-pink-400 to-yellow-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-image text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">画像診断AI</h3>
+                    <p class="text-gray-400 mb-4">医療機関向けの画像診断支援システム</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">Python</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">PyTorch</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">OpenCV</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        診断精度25%向上
+                    </p>
+                </div>
+                
+                <!-- プロジェクト5 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="data" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-green-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-search text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">異常検知システム</h3>
+                    <p class="text-gray-400 mb-4">金融機関向けの取引異常検知システム</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">Python</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">Scikit-learn</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">Kafka</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        検知精度90%達成
+                    </p>
+                </div>
+                
+                <!-- プロジェクト6 -->
+                <div class="portfolio-item feature-card p-6 rounded-lg" data-category="system" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">モバイルアプリ</h3>
+                    <p class="text-gray-400 mb-4">スタートアップ向けのモバイルアプリケーション</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-400 text-gray-900 px-2 py-1 rounded text-xs">React Native</span>
+                        <span class="bg-blue-400 text-gray-900 px-2 py-1 rounded text-xs">Firebase</span>
+                        <span class="bg-purple-400 text-gray-900 px-2 py-1 rounded text-xs">Redux</span>
+                    </div>
+                    <p class="text-green-400 text-sm">
+                        <i class="fas fa-chart-line mr-1"></i>
+                        ユーザー数10万突破
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 cyber-text">
+                    お客様の声
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    導入企業様からの評価
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">田中 太郎</h4>
+                            <p class="text-gray-400 text-sm">株式会社テックソリューションズ CEO</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        「AI-Dev'sの技術力とプロジェクト管理能力は素晴らしいです。期待以上の成果を提供していただきました。」
+                    </p>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">佐藤 花子</h4>
+                            <p class="text-gray-400 text-sm">スタートアップ企業 代表</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        「限られた予算と時間の中で、革新的なAIソリューションを実現していただきました。」
+                    </p>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">鈴木 次郎</h4>
+                            <p class="text-gray-400 text-sm">大手製造業 技術部長</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        「製造業の課題を深く理解し、最適なAIソリューションを提案していただきました。」
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-blue-600">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" data-aos="fade-up">
+                一緒に成功を創りませんか？
+            </h2>
+            <p class="text-xl mb-8 text-green-100" data-aos="fade-up" data-aos-delay="100">
+                お客様のビジネス課題をAI技術で解決します
+            </p>
+            <a href="contact.html" class="btn-primary bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition inline-block" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-paper-plane mr-2"></i>
+                お問い合わせ
+            </a>
+        </div>
+    </section>
+
+    <!-- フッターコンポーネント -->
+    <div data-component="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
