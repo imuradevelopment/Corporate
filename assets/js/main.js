@@ -4,9 +4,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // AOSアニメーションの初期化
     AOS.init({
-        duration: 1000,
+        duration: 600,
         once: true,
-        offset: 100
+        offset: 50,
+        easing: 'ease-out'
     });
 
     // モバイルメニューの処理

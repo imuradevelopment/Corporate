@@ -3,26 +3,40 @@
 /* インポート */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
-/* ダークテーマのベースカラー */
+/* モノクロマティック + アクセントカラーのデザインシステム */
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --bg-card: #141414;
+    /* ベースカラー - より深い黒とグレーのグラデーション */
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #141414;
+    --bg-card: #1a1a1a;
+    --bg-elevated: #1f1f1f;
+    
+    /* テキストカラー - 明確な階層 */
     --text-primary: #ffffff;
-    --text-secondary: #b3b3b3;
-    --text-muted: #666666;
-    --accent-primary: #00ff88;
-    --accent-secondary: #00ccff;
-    --accent-tertiary: #ff0080;
-    --accent-warning: #ffaa00;
-    --border-color: #2a2a2a;
-    --border-light: #1f1f1f;
-    --shadow-color: rgba(0, 255, 136, 0.1);
-    --glow-color: rgba(0, 255, 136, 0.3);
-    --gradient-1: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
-    --gradient-2: linear-gradient(135deg, #ff0080 0%, #ffaa00 100%);
-    --gradient-3: linear-gradient(135deg, #00ccff 0%, #ff0080 100%);
+    --text-secondary: #a1a1a1;
+    --text-muted: #6b6b6b;
+    --text-disabled: #3a3a3a;
+    
+    /* アクセントカラー - シンプルに2色のみ */
+    --accent-primary: #0ea5e9;     /* スカイブルー - メインアクセント */
+    --accent-primary-dark: #0284c7; /* 暗めのバージョン */
+    --accent-primary-light: #38bdf8; /* 明るめのバージョン */
+    --accent-secondary: #64748b;    /* スレートグレー - セカンダリ */
+    
+    /* ボーダーとシャドウ */
+    --border-color: #262626;
+    --border-light: #1a1a1a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(14, 165, 233, 0.15);
+    
+    /* グラデーション - シンプルに */
+    --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
+    --gradient-dark: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    --gradient-card: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
     
     /* スペーシング */
     --space-xs: 0.5rem;
@@ -36,6 +50,11 @@
     /* フォント */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    
+    /* アニメーション設定 */
+    --transition-base: 150ms ease;
+    --transition-slow: 300ms ease;
+    --transition-slower: 500ms ease;
 }
 
 /* ベーススタイル */
@@ -56,7 +75,7 @@ body {
     position: relative;
 }
 
-/* 背景パターン */
+/* 背景パターン - 微細なノイズテクスチャ */
 body::before {
     content: '';
     position: fixed;
@@ -64,13 +83,26 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 50%, var(--accent-primary) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, var(--accent-secondary) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, var(--accent-tertiary) 0%, transparent 50%);
-    opacity: 0.03;
+    background: 
+        radial-gradient(ellipse at top, rgba(14, 165, 233, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.03) 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* ノイズテクスチャ */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.01) 35px, rgba(255, 255, 255, 0.01) 70px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 /* セクション共通スタイル */
@@ -90,6 +122,52 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     letter-spacing: -0.02em;
 }
+
+/* タイポグラフィ階層 */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+h5 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+}
+
+h6 {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 600;
+}
+
+/* テキストスタイル */
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+.text-7xl { font-size: 4.5rem; line-height: 1; }
+.text-8xl { font-size: 6rem; line-height: 1; }
+.text-9xl { font-size: 8rem; line-height: 1; }
 
 /* タイムラインのスタイル */
 .timeline-container {
@@ -182,238 +260,72 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* グラデーションテキストアニメーション */
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* シンプルなグラデーションテキスト */
 .gradient-text {
-    background: linear-gradient(-45deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary), var(--accent-primary));
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-animation 4s ease infinite;
-}
-
-.gradient-text-animated {
-    background: linear-gradient(-45deg, #00ff88, #00ccff, #ff0080, #ffaa00, #00ff88);
-    background-size: 300% 300%;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-animation 6s ease infinite;
-    filter: brightness(1.2);
 }
 
-/* ヒーローセクション新デザイン */
-.hero-section {
-    background: var(--bg-primary);
-    position: relative;
-}
-
-.hero-bg {
-    background: 
-        radial-gradient(ellipse at top left, rgba(0, 255, 136, 0.15) 0%, transparent 40%),
-        radial-gradient(ellipse at bottom right, rgba(0, 204, 255, 0.15) 0%, transparent 40%),
-        radial-gradient(ellipse at center, rgba(255, 0, 128, 0.1) 0%, transparent 60%);
-}
-
-.hero-particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.hero-particles::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: particle-float 60s linear infinite;
-}
-
-@keyframes particle-float {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-50px, -50px); }
-}
-
-.hero-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 800px;
-    height: 800px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
-    filter: blur(100px);
-    animation: glow-pulse 4s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-/* フローティングキューブ */
-.floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.floating-cube {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border: 2px solid rgba(0, 255, 136, 0.3);
-    transform-style: preserve-3d;
-    animation: float-rotate 20s infinite linear;
-}
-
-.floating-cube::before,
-.floating-cube::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgba(0, 255, 136, 0.2);
-}
-
-.floating-cube::before {
-    transform: rotateY(90deg) translateZ(30px);
-}
-
-.floating-cube::after {
-    transform: rotateX(90deg) translateZ(30px);
-}
-
-.cube-1 {
-    top: 10%;
-    left: 10%;
-    animation-duration: 25s;
-}
-
-.cube-2 {
-    top: 70%;
-    right: 15%;
-    animation-duration: 30s;
-    animation-delay: -10s;
-}
-
-.cube-3 {
-    bottom: 20%;
-    left: 80%;
-    animation-duration: 35s;
-    animation-delay: -20s;
-}
-
-@keyframes float-rotate {
+/* スクロールアニメーション */
+@keyframes scroll {
     0% {
-        transform: translateY(0) rotateX(0) rotateY(0) rotateZ(0);
-    }
-    25% {
-        transform: translateY(-30px) rotateX(90deg) rotateY(45deg) rotateZ(180deg);
-    }
-    50% {
-        transform: translateY(0) rotateX(180deg) rotateY(90deg) rotateZ(360deg);
-    }
-    75% {
-        transform: translateY(30px) rotateX(270deg) rotateY(135deg) rotateZ(540deg);
+        transform: translateY(0);
+        opacity: 1;
     }
     100% {
-        transform: translateY(0) rotateX(360deg) rotateY(180deg) rotateZ(720deg);
+        transform: translateY(8px);
+        opacity: 0;
     }
 }
 
-/* スクロールインジケーター */
-.scroll-indicator {
-    width: 30px;
-    height: 50px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
+.animate-scroll {
+    animation: scroll 2s ease-in-out infinite;
+}
+
+/* ヒーローセクション - クリーンでミニマル */
+.hero-section {
     position: relative;
-}
-
-.scroll-down {
-    width: 3px;
-    height: 10px;
-    background: var(--accent-primary);
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-    animation: scroll-animation 2s ease-in-out infinite;
-}
-
-@keyframes scroll-animation {
-    0% { opacity: 0; top: 10px; }
-    50% { opacity: 1; }
-    100% { opacity: 0; top: 30px; }
-}
-
-/* データストリーム */
-.data-stream-text::before {
-    content: '01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100';
-    position: absolute;
-    white-space: nowrap;
-    color: var(--accent-primary);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    opacity: 0.3;
-    animation: data-flow-horizontal 20s linear infinite;
-}
-
-@keyframes data-flow-horizontal {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* カスタムスクロールバー */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent-primary);
-    border-radius: 5px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-secondary);
+    background: var(--bg-card);
 }
 
 /* ナビゲーションリンクのホバーエフェクト */
 .nav-link {
     position: relative;
-    transition: all 0.3s ease;
+    transition: color var(--transition-base);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -2px;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: var(--accent-primary);
-    transition: width 0.3s ease;
+    transition: width var(--transition-slow);
 }
 
 .nav-link:hover::after {
@@ -428,53 +340,35 @@ h1, h2, h3, h4, h5, h6 {
     background-size: 50px 50px;
 }
 
-/* カード効果 */
+/* カード効果 - シンプル＆ミニマル */
 .feature-card {
-    transition: all 0.3s ease;
+    transition: all var(--transition-slow);
     position: relative;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.feature-card:hover::before {
-    left: 100%;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px var(--shadow-color);
-    border-color: var(--accent-primary);
+    background: var(--bg-elevated);
+    border-color: rgba(14, 165, 233, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(14, 165, 233, 0.1);
 }
 
 /* サービスアイテムのホバー効果 */
 .service-item {
-    transition: all 0.3s ease;
+    transition: all var(--transition-slow);
     cursor: pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
 }
 
 .service-item:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    color: white;
-}
-
-.service-item:hover i,
-.service-item:hover h3,
-.service-item:hover p {
-    color: white;
+    transform: translateY(-3px);
+    background: var(--bg-elevated);
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(14, 165, 233, 0.1);
 }
 
 /* お客様の声カード */
@@ -575,7 +469,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .particle {
     position: absolute;
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(14, 165, 233, 0.1);
     border-radius: 50%;
     animation: float-up 15s infinite;
 }
@@ -635,18 +529,13 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: translate(20px, 20px); }
 }
 
-/* サイバーパンク風のテキスト効果 */
-.cyber-text {
-    text-shadow: 
-        0 0 5px var(--accent-primary),
-        0 0 10px var(--accent-primary),
-        0 0 15px var(--accent-primary);
-    animation: cyber-glow 2s ease-in-out infinite alternate;
+/* テキストエフェクト - 控えめなグロー */
+.text-glow {
+    transition: text-shadow var(--transition-slow);
 }
 
-@keyframes cyber-glow {
-    from { text-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-primary), 0 0 15px var(--accent-primary); }
-    to { text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary); }
+.text-glow:hover {
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
 }
 
 /* データストリーム効果 */
@@ -675,13 +564,56 @@ h1, h2, h3, h4, h5, h6 {
     100% { left: 100%; }
 }
 
-/* アニメーション遅延ユーティリティ */
-.animation-delay-2000 {
-    animation-delay: 2s;
+/* ユーティリティクラス */
+.transition-all {
+    transition: all var(--transition-base);
 }
 
-.animation-delay-4000 {
-    animation-delay: 4s;
+.transition-slow {
+    transition: all var(--transition-slow);
+}
+
+.transition-slower {
+    transition: all var(--transition-slower);
+}
+
+/* スペーシングユーティリティ */
+.section-padding {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+}
+
+.section-padding-lg {
+    padding-top: calc(var(--space-3xl) * 1.5);
+    padding-bottom: calc(var(--space-3xl) * 1.5);
+}
+
+.content-spacing > * + * {
+    margin-top: var(--space-md);
+}
+
+.content-spacing-lg > * + * {
+    margin-top: var(--space-lg);
+}
+
+/* グリッドレイアウト */
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* フレックスユーティリティ */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* モバイル対応 */
@@ -763,11 +695,44 @@ h1, h2, h3, h4, h5, h6 {
 
 /* プレースホルダー画像のスタイル */
 .placeholder-img {
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-card) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+/* ミニマルアクセント効果 */
+.accent-line {
+    position: relative;
+    display: inline-block;
+}
+
+.accent-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-primary);
+}
+
+/* セクションタイトルスタイル */
+.section-title {
+    margin-bottom: var(--space-xl);
+}
+
+.section-title h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
 }
