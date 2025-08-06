@@ -1,0 +1,212 @@
+name: Deploy All Branches to GitHub Pages
+
+on:
+  push:
+    branches:
+      - '**'  # 全てのブランチでトリガー
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup branch info
+        id: branch_info
+        run: |
+          CURRENT_BRANCH=${GITHUB_REF#refs/heads/}
+          BRANCH_DIR=$(echo $CURRENT_BRANCH | sed 's/\//-/g')
+          echo "current_branch=$CURRENT_BRANCH" >> $GITHUB_OUTPUT
+          echo "branch_dir=$BRANCH_DIR" >> $GITHUB_OUTPUT
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Create gh-pages if not exists
+        run: |
+          if [ ! -d "gh-pages/.git" ]; then
+            mkdir -p gh-pages
+            cd gh-pages
+            git init
+            git checkout -b gh-pages
+            echo "GitHub Pages" > index.html
+            git add .
+            git commit -m "Initial gh-pages"
+            cd ..
+          fi
+
+      - name: Copy current branch content
+        run: |
+          if [ "${{ steps.branch_info.outputs.current_branch }}" = "main" ] || [ "${{ steps.branch_info.outputs.current_branch }}" = "master" ]; then
+            # mainブランチはルートに配置
+            rsync -av --exclude='.git' --exclude='.github' --exclude='gh-pages' . gh-pages/
+          else
+            # その他のブランチはサブディレクトリに配置
+            mkdir -p gh-pages/${{ steps.branch_info.outputs.branch_dir }}
+            rsync -av --exclude='.git' --exclude='.github' --exclude='gh-pages' . gh-pages/${{ steps.branch_info.outputs.branch_dir }}/
+          fi
+
+      - name: Get all branches
+        id: branches
+        run: |
+          cd gh-pages
+          # リモートの全ブランチを取得
+          git remote add upstream https://github.com/${{ github.repository }}.git || true
+          git fetch upstream
+          BRANCHES=$(git branch -r | grep upstream | grep -v HEAD | grep -v gh-pages | sed 's/upstream\///' | tr '\n' ' ')
+          echo "all_branches=$BRANCHES" >> $GITHUB_OUTPUT
+
+      - name: Generate branch index
+        run: |
+          cat > gh-pages/branches.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>AI-Dev's - ブランチ一覧</title>
+              <script src="https://cdn.tailwindcss.com"></script>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+          </head>
+          <body class="bg-gray-900 text-white">
+              <div class="container mx-auto px-6 py-12">
+                  <h1 class="text-4xl font-bold mb-8 text-center">
+                      <span class="text-green-400">AI-Dev's</span> ブランチ一覧
+                  </h1>
+                  
+                  <div class="mb-6 text-center text-gray-400">
+                      <i class="fas fa-sync-alt mr-2"></i>
+                      最終更新: <span id="update-time"></span>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="branch-list">
+                      <!-- ブランチリストはJavaScriptで動的に生成 -->
+                  </div>
+
+                  <div class="mt-12 p-6 bg-gray-800 rounded-lg">
+                      <h3 class="text-lg font-bold mb-4">
+                          <i class="fas fa-info-circle text-green-400 mr-2"></i>
+                          自動デプロイについて
+                      </h3>
+                      <ul class="list-disc list-inside space-y-2 text-gray-400">
+                          <li>全てのブランチが自動的にGitHub Pagesにデプロイされます</li>
+                          <li>新しいブランチを作成してプッシュすると、数分後に公開されます</li>
+                          <li>ブランチを削除すると、対応するページも自動的に削除されます</li>
+                          <li>mainブランチ: <code class="bg-gray-700 px-2 py-1 rounded">/</code></li>
+                          <li>その他のブランチ: <code class="bg-gray-700 px-2 py-1 rounded">/ブランチ名/</code></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <script>
+                  // デプロイされたブランチ情報
+                  const deployedBranches = [
+          EOF
+
+          # デプロイ済みのディレクトリを検出してJSONに追加
+          cd gh-pages
+          for dir in */; do
+            if [ -d "$dir" ] && [ "$dir" != "assets/" ] && [ "$dir" != "components/" ]; then
+              branch_name=$(echo $dir | sed 's/\///')
+              echo "          { name: '$branch_name', dir: '$branch_name' }," >> branches.html
+            fi
+          done
+          
+          # mainブランチも追加
+          if [ -f "index.html" ]; then
+            echo "          { name: 'main', dir: '', isMain: true }," >> branches.html
+          fi
+
+          cat >> branches.html << 'EOF'
+                  ];
+
+                  // ブランチタイプを判定
+                  function getBranchType(name) {
+                      if (name === 'main' || name === 'master') return { icon: 'fa-home', color: 'green' };
+                      if (name === 'develop' || name === 'development') return { icon: 'fa-code', color: 'blue' };
+                      if (name.startsWith('feature-') || name.includes('feature')) return { icon: 'fa-star', color: 'purple' };
+                      if (name.startsWith('release-') || name.includes('release')) return { icon: 'fa-tag', color: 'orange' };
+                      if (name.startsWith('hotfix-') || name.includes('hotfix')) return { icon: 'fa-fire', color: 'red' };
+                      return { icon: 'fa-code-branch', color: 'gray' };
+                  }
+
+                  // ブランチリストを生成
+                  function generateBranchList() {
+                      const container = document.getElementById('branch-list');
+                      const baseUrl = window.location.origin + window.location.pathname.replace('/branches.html', '');
+                      
+                      deployedBranches.forEach(branch => {
+                          const type = getBranchType(branch.name);
+                          const url = branch.isMain ? baseUrl + '/' : `${baseUrl}/${branch.dir}/`;
+                          
+                          const card = document.createElement('a');
+                          card.href = url;
+                          card.className = 'block p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition';
+                          card.innerHTML = `
+                              <div class="flex items-center mb-3">
+                                  <i class="fas ${type.icon} text-${type.color}-400 text-2xl mr-3"></i>
+                                  <h2 class="text-xl font-bold">${branch.name}</h2>
+                              </div>
+                              <p class="text-gray-400 mb-2">
+                                  ${branch.isMain ? '本番環境・安定版' : 'ブランチ: ' + branch.name}
+                              </p>
+                              <span class="text-${type.color}-400 text-sm break-all">${url}</span>
+                          `;
+                          container.appendChild(card);
+                      });
+                  }
+
+                  // 更新時刻を表示
+                  document.getElementById('update-time').textContent = new Date().toLocaleString('ja-JP');
+                  
+                  // ブランチリストを生成
+                  generateBranchList();
+              </script>
+          </body>
+          </html>
+          EOF
+
+      - name: Commit and push
+        run: |
+          cd gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Deploy ${{ steps.branch_info.outputs.current_branch }} branch" || echo "No changes to commit"
+          git push origin gh-pages --force
+
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name == 'delete'
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Remove deleted branch
+        run: |
+          DELETED_BRANCH=${GITHUB_REF#refs/heads/}
+          BRANCH_DIR=$(echo $DELETED_BRANCH | sed 's/\//-/g')
+          
+          if [ -d "$BRANCH_DIR" ]; then
+            rm -rf "$BRANCH_DIR"
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git commit -m "Remove deleted branch: $DELETED_BRANCH"
+            git push origin gh-pages
+          fi

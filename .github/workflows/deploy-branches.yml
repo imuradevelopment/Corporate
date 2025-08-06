@@ -1,0 +1,46 @@
+name: Deploy Multiple Branches to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/*
+      - release/*
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get branch name
+        id: branch
+        run: |
+          BRANCH=${GITHUB_REF#refs/heads/}
+          BRANCH_DIR=$(echo $BRANCH | sed 's/\//-/g')
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "branch_dir=$BRANCH_DIR" >> $GITHUB_OUTPUT
+
+      - name: Setup directories
+        run: |
+          mkdir -p public
+          if [ "${{ steps.branch.outputs.branch }}" = "main" ]; then
+            cp -r . public/
+            rm -rf public/.git public/.github public/public
+          else
+            mkdir -p public/${{ steps.branch.outputs.branch_dir }}
+            cp -r . public/${{ steps.branch.outputs.branch_dir }}/
+            rm -rf public/${{ steps.branch.outputs.branch_dir }}/.git
+            rm -rf public/${{ steps.branch.outputs.branch_dir }}/.github
+            rm -rf public/${{ steps.branch.outputs.branch_dir }}/public
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          keep_files: true
+          destination_dir: ${{ steps.branch.outputs.branch == 'main' && '.' || steps.branch.outputs.branch_dir }}

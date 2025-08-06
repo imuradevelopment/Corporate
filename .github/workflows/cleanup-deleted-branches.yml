@@ -1,0 +1,78 @@
+name: Cleanup Deleted Branches from GitHub Pages
+
+on:
+  delete:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 0 * * 0'  # 毎週日曜日の深夜に実行
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get all remote branches
+        id: branches
+        run: |
+          # 現在存在するブランチを取得
+          EXISTING_BRANCHES=$(git branch -r | grep -v HEAD | grep -v gh-pages | sed 's/origin\///' | tr '\n' ' ')
+          echo "existing_branches=$EXISTING_BRANCHES" >> $GITHUB_OUTPUT
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Clean up deleted branches
+        run: |
+          cd gh-pages
+          
+          # 現在のディレクトリ一覧を取得
+          for dir in */; do
+            if [ -d "$dir" ] && [ "$dir" != "assets/" ] && [ "$dir" != "components/" ]; then
+              branch_name=$(echo $dir | sed 's/\///' | sed 's/-/\//g')
+              
+              # ブランチが存在するかチェック
+              branch_exists=false
+              for existing_branch in ${{ steps.branches.outputs.existing_branches }}; do
+                if [ "$branch_name" = "$existing_branch" ]; then
+                  branch_exists=true
+                  break
+                fi
+              done
+              
+              # 存在しないブランチのディレクトリを削除
+              if [ "$branch_exists" = false ]; then
+                echo "Removing directory for deleted branch: $dir"
+                rm -rf "$dir"
+              fi
+            fi
+          done
+
+      - name: Update branches.html
+        run: |
+          cd gh-pages
+          # branches.htmlを再生成するために、deploy workflowの該当部分を実行
+          # （上記のdeploy-all-branches.ymlのGenerate branch indexステップと同じ処理）
+          
+      - name: Commit and push
+        run: |
+          cd gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Cleanup deleted branches"
+            git push origin gh-pages
+          fi
