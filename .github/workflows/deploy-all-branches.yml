@@ -26,23 +26,25 @@ jobs:
           echo "current_branch=$CURRENT_BRANCH" >> $GITHUB_OUTPUT
           echo "branch_dir=$BRANCH_DIR" >> $GITHUB_OUTPUT
 
-      - name: Checkout gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Create gh-pages if not exists
+      - name: Setup gh-pages branch
         run: |
-          if [ ! -d "gh-pages/.git" ]; then
-            mkdir -p gh-pages
-            cd gh-pages
-            git init
-            git checkout -b gh-pages
+          # gh-pagesブランチが存在するか確認
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            echo "gh-pages branch exists, checking out..."
+            git fetch origin gh-pages
+            git worktree add gh-pages gh-pages
+          else
+            echo "gh-pages branch does not exist, creating..."
+            git checkout --orphan gh-pages
+            git rm -rf . || true
             echo "GitHub Pages" > index.html
-            git add .
-            git commit -m "Initial gh-pages"
-            cd ..
+            git add index.html
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git commit -m "Initial gh-pages branch"
+            git push origin gh-pages
+            git checkout ${GITHUB_REF#refs/heads/}
+            git worktree add gh-pages gh-pages
           fi
 
       - name: Copy current branch content
@@ -59,11 +61,9 @@ jobs:
       - name: Get all branches
         id: branches
         run: |
-          cd gh-pages
-          # リモートの全ブランチを取得
-          git remote add upstream https://github.com/${{ github.repository }}.git || true
-          git fetch upstream
-          BRANCHES=$(git branch -r | grep upstream | grep -v HEAD | grep -v gh-pages | sed 's/upstream\///' | tr '\n' ' ')
+          # リモートの全ブランチを取得（メインリポジトリから）
+          git fetch origin
+          BRANCHES=$(git branch -r | grep origin | grep -v HEAD | grep -v gh-pages | sed 's/origin\///' | tr '\n' ' ')
           echo "all_branches=$BRANCHES" >> $GITHUB_OUTPUT
 
       - name: Generate branch index
@@ -182,8 +182,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Deploy ${{ steps.branch_info.outputs.current_branch }} branch" || echo "No changes to commit"
-          git push origin gh-pages --force
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Deploy ${{ steps.branch_info.outputs.current_branch }} branch"
+            git push origin gh-pages
+          fi
 
   cleanup:
     runs-on: ubuntu-latest
