@@ -1,1 +1,214 @@
-GitHub Pages
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Dev's - AI駆動開発で未来を創造する</title>
+    <meta name="description" content="AI-Dev'sは、AI技術を活用した革新的なソリューションを提供する企業です。機械学習、データ分析、システム開発でお客様のビジネスを支援します。">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- ヘッダーコンポーネント -->
+    <div data-component="header"></div>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="tech-grid absolute inset-0"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 cyber-text" data-aos="fade-up">
+                    AI駆動開発で
+                    <span class="gradient-text">未来を創造する</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">
+                    最先端のAI技術で、あなたのビジネスを次のレベルへ
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="services.html" class="btn-primary bg-green-500 text-gray-900 px-8 py-4 rounded-lg hover:bg-green-400 transition text-lg font-semibold">
+                        <i class="fas fa-rocket mr-2"></i>
+                        サービスを見る
+                    </a>
+                    <a href="contact.html" class="btn-primary border-2 border-green-500 text-green-400 px-8 py-4 rounded-lg hover:bg-green-500 hover:text-gray-900 transition text-lg font-semibold">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        お問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- データストリーム効果 -->
+        <div class="data-stream absolute bottom-10 left-10 text-green-400 text-sm opacity-50">
+            <div class="animate-pulse">AI Processing...</div>
+        </div>
+    </section>
+
+    <!-- サービス紹介 -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 cyber-text">
+                    サービス
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    最先端のAI技術でお客様のビジネスを支援
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-brain text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">AI開発</h3>
+                    <p class="text-gray-400 mb-6">
+                        機械学習、ディープラーニングを活用したAIシステムの開発
+                    </p>
+                    <a href="services.html" class="text-green-400 hover:text-green-300 transition">
+                        詳しく見る <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">データ分析</h3>
+                    <p class="text-gray-400 mb-6">
+                        ビッグデータの分析とビジネスインサイトの提供
+                    </p>
+                    <a href="services.html" class="text-green-400 hover:text-green-300 transition">
+                        詳しく見る <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-code text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">システム開発</h3>
+                    <p class="text-gray-400 mb-6">
+                        スケーラブルで高性能なWebアプリケーションの開発
+                    </p>
+                    <a href="services.html" class="text-green-400 hover:text-green-300 transition">
+                        詳しく見る <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 実績紹介 -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 cyber-text">
+                    実績
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    お客様との成功事例
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-industry text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">製造業A社</h3>
+                    <p class="text-gray-400 mb-4">予知保全システムの導入により、設備稼働率を15%向上</p>
+                    <div class="flex items-center text-green-400">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>生産性向上</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">ECサイトB社</h3>
+                    <p class="text-gray-400 mb-4">AI推薦システムにより、売上を30%増加</p>
+                    <div class="flex items-center text-green-400">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>売上向上</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-purple-400 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-hospital text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">医療機関C</h3>
+                    <p class="text-gray-400 mb-4">画像診断AIにより、診断精度を25%向上</p>
+                    <div class="flex items-center text-green-400">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>精度向上</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計 -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-green-400 mb-2 counter" data-target="50">0</div>
+                    <p class="text-gray-400">プロジェクト完了</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-400 mb-2 counter" data-target="30">0</div>
+                    <p class="text-gray-400">お客様企業</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-purple-400 mb-2 counter" data-target="95">0</div>
+                    <p class="text-gray-400">顧客満足度</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl md:text-5xl font-bold text-pink-400 mb-2 counter" data-target="24">0</div>
+                    <p class="text-gray-400">対応時間</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-blue-600">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" data-aos="fade-up">
+                一緒に未来を創造しませんか？
+            </h2>
+            <p class="text-xl mb-8 text-green-100" data-aos="fade-up" data-aos-delay="100">
+                最先端のAI技術で、あなたのビジネスを次のレベルへ
+            </p>
+            <a href="contact.html" class="btn-primary bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition inline-block" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-paper-plane mr-2"></i>
+                お問い合わせ
+            </a>
+        </div>
+    </section>
+
+    <!-- フッターコンポーネント -->
+    <div data-component="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

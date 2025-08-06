@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sへのお問い合わせはこちらから。AI開発、データ分析、システム開発についてご相談ください。">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- ヘッダーコンポーネント -->
+    <div data-component="header"></div>
+
+    <!-- ページヘッダー -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+        <div class="tech-grid absolute inset-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 cyber-text" data-aos="fade-up">
+                お問い合わせ
+            </h1>
+            <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">
+                お客様のビジネス課題をAI技術で解決します
+            </p>
+        </div>
+    </section>
+
+    <!-- お問い合わせフォーム -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- フォーム -->
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-6 text-white">お問い合わせ</h2>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">お名前 *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">メールアドレス *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                            </div>
+                            
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-300 mb-2">会社名</label>
+                                <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-300 mb-2">ご希望のサービス</label>
+                                <select id="service" name="service" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white">
+                                    <option value="">選択してください</option>
+                                    <option value="ai">AI開発</option>
+                                    <option value="data">データ分析</option>
+                                    <option value="system">システム開発</option>
+                                    <option value="consulting">コンサルティング</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">お問い合わせ内容 *</label>
+                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-green-400 focus:outline-none text-white"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-green-500 text-gray-900 py-3 px-6 rounded-lg hover:bg-green-400 transition font-semibold">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                送信する
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- 連絡先情報 -->
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl font-bold mb-6 text-white">連絡先情報</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-green-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-1">住所</h3>
+                                    <p class="text-gray-400">東京都渋谷区1-2-3<br>AIビル 5階</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-1">電話番号</h3>
+                                    <p class="text-gray-400">03-1234-5678</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-purple-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-1">メールアドレス</h3>
+                                    <p class="text-gray-400">info@ai-devs.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-pink-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-1">営業時間</h3>
+                                    <p class="text-gray-400">平日 9:00-18:00<br>土日祝日は休業</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 地図 -->
+                        <div class="mt-8">
+                            <h3 class="text-lg font-semibold text-white mb-4">アクセス</h3>
+                            <div id="map" class="w-full h-64 bg-gray-800 rounded-lg border border-gray-700">
+                                <!-- 地図がここに表示されます -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 cyber-text">
+                    よくある質問
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    お客様からよくいただく質問
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-3 text-white">Q. プロジェクトの期間はどのくらいですか？</h3>
+                    <p class="text-gray-400">
+                        A. プロジェクトの規模や複雑さによって異なりますが、小規模なプロジェクトで1-3ヶ月、大規模なプロジェクトで6ヶ月-1年程度が目安です。詳細はお問い合わせ時にご相談ください。
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-3 text-white">Q. 料金体系はどうなっていますか？</h3>
+                    <p class="text-gray-400">
+                        A. プロジェクトの内容に応じて、固定料金制または時間単価制でご提案いたします。初期費用や運用費用についても、お客様の予算に合わせて柔軟に対応いたします。
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-3 text-white">Q. 導入後のサポートはありますか？</h3>
+                    <p class="text-gray-400">
+                        A. はい、システム導入後も継続的なサポートを提供いたします。技術サポート、メンテナンス、アップデートなど、お客様のニーズに応じて包括的なサポート体制を整えています。
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-3 text-white">Q. データのセキュリティは大丈夫ですか？</h3>
+                    <p class="text-gray-400">
+                        A. お客様のデータセキュリティを最優先に考えています。暗号化通信、アクセス制御、定期的なセキュリティ監査など、最新のセキュリティ対策を実施しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-blue-600">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" data-aos="fade-up">
+                プロジェクトを始めませんか？
+            </h2>
+            <p class="text-xl mb-8 text-green-100" data-aos="fade-up" data-aos-delay="100">
+                お客様のビジネス課題をAI技術で解決します
+            </p>
+            <a href="#contact" class="btn-primary bg-white text-gray-900 px-8 py-3 rounded-lg hover:bg-gray-100 transition inline-block" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-paper-plane mr-2"></i>
+                お問い合わせ
+            </a>
+        </div>
+    </section>
+
+    <!-- フッターコンポーネント -->
+    <div data-component="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
