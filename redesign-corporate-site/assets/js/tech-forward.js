@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize GSAP
     gsap.registerPlugin(ScrollTrigger);
     
-    // Navigation Scroll Effect
+    // Get elements
     const navbar = document.getElementById('navbar');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    
+    // Navigation Scroll Effect
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
@@ -14,9 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentScroll <= 0) {
             navbar.classList.remove('scrolled');
             navbar.style.transform = 'translateY(0)';
-        } else if (currentScroll > lastScroll) {
-            // Scrolling down
-            navbar.style.transform = 'translateY(-100%)';
+        } else if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down - hide navbar only if mobile menu is not open
+            if (!mobileMenu || !mobileMenu.classList.contains('active')) {
+                navbar.style.transform = 'translateY(-100%)';
+            }
         } else {
             // Scrolling up
             navbar.style.transform = 'translateY(0)';
@@ -41,8 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Mobile Menu Toggle with smooth animation
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
     const body = document.body;
     
     // Create overlay element
@@ -164,13 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 0.8,
             ease: 'power3.out'
         }, '-=0.5')
-        .from('.glow-button, .glass-card.hover\\:bg-white\\/10', {
-            opacity: 0,
-            scale: 0.8,
-            duration: 0.6,
-            stagger: 0.2,
-            ease: 'back.out(1.7)'
-        }, '-=0.3');
     
     // Service Cards Parallax
     gsap.utils.toArray('.service-card').forEach((card, i) => {

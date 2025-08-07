@@ -3,7 +3,7 @@ class ComponentLoader {
     constructor() {
         this.components = {
             header: `<!-- Tech Forward Header -->
-<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+<nav id="navbar" class="fixed top-0 w-full transition-all duration-300" style="z-index: 1001;">
     <div class="glass-card rounded-none border-x-0 border-t-0">
         <div class="container flex justify-between items-center">
             <div class="logo">
