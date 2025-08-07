@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実績 - AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sの実績をご紹介します。AI開発、データ分析、システム開発の成功事例をご覧ください。">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/black-glass.css">
+    <style>
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--black-glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: var(--black-glass-hover);
+            border-color: var(--glass-border-hover);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .portfolio-item > div:first-child {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover > div:first-child i {
+            transform: scale(1.1);
+            opacity: 0.5 !important;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .metric-card {
+            position: relative;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-card {
+            position: relative;
+            padding: 2rem;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">AI-Dev's</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="about.html" class="nav-link">会社概要</a></li>
+                <li><a href="services.html" class="nav-link">サービス</a></li>
+                <li><a href="portfolio.html" class="nav-link">実績</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="hero-bg">
+            <canvas id="particle-canvas"></canvas>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR PORTFOLIO</span>
+                <h1 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">実績</h1>
+                <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">
+                    様々な業界で実現した、AI技術による革新的なソリューション
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="section">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">すべて</button>
+                <button class="filter-btn" data-filter="ai">AI開発</button>
+                <button class="filter-btn" data-filter="data">データ分析</button>
+                <button class="filter-btn" data-filter="system">システム開発</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="grid grid-cols-3 gap-4" id="portfolio-grid">
+                <!-- AI Project 1 -->
+                <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="100">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-industry" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-brain" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(6, 182, 212, 0.3); border: 1px solid rgba(6, 182, 212, 0.5); border-radius: 15px; font-size: 0.75rem; color: #06b6d4; margin-bottom: 0.5rem;">AI開発</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">製造業向け予知保全AI</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            機械の異常を事前に検知し、計画外停止を90%削減
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Data Project 1 -->
+                <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="200">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-shopping-cart" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-chart-bar" style="color: var(--accent-purple); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(139, 92, 246, 0.5); border-radius: 15px; font-size: 0.75rem; color: #8b5cf6; margin-bottom: 0.5rem;">データ分析</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">小売業向け需要予測</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            高精度な需要予測で在庫コストを30%削減
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- System Project 1 -->
+                <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="300">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-store" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-code" style="color: var(--accent-pink); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(236, 72, 153, 0.3); border: 1px solid rgba(236, 72, 153, 0.5); border-radius: 15px; font-size: 0.75rem; color: #ec4899; margin-bottom: 0.5rem;">システム開発</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">ECプラットフォーム構築</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            スケーラブルなマイクロサービスアーキテクチャ
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- AI Project 2 -->
+                <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="400">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-hospital" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-brain" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(6, 182, 212, 0.3); border: 1px solid rgba(6, 182, 212, 0.5); border-radius: 15px; font-size: 0.75rem; color: #06b6d4; margin-bottom: 0.5rem;">AI開発</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">医療画像診断AI</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            画像診断の精度を95%以上に向上
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Data Project 2 -->
+                <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="500">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-university" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-chart-bar" style="color: var(--accent-purple); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(139, 92, 246, 0.5); border-radius: 15px; font-size: 0.75rem; color: #8b5cf6; margin-bottom: 0.5rem;">データ分析</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">金融リスク分析</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            リアルタイムリスク評価システム
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- System Project 2 -->
+                <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="600">
+                    <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <i class="fas fa-network-wired" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
+                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                            <i class="fas fa-code" style="color: var(--accent-pink); margin-right: 8px;"></i>
+                            <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <span style="display: inline-block; padding: 4px 12px; background: rgba(236, 72, 153, 0.3); border: 1px solid rgba(236, 72, 153, 0.5); border-radius: 15px; font-size: 0.75rem; color: #ec4899; margin-bottom: 0.5rem;">システム開発</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">IoTプラットフォーム</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                            1万台以上のデバイスを管理する基盤構築
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">SUCCESS METRICS</span>
+                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">成果指標</h2>
+            </div>
+            
+            <div class="grid grid-cols-4 gap-4">
+                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="metric-number counter" data-target="98">98</div>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">%</p>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">プロジェクト成功率</p>
+                </div>
+                
+                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="metric-number counter" data-target="150">150</div>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">%</p>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">平均ROI</p>
+                </div>
+                
+                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="metric-number counter" data-target="3">3</div>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">ヶ月</p>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">平均導入期間</p>
+                </div>
+                
+                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="metric-number counter" data-target="100">100</div>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">万+</p>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">処理データ数/日</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">TESTIMONIALS</span>
+                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">お客様の声</h2>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4" style="max-width: 1000px; margin: 0 auto;">
+                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
+                        AI-Dev'sの予知保全システムにより、設備の稼働率が大幅に向上しました。ROIは導入から6ヶ月で達成できました。
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="client-avatar">A</div>
+                        <div>
+                            <p style="font-weight: 600;">製造業A社</p>
+                            <p style="color: var(--text-muted); font-size: 0.875rem;">製造部門責任者</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
+                        データ分析プラットフォームの導入により、意思決定スピードが3倍になりました。今では欠かせないツールです。
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="client-avatar">B</div>
+                        <div>
+                            <p style="font-weight: 600;">小売業B社</p>
+                            <p style="color: var(--text-muted); font-size: 0.875rem;">経営企画部長</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
+                        医療画像診断AIの精度は想像以上でした。医師の負担軽減と診断精度向上を同時に実現できています。
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="client-avatar">C</div>
+                        <div>
+                            <p style="font-weight: 600;">医療機関C</p>
+                            <p style="color: var(--text-muted); font-size: 0.875rem;">院長</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+                    次はあなたの番です
+                </h2>
+                <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 2rem;">
+                    AI技術で実現したい未来を、一緒に創りましょう
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="contact.html" class="btn btn-primary">
+                        プロジェクトを相談する
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                    <a href="services.html" class="btn btn-glass">
+                        サービスを見る
+                        <i class="fas fa-th-large" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="nav-brand footer-brand">AI-Dev's</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        AI技術で未来を創造する<br>
+                        革新的なソリューションプロバイダー
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">サービス</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#ai-development">AI開発</a></li>
+                        <li><a href="services.html#data-analytics">データ分析</a></li>
+                        <li><a href="services.html#system-development">システム開発</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">企業情報</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="portfolio.html">導入実績</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">フォローする</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI-Dev's. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Portfolio filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const animate = () => {
+                const value = +counter.getAttribute('data-target');
+                const data = +counter.innerText;
+                const time = value / speed;
+                
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + time);
+                    setTimeout(animate, 1);
+                } else {
+                    counter.innerText = value;
+                }
+            }
+            
+            // Start animation when element is in view
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(counter);
+        });
+
+        // Simple particle animation for header
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        const particles = [];
+        const particleCount = 30;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(236, 72, 153, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+
+    </script>
+    <!-- Mobile Menu Script -->
+    <script src="assets/js/mobile-menu.js"></script>
+</body>
+</html>
