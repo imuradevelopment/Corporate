@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - AI-Dev | 次世代AI技術で未来を創造</title>
+    <title>Portfolio - AI-Dev | 実績・ポートフォリオ</title>
     <meta name="description" content="AI-Devの実績・ポートフォリオ。AI開発、データ分析、自動化システムなどの成功事例をご紹介します。">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -34,25 +35,25 @@
         <!-- Portfolio Stats -->
         <section class="section">
             <div class="container">
-                <div class="grid grid--4">
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="150">0</div>
-                        <div class="stat-card__label">プロジェクト完了</div>
+                <div class="about-stats">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="150">0</span>
+                        <span class="stat-item__label">プロジェクト完了</span>
                     </div>
                     
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="50">0</div>
-                        <div class="stat-card__label">クライアント企業</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="50">0</span>
+                        <span class="stat-item__label">クライアント企業</span>
                     </div>
                     
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="95">0</div>
-                        <div class="stat-card__label">顧客満足度</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="98">0</span>
+                        <span class="stat-item__label">顧客満足度</span>
                     </div>
                     
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="24">0</div>
-                        <div class="stat-card__label">時間対応</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="5">0</span>
+                        <span class="stat-item__label">年間経験</span>
                     </div>
                 </div>
             </div>
@@ -81,15 +82,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">画像認識システム</h3>
                             <p class="portfolio-item__description">
                                 製造業向けの品質検査自動化システム。不良品の検出精度を95%向上。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">TensorFlow</span>
-                                <span class="tech-tag">OpenCV</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Python</span>
+                                <span class="portfolio-item__tag">TensorFlow</span>
+                                <span class="portfolio-item__tag">OpenCV</span>
                             </div>
                         </div>
                     </div>
@@ -98,15 +99,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">予測分析ダッシュボード</h3>
                             <p class="portfolio-item__description">
                                 小売業向けの売上予測システム。在庫最適化によりコストを30%削減。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Prophet</span>
-                                <span class="tech-tag">Tableau</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Python</span>
+                                <span class="portfolio-item__tag">Prophet</span>
+                                <span class="portfolio-item__tag">Tableau</span>
                             </div>
                         </div>
                     </div>
@@ -115,15 +116,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">RPA導入</h3>
                             <p class="portfolio-item__description">
                                 金融業向けの業務自動化。処理時間を80%短縮し、人的ミスを削減。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">UiPath</span>
-                                <span class="tech-tag">Power Automate</span>
-                                <span class="tech-tag">VBA</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">UiPath</span>
+                                <span class="portfolio-item__tag">Power Automate</span>
+                                <span class="portfolio-item__tag">VBA</span>
                             </div>
                         </div>
                     </div>
@@ -132,15 +133,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-comments"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">チャットボット</h3>
                             <p class="portfolio-item__description">
                                 サービス業向けのカスタマーサポートAI。問い合わせ対応を24時間化。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">BERT</span>
-                                <span class="tech-tag">Dialogflow</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Python</span>
+                                <span class="portfolio-item__tag">BERT</span>
+                                <span class="portfolio-item__tag">Dialogflow</span>
                             </div>
                         </div>
                     </div>
@@ -149,15 +150,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-database"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">データ統合プラットフォーム</h3>
                             <p class="portfolio-item__description">
                                 物流業向けのデータ統合システム。リアルタイム監視で効率化を実現。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Apache Kafka</span>
-                                <span class="tech-tag">Spark</span>
-                                <span class="tech-tag">Elasticsearch</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Apache Kafka</span>
+                                <span class="portfolio-item__tag">Spark</span>
+                                <span class="portfolio-item__tag">Elasticsearch</span>
                             </div>
                         </div>
                     </div>
@@ -166,15 +167,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">AI戦略策定</h3>
                             <p class="portfolio-item__description">
                                 大手製造業のAI導入戦略策定。3年間のロードマップを策定。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">戦略策定</span>
-                                <span class="tech-tag">技術選定</span>
-                                <span class="tech-tag">組織設計</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">戦略策定</span>
+                                <span class="portfolio-item__tag">技術選定</span>
+                                <span class="portfolio-item__tag">組織設計</span>
                             </div>
                         </div>
                     </div>
@@ -183,15 +184,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">ワークフロー自動化</h3>
                             <p class="portfolio-item__description">
                                 建設業向けの承認プロセス自動化。処理時間を60%短縮。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Power Automate</span>
-                                <span class="tech-tag">SharePoint</span>
-                                <span class="tech-tag">Teams</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Power Automate</span>
+                                <span class="portfolio-item__tag">SharePoint</span>
+                                <span class="portfolio-item__tag">Teams</span>
                             </div>
                         </div>
                     </div>
@@ -200,15 +201,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-microphone"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">音声認識システム</h3>
                             <p class="portfolio-item__description">
                                 医療業向けの音声記録システム。診療記録の作成を自動化。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Speech Recognition</span>
-                                <span class="tech-tag">NLP</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">Python</span>
+                                <span class="portfolio-item__tag">Speech Recognition</span>
+                                <span class="portfolio-item__tag">NLP</span>
                             </div>
                         </div>
                     </div>
@@ -217,15 +218,15 @@
                         <div class="portfolio-item__image">
                             <i class="fas fa-eye"></i>
                         </div>
-                        <div class="portfolio-item__overlay">
+                        <div class="portfolio-item__content">
                             <h3 class="portfolio-item__title">リアルタイム監視システム</h3>
                             <p class="portfolio-item__description">
                                 エネルギー業向けの設備監視システム。異常検知の精度を90%向上。
                             </p>
-                            <div class="portfolio-item__tech">
-                                <span class="tech-tag">IoT</span>
-                                <span class="tech-tag">Time Series</span>
-                                <span class="tech-tag">Anomaly Detection</span>
+                            <div class="portfolio-item__tags">
+                                <span class="portfolio-item__tag">IoT</span>
+                                <span class="portfolio-item__tag">Time Series</span>
+                                <span class="portfolio-item__tag">Anomaly Detection</span>
                             </div>
                         </div>
                     </div>
@@ -234,7 +235,7 @@
         </section>
 
         <!-- Testimonials -->
-        <section class="section">
+        <section class="section testimonials">
             <div class="container">
                 <div class="text-center mb-4">
                     <h2 class="section-title">Client Testimonials</h2>
@@ -244,74 +245,47 @@
                 </div>
                 
                 <div class="grid grid--3">
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="testimonial-card__content">
-                            <p class="testimonial-card__text">
-                                "AI-Devの技術力とプロジェクト管理能力に大変満足しています。
-                                期待以上の成果を上げることができました。"
-                            </p>
+                    <div class="testimonial-item animate-on-scroll">
+                        <div class="testimonial-item__text">
+                            "AI-Devの技術力とプロジェクト管理能力に大変満足しています。
+                            期待以上の成果を上げることができました。"
                         </div>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="testimonial-card__info">
-                                <h4 class="testimonial-card__name">田中 社長</h4>
-                                <p class="testimonial-card__company">株式会社テックソリューション</p>
-                            </div>
-                        </div>
+                        <div class="testimonial-item__author">田中 社長</div>
+                        <div class="testimonial-item__position">株式会社テックソリューション</div>
                     </div>
                     
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="testimonial-card__content">
-                            <p class="testimonial-card__text">
-                                "専門的な知識と実践的なアプローチで、私たちの課題を解決してくださいました。
-                                継続的なサポートにも感謝しています。"
-                            </p>
+                    <div class="testimonial-item animate-on-scroll">
+                        <div class="testimonial-item__text">
+                            "専門的な知識と実践的なアプローチで、私たちの課題を解決してくださいました。
+                            継続的なサポートにも感謝しています。"
                         </div>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="testimonial-card__info">
-                                <h4 class="testimonial-card__name">佐藤 部長</h4>
-                                <p class="testimonial-card__company">グローバル製造株式会社</p>
-                            </div>
-                        </div>
+                        <div class="testimonial-item__author">佐藤 部長</div>
+                        <div class="testimonial-item__position">グローバル製造株式会社</div>
                     </div>
                     
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="testimonial-card__content">
-                            <p class="testimonial-card__text">
-                                "最新技術を活用した革新的なソリューションを提供していただき、
-                                競争力の向上に大きく貢献しました。"
-                            </p>
+                    <div class="testimonial-item animate-on-scroll">
+                        <div class="testimonial-item__text">
+                            "最新技術を活用した革新的なソリューションを提供していただき、
+                            競争力の向上に大きく貢献しました。"
                         </div>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="testimonial-card__info">
-                                <h4 class="testimonial-card__name">鈴木 取締役</h4>
-                                <p class="testimonial-card__company">イノベーション株式会社</p>
-                            </div>
-                        </div>
+                        <div class="testimonial-item__author">鈴木 取締役</div>
+                        <div class="testimonial-item__position">イノベーション株式会社</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="section section--cta">
+        <section class="section cta-section">
             <div class="container">
-                <div class="cta">
-                    <h2 class="cta__title">次のプロジェクトを始めませんか？</h2>
-                    <p class="cta__description">
+                <div class="cta-section__content">
+                    <h2 class="cta-section__title">次のプロジェクトを始めませんか？</h2>
+                    <p class="cta-section__description">
                         私たちの実績と経験を活かして、あなたのビジネスを次のレベルへ
                     </p>
-                    <div class="cta__actions">
+                    <div class="hero__actions">
                         <a href="contact.html" class="btn btn--primary">お問い合わせ</a>
-                        <a href="services.html" class="btn btn--secondary">サービス詳細</a>
+                        <a href="services.html" class="btn btn--outline">サービス詳細</a>
                     </div>
                 </div>
             </div>
@@ -322,6 +296,6 @@
     <div data-component="footer"></div>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

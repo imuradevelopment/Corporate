@@ -7,10 +7,14 @@
     <meta name="description" content="AI-Devは、最先端のAI技術で革新的なソリューションを提供。機械学習、データ分析、システム開発でビジネスの可能性を最大化します。">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="js/app.js" as="script">
 </head>
 <body>
     <!-- Header Component -->
@@ -91,61 +95,52 @@
                 </div>
                 
                 <div class="grid grid--3">
-                    <div class="card service-card animate-on-scroll">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-card__icon">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3 class="service-card__title">AI開発</h3>
                         <p class="service-card__description">
-                            機械学習、深層学習、自然言語処理など、最新のAI技術を活用したカスタムソリューション開発
+                            機械学習、ディープラーニング、自然言語処理など、最新のAI技術を活用したシステム開発
                         </p>
                         <ul class="service-card__features">
-                            <li>画像認識・音声認識</li>
-                            <li>予測分析・推薦システム</li>
-                            <li>チャットボット・対話AI</li>
+                            <li>機械学習モデル開発</li>
+                            <li>自然言語処理システム</li>
+                            <li>コンピュータビジョン</li>
+                            <li>予測分析システム</li>
                         </ul>
-                        <a href="services.html" class="service-card__link">
-                            詳しく見る
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                     
-                    <div class="card service-card animate-on-scroll">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-card__icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3 class="service-card__title">データ分析</h3>
                         <p class="service-card__description">
-                            ビッグデータの収集・分析から、ビジネスインサイトの抽出まで、データドリブンな意思決定を支援
+                            ビッグデータの収集・分析から、ビジネスインサイトの抽出まで、包括的なデータソリューション
                         </p>
                         <ul class="service-card__features">
-                            <li>データ可視化・ダッシュボード</li>
-                            <li>予測モデリング</li>
+                            <li>データ収集・前処理</li>
+                            <li>統計分析・可視化</li>
+                            <li>ビジネスインテリジェンス</li>
                             <li>リアルタイム分析</li>
                         </ul>
-                        <a href="services.html" class="service-card__link">
-                            詳しく見る
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                     
-                    <div class="card service-card animate-on-scroll">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-card__icon">
                             <i class="fas fa-robot"></i>
                         </div>
                         <h3 class="service-card__title">自動化システム</h3>
-                        <p class="service-card__description">
-                            業務プロセスの自動化から、RPA（ロボティック・プロセス・オートメーション）まで、効率化を実現
+                        <p class="card__description">
+                            RPA、ワークフロー自動化、インテリジェントな業務プロセス最適化
                         </p>
                         <ul class="service-card__features">
-                            <li>ワークフロー自動化</li>
                             <li>RPA導入・運用</li>
-                            <li>システム統合</li>
+                            <li>ワークフロー自動化</li>
+                            <li>プロセス最適化</li>
+                            <li>継続的改善</li>
                         </ul>
-                        <a href="services.html" class="service-card__link">
-                            詳しく見る
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -154,41 +149,39 @@
         <!-- Stats Section -->
         <section class="section">
             <div class="container">
-                <div class="grid grid--4">
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="150">0</div>
-                        <div class="stat-card__label">プロジェクト完了</div>
+                <div class="about-stats">
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="150">0</span>
+                        <span class="stat-item__label">完了プロジェクト</span>
                     </div>
-                    
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="50">0</div>
-                        <div class="stat-card__label">クライアント企業</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="50">0</span>
+                        <span class="stat-item__label">クライアント企業</span>
                     </div>
-                    
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="95">0</div>
-                        <div class="stat-card__label">顧客満足度</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="98">0</span>
+                        <span class="stat-item__label">顧客満足度</span>
                     </div>
-                    
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-card__number counter" data-target="24">0</div>
-                        <div class="stat-card__label">時間対応</div>
+                    <div class="stat-item animate-on-scroll">
+                        <span class="stat-item__number" data-counter="5">0</span>
+                        <span class="stat-item__label">年間経験</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="section section--cta">
+        <section class="section cta-section">
             <div class="container">
-                <div class="cta">
-                    <h2 class="cta__title">プロジェクトを始めませんか？</h2>
-                    <p class="cta__description">
-                        あなたのビジネスに最適なAIソリューションを一緒に作り上げましょう
+                <div class="cta-section__content">
+                    <h2 class="cta-section__title">プロジェクトを始めましょう</h2>
+                    <p class="cta-section__description">
+                        あなたのビジネスに最適なAIソリューションを一緒に作り上げませんか？
+                        無料相談から始められます。
                     </p>
-                    <div class="cta__actions">
+                    <div class="hero__actions">
                         <a href="contact.html" class="btn btn--primary">無料相談</a>
-                        <a href="portfolio.html" class="btn btn--secondary">実績を見る</a>
+                        <a href="portfolio.html" class="btn btn--outline">実績を見る</a>
                     </div>
                 </div>
             </div>
@@ -199,6 +192,6 @@
     <div data-component="footer"></div>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
