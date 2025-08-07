@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" data-theme="light">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="src/styles/base/layout.css">
     <link rel="stylesheet" href="src/styles/compositions/gradients.css">
     <link rel="stylesheet" href="src/styles/compositions/animations.css">
-    <link rel="stylesheet" href="src/styles/compositions/components.css">
+    <!-- <link rel="stylesheet" href="src/styles/compositions/components.css"> -->
+    <link rel="stylesheet" href="src/styles/components/navigation.css">
+    <link rel="stylesheet" href="src/styles/components/buttons.css">
+    <link rel="stylesheet" href="src/styles/components/cards.css">
+    <link rel="stylesheet" href="src/styles/components/hero.css">
+    <link rel="stylesheet" href="src/styles/components/sections.css">
+    <link rel="stylesheet" href="src/styles/components/footer.css">
     
     <!-- Page Specific -->
     <link rel="stylesheet" href="src/styles/pages/home.css">
@@ -41,9 +47,6 @@
             </div>
             
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="テーマ切り替え">
-                    <span class="theme-icon">◐</span>
-                </button>
                 <button class="nav-toggle" id="navToggle" aria-label="メニュー開閉">
                     <span class="toggle-line"></span>
                     <span class="toggle-line"></span>
@@ -319,6 +322,8 @@
 
     <!-- Core JavaScript Modules -->
     <script type="module" src="src/modules/core.js"></script>
+    <script type="module" src="src/modules/animations.js"></script>
+    <script type="module" src="src/modules/navigation.js"></script>
     
     <!-- Page Specific Styles -->
     <style>

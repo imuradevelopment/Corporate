@@ -1,7 +1,6 @@
 // Core Module - Application Entry Point
 
 import { initNavigation } from './navigation.js';
-import { initTheme } from './theme.js';
 import { initAnimations } from './animations.js';
 
 // Application State
@@ -21,7 +20,6 @@ function init() {
     
     // Register modules
     app.modules.set('navigation', initNavigation());
-    app.modules.set('theme', initTheme());
     app.modules.set('animations', initAnimations());
     
     // Set initialized flag
