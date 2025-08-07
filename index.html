@@ -48,42 +48,45 @@
         // ブランチタイプを判定
         function getBranchType(name) {
             if (name === 'main' || name === 'master') return { icon: 'fa-home', color: 'green' };
-            if (name.includes('feature')) return { icon: 'fa-plus-circle', color: 'blue' };
-            if (name.includes('fix')) return { icon: 'fa-bug', color: 'red' };
-            if (name.includes('docs')) return { icon: 'fa-book', color: 'yellow' };
-            if (name.includes('test')) return { icon: 'fa-flask', color: 'purple' };
+            if (name === 'develop' || name === 'development') return { icon: 'fa-code', color: 'blue' };
+            if (name.startsWith('feature-') || name.includes('feature')) return { icon: 'fa-star', color: 'purple' };
+            if (name.startsWith('release-') || name.includes('release')) return { icon: 'fa-tag', color: 'orange' };
+            if (name.startsWith('hotfix-') || name.includes('hotfix')) return { icon: 'fa-fire', color: 'red' };
             return { icon: 'fa-code-branch', color: 'gray' };
         }
 
-        // ブランチカードを生成
-        function createBranchCard(branch) {
-            const type = getBranchType(branch.name);
-            const url = branch.isMain ? '/' : `/${branch.dir}/`;
+        // ブランチリストを生成
+        function generateBranchList() {
+            const container = document.getElementById('branch-list');
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/$/, '');
             
-            return `
-                <a href="${url}" class="block bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
+            deployedBranches.forEach(branch => {
+                const type = getBranchType(branch.name);
+                const url = branch.isMain ? baseUrl + '/' : `${baseUrl}/${branch.dir}/`;
+                
+                const card = document.createElement('a');
+                card.href = url;
+                card.target = '_blank';
+                card.className = 'block p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition';
+                card.innerHTML = `
                     <div class="flex items-center mb-3">
                         <i class="fas ${type.icon} text-${type.color}-400 text-2xl mr-3"></i>
                         <h2 class="text-xl font-bold">${branch.name}</h2>
                     </div>
-                    <div class="text-gray-400 text-sm">
-                        <i class="fas fa-link mr-1"></i>
-                        ${url}
-                    </div>
-                </a>
-            `;
+                    <p class="text-gray-400 mb-2">
+                        ${branch.isMain ? '本番環境・安定版' : 'ブランチ: ' + branch.name}
+                    </p>
+                    <span class="text-${type.color}-400 text-sm break-all">${url}</span>
+                `;
+                container.appendChild(card);
+            });
         }
 
-        // ブランチリストを表示
-        const branchList = document.getElementById('branch-list');
-        deployedBranches.forEach(branch => {
-            branchList.innerHTML += createBranchCard(branch);
-        });
-
-        // 最終更新時刻を表示
-        const now = new Date();
-        document.getElementById('update-time').textContent = 
-            now.toLocaleDateString('ja-JP') + ' ' + now.toLocaleTimeString('ja-JP');
+        // 更新時刻を表示
+        document.getElementById('update-time').textContent = new Date().toLocaleString('ja-JP');
+        
+        // ブランチリストを生成
+        generateBranchList();
     </script>
 </body>
 </html>
