@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-Dev's - 最先端のAI技術で未来を創造する">
+    <title>AI-Dev's | AIソリューションのパートナー</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <nav class="header__nav">
+                <div class="header__logo">
+                    <a href="#" class="header__logo-link">AI-Dev's</a>
+                </div>
+                <button class="header__menu-toggle" aria-label="メニューを開く">
+                    <span class="header__menu-icon"></span>
+                </button>
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="#home" class="header__menu-link">ホーム</a></li>
+                    <li class="header__menu-item"><a href="#about" class="header__menu-link">私たちについて</a></li>
+                    <li class="header__menu-item"><a href="#services" class="header__menu-link">サービス</a></li>
+                    <li class="header__menu-item"><a href="#contact" class="header__menu-link">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">AIで未来を創造する</h1>
+                    <p class="hero__description">
+                        最先端の人工知能技術を活用し、ビジネスの可能性を無限に広げます
+                    </p>
+                    <a href="#contact" class="button button--primary">お問い合わせ</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 私たちについて -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section__title">私たちについて</h2>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p class="about__description">
+                            AI-Dev'sは、人工知能技術のフロンティアで活動する専門家集団です。
+                            私たちは、複雑なビジネス課題をAIソリューションで解決し、
+                            企業の成長と効率化を支援します。
+                        </p>
+                    </div>
+                    <div class="about__features">
+                        <div class="feature">
+                            <h3 class="feature__title">革新的技術</h3>
+                            <p class="feature__description">最新のAI技術を活用した革新的なソリューション</p>
+                        </div>
+                        <div class="feature">
+                            <h3 class="feature__title">豊富な実績</h3>
+                            <p class="feature__description">多様な業界での成功事例と経験</p>
+                        </div>
+                        <div class="feature">
+                            <h3 class="feature__title">カスタマイズ</h3>
+                            <p class="feature__description">お客様のニーズに合わせた最適なソリューション</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- サービス -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section__title">サービス</h2>
+                <div class="services__grid">
+                    <article class="service-card">
+                        <h3 class="service-card__title">AIコンサルティング</h3>
+                        <p class="service-card__description">
+                            ビジネス課題の分析から最適なAIソリューションの提案まで、
+                            総合的なコンサルティングサービスを提供します。
+                        </p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">カスタムAI開発</h3>
+                        <p class="service-card__description">
+                            お客様の具体的なニーズに合わせた、
+                            オーダーメイドのAIシステムを開発します。
+                        </p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">AI導入支援</h3>
+                        <p class="service-card__description">
+                            既存システムへのAI統合から運用まで、
+                            スムーズな導入を支援します。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- お問い合わせ -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section__title">お問い合わせ</h2>
+                <form class="contact__form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">お名前</label>
+                        <input type="text" id="name" name="name" class="form__input" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">メールアドレス</label>
+                        <input type="email" id="email" name="email" class="form__input" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="message" class="form__label">メッセージ</label>
+                        <textarea id="message" name="message" class="form__textarea" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button button--primary">送信する</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__copyright">&copy; 2024 AI-Dev's. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
