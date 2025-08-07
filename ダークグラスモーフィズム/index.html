@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Dev's - 次世代AI技術でビジネスを革新</title>
+    <meta name="description" content="AI-Dev'sは、最先端のAI技術とデータサイエンスを駆使して、企業のデジタルトランスフォーメーションを支援します。">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/black-glass.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">AI-Dev's</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="about.html" class="nav-link">会社概要</a></li>
+                <li><a href="services.html" class="nav-link">サービス</a></li>
+                <li><a href="portfolio.html" class="nav-link">実績</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="nav-brand">AI-Dev's</a>
+            <button class="mobile-menu-close" id="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <a href="index.html" class="nav-link">ホーム</a>
+            <a href="about.html" class="nav-link">会社概要</a>
+            <a href="services.html" class="nav-link">サービス</a>
+            <a href="portfolio.html" class="nav-link">実績</a>
+            <a href="contact.html" class="nav-link">お問い合わせ</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <canvas id="particle-canvas"></canvas>
+        </div>
+        
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                <span style="font-weight: 300; font-size: 0.8em; letter-spacing: 0.1em; opacity: 0.8;">NEXT GENERATION</span><br>
+                <span style="font-weight: 800;">次世代の<span class="gradient-text">AI技術</span>で</span><br>
+                <span style="font-weight: 700;">ビジネスを革新する</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                最先端の人工知能とデータサイエンスを駆使し、<br>
+                あなたのビジネスに新たな価値を創造します
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="services.html" class="btn btn-primary">
+                    サービスを見る
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+                <a href="contact.html" class="btn btn-glass">
+                    無料相談を予約
+                    <i class="fas fa-calendar" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR SERVICES</span>
+                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">提供サービス</h2>
+                <p class="hero-subtitle" style="margin-top: 1rem;">
+                    最先端のAI技術でビジネスの課題を解決します
+                </p>
+            </div>
+            
+            <div class="feature-grid">
+                <!-- AI Development -->
+                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">AI開発</h3>
+                    <p class="feature-description">
+                        機械学習、ディープラーニング、自然言語処理など、最新のAI技術を活用したカスタムソリューション開発
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            画像認識・音声認識システム
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            予測分析・推薦システム
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            チャットボット・対話AI
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Data Analytics -->
+                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">データ分析</h3>
+                    <p class="feature-description">
+                        ビッグデータの収集・処理・分析を通じて、ビジネスに価値のあるインサイトを抽出
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            リアルタイムデータ処理
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            ビジネスインテリジェンス
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            データビジュアライゼーション
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- System Development -->
+                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">システム開発</h3>
+                    <p class="feature-description">
+                        スケーラブルで高性能なWebアプリケーション・モバイルアプリの設計・開発
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            クラウドネイティブ開発
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            マイクロサービス設計
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            DevOps・CI/CD構築
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">CASE STUDIES</span>
+                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">導入実績</h2>
+                <p class="hero-subtitle" style="margin-top: 1rem;">
+                    様々な業界で、AI技術による革新的な成果を実現
+                </p>
+            </div>
+            
+            <div class="case-grid">
+                <!-- Manufacturing Case -->
+                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="case-metric">+15%</span>
+                    </div>
+                    <h4 class="case-title">大手製造業A社</h4>
+                    <p class="case-description">
+                        AIによる予知保全システムで設備稼働率を大幅改善。年間1.2億円のコスト削減を実現
+                    </p>
+                </div>
+                
+                <!-- E-commerce Case -->
+                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <span class="case-metric">+30%</span>
+                    </div>
+                    <h4 class="case-title">ECプラットフォームB社</h4>
+                    <p class="case-description">
+                        パーソナライズドAI推薦で売上を大幅向上。カート放棄率を25%削減
+                    </p>
+                </div>
+                
+                <!-- Healthcare Case -->
+                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="case-header">
+                        <div class="case-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <span class="case-metric">+25%</span>
+                    </div>
+                    <h4 class="case-title">総合医療機関C</h4>
+                    <p class="case-description">
+                        画像診断支援AIで診断精度を向上。早期発見率を2倍に改善
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 3rem;" data-aos="fade-up" data-aos-delay="400">
+                <a href="portfolio.html" class="btn btn-glass">
+                    全ての実績を見る
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number counter" data-target="50">50</div>
+                    <div class="stat-label">完了プロジェクト</div>
+                </div>
+                
+                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number counter" data-target="30">30</div>
+                    <div class="stat-label">パートナー企業</div>
+                </div>
+                
+                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number">
+                        <span class="counter" data-target="95">95</span>%
+                    </div>
+                    <div class="stat-label">顧客満足度</div>
+                </div>
+                
+                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">サポート体制</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="nav-brand footer-brand">AI-Dev's</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        AI技術で未来を創造する<br>
+                        革新的なソリューションプロバイダー
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">サービス</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#ai-development">AI開発</a></li>
+                        <li><a href="services.html#data-analytics">データ分析</a></li>
+                        <li><a href="services.html#system-development">システム開発</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">企業情報</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="portfolio.html">導入実績</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">フォローする</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI-Dev's. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const animate = () => {
+                const value = +counter.getAttribute('data-target');
+                const data = +counter.innerText;
+                const time = value / speed;
+                
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + time);
+                    setTimeout(animate, 1);
+                } else {
+                    counter.innerText = value;
+                }
+            }
+            
+            // Start animation when element is in view
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(counter);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-menu-nav .nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Particle animation
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Draw connections
+            particles.forEach((particle, i) => {
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const distance = Math.sqrt(
+                        Math.pow(particle.x - otherParticle.x, 2) +
+                        Math.pow(particle.y - otherParticle.y, 2)
+                    );
+                    
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${0.1 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+    </script>
+</body>
+</html>
