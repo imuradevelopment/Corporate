@@ -1,0 +1,155 @@
+/**
+ * CSSミックスイン・関数
+ * 再利用可能なCSS処理
+ * 
+ * 注意：CSS変数と組み合わせて使用
+ * 実際のミックスインはCSSカスタムプロパティとして定義
+ */
+
+:root {
+  /* ========================================================================
+     レイアウトミックスイン
+     ======================================================================== */
+  
+  /* フレックスボックス中央配置 */
+  --mixin-flex-center: {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  };
+  
+  /* フレックスボックス中央配置（縦方向） */
+  --mixin-flex-center-column: {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  };
+  
+  /* フレックスボックス中央配置（横方向） */
+  --mixin-flex-center-row: {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  };
+  
+  /* グリッド中央配置 */
+  --mixin-grid-center: {
+    display: grid;
+    place-items: center;
+  };
+  
+  /* ========================================================================
+     タイポグラフィミックスイン
+     ======================================================================== */
+  
+  /* 見出しスタイル */
+  --mixin-heading: {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tighter);
+    text-transform: uppercase;
+  };
+  
+  /* 本文スタイル */
+  --mixin-body-text: {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+  };
+  
+  /* キャプションスタイル */
+  --mixin-caption: {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-snug);
+  };
+  
+  /* ========================================================================
+     インタラクションミックスイン
+     ======================================================================== */
+  
+  /* ホバー効果（ブルータリズム） */
+  --mixin-hover-brutal: {
+    transition: all 200ms ease;
+  };
+  
+  /* フォーカススタイル */
+  --mixin-focus: {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  };
+  
+  /* ボタンホバー効果 */
+  --mixin-btn-hover: {
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0 0 var(--color-text-primary);
+  };
+  
+  /* ========================================================================
+     レイアウトミックスイン
+     ======================================================================== */
+  
+  /* コンテナ */
+  --mixin-container: {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-lg);
+  };
+  
+  /* セクション */
+  --mixin-section: {
+    padding: var(--section-padding-lg) 0;
+  };
+  
+  /* グリッド */
+  --mixin-grid: {
+    display: grid;
+    gap: var(--grid-gap-md);
+  };
+  
+  /* ========================================================================
+     ユーティリティミックスイン
+     ======================================================================== */
+  
+  /* スクリーンリーダー専用 */
+  --mixin-sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  };
+  
+  /* クリアフィックス */
+  --mixin-clearfix: {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  };
+  
+  /* テキスト省略 */
+  --mixin-text-truncate: {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  };
+  
+  /* 複数行テキスト省略 */
+  --mixin-text-clamp: {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  };
+}

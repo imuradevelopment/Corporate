@@ -1,0 +1,190 @@
+/**
+ * メディアオブジェクト
+ * 画像とテキストの組み合わせレイアウト
+ * 
+ * 設計思想：
+ * - フレキシブルな配置
+ * - レスポンシブ対応
+ * - 一貫したスペーシング
+ */
+
+/* ========================================================================
+   基本メディアオブジェクト
+   ======================================================================== */
+
+.o-media {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+/* ========================================================================
+   メディア要素
+   ======================================================================== */
+
+.o-media__figure {
+  flex-shrink: 0;
+}
+
+.o-media__body {
+  flex: 1;
+  min-width: 0; /* テキストの折り返しを防ぐ */
+}
+
+/* ========================================================================
+   メディアサイズ
+   ======================================================================== */
+
+/* スモール */
+.o-media--small {
+  gap: var(--space-2);
+}
+
+.o-media--small .o-media__figure {
+  width: 60px;
+  height: 60px;
+}
+
+/* ミディアム（デフォルト） */
+.o-media--medium .o-media__figure {
+  width: 120px;
+  height: 120px;
+}
+
+/* ラージ */
+.o-media--large {
+  gap: var(--space-6);
+}
+
+.o-media--large .o-media__figure {
+  width: 200px;
+  height: 200px;
+}
+
+/* ========================================================================
+   メディア配置
+   ======================================================================== */
+
+/* 左配置（デフォルト） */
+.o-media--left {
+  flex-direction: row;
+}
+
+/* 右配置 */
+.o-media--right {
+  flex-direction: row-reverse;
+}
+
+/* 中央配置 */
+.o-media--center {
+  align-items: center;
+}
+
+/* 上配置 */
+.o-media--top {
+  align-items: flex-start;
+}
+
+/* 下配置 */
+.o-media--bottom {
+  align-items: flex-end;
+}
+
+/* ========================================================================
+   レスポンシブ対応
+   ======================================================================== */
+
+@media (max-width: 768px) {
+  .o-media {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .o-media--right {
+    flex-direction: column;
+  }
+  
+  .o-media__figure {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+  
+  .o-media--small .o-media__figure,
+  .o-media--medium .o-media__figure,
+  .o-media--large .o-media__figure {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+}
+
+/* ========================================================================
+   メディアバリエーション
+   ======================================================================== */
+
+/* 縦並びメディア */
+.o-media--stacked {
+  flex-direction: column;
+  text-align: center;
+}
+
+.o-media--stacked .o-media__figure {
+  margin-bottom: var(--space-3);
+}
+
+/* カード風メディア */
+.o-media--card {
+  background-color: var(--color-bg-tertiary);
+  border: 3px solid var(--color-text-primary);
+  padding: var(--space-4);
+  border-radius: 0; /* ブルータリズム */
+}
+
+/* ボーダー付きメディア */
+.o-media--bordered {
+  border: 2px solid var(--color-border-medium);
+  padding: var(--space-4);
+  border-radius: 0;
+}
+
+/* ========================================================================
+   メディアコンテンツ
+   ======================================================================== */
+
+.o-media__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.o-media__text {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.o-media__meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+/* ========================================================================
+   メディアリスト
+   ======================================================================== */
+
+.o-media-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.o-media-list--compact {
+  gap: var(--space-2);
+}
+
+.o-media-list--spacious {
+  gap: var(--space-6);
+}

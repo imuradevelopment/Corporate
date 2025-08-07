@@ -1,0 +1,235 @@
+/**
+ * リセットCSS
+ * ブラウザのデフォルトスタイルを初期化
+ * 
+ * 設計思想：
+ * - modern-css-resetベース
+ * - ブルータリズムに適した最小限のリセット
+ * - アクセシビリティを考慮
+ */
+
+/* ========================================================================
+   ボックスモデルのリセット
+   ======================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================================================
+   ドキュメントレベルの設定
+   ======================================================================== */
+
+html {
+  /* スムーススクロール（ただしreduced-motionを尊重） */
+  scroll-behavior: smooth;
+  
+  /* テキストサイズ調整を防ぐ */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* タブサイズ */
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+/* アクセシビリティ：モーション軽減設定 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================================================
+   ボディの基本設定
+   ======================================================================== */
+
+body {
+  min-height: 100vh;
+  line-height: var(--line-height-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================================
+   コンテンツのグルーピング
+   ======================================================================== */
+
+/* 見出しのリセット */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* リストのリセット */
+ul, ol {
+  list-style: none;
+}
+
+/* 引用のリセット */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+/* ========================================================================
+   テキストレベルのセマンティクス
+   ======================================================================== */
+
+/* リンクのリセット */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* 略語 */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* 強調 */
+b, strong {
+  font-weight: bolder;
+}
+
+/* コード */
+code, kbd, samp, pre {
+  font-family: var(--font-family-mono);
+  font-size: 1em;
+}
+
+/* 小さいテキスト */
+small {
+  font-size: 80%;
+}
+
+/* 下付き・上付き文字 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* ========================================================================
+   埋め込みコンテンツ
+   ======================================================================== */
+
+/* 画像・動画の設定 */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* SVGのオーバーフロー修正 */
+svg {
+  overflow: hidden;
+}
+
+/* ========================================================================
+   フォーム要素
+   ======================================================================== */
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+/* ボタンのリセット */
+button {
+  background-color: transparent;
+  background-image: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* フォーカススタイルの統一 */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* テキストエリアのリセット */
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+/* ========================================================================
+   インタラクティブ要素
+   ======================================================================== */
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* ========================================================================
+   その他
+   ======================================================================== */
+
+/* 隠し属性 */
+[hidden] {
+  display: none !important;
+}
+
+/* テーブルのリセット */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 水平線 */
+hr {
+  border: 0;
+  border-top: 1px solid;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}

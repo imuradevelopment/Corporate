@@ -1,0 +1,85 @@
+/**
+ * コンテナオブジェクト
+ * レイアウトの基本構造
+ * 
+ * 設計思想：
+ * - コンテンツの最大幅を制限
+ * - レスポンシブ対応
+ * - 一貫したパディング
+ */
+
+/* ========================================================================
+   基本コンテナ
+   ======================================================================== */
+
+.o-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-lg);
+}
+
+/* ========================================================================
+   コンテナバリエーション
+   ======================================================================== */
+
+/* ワイドコンテナ */
+.o-container--wide {
+  max-width: var(--container-wide-max-width);
+}
+
+/* ナローコンテナ */
+.o-container--narrow {
+  max-width: var(--container-narrow-max-width);
+}
+
+/* リーディングコンテナ */
+.o-container--reading {
+  max-width: var(--container-reading-max-width);
+}
+
+/* ========================================================================
+   レスポンシブパディング
+   ======================================================================== */
+
+@media (max-width: 1024px) {
+  .o-container {
+    padding: 0 var(--container-padding-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .o-container {
+    padding: 0 var(--container-padding-sm);
+  }
+}
+
+/* ========================================================================
+   フルワイドコンテナ
+   ======================================================================== */
+
+.o-container--full {
+  max-width: none;
+  padding: 0;
+}
+
+/* ========================================================================
+   フルワイドコンテナ（パディング付き）
+   ======================================================================== */
+
+.o-container--full-padded {
+  max-width: none;
+  padding: 0 var(--container-padding-lg);
+}
+
+@media (max-width: 1024px) {
+  .o-container--full-padded {
+    padding: 0 var(--container-padding-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .o-container--full-padded {
+    padding: 0 var(--container-padding-sm);
+  }
+}

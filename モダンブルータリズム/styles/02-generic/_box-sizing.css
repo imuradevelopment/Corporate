@@ -1,0 +1,14 @@
+/**
+ * ボックスサイジング
+ * より直感的なボックスモデルの設定
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

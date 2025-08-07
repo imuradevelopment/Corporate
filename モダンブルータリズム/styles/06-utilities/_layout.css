@@ -1,0 +1,558 @@
+/**
+ * レイアウトユーティリティ
+ * 位置・サイズ・配置の制御クラス
+ * 
+ * 設計思想：
+ * - !important付きで確実に適用
+ * - レスポンシブ対応
+ * - ブルータリズムのレイアウト
+ */
+
+/* ========================================================================
+   位置
+   ======================================================================== */
+
+.u-static {
+  position: static !important;
+}
+
+.u-relative {
+  position: relative !important;
+}
+
+.u-absolute {
+  position: absolute !important;
+}
+
+.u-fixed {
+  position: fixed !important;
+}
+
+.u-sticky {
+  position: sticky !important;
+}
+
+/* ========================================================================
+   配置
+   ======================================================================== */
+
+.u-top-0 {
+  top: 0 !important;
+}
+
+.u-right-0 {
+  right: 0 !important;
+}
+
+.u-bottom-0 {
+  bottom: 0 !important;
+}
+
+.u-left-0 {
+  left: 0 !important;
+}
+
+.u-top-50 {
+  top: 50% !important;
+}
+
+.u-right-50 {
+  right: 50% !important;
+}
+
+.u-bottom-50 {
+  bottom: 50% !important;
+}
+
+.u-left-50 {
+  left: 50% !important;
+}
+
+.u-top-100 {
+  top: 100% !important;
+}
+
+.u-right-100 {
+  right: 100% !important;
+}
+
+.u-bottom-100 {
+  bottom: 100% !important;
+}
+
+.u-left-100 {
+  left: 100% !important;
+}
+
+/* ========================================================================
+   サイズ
+   ======================================================================== */
+
+.u-w-auto {
+  width: auto !important;
+}
+
+.u-w-full {
+  width: 100% !important;
+}
+
+.u-w-screen {
+  width: 100vw !important;
+}
+
+.u-w-min {
+  width: min-content !important;
+}
+
+.u-w-max {
+  width: max-content !important;
+}
+
+.u-w-fit {
+  width: fit-content !important;
+}
+
+.u-h-auto {
+  height: auto !important;
+}
+
+.u-h-full {
+  height: 100% !important;
+}
+
+.u-h-screen {
+  height: 100vh !important;
+}
+
+.u-h-min {
+  height: min-content !important;
+}
+
+.u-h-max {
+  height: max-content !important;
+}
+
+.u-h-fit {
+  height: fit-content !important;
+}
+
+/* 固定サイズ */
+.u-w-1 {
+  width: var(--space-1) !important;
+}
+
+.u-w-2 {
+  width: var(--space-2) !important;
+}
+
+.u-w-3 {
+  width: var(--space-3) !important;
+}
+
+.u-w-4 {
+  width: var(--space-4) !important;
+}
+
+.u-w-5 {
+  width: var(--space-5) !important;
+}
+
+.u-w-6 {
+  width: var(--space-6) !important;
+}
+
+.u-w-8 {
+  width: var(--space-8) !important;
+}
+
+.u-w-10 {
+  width: var(--space-10) !important;
+}
+
+.u-w-12 {
+  width: var(--space-12) !important;
+}
+
+.u-w-16 {
+  width: var(--space-16) !important;
+}
+
+.u-w-20 {
+  width: var(--space-20) !important;
+}
+
+.u-w-24 {
+  width: var(--space-24) !important;
+}
+
+.u-h-1 {
+  height: var(--space-1) !important;
+}
+
+.u-h-2 {
+  height: var(--space-2) !important;
+}
+
+.u-h-3 {
+  height: var(--space-3) !important;
+}
+
+.u-h-4 {
+  height: var(--space-4) !important;
+}
+
+.u-h-5 {
+  height: var(--space-5) !important;
+}
+
+.u-h-6 {
+  height: var(--space-6) !important;
+}
+
+.u-h-8 {
+  height: var(--space-8) !important;
+}
+
+.u-h-10 {
+  height: var(--space-10) !important;
+}
+
+.u-h-12 {
+  height: var(--space-12) !important;
+}
+
+.u-h-16 {
+  height: var(--space-16) !important;
+}
+
+.u-h-20 {
+  height: var(--space-20) !important;
+}
+
+.u-h-24 {
+  height: var(--space-24) !important;
+}
+
+/* ========================================================================
+   最大・最小サイズ
+   ======================================================================== */
+
+.u-max-w-none {
+  max-width: none !important;
+}
+
+.u-max-w-full {
+  max-width: 100% !important;
+}
+
+.u-max-w-screen-sm {
+  max-width: 640px !important;
+}
+
+.u-max-w-screen-md {
+  max-width: 768px !important;
+}
+
+.u-max-w-screen-lg {
+  max-width: 1024px !important;
+}
+
+.u-max-w-screen-xl {
+  max-width: 1280px !important;
+}
+
+.u-max-w-screen-2xl {
+  max-width: 1536px !important;
+}
+
+.u-min-w-0 {
+  min-width: 0 !important;
+}
+
+.u-min-w-full {
+  min-width: 100% !important;
+}
+
+.u-max-h-none {
+  max-height: none !important;
+}
+
+.u-max-h-full {
+  max-height: 100% !important;
+}
+
+.u-max-h-screen {
+  max-height: 100vh !important;
+}
+
+.u-min-h-0 {
+  min-height: 0 !important;
+}
+
+.u-min-h-full {
+  min-height: 100% !important;
+}
+
+.u-min-h-screen {
+  min-height: 100vh !important;
+}
+
+/* ========================================================================
+   オーバーフロー
+   ======================================================================== */
+
+.u-overflow-auto {
+  overflow: auto !important;
+}
+
+.u-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.u-overflow-visible {
+  overflow: visible !important;
+}
+
+.u-overflow-scroll {
+  overflow: scroll !important;
+}
+
+.u-overflow-x-auto {
+  overflow-x: auto !important;
+}
+
+.u-overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+.u-overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+
+.u-overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+/* ========================================================================
+   Z-Index
+   ======================================================================== */
+
+.u-z-0 {
+  z-index: 0 !important;
+}
+
+.u-z-10 {
+  z-index: 10 !important;
+}
+
+.u-z-20 {
+  z-index: 20 !important;
+}
+
+.u-z-30 {
+  z-index: 30 !important;
+}
+
+.u-z-40 {
+  z-index: 40 !important;
+}
+
+.u-z-50 {
+  z-index: 50 !important;
+}
+
+.u-z-auto {
+  z-index: auto !important;
+}
+
+/* ========================================================================
+   変形
+   ======================================================================== */
+
+.u-transform {
+  transform: translateZ(0) !important;
+}
+
+.u-transform-none {
+  transform: none !important;
+}
+
+.u-translate-x-0 {
+  transform: translateX(0) !important;
+}
+
+.u-translate-y-0 {
+  transform: translateY(0) !important;
+}
+
+.u-translate-x-1 {
+  transform: translateX(var(--space-1)) !important;
+}
+
+.u-translate-y-1 {
+  transform: translateY(var(--space-1)) !important;
+}
+
+.u-translate-x-2 {
+  transform: translateX(var(--space-2)) !important;
+}
+
+.u-translate-y-2 {
+  transform: translateY(var(--space-2)) !important;
+}
+
+.u-translate-x-4 {
+  transform: translateX(var(--space-4)) !important;
+}
+
+.u-translate-y-4 {
+  transform: translateY(var(--space-4)) !important;
+}
+
+.u-translate-x-6 {
+  transform: translateX(var(--space-6)) !important;
+}
+
+.u-translate-y-6 {
+  transform: translateY(var(--space-6)) !important;
+}
+
+.u-translate-x-8 {
+  transform: translateX(var(--space-8)) !important;
+}
+
+.u-translate-y-8 {
+  transform: translateY(var(--space-8)) !important;
+}
+
+.u-translate-x-50 {
+  transform: translateX(50%) !important;
+}
+
+.u-translate-y-50 {
+  transform: translateY(50%) !important;
+}
+
+.u-translate-x-100 {
+  transform: translateX(100%) !important;
+}
+
+.u-translate-y-100 {
+  transform: translateY(100%) !important;
+}
+
+.u-scale-0 {
+  transform: scale(0) !important;
+}
+
+.u-scale-50 {
+  transform: scale(0.5) !important;
+}
+
+.u-scale-75 {
+  transform: scale(0.75) !important;
+}
+
+.u-scale-90 {
+  transform: scale(0.9) !important;
+}
+
+.u-scale-95 {
+  transform: scale(0.95) !important;
+}
+
+.u-scale-100 {
+  transform: scale(1) !important;
+}
+
+.u-scale-105 {
+  transform: scale(1.05) !important;
+}
+
+.u-scale-110 {
+  transform: scale(1.1) !important;
+}
+
+.u-scale-125 {
+  transform: scale(1.25) !important;
+}
+
+.u-scale-150 {
+  transform: scale(1.5) !important;
+}
+
+.u-rotate-0 {
+  transform: rotate(0deg) !important;
+}
+
+.u-rotate-45 {
+  transform: rotate(45deg) !important;
+}
+
+.u-rotate-90 {
+  transform: rotate(90deg) !important;
+}
+
+.u-rotate-180 {
+  transform: rotate(180deg) !important;
+}
+
+.u-rotate-270 {
+  transform: rotate(270deg) !important;
+}
+
+/* ========================================================================
+   アスペクト比
+   ======================================================================== */
+
+.u-aspect-auto {
+  aspect-ratio: auto !important;
+}
+
+.u-aspect-square {
+  aspect-ratio: 1 / 1 !important;
+}
+
+.u-aspect-video {
+  aspect-ratio: 16 / 9 !important;
+}
+
+/* ========================================================================
+   レスポンシブレイアウト
+   ======================================================================== */
+
+@media (min-width: 576px) {
+  .u-sm\:w-auto { width: auto !important; }
+  .u-sm\:w-full { width: 100% !important; }
+  .u-sm\:h-auto { height: auto !important; }
+  .u-sm\:h-full { height: 100% !important; }
+  .u-sm\:max-w-screen-sm { max-width: 640px !important; }
+  .u-sm\:min-h-screen { min-height: 100vh !important; }
+}
+
+@media (min-width: 768px) {
+  .u-md\:w-auto { width: auto !important; }
+  .u-md\:w-full { width: 100% !important; }
+  .u-md\:h-auto { height: auto !important; }
+  .u-md\:h-full { height: 100% !important; }
+  .u-md\:max-w-screen-md { max-width: 768px !important; }
+  .u-md\:min-h-screen { min-height: 100vh !important; }
+}
+
+@media (min-width: 1024px) {
+  .u-lg\:w-auto { width: auto !important; }
+  .u-lg\:w-full { width: 100% !important; }
+  .u-lg\:h-auto { height: auto !important; }
+  .u-lg\:h-full { height: 100% !important; }
+  .u-lg\:max-w-screen-lg { max-width: 1024px !important; }
+  .u-lg\:min-h-screen { min-height: 100vh !important; }
+}
+
+@media (min-width: 1280px) {
+  .u-xl\:w-auto { width: auto !important; }
+  .u-xl\:w-full { width: 100% !important; }
+  .u-xl\:h-auto { height: auto !important; }
+  .u-xl\:h-full { height: 100% !important; }
+  .u-xl\:max-w-screen-xl { max-width: 1280px !important; }
+  .u-xl\:min-h-screen { min-height: 100vh !important; }
+}

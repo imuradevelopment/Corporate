@@ -1,0 +1,78 @@
+/**
+ * カラー設定
+ * モダンブルータリズムの色彩設計
+ * 
+ * 設計思想：
+ * - コンクリートのような無機質な色をベースに
+ * - 強烈な赤をアクセントカラーとして使用
+ * - 高コントラストで視認性を確保
+ */
+
+:root {
+  /* ========================================================================
+     原色定義
+     ======================================================================== */
+  
+  /* グレースケール */
+  --raw-white: #FFFFFF;
+  --raw-gray-100: #F5F5F5;
+  --raw-gray-200: #E8E8E8;
+  --raw-gray-300: #D4D4D4;
+  --raw-gray-400: #B8B8B8;
+  --raw-gray-500: #95989A;  /* コンクリート */
+  --raw-gray-600: #707070;
+  --raw-gray-700: #4A4A4A;
+  --raw-gray-800: #2A2A2A;
+  --raw-gray-900: #1C1C1C;  /* 炭 */
+  --raw-black: #000000;
+  
+  /* アクセントカラー */
+  --raw-red-500: #FF3333;    /* プライマリアクセント */
+  --raw-red-600: #CC0000;    /* ダークレッド */
+  --raw-red-400: #FF6666;    /* ライトレッド */
+  
+  /* ========================================================================
+     セマンティックカラー
+     ======================================================================== */
+  
+  /* 背景色 */
+  --color-bg-primary: var(--raw-gray-100);
+  --color-bg-secondary: var(--raw-gray-200);
+  --color-bg-tertiary: var(--raw-white);
+  --color-bg-inverse: var(--raw-gray-900);
+  
+  /* テキスト色 */
+  --color-text-primary: var(--raw-gray-900);
+  --color-text-secondary: var(--raw-gray-700);
+  --color-text-muted: var(--raw-gray-600);
+  --color-text-inverse: var(--raw-white);
+  
+  /* ボーダー色 */
+  --color-border-light: var(--raw-gray-300);
+  --color-border-medium: var(--raw-gray-400);
+  --color-border-dark: var(--raw-gray-600);
+  
+  /* インタラクティブ要素 */
+  --color-primary: var(--raw-red-500);
+  --color-primary-hover: var(--raw-red-600);
+  --color-primary-active: var(--raw-red-600);
+  
+  /* ステータスカラー */
+  --color-success: #00C851;
+  --color-warning: #FFBB33;
+  --color-error: var(--raw-red-500);
+  --color-info: var(--raw-gray-600);
+  
+  /* ========================================================================
+     特殊効果
+     ======================================================================== */
+  
+  /* 影の色 */
+  --color-shadow-light: rgba(0, 0, 0, 0.1);
+  --color-shadow-medium: rgba(0, 0, 0, 0.2);
+  --color-shadow-dark: rgba(0, 0, 0, 0.3);
+  
+  /* オーバーレイ */
+  --color-overlay-light: rgba(255, 255, 255, 0.9);
+  --color-overlay-dark: rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,525 @@
+/**
+ * カラーユーティリティ
+ * 背景色・テキスト色・ボーダー色の制御クラス
+ * 
+ * 設計思想：
+ * - !important付きで確実に適用
+ * - ブルータリズムのカラーパレット
+ * - セマンティックな色名
+ */
+
+/* ========================================================================
+   背景色
+   ======================================================================== */
+
+.u-bg-primary {
+  background-color: var(--color-bg-primary) !important;
+}
+
+.u-bg-secondary {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+.u-bg-tertiary {
+  background-color: var(--color-bg-tertiary) !important;
+}
+
+.u-bg-inverse {
+  background-color: var(--color-bg-inverse) !important;
+}
+
+.u-bg-accent {
+  background-color: var(--color-primary) !important;
+}
+
+.u-bg-success {
+  background-color: var(--color-success) !important;
+}
+
+.u-bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+.u-bg-error {
+  background-color: var(--color-error) !important;
+}
+
+.u-bg-info {
+  background-color: var(--color-info) !important;
+}
+
+/* 原色背景 */
+.u-bg-white {
+  background-color: var(--raw-white) !important;
+}
+
+.u-bg-gray-100 {
+  background-color: var(--raw-gray-100) !important;
+}
+
+.u-bg-gray-200 {
+  background-color: var(--raw-gray-200) !important;
+}
+
+.u-bg-gray-300 {
+  background-color: var(--raw-gray-300) !important;
+}
+
+.u-bg-gray-400 {
+  background-color: var(--raw-gray-400) !important;
+}
+
+.u-bg-gray-500 {
+  background-color: var(--raw-gray-500) !important;
+}
+
+.u-bg-gray-600 {
+  background-color: var(--raw-gray-600) !important;
+}
+
+.u-bg-gray-700 {
+  background-color: var(--raw-gray-700) !important;
+}
+
+.u-bg-gray-800 {
+  background-color: var(--raw-gray-800) !important;
+}
+
+.u-bg-gray-900 {
+  background-color: var(--raw-gray-900) !important;
+}
+
+.u-bg-black {
+  background-color: var(--raw-black) !important;
+}
+
+.u-bg-red-400 {
+  background-color: var(--raw-red-400) !important;
+}
+
+.u-bg-red-500 {
+  background-color: var(--raw-red-500) !important;
+}
+
+.u-bg-red-600 {
+  background-color: var(--raw-red-600) !important;
+}
+
+/* ========================================================================
+   テキスト色
+   ======================================================================== */
+
+.u-text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+.u-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.u-text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.u-text-inverse {
+  color: var(--color-text-inverse) !important;
+}
+
+.u-text-accent {
+  color: var(--color-primary) !important;
+}
+
+.u-text-success {
+  color: var(--color-success) !important;
+}
+
+.u-text-warning {
+  color: var(--color-warning) !important;
+}
+
+.u-text-error {
+  color: var(--color-error) !important;
+}
+
+.u-text-info {
+  color: var(--color-info) !important;
+}
+
+/* 原色テキスト */
+.u-text-white {
+  color: var(--raw-white) !important;
+}
+
+.u-text-gray-100 {
+  color: var(--raw-gray-100) !important;
+}
+
+.u-text-gray-200 {
+  color: var(--raw-gray-200) !important;
+}
+
+.u-text-gray-300 {
+  color: var(--raw-gray-300) !important;
+}
+
+.u-text-gray-400 {
+  color: var(--raw-gray-400) !important;
+}
+
+.u-text-gray-500 {
+  color: var(--raw-gray-500) !important;
+}
+
+.u-text-gray-600 {
+  color: var(--raw-gray-600) !important;
+}
+
+.u-text-gray-700 {
+  color: var(--raw-gray-700) !important;
+}
+
+.u-text-gray-800 {
+  color: var(--raw-gray-800) !important;
+}
+
+.u-text-gray-900 {
+  color: var(--raw-gray-900) !important;
+}
+
+.u-text-black {
+  color: var(--raw-black) !important;
+}
+
+.u-text-red-400 {
+  color: var(--raw-red-400) !important;
+}
+
+.u-text-red-500 {
+  color: var(--raw-red-500) !important;
+}
+
+.u-text-red-600 {
+  color: var(--raw-red-600) !important;
+}
+
+/* ========================================================================
+   ボーダー色
+   ======================================================================== */
+
+.u-border-primary {
+  border-color: var(--color-text-primary) !important;
+}
+
+.u-border-secondary {
+  border-color: var(--color-border-medium) !important;
+}
+
+.u-border-light {
+  border-color: var(--color-border-light) !important;
+}
+
+.u-border-dark {
+  border-color: var(--color-border-dark) !important;
+}
+
+.u-border-accent {
+  border-color: var(--color-primary) !important;
+}
+
+.u-border-success {
+  border-color: var(--color-success) !important;
+}
+
+.u-border-warning {
+  border-color: var(--color-warning) !important;
+}
+
+.u-border-error {
+  border-color: var(--color-error) !important;
+}
+
+.u-border-info {
+  border-color: var(--color-info) !important;
+}
+
+/* 原色ボーダー */
+.u-border-white {
+  border-color: var(--raw-white) !important;
+}
+
+.u-border-gray-100 {
+  border-color: var(--raw-gray-100) !important;
+}
+
+.u-border-gray-200 {
+  border-color: var(--raw-gray-200) !important;
+}
+
+.u-border-gray-300 {
+  border-color: var(--raw-gray-300) !important;
+}
+
+.u-border-gray-400 {
+  border-color: var(--raw-gray-400) !important;
+}
+
+.u-border-gray-500 {
+  border-color: var(--raw-gray-500) !important;
+}
+
+.u-border-gray-600 {
+  border-color: var(--raw-gray-600) !important;
+}
+
+.u-border-gray-700 {
+  border-color: var(--raw-gray-700) !important;
+}
+
+.u-border-gray-800 {
+  border-color: var(--raw-gray-800) !important;
+}
+
+.u-border-gray-900 {
+  border-color: var(--raw-gray-900) !important;
+}
+
+.u-border-black {
+  border-color: var(--raw-black) !important;
+}
+
+.u-border-red-400 {
+  border-color: var(--raw-red-400) !important;
+}
+
+.u-border-red-500 {
+  border-color: var(--raw-red-500) !important;
+}
+
+.u-border-red-600 {
+  border-color: var(--raw-red-600) !important;
+}
+
+/* ========================================================================
+   ボーダー幅
+   ======================================================================== */
+
+.u-border-0 {
+  border-width: 0 !important;
+}
+
+.u-border {
+  border-width: 1px !important;
+}
+
+.u-border-2 {
+  border-width: 2px !important;
+}
+
+.u-border-3 {
+  border-width: 3px !important;
+}
+
+.u-border-4 {
+  border-width: 4px !important;
+}
+
+.u-border-6 {
+  border-width: 6px !important;
+}
+
+.u-border-8 {
+  border-width: 8px !important;
+}
+
+/* 個別ボーダー */
+.u-border-t {
+  border-top-width: 1px !important;
+}
+
+.u-border-r {
+  border-right-width: 1px !important;
+}
+
+.u-border-b {
+  border-bottom-width: 1px !important;
+}
+
+.u-border-l {
+  border-left-width: 1px !important;
+}
+
+.u-border-t-2 {
+  border-top-width: 2px !important;
+}
+
+.u-border-r-2 {
+  border-right-width: 2px !important;
+}
+
+.u-border-b-2 {
+  border-bottom-width: 2px !important;
+}
+
+.u-border-l-2 {
+  border-left-width: 2px !important;
+}
+
+.u-border-t-4 {
+  border-top-width: 4px !important;
+}
+
+.u-border-r-4 {
+  border-right-width: 4px !important;
+}
+
+.u-border-b-4 {
+  border-bottom-width: 4px !important;
+}
+
+.u-border-l-4 {
+  border-left-width: 4px !important;
+}
+
+/* ========================================================================
+   ボーダースタイル
+   ======================================================================== */
+
+.u-border-solid {
+  border-style: solid !important;
+}
+
+.u-border-dashed {
+  border-style: dashed !important;
+}
+
+.u-border-dotted {
+  border-style: dotted !important;
+}
+
+.u-border-double {
+  border-style: double !important;
+}
+
+.u-border-none {
+  border-style: none !important;
+}
+
+/* ========================================================================
+   透明度
+   ======================================================================== */
+
+.u-opacity-0 {
+  opacity: 0 !important;
+}
+
+.u-opacity-25 {
+  opacity: 0.25 !important;
+}
+
+.u-opacity-50 {
+  opacity: 0.5 !important;
+}
+
+.u-opacity-75 {
+  opacity: 0.75 !important;
+}
+
+.u-opacity-100 {
+  opacity: 1 !important;
+}
+
+/* ========================================================================
+   影
+   ======================================================================== */
+
+.u-shadow-none {
+  box-shadow: none !important;
+}
+
+.u-shadow-light {
+  box-shadow: 0 1px 3px 0 var(--color-shadow-light) !important;
+}
+
+.u-shadow-medium {
+  box-shadow: 0 4px 6px -1px var(--color-shadow-medium) !important;
+}
+
+.u-shadow-dark {
+  box-shadow: 0 10px 15px -3px var(--color-shadow-dark) !important;
+}
+
+.u-shadow-brutal {
+  box-shadow: 4px 4px 0 0 var(--color-text-primary) !important;
+}
+
+.u-shadow-brutal-accent {
+  box-shadow: 4px 4px 0 0 var(--color-primary) !important;
+}
+
+/* ========================================================================
+   ホバー状態
+   ======================================================================== */
+
+.u-hover\:bg-primary:hover {
+  background-color: var(--color-bg-primary) !important;
+}
+
+.u-hover\:bg-secondary:hover {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+.u-hover\:bg-accent:hover {
+  background-color: var(--color-primary) !important;
+}
+
+.u-hover\:text-primary:hover {
+  color: var(--color-text-primary) !important;
+}
+
+.u-hover\:text-accent:hover {
+  color: var(--color-primary) !important;
+}
+
+.u-hover\:border-accent:hover {
+  border-color: var(--color-primary) !important;
+}
+
+.u-hover\:shadow-brutal:hover {
+  box-shadow: 4px 4px 0 0 var(--color-text-primary) !important;
+}
+
+.u-hover\:shadow-brutal-accent:hover {
+  box-shadow: 4px 4px 0 0 var(--color-primary) !important;
+}
+
+/* ========================================================================
+   フォーカス状態
+   ======================================================================== */
+
+.u-focus\:bg-primary:focus {
+  background-color: var(--color-bg-primary) !important;
+}
+
+.u-focus\:bg-accent:focus {
+  background-color: var(--color-primary) !important;
+}
+
+.u-focus\:text-primary:focus {
+  color: var(--color-text-primary) !important;
+}
+
+.u-focus\:text-accent:focus {
+  color: var(--color-primary) !important;
+}
+
+.u-focus\:border-accent:focus {
+  border-color: var(--color-primary) !important;
+}
+
+.u-focus\:shadow-brutal:focus {
+  box-shadow: 4px 4px 0 0 var(--color-text-primary) !important;
+}
+
+.u-focus\:shadow-brutal-accent:focus {
+  box-shadow: 4px 4px 0 0 var(--color-primary) !important;
+}

@@ -1,0 +1,382 @@
+/**
+ * タイポグラフィユーティリティ
+ * テキストスタイルの制御クラス
+ * 
+ * 設計思想：
+ * - !important付きで確実に適用
+ * - ブルータリズムのタイポグラフィ
+ * - レスポンシブ対応
+ */
+
+/* ========================================================================
+   フォントサイズ
+   ======================================================================== */
+
+.u-text-xs {
+  font-size: var(--font-size-xs) !important;
+}
+
+.u-text-sm {
+  font-size: var(--font-size-sm) !important;
+}
+
+.u-text-base {
+  font-size: var(--font-size-base) !important;
+}
+
+.u-text-lg {
+  font-size: var(--font-size-lg) !important;
+}
+
+.u-text-xl {
+  font-size: var(--font-size-xl) !important;
+}
+
+.u-text-2xl {
+  font-size: var(--font-size-2xl) !important;
+}
+
+.u-text-3xl {
+  font-size: var(--font-size-3xl) !important;
+}
+
+.u-text-4xl {
+  font-size: var(--font-size-4xl) !important;
+}
+
+.u-text-5xl {
+  font-size: var(--font-size-5xl) !important;
+}
+
+/* ========================================================================
+   フォントファミリー
+   ======================================================================== */
+
+.u-font-base {
+  font-family: var(--font-family-base) !important;
+}
+
+.u-font-heading {
+  font-family: var(--font-family-heading) !important;
+}
+
+.u-font-mono {
+  font-family: var(--font-family-mono) !important;
+}
+
+/* ========================================================================
+   フォントウェイト
+   ======================================================================== */
+
+.u-font-normal {
+  font-weight: var(--font-weight-normal) !important;
+}
+
+.u-font-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.u-font-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.u-font-black {
+  font-weight: var(--font-weight-black) !important;
+}
+
+/* ========================================================================
+   行間
+   ======================================================================== */
+
+.u-leading-tight {
+  line-height: var(--line-height-tight) !important;
+}
+
+.u-leading-snug {
+  line-height: var(--line-height-snug) !important;
+}
+
+.u-leading-normal {
+  line-height: var(--line-height-normal) !important;
+}
+
+.u-leading-relaxed {
+  line-height: var(--line-height-relaxed) !important;
+}
+
+.u-leading-loose {
+  line-height: var(--line-height-loose) !important;
+}
+
+/* ========================================================================
+   文字間隔
+   ======================================================================== */
+
+.u-tracking-tighter {
+  letter-spacing: var(--letter-spacing-tighter) !important;
+}
+
+.u-tracking-tight {
+  letter-spacing: var(--letter-spacing-tight) !important;
+}
+
+.u-tracking-normal {
+  letter-spacing: var(--letter-spacing-normal) !important;
+}
+
+.u-tracking-wide {
+  letter-spacing: var(--letter-spacing-wide) !important;
+}
+
+.u-tracking-wider {
+  letter-spacing: var(--letter-spacing-wider) !important;
+}
+
+.u-tracking-widest {
+  letter-spacing: var(--letter-spacing-widest) !important;
+}
+
+/* ========================================================================
+   テキスト色
+   ======================================================================== */
+
+.u-text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+.u-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.u-text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.u-text-inverse {
+  color: var(--color-text-inverse) !important;
+}
+
+.u-text-accent {
+  color: var(--color-primary) !important;
+}
+
+/* ========================================================================
+   テキスト配置
+   ======================================================================== */
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-text-justify {
+  text-align: justify !important;
+}
+
+/* ========================================================================
+   テキスト変形
+   ======================================================================== */
+
+.u-uppercase {
+  text-transform: uppercase !important;
+}
+
+.u-lowercase {
+  text-transform: lowercase !important;
+}
+
+.u-capitalize {
+  text-transform: capitalize !important;
+}
+
+.u-normal-case {
+  text-transform: none !important;
+}
+
+/* ========================================================================
+   テキスト装飾
+   ======================================================================== */
+
+.u-underline {
+  text-decoration: underline !important;
+}
+
+.u-line-through {
+  text-decoration: line-through !important;
+}
+
+.u-no-underline {
+  text-decoration: none !important;
+}
+
+/* ========================================================================
+   フォントスタイル
+   ======================================================================== */
+
+.u-italic {
+  font-style: italic !important;
+}
+
+.u-not-italic {
+  font-style: normal !important;
+}
+
+/* ========================================================================
+   テキストオーバーフロー
+   ======================================================================== */
+
+.u-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.u-text-clamp-2 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.u-text-clamp-3 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* ========================================================================
+   垂直配置
+   ======================================================================== */
+
+.u-align-baseline {
+  vertical-align: baseline !important;
+}
+
+.u-align-top {
+  vertical-align: top !important;
+}
+
+.u-align-middle {
+  vertical-align: middle !important;
+}
+
+.u-align-bottom {
+  vertical-align: bottom !important;
+}
+
+.u-align-text-top {
+  vertical-align: text-top !important;
+}
+
+.u-align-text-bottom {
+  vertical-align: text-bottom !important;
+}
+
+/* ========================================================================
+   ホワイトスペース
+   ======================================================================== */
+
+.u-whitespace-normal {
+  white-space: normal !important;
+}
+
+.u-whitespace-nowrap {
+  white-space: nowrap !important;
+}
+
+.u-whitespace-pre {
+  white-space: pre !important;
+}
+
+.u-whitespace-pre-line {
+  white-space: pre-line !important;
+}
+
+.u-whitespace-pre-wrap {
+  white-space: pre-wrap !important;
+}
+
+.u-whitespace-break-spaces {
+  white-space: break-spaces !important;
+}
+
+/* ========================================================================
+   ワードブレーク
+   ======================================================================== */
+
+.u-break-normal {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.u-break-words {
+  overflow-wrap: break-word !important;
+}
+
+.u-break-all {
+  word-break: break-all !important;
+}
+
+.u-break-keep {
+  word-break: keep-all !important;
+}
+
+/* ========================================================================
+   レスポンシブタイポグラフィ
+   ======================================================================== */
+
+@media (min-width: 576px) {
+  .u-text-sm-xs { font-size: var(--font-size-xs) !important; }
+  .u-text-sm-sm { font-size: var(--font-size-sm) !important; }
+  .u-text-sm-base { font-size: var(--font-size-base) !important; }
+  .u-text-sm-lg { font-size: var(--font-size-lg) !important; }
+  .u-text-sm-xl { font-size: var(--font-size-xl) !important; }
+  .u-text-sm-2xl { font-size: var(--font-size-2xl) !important; }
+  .u-text-sm-3xl { font-size: var(--font-size-3xl) !important; }
+  .u-text-sm-4xl { font-size: var(--font-size-4xl) !important; }
+  .u-text-sm-5xl { font-size: var(--font-size-5xl) !important; }
+}
+
+@media (min-width: 768px) {
+  .u-text-md-xs { font-size: var(--font-size-xs) !important; }
+  .u-text-md-sm { font-size: var(--font-size-sm) !important; }
+  .u-text-md-base { font-size: var(--font-size-base) !important; }
+  .u-text-md-lg { font-size: var(--font-size-lg) !important; }
+  .u-text-md-xl { font-size: var(--font-size-xl) !important; }
+  .u-text-md-2xl { font-size: var(--font-size-2xl) !important; }
+  .u-text-md-3xl { font-size: var(--font-size-3xl) !important; }
+  .u-text-md-4xl { font-size: var(--font-size-4xl) !important; }
+  .u-text-md-5xl { font-size: var(--font-size-5xl) !important; }
+}
+
+@media (min-width: 1024px) {
+  .u-text-lg-xs { font-size: var(--font-size-xs) !important; }
+  .u-text-lg-sm { font-size: var(--font-size-sm) !important; }
+  .u-text-lg-base { font-size: var(--font-size-base) !important; }
+  .u-text-lg-lg { font-size: var(--font-size-lg) !important; }
+  .u-text-lg-xl { font-size: var(--font-size-xl) !important; }
+  .u-text-lg-2xl { font-size: var(--font-size-2xl) !important; }
+  .u-text-lg-3xl { font-size: var(--font-size-3xl) !important; }
+  .u-text-lg-4xl { font-size: var(--font-size-4xl) !important; }
+  .u-text-lg-5xl { font-size: var(--font-size-5xl) !important; }
+}
+
+@media (min-width: 1280px) {
+  .u-text-xl-xs { font-size: var(--font-size-xs) !important; }
+  .u-text-xl-sm { font-size: var(--font-size-sm) !important; }
+  .u-text-xl-base { font-size: var(--font-size-base) !important; }
+  .u-text-xl-lg { font-size: var(--font-size-lg) !important; }
+  .u-text-xl-xl { font-size: var(--font-size-xl) !important; }
+  .u-text-xl-2xl { font-size: var(--font-size-2xl) !important; }
+  .u-text-xl-3xl { font-size: var(--font-size-3xl) !important; }
+  .u-text-xl-4xl { font-size: var(--font-size-4xl) !important; }
+  .u-text-xl-5xl { font-size: var(--font-size-5xl) !important; }
+}

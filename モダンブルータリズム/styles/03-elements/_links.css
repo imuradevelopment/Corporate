@@ -1,0 +1,38 @@
+/**
+ * リンク要素のスタイル
+ * ブルータリズムの特徴：太いアンダーライン、高コントラスト
+ */
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: all 200ms ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration-thickness: 4px;
+}
+
+a:active {
+  color: var(--color-primary-active);
+}
+
+/* 訪問済みリンク */
+a:visited {
+  color: var(--color-primary);
+}
+
+/* 外部リンク */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+/* ボタンスタイルのリンク */
+a.button {
+  text-decoration: none;
+}

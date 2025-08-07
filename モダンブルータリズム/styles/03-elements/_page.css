@@ -1,0 +1,46 @@
+/**
+ * ページレベルの要素スタイル
+ * html, body などの基本設定
+ */
+
+html {
+  font-family: var(--font-family-base);
+  font-size: 16px; /* rem計算の基準値 */
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* フォーカススタイルの統一（アクセシビリティ） */
+:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* フォーカスが見えるべきでない場合 */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* キーボードフォーカス時のみ表示 */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 選択時のスタイル */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
