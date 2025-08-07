@@ -19,12 +19,40 @@ class ComponentLoader {
             <button class="glow-button hidden md:block">
                 Get Started
             </button>
-            <button id="mobile-menu-btn" class="md:hidden text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+            <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link">
+                <i class="fas fa-home mr-3"></i>
+                <span>Home</span>
+            </a></li>
+            <li><a href="about.html" class="mobile-nav-link">
+                <i class="fas fa-info-circle mr-3"></i>
+                <span>About</span>
+            </a></li>
+            <li><a href="services.html" class="mobile-nav-link">
+                <i class="fas fa-cogs mr-3"></i>
+                <span>Services</span>
+            </a></li>
+            <li><a href="portfolio.html" class="mobile-nav-link">
+                <i class="fas fa-briefcase mr-3"></i>
+                <span>Portfolio</span>
+            </a></li>
+            <li><a href="contact.html" class="mobile-nav-link">
+                <i class="fas fa-envelope mr-3"></i>
+                <span>Contact</span>
+            </a></li>
+        </ul>
+        <button class="glow-button w-full mt-6">
+            Get Started
+        </button>
     </div>
 </nav>`,
             footer: `<!-- Tech Forward Footer -->

@@ -40,43 +40,73 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle with smooth animation
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.createElement('div');
-    mobileMenu.className = 'mobile-menu glass-card';
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
     
-    // Get the current page to determine navigation
-    const currentPath = window.location.pathname;
-    const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-menu-overlay';
+    document.body.appendChild(overlay);
     
-    if (isHomePage) {
-        mobileMenu.innerHTML = `
-            <ul class="py-4">
-                <li><a href="#home" class="block px-6 py-3 hover:bg-white/10">Home</a></li>
-                <li><a href="#about" class="block px-6 py-3 hover:bg-white/10">About</a></li>
-                <li><a href="#services" class="block px-6 py-3 hover:bg-white/10">Services</a></li>
-                <li><a href="#portfolio" class="block px-6 py-3 hover:bg-white/10">Portfolio</a></li>
-                <li><a href="#contact" class="block px-6 py-3 hover:bg-white/10">Contact</a></li>
-            </ul>
-        `;
-    } else {
-        mobileMenu.innerHTML = `
-            <ul class="py-4">
-                <li><a href="index.html" class="block px-6 py-3 hover:bg-white/10">Home</a></li>
-                <li><a href="about.html" class="block px-6 py-3 hover:bg-white/10">About</a></li>
-                <li><a href="services.html" class="block px-6 py-3 hover:bg-white/10">Services</a></li>
-                <li><a href="portfolio.html" class="block px-6 py-3 hover:bg-white/10">Portfolio</a></li>
-                <li><a href="contact.html" class="block px-6 py-3 hover:bg-white/10">Contact</a></li>
-            </ul>
-        `;
+    if (mobileMenuBtn && mobileMenu) {
+        // Set current page active state
+        const currentPath = window.location.pathname;
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (currentPath.endsWith(href) || (currentPath === '/' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('active');
+            
+            if (isOpen) {
+                // Close menu
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.style.overflow = '';
+            } else {
+                // Open menu
+                mobileMenuBtn.classList.add('active');
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                body.style.overflow = 'hidden';
+            }
+        });
+        
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+        
+        // Close menu on window resize if open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && mobileMenu.classList.contains('active')) {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
     }
-    
-    mobileMenu.style.display = 'none';
-    navbar.appendChild(mobileMenu);
-    
-    mobileMenuBtn?.addEventListener('click', () => {
-        mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
-    });
     
     // Counter Animation
     const counters = document.querySelectorAll('.counter');
@@ -235,27 +265,3 @@ document.addEventListener('DOMContentLoaded', function() {
     fadeElements.forEach(el => fadeObserver.observe(el));
 });
 
-// Add navbar scroll class styles
-const style = document.createElement('style');
-style.textContent = `
-    #navbar.scrolled {
-        background: rgba(10, 14, 39, 0.95) !important;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    
-    .mobile-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        margin-top: 1px;
-    }
-    
-    @media (min-width: 768px) {
-        .mobile-menu {
-            display: none !important;
-        }
-    }
-`;
-document.head.appendChild(style);
