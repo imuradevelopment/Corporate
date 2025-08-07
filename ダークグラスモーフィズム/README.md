@@ -4,11 +4,11 @@ AI技術企業のコーポレートサイトです。
 
 ## 🌐 デモサイト
 
-### メインサイト
+### ブランチ一覧（mainブランチのindex.html）
 https://imuradevelopment.github.io/Corporate/
 
-### ブランチ一覧（全ブランチのプレビュー）
-https://imuradevelopment.github.io/Corporate/branches.html
+> 各デザインのプレビューURLは「ブランチ一覧ページ」から確認できます。
+> ※ mainブランチ自体は一覧に表示されません。
 
 ## 🚀 特徴
 
@@ -17,6 +17,8 @@ https://imuradevelopment.github.io/Corporate/branches.html
 - **ダークテーマ**: 目に優しいダークモードデザイン
 - **アニメーション**: AOS (Animate On Scroll)による滑らかなアニメーション
 - **自動デプロイ**: GitHub Actionsで全ブランチを自動的にGitHub Pagesにデプロイ
+- **ブランチカードは別タブで開く**
+- **URLの重複スラッシュ問題は解消済み**
 
 ## 🛠 技術スタック
 
@@ -34,7 +36,6 @@ Corporate/
 ├── services.html       # サービス紹介
 ├── portfolio.html      # 実績
 ├── contact.html        # お問い合わせ
-├── components/         # 再利用可能なコンポーネント（未使用）
 ├── assets/
 │   ├── css/
 │   │   └── style.css   # カスタムCSS
@@ -43,7 +44,6 @@ Corporate/
 │       └── components.js # コンポーネントローダー
 └── .github/
     └── workflows/      # GitHub Actions設定
-
 ```
 
 ## 🔧 開発方法
@@ -62,28 +62,23 @@ start index.html # Windows
 ### 新しいブランチで開発
 ```bash
 # 新しいブランチを作成
-git checkout -b feature/new-feature
+git checkout -b デザイン名
 
 # 開発・コミット
 git add .
-git commit -m "Add new feature"
+git commit -m "Add new design"
 
-# プッシュ（自動的にGitHub Pagesにデプロイされる）
-git push origin feature/new-feature
-
+git push origin デザイン名
 # 数分後にプレビュー可能
-# https://imuradevelopment.github.io/Corporate/feature-new-feature/
+# https://imuradevelopment.github.io/Corporate/デザイン名/
 ```
 
 ## 📝 GitHub Pages 自動デプロイ
 
-全てのブランチが自動的にGitHub Pagesにデプロイされます：
-
-- `main` → https://imuradevelopment.github.io/Corporate/
-- `develop` → https://imuradevelopment.github.io/Corporate/develop/
-- `feature/xxx` → https://imuradevelopment.github.io/Corporate/feature-xxx/
-
-ブランチ一覧は自動更新されます。
+- mainブランチは「ブランチ一覧ページ」専用（index.htmlのみ自動生成、main自体は一覧に表示されません）
+- 各デザインブランチは `/ブランチ名/` でプレビュー可能
+- branches.htmlは廃止され、index.htmlのみが自動生成されます
+- ブランチカードはデフォルトで別タブで開きます
 
 ## 📄 ライセンス
 
