@@ -87,13 +87,16 @@
 .nav-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
-    width: 24px;
-    height: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
     padding: 0;
     cursor: pointer;
     background: none;
     border: none;
+    position: relative;
 }
 
 .toggle-line {
@@ -105,7 +108,7 @@
 }
 
 .nav-toggle.active .toggle-line:nth-child(1) {
-    transform: rotate(45deg) translateY(6px);
+    transform: rotate(45deg) translate(0, 8px);
 }
 
 .nav-toggle.active .toggle-line:nth-child(2) {
@@ -113,7 +116,7 @@
 }
 
 .nav-toggle.active .toggle-line:nth-child(3) {
-    transform: rotate(-45deg) translateY(-6px);
+    transform: rotate(-45deg) translate(0, -8px);
 }
 
 /* Mobile Navigation */
@@ -154,14 +157,19 @@
     
     .nav-link {
         display: block;
-        padding: var(--space-4) var(--container-padding);
+        padding: var(--space-4) 0;
         width: 100%;
-        text-align: left;
+        text-align: center;
         border-bottom: 1px solid var(--color-border);
+    }
+    
+    .nav-link::after {
+        display: none; /* モバイルではアンダーラインを非表示 */
     }
     
     .nav-link:hover {
         background: var(--color-surface);
+        color: var(--gradient-primary-start);
     }
     
     .nav-item:last-child .nav-link {

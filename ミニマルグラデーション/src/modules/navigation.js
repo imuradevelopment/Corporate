@@ -21,17 +21,7 @@ export function initNavigation() {
         nav.elements.menu.classList.toggle('active', nav.state.isOpen);
         nav.elements.toggle.classList.toggle('active', nav.state.isOpen);
         
-        // Animate toggle lines
-        const lines = nav.elements.toggle.querySelectorAll('.toggle-line');
-        if (nav.state.isOpen) {
-            lines[0].style.transform = 'rotate(45deg) translateY(6px)';
-            lines[1].style.opacity = '0';
-            lines[2].style.transform = 'rotate(-45deg) translateY(-6px)';
-        } else {
-            lines[0].style.transform = '';
-            lines[1].style.opacity = '';
-            lines[2].style.transform = '';
-        }
+        // CSS classes handle the animation now
     }
     
     // Active Link Management
