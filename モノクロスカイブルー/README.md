@@ -1,92 +1,85 @@
-# AI-Dev's マルチブランチデザインシステム
+# AI-Dev's Corporate Site
 
-このリポジトリは、AI-Dev'sのコーポレートサイトの複数のデザインバリエーションを管理するためのシステムです。
+AI技術企業のコーポレートサイトです。
 
 ## 🌐 デモサイト
 
-### ブランチ一覧（mainブランチ）
+### ブランチ一覧（mainブランチのindex.html）
 https://imuradevelopment.github.io/Corporate/
 
 > 各デザインのプレビューURLは「ブランチ一覧ページ」から確認できます。
+> ※ mainブランチ自体は一覧に表示されません。
 
-## 🚀 運用方法
+## 🚀 特徴
 
-### 新しいデザインブランチの作成
-
-1. **ブランチ作成**
-   ```bash
-   git checkout -b デザイン名
-   ```
-
-2. **デザイン開発**
-   - HTML/CSS/JSファイルを作成・編集
-   - デザインの特徴に合わせたブランチ名を付ける
-
-3. **プッシュ・自動デプロイ**
-   ```bash
-   git add .
-   git commit -m "デザイン名: 説明"
-   git push origin デザイン名
-   ```
-   → **数分後に自動的にGitHub Pagesにデプロイされます**
-
-### ブランチ管理
-
-- **mainブランチ**: ブランチ一覧ページ専用（コーポレートサイトの内容は含まれません）
-- **デザインブランチ**: 各デザインのコーポレートサイト
-- **自動クリーンアップ**: ブランチ削除時に自動でプレビューページも削除
-
-### デザイン命名規則
-
-デザインの特徴を日本語で表現したブランチ名を使用：
-- `ネオンサイバーパンクダーク` - ネオンカラーとダークテーマ
-- `ダークグラスモーフィズム` - ガラス効果とダークテーマ
-- `モノクロスカイブルー` - モノクロマティックとスカイブルーアクセント
+- **サーバー不要**: HTMLファイルを直接ブラウザで開いても動作
+- **レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
+- **ダークテーマ**: 目に優しいダークモードデザイン
+- **アニメーション**: AOS (Animate On Scroll)による滑らかなアニメーション
+- **自動デプロイ**: GitHub Actionsで全ブランチを自動的にGitHub Pagesにデプロイ
+- **ブランチカードは別タブで開く**
+- **URLの重複スラッシュ問題は解消済み**
 
 ## 🛠 技術スタック
 
-- **HTML5/CSS3/JavaScript**: フロントエンド
-- **GitHub Actions**: 自動デプロイ
-- **GitHub Pages**: ホスティング
-- **Tailwind CSS**: スタイリング（一部ブランチ）
+- **HTML/CSS/JavaScript**: フレームワークを使用しないバニラ実装
+- **Tailwind CSS**: ユーティリティファーストのCSSフレームワーク（CDN）
+- **Font Awesome**: アイコンライブラリ（CDN）
+- **AOS**: スクロールアニメーションライブラリ
 
 ## 📁 ディレクトリ構造
 
 ```
-CorporateSite/
-├── README.md           # このファイル（mainブランチのみ）
-├── .github/            # GitHub Actions設定
-└── 各デザインブランチ/  # コーポレートサイトの内容
+Corporate/
+├── index.html          # ホームページ
+├── about.html          # 会社概要
+├── services.html       # サービス紹介
+├── portfolio.html      # 実績
+├── contact.html        # お問い合わせ
+├── assets/
+│   ├── css/
+│   │   └── style.css   # カスタムCSS
+│   └── js/
+│       ├── main.js     # メインJavaScript
+│       └── components.js # コンポーネントローダー
+└── .github/
+    └── workflows/      # GitHub Actions設定
 ```
 
-## 🔧 開発環境
+## 🔧 開発方法
 
+### ローカルで確認
 ```bash
 # リポジトリをクローン
 git clone https://github.com/imuradevelopment/Corporate.git
 cd Corporate
 
-# mainブランチはブランチ一覧ページのみ
-# 各デザインは独立したブランチで管理
+# ブラウザで直接開く（サーバー不要）
+open index.html  # macOS
+start index.html # Windows
 ```
 
-## 📝 注意事項
+### 新しいブランチで開発
+```bash
+# 新しいブランチを作成
+git checkout -b デザイン名
 
-- **mainブランチ**: ブランチ一覧ページ専用（コーポレートサイトの内容は含まれていません）
-- **index.html**: GitHub Actionsで動的に生成されるため、手動で管理する必要がありません
-- **各デザイン**: 独立したブランチで管理されています
-- **自動デプロイ**: プッシュするだけで自動的にプレビューが生成されます
-- **自動クリーンアップ**: ブランチ削除時は自動的にプレビューも削除されます
+# 開発・コミット
+git add .
+git commit -m "Add new design"
 
-## 🔄 自動化システム
+git push origin デザイン名
+# 数分後にプレビュー可能
+# https://imuradevelopment.github.io/Corporate/デザイン名/
+```
 
-### GitHub Actions ワークフロー
+## 📝 GitHub Pages 自動デプロイ
 
-1. **deploy-all-branches.yml**: 全ブランチの自動デプロイ
-2. **cleanup-deleted-branches.yml**: 削除されたブランチの自動クリーンアップ
-3. **initial-setup.yml**: GitHub Pagesの初期設定
+- mainブランチは「ブランチ一覧ページ」専用（index.htmlのみ自動生成、main自体は一覧に表示されません）
+- 各デザインブランチは `/ブランチ名/` でプレビュー可能
+- branches.htmlは廃止され、index.htmlのみが自動生成されます
+- ブランチカードはデフォルトで別タブで開きます
 
-### 自動生成されるファイル
+## 📄 ライセンス
 
-- **mainブランチ**: `index.html`（ブランチ一覧ページ）
-- **その他のブランチ**: 各ブランチのコーポレートサイト
+このプロジェクトは商用利用可能です。
