@@ -6,495 +6,199 @@
     <title>AI-Dev - 次世代AI技術で未来を創造</title>
     <meta name="description" content="AI-Devは、最先端のAI技術で革新的なソリューションを提供。機械学習、データ分析、システム開発でビジネスの可能性を最大化します。">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/tech-forward.css">
-    
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <!-- Grid Background -->
-    <div class="grid-background"></div>
-    
     <!-- Header Component -->
     <div data-component="header"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div id="particles-canvas" class="absolute inset-0"></div>
-        
-        <div class="container relative z-10 text-center">
-            <div class="float-animation">
-                <h1 class="mb-6 text-5xl md:text-7xl font-bold">
-                    <span class="block neon-text neon-text-cyan">次世代AI技術で</span>
-                    <span class="block gradient-text">未来を創造する</span>
-                </h1>
-                <p class="text-xl mb-8 max-w-2xl mx-auto text-secondary">
-                    私たちは最先端のAI技術を活用し、ビジネスの可能性を無限に広げます
-                </p>
-            </div>
-            
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="text-gradient">次世代AI技術で</span>
+                        <span class="text-gradient">未来を創造する</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        私たちは最先端のAI技術を活用し、ビジネスの可能性を無限に広げます
+                    </p>
+                    <div class="hero__actions">
+                        <a href="services.html" class="btn btn--primary">サービスを見る</a>
+                        <a href="contact.html" class="btn btn--secondary">お問い合わせ</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">About AI-Dev</h2>
-                <p class="text-xl max-w-3xl mx-auto text-secondary">
-                    テクノロジーとクリエイティビティの融合
-                </p>
+        <!-- About Section -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="section-title">About AI-Dev</h2>
+                    <p class="section-subtitle">
+                        テクノロジーとクリエイティビティの融合
+                    </p>
+                </div>
+                
+                <div class="grid grid--3">
+                    <div class="card animate-on-scroll">
+                        <div class="card__icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="card__title">革新的な技術</h3>
+                        <p class="card__description">
+                            最新のAI技術を駆使し、従来の限界を超えたソリューションを提供
+                        </p>
+                    </div>
+                    
+                    <div class="card animate-on-scroll">
+                        <div class="card__icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="card__title">カスタムソリューション</h3>
+                        <p class="card__description">
+                            お客様のニーズに合わせた、完全オーダーメイドのAIシステムを構築
+                        </p>
+                    </div>
+                    
+                    <div class="card animate-on-scroll">
+                        <div class="card__icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="card__title">継続的なサポート</h3>
+                        <p class="card__description">
+                            導入後も継続的な改善とサポートで、常に最適な状態を維持
+                        </p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card card-3d">
-                    <div class="text-5xl mb-4 neon-text neon-text-cyan">01</div>
-                    <h3 class="text-2xl mb-3">革新的な技術</h3>
-                    <p class="text-secondary">最新のAI技術を駆使し、従来の限界を超えたソリューションを提供</p>
-                </div>
-                <div class="glass-card card-3d">
-                    <div class="text-5xl mb-4 neon-text neon-text-pink">02</div>
-                    <h3 class="text-2xl mb-3">カスタムソリューション</h3>
-                    <p class="text-secondary">お客様のニーズに合わせた、完全オーダーメイドのAIシステムを構築</p>
-                </div>
-                <div class="glass-card card-3d">
-                    <div class="text-5xl mb-4 neon-text neon-text-green">03</div>
-                    <h3 class="text-2xl mb-3">継続的なサポート</h3>
-                    <p class="text-secondary">導入後も継続的な改善とサポートで、常に最適な状態を維持</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section animated-gradient-bg">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Our Services</h2>
-                <p class="text-xl max-w-3xl mx-auto text-secondary">
-                    最先端技術で実現する、次世代のビジネスソリューション
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card service-card">
-                    <div class="service-icon mb-6">
-                        <i class="fas fa-brain text-4xl neon-text neon-text-cyan"></i>
-                    </div>
-                    <h3 class="text-2xl mb-4">AI開発</h3>
-                    <p class="mb-6 text-secondary">機械学習、深層学習、自然言語処理など、最新のAI技術を活用したカスタムソリューション開発</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                            画像認識・音声認識
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                            予測分析・推薦システム
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3"></span>
-                            チャットボット・対話AI
-                        </li>
-                    </ul>
-                    <a href="#" class="inline-flex items-center neon-text neon-text-cyan hover:text-white transition-colors">
-                        詳しく見る
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
+        <!-- Services Section -->
+        <section class="section section--alt">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">
+                        最先端技術で実現する、次世代のビジネスソリューション
+                    </p>
                 </div>
                 
-                <div class="glass-card service-card">
-                    <div class="service-icon mb-6">
-                        <i class="fas fa-chart-line text-4xl neon-text neon-text-pink"></i>
+                <div class="grid grid--3">
+                    <div class="card service-card animate-on-scroll">
+                        <div class="service-card__icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="service-card__title">AI開発</h3>
+                        <p class="service-card__description">
+                            機械学習、深層学習、自然言語処理など、最新のAI技術を活用したカスタムソリューション開発
+                        </p>
+                        <ul class="service-card__features">
+                            <li>画像認識・音声認識</li>
+                            <li>予測分析・推薦システム</li>
+                            <li>チャットボット・対話AI</li>
+                        </ul>
+                        <a href="services.html" class="service-card__link">
+                            詳しく見る
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl mb-4">データ分析</h3>
-                    <p class="mb-6 text-secondary">ビッグデータの収集・処理・分析を通じて、ビジネスに価値のあるインサイトを抽出</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                            リアルタイムデータ処理
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                            ビジネスインテリジェンス
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                            データビジュアライゼーション
-                        </li>
-                    </ul>
-                    <a href="#" class="inline-flex items-center neon-text neon-text-pink hover:text-white transition-colors">
-                        詳しく見る
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <div class="glass-card service-card">
-                    <div class="service-icon mb-6">
-                        <i class="fas fa-code text-4xl neon-text neon-text-green"></i>
+                    
+                    <div class="card service-card animate-on-scroll">
+                        <div class="service-card__icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="service-card__title">データ分析</h3>
+                        <p class="service-card__description">
+                            ビッグデータの収集・分析から、ビジネスインサイトの抽出まで、データドリブンな意思決定を支援
+                        </p>
+                        <ul class="service-card__features">
+                            <li>データ可視化・ダッシュボード</li>
+                            <li>予測モデリング</li>
+                            <li>リアルタイム分析</li>
+                        </ul>
+                        <a href="services.html" class="service-card__link">
+                            詳しく見る
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl mb-4">システム開発</h3>
-                    <p class="mb-6 text-secondary">スケーラブルで高性能なWebアプリケーション・モバイルアプリの設計・開発</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                            クラウドネイティブ開発
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                            マイクロサービス設計
-                        </li>
-                        <li class="flex items-center text-secondary">
-                            <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                            DevOps・CI/CD構築
-                        </li>
-                    </ul>
-                    <a href="#" class="inline-flex items-center neon-text neon-text-green hover:text-white transition-colors">
-                        詳しく見る
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
+                    
+                    <div class="card service-card animate-on-scroll">
+                        <div class="service-card__icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="service-card__title">自動化システム</h3>
+                        <p class="service-card__description">
+                            業務プロセスの自動化から、RPA（ロボティック・プロセス・オートメーション）まで、効率化を実現
+                        </p>
+                        <ul class="service-card__features">
+                            <li>ワークフロー自動化</li>
+                            <li>RPA導入・運用</li>
+                            <li>システム統合</li>
+                        </ul>
+                        <a href="services.html" class="service-card__link">
+                            詳しく見る
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Portfolio</h2>
-                <p class="text-xl max-w-3xl mx-auto text-secondary">
-                    様々な業界でAI技術による革新的な成果を実現
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- 製造業事例 -->
-                <div class="glass-card portfolio-item">
-                    <div class="portfolio-header">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-industry text-2xl neon-text neon-text-cyan"></i>
-                        </div>
-                        <span class="text-3xl font-bold gradient-text">+15%</span>
+        <!-- Stats Section -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--4">
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-card__number counter" data-target="150">0</div>
+                        <div class="stat-card__label">プロジェクト完了</div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">大手製造業A社</h3>
-                    <p class="mb-4 text-secondary">AIによる予知保全システムを導入し、設備の異常を事前に検知。計画外停止を大幅に削減</p>
-                    <div class="space-y-2 mb-4">
-                        <div class="achievement-item">
-                            <span class="achievement-dot"></span>
-                            設備稼働率15%向上
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot"></span>
-                            メンテナンスコスト30%削減
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot"></span>
-                            年間損失1.2億円削減
-                        </div>
+                    
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-card__number counter" data-target="50">0</div>
+                        <div class="stat-card__label">クライアント企業</div>
                     </div>
-                    <div class="portfolio-tech">
-                        <span>機械学習 · IoTセンサー連携</span>
+                    
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-card__number counter" data-target="95">0</div>
+                        <div class="stat-card__label">顧客満足度</div>
                     </div>
-                </div>
-                
-                <!-- EC事例 -->
-                <div class="glass-card portfolio-item">
-                    <div class="portfolio-header">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-shopping-cart text-2xl neon-text neon-text-pink"></i>
-                        </div>
-                        <span class="text-3xl font-bold gradient-text">+30%</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">ECプラットフォームB社</h3>
-                    <p class="mb-4 text-secondary">パーソナライズドAI推薦システムにより、ユーザー体験を大幅に改善し、売上を向上</p>
-                    <div class="space-y-2 mb-4">
-                        <div class="achievement-item">
-                            <span class="achievement-dot pink"></span>
-                            売上高30%増加
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot pink"></span>
-                            カート放棄率25%減少
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot pink"></span>
-                            顧客満足度スコア4.8/5.0
-                        </div>
-                    </div>
-                    <div class="portfolio-tech">
-                        <span>深層学習 · 協調フィルタリング</span>
-                    </div>
-                </div>
-                
-                <!-- 医療事例 -->
-                <div class="glass-card portfolio-item">
-                    <div class="portfolio-header">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-hospital text-2xl neon-text neon-text-green"></i>
-                        </div>
-                        <span class="text-3xl font-bold gradient-text">+25%</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">総合医療機関C</h3>
-                    <p class="mb-4 text-secondary">画像診断支援AIシステムを導入し、がんの早期発見率を向上。医師の診断をサポート</p>
-                    <div class="space-y-2 mb-4">
-                        <div class="achievement-item">
-                            <span class="achievement-dot green"></span>
-                            診断精度25%向上
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot green"></span>
-                            診断時間50%短縮
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-dot green"></span>
-                            早期発見率2倍に向上
-                        </div>
-                    </div>
-                    <div class="portfolio-tech">
-                        <span>CNN · 医療画像解析</span>
+                    
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-card__number counter" data-target="24">0</div>
+                        <div class="stat-card__label">時間対応</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="section bg-gradient-to-b from-transparent via-bg-secondary to-transparent">
-        <div class="container">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center stats-item">
-                    <div class="mb-3">
-                        <div class="text-5xl font-bold gradient-text counter" data-target="50">0</div>
-                        <span class="text-3xl neon-text neon-text-cyan">+</span>
+        <!-- CTA Section -->
+        <section class="section section--cta">
+            <div class="container">
+                <div class="cta">
+                    <h2 class="cta__title">プロジェクトを始めませんか？</h2>
+                    <p class="cta__description">
+                        あなたのビジネスに最適なAIソリューションを一緒に作り上げましょう
+                    </p>
+                    <div class="cta__actions">
+                        <a href="contact.html" class="btn btn--primary">無料相談</a>
+                        <a href="portfolio.html" class="btn btn--secondary">実績を見る</a>
                     </div>
-                    <p class="text-secondary">完了プロジェクト</p>
-                </div>
-                
-                <div class="text-center stats-item">
-                    <div class="mb-3">
-                        <div class="text-5xl font-bold gradient-text counter" data-target="30">0</div>
-                        <span class="text-3xl neon-text neon-text-pink">+</span>
-                    </div>
-                    <p class="text-secondary">パートナー企業</p>
-                </div>
-                
-                <div class="text-center stats-item">
-                    <div class="mb-3">
-                        <div class="text-5xl font-bold gradient-text">
-                            <span class="counter" data-target="95">0</span><span class="neon-text neon-text-green">%</span>
-                        </div>
-                    </div>
-                    <p class="text-secondary">顧客満足度</p>
-                </div>
-                
-                <div class="text-center stats-item">
-                    <div class="mb-3">
-                        <div class="text-5xl font-bold gradient-text">24<span class="neon-text neon-text-purple">/</span>7</div>
-                    </div>
-                    <p class="text-secondary">サポート体制</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Get In Touch</h2>
-                <p class="text-xl max-w-3xl mx-auto text-secondary">
-                    プロジェクトについてのご相談、お見積もりのご依頼はお気軽に
-                </p>
-            </div>
-            
-            <div class="max-w-2xl mx-auto">
-                <form class="glass-card">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <input type="text" placeholder="お名前" class="w-full px-4 py-3 bg-transparent border border-gray-700 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors text-white">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="メールアドレス" class="w-full px-4 py-3 bg-transparent border border-gray-700 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors text-white">
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <input type="text" placeholder="件名" class="w-full px-4 py-3 bg-transparent border border-gray-700 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors text-white">
-                    </div>
-                    <div class="mt-6">
-                        <textarea placeholder="メッセージ" rows="5" class="w-full px-4 py-3 bg-transparent border border-gray-700 rounded-lg focus:border-cyan-500 focus:outline-none transition-colors resize-none text-white"></textarea>
-                    </div>
-                    <div class="mt-8 text-center">
-                        <button type="submit" class="glow-button">
-                            送信する
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer Component -->
     <div data-component="footer"></div>
 
-    <!-- Custom Styles -->
-    <style>
-        /* Page specific styles */
-        
-        /* Service Card Styles */
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px) rotateX(-5deg) rotateY(5deg);
-            box-shadow: var(--glow-cyan);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-bg);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-        }
-        
-        /* Portfolio Styles */
-        .portfolio-item {
-            transition: all 0.4s ease;
-        }
-        
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .portfolio-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .portfolio-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-bg);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-        
-        .achievement-item {
-            display: flex;
-            align-items: center;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-        
-        .achievement-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            margin-right: 0.75rem;
-            flex-shrink: 0;
-        }
-        
-        .achievement-dot.pink {
-            background: var(--accent-pink);
-        }
-        
-        .achievement-dot.green {
-            background: var(--accent-green);
-        }
-        
-        .portfolio-tech {
-            padding-top: 1rem;
-            border-top: 1px solid var(--glass-border);
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-        }
-        
-        /* Stats Animation */
-        .stats-item {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        .stats-item:nth-child(1) { animation-delay: 0.1s; }
-        .stats-item:nth-child(2) { animation-delay: 0.2s; }
-        .stats-item:nth-child(3) { animation-delay: 0.3s; }
-        .stats-item:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Form Styles */
-        input, textarea {
-            background: var(--glass-bg) !important;
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: var(--text-tertiary);
-        }
-        
-        
-        /* Additional utilities */
-        .bottom-8 { bottom: 2rem; }
-        .left-1\/2 { left: 50%; }
-        .w-2 { width: 0.5rem; }
-        .h-2 { height: 0.5rem; }
-        .w-4 { width: 1rem; }
-        .h-4 { height: 1rem; }
-        .ml-2 { margin-left: 0.5rem; }
-        .mr-3 { margin-right: 0.75rem; }
-        .border-gray-700 { border-color: #374151; }
-        .bg-transparent { background-color: transparent; }
-        .-translate-x-1\/2 { transform: translateX(-50%); }
-        .focus\:border-cyan-500:focus { border-color: #06b6d4; }
-        .focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
-        .pt-20 { padding-top: 5rem; }
-    </style>
-
-    <!-- Scripts -->
-    <script src="assets/js/components.js"></script>
-    <script src="assets/js/tech-forward.js"></script>
-    <script src="assets/js/particles.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
