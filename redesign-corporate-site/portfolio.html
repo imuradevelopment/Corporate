@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - AI-Dev | 次世代AI技術で未来を創造</title>
+    <meta name="description" content="AI-Devの実績。AI開発、データ分析、システム開発の成功事例をご覧ください。">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/tech-forward.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Grid Background -->
+    <div class="grid-background"></div>
+    
+    <!-- Header Component -->
+    <div data-component="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 animated-gradient-bg opacity-50"></div>
+        
+        <div class="container relative z-10 text-center pt-24">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="gradient-text">Portfolio</span>
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto text-secondary">
+                革新的なAIソリューションで、お客様のビジネスを成功に導いた実績
+            </p>
+        </div>
+        
+        <!-- 3D Elements -->
+        <div class="absolute top-10 left-10 w-32 h-32 transform-3d">
+            <div class="cube-3d">
+                <div class="cube-face front"></div>
+                <div class="cube-face back"></div>
+                <div class="cube-face right"></div>
+                <div class="cube-face left"></div>
+                <div class="cube-face top"></div>
+                <div class="cube-face bottom"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="section bg-gradient-to-b from-transparent via-bg-secondary to-transparent">
+        <div class="container">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-button active" data-filter="all">
+                    <span class="filter-icon"><i class="fas fa-th"></i></span>
+                    すべて
+                </button>
+                <button class="filter-button" data-filter="ai">
+                    <span class="filter-icon"><i class="fas fa-brain"></i></span>
+                    AI開発
+                </button>
+                <button class="filter-button" data-filter="data">
+                    <span class="filter-icon"><i class="fas fa-chart-line"></i></span>
+                    データ分析
+                </button>
+                <button class="filter-button" data-filter="system">
+                    <span class="filter-icon"><i class="fas fa-code"></i></span>
+                    システム開発
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card" data-category="ai">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-brain text-6xl neon-text neon-text-cyan"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">15%</span>
+                                    <span class="stat-label">稼働率向上</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">30%</span>
+                                    <span class="stat-label">コスト削減</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">予知保全AIシステム</h3>
+                        <p class="text-secondary mb-4">大手製造業向けの設備故障予測システム。機械学習により異常を事前検知し、計画外停止を大幅削減。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">IoT</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-card" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-chart-line text-6xl neon-text neon-text-pink"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">30%</span>
+                                    <span class="stat-label">売上増加</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">25%</span>
+                                    <span class="stat-label">離脱率改善</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">顧客行動分析ダッシュボード</h3>
+                        <p class="text-secondary mb-4">ECプラットフォーム向けのリアルタイム分析システム。購買パターンを可視化し、パーソナライゼーションを実現。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">BigQuery</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-card" data-category="system">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-cloud text-6xl neon-text neon-text-green"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">40%</span>
+                                    <span class="stat-label">運用効率化</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">99.9%</span>
+                                    <span class="stat-label">稼働率</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">クラウド統合プラットフォーム</h3>
+                        <p class="text-secondary mb-4">マルチクラウド環境を統合管理するプラットフォーム。自動スケーリングとコスト最適化を実現。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-card" data-category="ai">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-hospital text-6xl neon-text neon-text-cyan"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">25%</span>
+                                    <span class="stat-label">診断精度向上</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">50%</span>
+                                    <span class="stat-label">時間短縮</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">医療画像診断AI</h3>
+                        <p class="text-secondary mb-4">深層学習を活用した画像診断支援システム。早期発見率を大幅に向上させ、医師の診断をサポート。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">DICOM</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-card" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-shield-alt text-6xl neon-text neon-text-pink"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">90%</span>
+                                    <span class="stat-label">検知精度</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">0.01s</span>
+                                    <span class="stat-label">応答時間</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">金融不正検知システム</h3>
+                        <p class="text-secondary mb-4">リアルタイムで取引を監視し、異常なパターンを即座に検出。機械学習により精度を継続的に向上。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Spark</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-card" data-category="system">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-mobile-alt text-6xl neon-text neon-text-green"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">10万+</span>
+                                    <span class="stat-label">ユーザー数</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">4.8★</span>
+                                    <span class="stat-label">評価</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="text-2xl font-bold mb-2">ヘルスケアモバイルアプリ</h3>
+                        <p class="text-secondary mb-4">AIを活用した健康管理アプリ。ユーザーの生活習慣を分析し、パーソナライズされた健康アドバイスを提供。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">ML Kit</span>
+                        </div>
+                        <a href="#" class="view-details">
+                            詳細を見る <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-gradient-to-b from-transparent via-bg-secondary to-transparent">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">お客様の声</h2>
+                <p class="text-xl max-w-3xl mx-auto text-secondary">
+                    私たちのソリューションを導入いただいた企業様からの評価
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left text-3xl neon-text neon-text-cyan mb-4"></i>
+                        <p class="text-lg mb-6">
+                            AI-Devの技術力とプロジェクト管理能力は素晴らしいです。
+                            期待以上の成果を提供していただき、弊社の生産性が大幅に向上しました。
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">山田 太郎</h4>
+                            <p class="text-secondary text-sm">株式会社テックソリューションズ CEO</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left text-3xl neon-text neon-text-pink mb-4"></i>
+                        <p class="text-lg mb-6">
+                            限られた予算と時間の中で、革新的なAIソリューションを実現していただきました。
+                            スタートアップにも親身に対応していただき感謝しています。
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">佐藤 花子</h4>
+                            <p class="text-secondary text-sm">スタートアップ企業 代表取締役</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left text-3xl neon-text neon-text-green mb-4"></i>
+                        <p class="text-lg mb-6">
+                            製造業の課題を深く理解し、最適なAIソリューションを提案していただきました。
+                            導入後のサポートも充実しており、安心して運用できています。
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">鈴木 次郎</h4>
+                            <p class="text-secondary text-sm">大手製造業 技術部長</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card text-center py-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">次はあなたの成功事例を</span>
+                </h2>
+                <p class="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+                    AI技術で新しい可能性を開拓し、ビジネスの成長を加速させましょう
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="glow-button">
+                        プロジェクトを相談する
+                    </a>
+                    <a href="services.html" class="glass-card hover:bg-white/10 px-8 py-3 rounded-full transition-all inline-block">
+                        サービスを見る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div data-component="footer"></div>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Page specific styles */
+        /* 3D Cube Animation */
+        .transform-3d {
+            perspective: 1000px;
+        }
+        
+        .cube-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 20s infinite linear;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .cube-face.front { transform: translateZ(50px); }
+        .cube-face.back { transform: rotateY(180deg) translateZ(50px); }
+        .cube-face.right { transform: rotateY(90deg) translateZ(50px); }
+        .cube-face.left { transform: rotateY(-90deg) translateZ(50px); }
+        .cube-face.top { transform: rotateX(90deg) translateZ(50px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(50px); }
+        
+        @keyframes rotateCube {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        
+        /* Filter Buttons */
+        .filter-button {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .filter-button:hover,
+        .filter-button.active {
+            background: var(--accent-cyan);
+            color: white;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .filter-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .portfolio-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .portfolio-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .portfolio-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+        
+        .portfolio-content {
+            padding: 2rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .view-details {
+            color: var(--accent-cyan);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-details:hover {
+            gap: 0.75rem;
+            color: white;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+        }
+        
+        /* Additional utilities */
+        .top-10 { top: 2.5rem; }
+        .left-10 { left: 2.5rem; }
+        .w-32 { width: 8rem; }
+        .h-32 { height: 8rem; }
+        .min-h-\[60vh\] { min-height: 60vh; }
+    </style>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/tech-forward.js"></script>
+    <script>
+        // Portfolio Filter
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter portfolio items
+                    const filter = button.getAttribute('data-filter');
+                    
+                    portfolioCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.classList.remove('hidden');
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                            }, 10);
+                        } else {
+                            card.classList.add('hidden');
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

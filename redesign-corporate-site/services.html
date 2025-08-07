@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - AI-Dev | 次世代AI技術で未来を創造</title>
+    <meta name="description" content="AI-Devのサービス。AI開発、データ分析、システム開発で最先端のソリューションを提供します。">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/tech-forward.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Grid Background -->
+    <div class="grid-background"></div>
+    
+    <!-- Header Component -->
+    <div data-component="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 animated-gradient-bg opacity-50"></div>
+        
+        <div class="container relative z-10 text-center pt-24">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="gradient-text">Our Services</span>
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto text-secondary">
+                最先端のAI技術とイノベーションで、ビジネスの可能性を無限に拡張します
+            </p>
+        </div>
+        
+        <!-- Animated Elements -->
+        <div class="absolute top-20 right-20 w-40 h-40 rounded-full neon-glow-cyan opacity-20 float-animation"></div>
+        <div class="absolute bottom-20 left-20 w-60 h-60 rounded-full neon-glow-pink opacity-20 float-animation" style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">サービス一覧</h2>
+                <p class="text-xl max-w-3xl mx-auto text-secondary">
+                    お客様のニーズに合わせた3つのコアサービス
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- AI Development Service -->
+                <div class="service-detail-card" id="ai-development">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-brain text-5xl neon-text neon-text-cyan"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">AI開発</h3>
+                    </div>
+                    <p class="text-secondary mb-6 text-lg">
+                        機械学習とディープラーニングの最先端技術を活用し、
+                        お客様のビジネス課題に最適なAIソリューションを開発します。
+                    </p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-eye text-2xl neon-text neon-text-cyan mb-3"></i>
+                            <h4 class="font-semibold mb-2">画像認識・解析</h4>
+                            <p class="text-sm text-secondary">物体検出、顔認識、医療画像解析など</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-microphone text-2xl neon-text neon-text-cyan mb-3"></i>
+                            <h4 class="font-semibold mb-2">音声認識・処理</h4>
+                            <p class="text-sm text-secondary">音声認識、感情分析、音声合成など</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-language text-2xl neon-text neon-text-cyan mb-3"></i>
+                            <h4 class="font-semibold mb-2">自然言語処理</h4>
+                            <p class="text-sm text-secondary">チャットボット、文書分析、翻訳など</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-robot text-2xl neon-text neon-text-cyan mb-3"></i>
+                            <h4 class="font-semibold mb-2">予測モデル構築</h4>
+                            <p class="text-sm text-secondary">需要予測、異常検知、推薦システムなど</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="glow-button">詳細を見る</button>
+                    </div>
+                </div>
+
+                <!-- Data Analytics Service -->
+                <div class="service-detail-card" id="data-analytics">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-chart-line text-5xl neon-text neon-text-pink"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">データ分析</h3>
+                    </div>
+                    <p class="text-secondary mb-6 text-lg">
+                        ビッグデータから価値あるインサイトを抽出し、
+                        データドリブンな意思決定を支援します。
+                    </p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-database text-2xl neon-text neon-text-pink mb-3"></i>
+                            <h4 class="font-semibold mb-2">ビッグデータ処理</h4>
+                            <p class="text-sm text-secondary">大規模データの収集・処理・管理</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-pie text-2xl neon-text neon-text-pink mb-3"></i>
+                            <h4 class="font-semibold mb-2">ビジュアライゼーション</h4>
+                            <p class="text-sm text-secondary">インタラクティブなダッシュボード構築</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search text-2xl neon-text neon-text-pink mb-3"></i>
+                            <h4 class="font-semibold mb-2">統計分析</h4>
+                            <p class="text-sm text-secondary">高度な統計手法による分析・検証</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-lightbulb text-2xl neon-text neon-text-pink mb-3"></i>
+                            <h4 class="font-semibold mb-2">ビジネスインサイト</h4>
+                            <p class="text-sm text-secondary">アクションにつながる洞察の提供</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="glow-button pink">詳細を見る</button>
+                    </div>
+                </div>
+
+                <!-- System Development Service -->
+                <div class="service-detail-card" id="system-development">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-code text-5xl neon-text neon-text-green"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">システム開発</h3>
+                    </div>
+                    <p class="text-secondary mb-6 text-lg">
+                        スケーラブルで高性能なシステムを設計・開発し、
+                        デジタルトランスフォーメーションを実現します。
+                    </p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-globe text-2xl neon-text neon-text-green mb-3"></i>
+                            <h4 class="font-semibold mb-2">Webアプリケーション</h4>
+                            <p class="text-sm text-secondary">モダンなSPA、PWAの開発</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cloud text-2xl neon-text neon-text-green mb-3"></i>
+                            <h4 class="font-semibold mb-2">クラウド構築</h4>
+                            <p class="text-sm text-secondary">AWS、Azure、GCPでのインフラ構築</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-plug text-2xl neon-text neon-text-green mb-3"></i>
+                            <h4 class="font-semibold mb-2">API開発</h4>
+                            <p class="text-sm text-secondary">RESTful API、GraphQLの設計・実装</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-infinity text-2xl neon-text neon-text-green mb-3"></i>
+                            <h4 class="font-semibold mb-2">DevOps/CI/CD</h4>
+                            <p class="text-sm text-secondary">自動化による開発効率の向上</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="glow-button green">詳細を見る</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section bg-gradient-to-b from-transparent via-bg-secondary to-transparent">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">開発プロセス</h2>
+                <p class="text-xl max-w-3xl mx-auto text-secondary">
+                    アジャイル開発手法で、迅速かつ柔軟にプロジェクトを推進
+                </p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step" data-step="1">
+                    <div class="process-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3 class="text-xl font-bold mb-2">要件定義・分析</h3>
+                        <p class="text-secondary">お客様のビジネス課題を深く理解し、最適なソリューションを設計</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="2">
+                    <div class="process-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3 class="text-xl font-bold mb-2">プロトタイプ開発</h3>
+                        <p class="text-secondary">迅速にプロトタイプを作成し、早期にフィードバックを収集</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="3">
+                    <div class="process-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3 class="text-xl font-bold mb-2">実装・テスト</h3>
+                        <p class="text-secondary">高品質なコードで実装し、厳密なテストで品質を保証</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="4">
+                    <div class="process-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3 class="text-xl font-bold mb-2">デプロイ・運用</h3>
+                        <p class="text-secondary">本番環境へのスムーズな展開と、継続的な改善・サポート</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">料金プラン</h2>
+                <p class="text-xl max-w-3xl mx-auto text-secondary">
+                    プロジェクトの規模とニーズに応じた柔軟な料金体系
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <p class="text-secondary mb-4">小規模プロジェクト向け</p>
+                        <div class="price">
+                            <span class="text-4xl font-bold gradient-text">¥500,000</span>
+                            <span class="text-secondary">/月〜</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check neon-text neon-text-cyan"></i> 基本的なAI機能</li>
+                        <li><i class="fas fa-check neon-text neon-text-cyan"></i> 月次レポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-cyan"></i> メールサポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-cyan"></i> 1プロジェクト</li>
+                    </ul>
+                    <button class="w-full glass-card hover:bg-white/10 py-3 rounded-full transition-all mt-8">
+                        お問い合わせ
+                    </button>
+                </div>
+                
+                <div class="glass-card pricing-card featured">
+                    <div class="pricing-badge">人気</div>
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <p class="text-secondary mb-4">中規模プロジェクト向け</p>
+                        <div class="price">
+                            <span class="text-4xl font-bold gradient-text">¥1,500,000</span>
+                            <span class="text-secondary">/月〜</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check neon-text neon-text-pink"></i> 高度なAI機能</li>
+                        <li><i class="fas fa-check neon-text neon-text-pink"></i> 週次レポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-pink"></i> 優先サポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-pink"></i> 3プロジェクト</li>
+                        <li><i class="fas fa-check neon-text neon-text-pink"></i> カスタマイズ可能</li>
+                    </ul>
+                    <button class="w-full glow-button mt-8">
+                        お問い合わせ
+                    </button>
+                </div>
+                
+                <div class="glass-card pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-secondary mb-4">大規模プロジェクト向け</p>
+                        <div class="price">
+                            <span class="text-4xl font-bold gradient-text">カスタム</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> フルカスタムAI</li>
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> リアルタイムレポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> 専任サポート</li>
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> 無制限プロジェクト</li>
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> SLA保証</li>
+                        <li><i class="fas fa-check neon-text neon-text-green"></i> オンサイトサポート</li>
+                    </ul>
+                    <button class="w-full glass-card hover:bg-white/10 py-3 rounded-full transition-all mt-8">
+                        お問い合わせ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="glass-card text-center py-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">プロジェクトを始めましょう</span>
+                </h2>
+                <p class="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+                    お客様のビジネス課題をお聞かせください。最適なソリューションをご提案します。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="glow-button">
+                        無料相談を申し込む
+                    </a>
+                    <a href="portfolio.html" class="glass-card hover:bg-white/10 px-8 py-3 rounded-full transition-all inline-block">
+                        導入事例を見る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div data-component="footer"></div>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Page specific styles */
+        .neon-glow-cyan {
+            background: radial-gradient(circle, var(--accent-cyan), transparent);
+            filter: blur(60px);
+        }
+        
+        .neon-glow-pink {
+            background: radial-gradient(circle, var(--accent-pink), transparent);
+            filter: blur(60px);
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .service-detail-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.2);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-icon-large {
+            width: 100px;
+            height: 100px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+        }
+        
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-pink));
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .process-content {
+            width: 45%;
+            background: var(--glass-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .process-step:nth-child(even) .process-content {
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            position: relative;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--accent-pink);
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.3);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: var(--accent-pink);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .price {
+            margin-top: 1rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Button variations */
+        .glow-button.pink {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+        }
+        
+        .glow-button.pink:hover {
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
+        }
+        
+        .glow-button.green {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+        }
+        
+        .glow-button.green:hover {
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-step,
+            .process-step:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 80px;
+            }
+            
+            .process-icon {
+                left: 30px;
+                transform: translateX(-50%);
+            }
+            
+            .process-content {
+                width: 100%;
+                margin-left: 0;
+                text-align: left;
+            }
+            
+            .process-step:nth-child(even) .process-content {
+                text-align: left;
+            }
+        }
+        
+        /* Additional utilities */
+        .top-20 { top: 5rem; }
+        .bottom-20 { bottom: 5rem; }
+        .left-20 { left: 5rem; }
+        .right-20 { right: 5rem; }
+        .w-40 { width: 10rem; }
+        .h-40 { height: 10rem; }
+        .w-60 { width: 15rem; }
+        .h-60 { height: 15rem; }
+        .min-h-\[60vh\] { min-height: 60vh; }
+    </style>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/tech-forward.js"></script>
+</body>
+</html>
