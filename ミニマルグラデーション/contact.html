@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sへのお問い合わせ・無料相談はこちら">
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="src/styles/base/reset.css">
+    <link rel="stylesheet" href="src/styles/tokens/variables.css">
+    <link rel="stylesheet" href="src/styles/base/typography.css">
+    <link rel="stylesheet" href="src/styles/base/layout.css">
+    <link rel="stylesheet" href="src/styles/compositions/gradients.css">
+    <link rel="stylesheet" href="src/styles/compositions/animations.css">
+    <link rel="stylesheet" href="src/styles/compositions/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-primary" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">◈</span>
+                    <span class="brand-text">AI-Dev's</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">ホーム</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">私たちについて</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link" data-page="services">サービス</a></li>
+                    <li class="nav-item"><a href="showcase.html" class="nav-link" data-page="showcase">実績</a></li>
+                    <li class="nav-item"><a href="insights.html" class="nav-link" data-page="insights">インサイト</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active" data-page="contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="テーマ切り替え">
+                    <span class="theme-icon">◐</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="メニュー開閉">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero" style="padding-top: 120px; position: relative; overflow: hidden;">
+        <div class="gradient-mesh" style="opacity: 0.15;"></div>
+        <div class="container">
+            <h1 class="gradient-text" style="font-size: var(--font-size-5xl); text-align: center; margin-bottom: var(--space-4);">
+                お問い合わせ
+            </h1>
+            <p style="text-align: center; font-size: var(--font-size-xl); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                AI導入に関するご相談は無料です。お気軽にお問い合わせください。
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info observe-slide-up">
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-6);">
+                        無料相談受付中
+                    </h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon gradient-primary">📧</div>
+                        <div>
+                            <h3>メール</h3>
+                            <p>info@ai-devs.example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon gradient-secondary">📞</div>
+                        <div>
+                            <h3>電話</h3>
+                            <p>03-1234-5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon gradient-accent">📍</div>
+                        <div>
+                            <h3>所在地</h3>
+                            <p>東京都渋谷区○○1-2-3<br>AIビル 10F</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon gradient-warm">🕒</div>
+                        <div>
+                            <h3>営業時間</h3>
+                            <p>平日 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper observe-slide-up">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="company">会社名 <span class="required">*</span></label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">お名前 <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">メールアドレス <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">お問い合わせ種別 <span class="required">*</span></label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">選択してください</option>
+                                <option value="consultation">無料相談</option>
+                                <option value="estimate">見積もり依頼</option>
+                                <option value="support">サポート</option>
+                                <option value="partner">パートナーシップ</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                送信する
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                        
+                        <p class="form-note">
+                            <span class="required">*</span> は必須項目です
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="background: var(--color-surface);">
+        <div class="container">
+            <h2 style="text-align: center; font-size: var(--font-size-3xl); margin-bottom: var(--space-12);">
+                よくあるご質問
+            </h2>
+            
+            <div class="faq-list">
+                <details class="faq-item observe-fade">
+                    <summary class="faq-question">
+                        <span>相談は本当に無料ですか？</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>はい、初回のご相談は完全無料です。お客様のビジネス課題をお聞きし、AI導入の可能性について専門家がアドバイスいたします。</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item observe-fade">
+                    <summary class="faq-question">
+                        <span>導入までの期間はどのくらいですか？</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>プロジェクトの規模により異なりますが、小規模な自動化であれば1〜2ヶ月、カスタムAI開発の場合は3〜6ヶ月程度が目安となります。</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item observe-fade">
+                    <summary class="faq-question">
+                        <span>どのような業界に対応していますか？</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>製造業、小売業、金融、医療、物流など、幅広い業界に対応しています。業界特有の課題に合わせたソリューションをご提案します。</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item observe-fade">
+                    <summary class="faq-question">
+                        <span>既存システムとの連携は可能ですか？</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>はい、可能です。APIやデータベース連携により、既存のシステムを活かしながらAI機能を追加することができます。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <span class="brand-icon">◈</span>
+                        <span class="brand-text">AI-Dev's</span>
+                    </div>
+                    <p class="brand-tagline">Innovation Through Intelligence</p>
+                </div>
+                
+                <nav class="footer-nav">
+                    <div class="footer-column">
+                        <h3 class="footer-title">サービス</h3>
+                        <ul class="footer-links">
+                            <li><a href="services.html#automation">業務自動化</a></li>
+                            <li><a href="services.html#analysis">データ分析</a></li>
+                            <li><a href="services.html#ai-solutions">AIソリューション</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">企業情報</h3>
+                        <ul class="footer-links">
+                            <li><a href="about.html">会社概要</a></li>
+                            <li><a href="showcase.html">導入事例</a></li>
+                            <li><a href="insights.html">ブログ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">お問い合わせ</h3>
+                        <ul class="footer-links">
+                            <li><a href="contact.html">無料相談</a></li>
+                            <li><a href="contact.html#support">サポート</a></li>
+                            <li><a href="contact.html#partner">パートナー募集</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 AI-Dev's. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript Modules -->
+    <script type="module" src="src/modules/core.js"></script>
+    
+    <!-- Form Handler -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form validation passed
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // In production, send to server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('お問い合わせありがとうございます。担当者より2営業日以内にご連絡いたします。');
+            
+            // Reset form
+            e.target.reset();
+        });
+    </script>
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .contact-form-section {
+            padding: var(--space-20) 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+        
+        /* Contact Info */
+        .info-item {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .info-item h3 {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-1);
+        }
+        
+        .info-item p {
+            color: var(--color-text-secondary);
+        }
+        
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--color-surface);
+            padding: var(--space-8);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-6);
+        }
+        
+        label {
+            display: block;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-2);
+        }
+        
+        .required {
+            color: var(--gradient-secondary-start);
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            transition: all var(--duration-fast) var(--easing-default);
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--gradient-primary-start);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-actions {
+            margin-top: var(--space-8);
+        }
+        
+        .form-note {
+            margin-top: var(--space-4);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: var(--space-20) 0;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+            overflow: hidden;
+            transition: all var(--duration-normal) var(--easing-default);
+        }
+        
+        .faq-item[open] {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-6);
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            list-style: none;
+        }
+        
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+        
+        .faq-icon {
+            font-size: var(--font-size-xl);
+            color: var(--gradient-primary-start);
+            transition: transform var(--duration-fast) var(--easing-default);
+        }
+        
+        .faq-item[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--space-6) var(--space-6);
+        }
+        
+        .faq-answer p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

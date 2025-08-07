@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Dev's | 次世代AI技術のパイオニア</title>
+    <meta name="description" content="AI-Dev'sは、革新的なAI技術で企業のデジタルトランスフォーメーションを支援します">
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="src/styles/base/reset.css">
+    <link rel="stylesheet" href="src/styles/tokens/variables.css">
+    <link rel="stylesheet" href="src/styles/base/typography.css">
+    <link rel="stylesheet" href="src/styles/base/layout.css">
+    <link rel="stylesheet" href="src/styles/compositions/gradients.css">
+    <link rel="stylesheet" href="src/styles/compositions/animations.css">
+    <link rel="stylesheet" href="src/styles/compositions/components.css">
+    
+    <!-- Page Specific -->
+    <link rel="stylesheet" href="src/styles/pages/home.css">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="public/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Module Preloading -->
+    <link rel="modulepreload" href="src/modules/core.js">
+    <link rel="modulepreload" href="src/modules/animations.js">
+</head>
+<body>
+    <!-- Navigation Component -->
+    <nav class="nav-primary" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">◈</span>
+                    <span class="brand-text">AI-Dev's</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active" data-page="home">ホーム</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">私たちについて</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link" data-page="services">サービス</a></li>
+                    <li class="nav-item"><a href="showcase.html" class="nav-link" data-page="showcase">実績</a></li>
+                    <li class="nav-item"><a href="insights.html" class="nav-link" data-page="insights">インサイト</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-page="contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="テーマ切り替え">
+                    <span class="theme-icon">◐</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="メニュー開閉">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="gradient-mesh"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">Innovation Through AI</div>
+            <h1 class="hero-title">
+                <span class="title-line">次世代AIで</span>
+                <span class="title-line gradient-text">ビジネスを革新</span>
+            </h1>
+            <p class="hero-description">
+                最先端のAI技術とクリエイティブな発想で、<br>
+                あなたのビジネスに新たな価値を創造します
+            </p>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <span>無料相談を予約</span>
+                    <span class="btn-icon">→</span>
+                </a>
+                <a href="showcase.html" class="btn btn-secondary">
+                    <span>導入事例を見る</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <span class="scroll-line"></span>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">私たちの強み</h2>
+                <p class="section-subtitle">AI技術で実現する、3つの革新</p>
+            </div>
+            
+            <div class="features-grid">
+                <article class="feature-card" data-feature="automation">
+                    <div class="feature-icon">
+                        <div class="icon-gradient">⚡</div>
+                    </div>
+                    <h3 class="feature-title">業務自動化</h3>
+                    <p class="feature-description">
+                        繰り返し作業をAIが学習し、人間はより創造的な業務に集中できます
+                    </p>
+                    <ul class="feature-benefits">
+                        <li>作業時間を最大80%削減</li>
+                        <li>ヒューマンエラーの排除</li>
+                        <li>24時間365日稼働</li>
+                    </ul>
+                </article>
+                
+                <article class="feature-card" data-feature="analysis">
+                    <div class="feature-icon">
+                        <div class="icon-gradient">📊</div>
+                    </div>
+                    <h3 class="feature-title">データ分析</h3>
+                    <p class="feature-description">
+                        膨大なデータから価値ある洞察を抽出し、意思決定を支援します
+                    </p>
+                    <ul class="feature-benefits">
+                        <li>リアルタイム分析</li>
+                        <li>予測モデリング</li>
+                        <li>視覚的レポート生成</li>
+                    </ul>
+                </article>
+                
+                <article class="feature-card" data-feature="personalization">
+                    <div class="feature-icon">
+                        <div class="icon-gradient">🎯</div>
+                    </div>
+                    <h3 class="feature-title">パーソナライゼーション</h3>
+                    <p class="feature-description">
+                        顧客一人ひとりに最適化された体験を提供し、満足度を向上させます
+                    </p>
+                    <ul class="feature-benefits">
+                        <li>個別最適化された提案</li>
+                        <li>顧客エンゲージメント向上</li>
+                        <li>コンバージョン率改善</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">導入プロセス</h2>
+                <p class="section-subtitle">シンプルな4ステップで、AIソリューションを実現</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="process-step" data-step="1">
+                    <div class="step-marker">
+                        <span class="marker-number">01</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">ヒアリング</h3>
+                        <p class="step-description">
+                            お客様の課題や目標を詳しくお聞きし、最適なソリューションを検討します
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="2">
+                    <div class="step-marker">
+                        <span class="marker-number">02</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">プロトタイプ</h3>
+                        <p class="step-description">
+                            実際のデータを使用して、AIモデルのプロトタイプを構築します
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="3">
+                    <div class="step-marker">
+                        <span class="marker-number">03</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">実装</h3>
+                        <p class="step-description">
+                            既存システムとの連携を考慮し、スムーズな導入を実現します
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-step="4">
+                    <div class="step-marker">
+                        <span class="marker-number">04</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">最適化</h3>
+                        <p class="step-description">
+                            継続的な改善により、AIの精度とパフォーマンスを向上させます
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="cta-background">
+            <div class="gradient-wave"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">AIの力で、未来を創造しませんか？</h2>
+                <p class="cta-description">
+                    無料相談では、お客様のビジネスに最適なAIソリューションをご提案します
+                </p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-large">
+                        <span>無料相談を始める</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <span class="brand-icon">◈</span>
+                        <span class="brand-text">AI-Dev's</span>
+                    </div>
+                    <p class="brand-tagline">Innovation Through Intelligence</p>
+                </div>
+                
+                <nav class="footer-nav">
+                    <div class="footer-column">
+                        <h3 class="footer-title">サービス</h3>
+                        <ul class="footer-links">
+                            <li><a href="services.html#automation">業務自動化</a></li>
+                            <li><a href="services.html#analysis">データ分析</a></li>
+                            <li><a href="services.html#ai-solutions">AIソリューション</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">企業情報</h3>
+                        <ul class="footer-links">
+                            <li><a href="about.html">会社概要</a></li>
+                            <li><a href="showcase.html">導入事例</a></li>
+                            <li><a href="insights.html">ブログ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">お問い合わせ</h3>
+                        <ul class="footer-links">
+                            <li><a href="contact.html">無料相談</a></li>
+                            <li><a href="contact.html#support">サポート</a></li>
+                            <li><a href="contact.html#partner">パートナー募集</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 AI-Dev's. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript Modules -->
+    <script type="module" src="src/modules/core.js"></script>
+    <script type="module" src="src/modules/animations.js"></script>
+    <script type="module" src="src/modules/navigation.js"></script>
+    <script type="module" src="src/modules/theme.js"></script>
+</body>
+</html>
