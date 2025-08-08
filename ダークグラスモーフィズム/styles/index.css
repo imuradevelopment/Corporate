@@ -20,9 +20,7 @@
 @import url("05-components/contact.css");
 @import url("06-utilities/responsive.css");
 
-/* Legacy theme stylesheet (unchanged visuals) */
-/* Legacy theme stylesheet (temporary during migration) */
-/* @import url("../assets/css/black-glass.css"); */
+/* Legacy theme stylesheet: removed (migrated to ITCSS) */
 
 /* Page-level scope (removed after componentization) */
 
