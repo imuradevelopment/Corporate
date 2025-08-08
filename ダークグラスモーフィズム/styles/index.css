@@ -1,5 +1,17 @@
 /* Entry stylesheet (build-less). Keep visual unchanged. */
+/* ITCSS order */
+@import url("00-settings/tokens.css");
+@import url("01-tools/.gitkeep");
+@import url("02-generic/.gitkeep");
+@import url("03-elements/.gitkeep");
+@import url("04-objects/.gitkeep");
+@import url("05-components/.gitkeep");
+@import url("06-utilities/.gitkeep");
+
+/* Legacy theme stylesheet (unchanged visuals) */
 @import url("../assets/css/black-glass.css");
+
+/* Page-level scope (temporary until fully componentized) */
 @import url("pages/home.css");
 @import url("pages/about.css");
 @import url("pages/services.css");
