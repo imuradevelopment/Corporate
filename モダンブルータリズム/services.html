@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サービス | AI-DEV'S</title>
+    <meta name="description" content="AI-DEV'Sが提供する最先端のAI開発、データ分析、業務自動化サービスをご紹介します。">
+    
+    <!-- CSSファイル（1つに統合） -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="nav" id="mainNav" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav__container o-container">
+            <a href="index.html" class="nav__logo" aria-label="AI-DEV'S ホームページ">
+                <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                <span>AI-DEV'S</span>
+            </a>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+            </button>
+            
+            <ul class="nav__menu" id="navMenu" role="menubar">
+                <li class="nav__item" role="none">
+                    <a href="services.html" class="nav__link nav__link--active" role="menuitem">サービス</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="about.html" class="nav__link" role="menuitem">私たちについて</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="#works" class="nav__link" role="menuitem">実績</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="contact.html" class="nav__link" role="menuitem">お問い合わせ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero hero--centered" role="banner" aria-labelledby="hero-title">
+        <div class="hero__container o-container">
+            <div class="hero__content">
+                <h1 class="hero__title" id="hero-title">
+                    サービス
+                </h1>
+                <p class="hero__text">
+                    最先端のAI技術で、ビジネスの課題を解決します
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI開発サービス -->
+    <section class="o-section" id="ai-development" aria-labelledby="ai-dev-title">
+        <div class="o-container">
+            <div class="o-grid o-grid--2 o-grid--center">
+                <div>
+                    <h2 class="o-section__title" id="ai-dev-title">
+                        <span class="u-text-accent u-text-6xl u-font-black u-block">01</span>
+                        AI開発
+                    </h2>
+                    <p class="lead u-mb-6">
+                        お客様のビジネスニーズに合わせた、オーダーメイドのAIソリューションを開発します。
+                    </p>
+                    
+                    <div class="u-mb-8">
+                        <h3 class="u-text-xl u-font-bold u-mb-4">対応可能な技術</h3>
+                        <ul class="u-list-disc u-ml-6 u-space-y-2">
+                            <li>機械学習モデル開発</li>
+                            <li>深層学習（ディープラーニング）</li>
+                            <li>自然言語処理（NLP）</li>
+                            <li>コンピュータビジョン</li>
+                            <li>音声認識・音声合成</li>
+                            <li>予測分析・レコメンデーション</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn--primary">
+                        相談する
+                    </a>
+                </div>
+                <div class="u-flex u-justify-center u-items-center">
+                    <div class="u-relative">
+                        <div class="u-w-80 u-h-80 u-border-8 u-border-primary" aria-hidden="true"></div>
+                        <div class="u-w-80 u-h-80 u-border-8 u-border-accent u-absolute u-top-8 u-left-8" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- データ分析サービス -->
+    <section class="o-section o-section--dark" id="data-analysis" aria-labelledby="data-title">
+        <div class="o-container">
+            <div class="o-grid o-grid--2 o-grid--center">
+                <div class="u-flex u-justify-center u-items-center">
+                    <div class="u-relative">
+                        <div class="u-w-80 u-h-80 u-border-8 u-border-accent u-rotate-45" aria-hidden="true"></div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="o-section__title u-text-white" id="data-title">
+                        <span class="u-text-accent u-text-6xl u-font-black u-block">02</span>
+                        データ分析
+                    </h2>
+                    <p class="lead u-mb-6 u-text-white">
+                        膨大なデータから価値ある洞察を抽出し、データドリブンな意思決定を支援します。
+                    </p>
+                    
+                    <div class="u-mb-8">
+                        <h3 class="u-text-xl u-font-bold u-mb-4 u-text-white">提供サービス</h3>
+                        <ul class="u-list-disc u-ml-6 u-space-y-2 u-text-white u-opacity-80">
+                            <li>ビッグデータ分析基盤構築</li>
+                            <li>リアルタイム分析ダッシュボード</li>
+                            <li>顧客行動分析</li>
+                            <li>売上予測・需要予測</li>
+                            <li>異常検知システム</li>
+                            <li>A/Bテスト設計・分析</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn--primary">
+                        相談する
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自動化サービス -->
+    <section class="o-section" id="automation" aria-labelledby="automation-title">
+        <div class="o-container">
+            <div class="o-grid o-grid--2 o-grid--center">
+                <div>
+                    <h2 class="o-section__title" id="automation-title">
+                        <span class="u-text-accent u-text-6xl u-font-black u-block">03</span>
+                        業務自動化
+                    </h2>
+                    <p class="lead u-mb-6">
+                        AIとRPAを組み合わせて、業務プロセスを効率化・自動化します。
+                    </p>
+                    
+                    <div class="u-mb-8">
+                        <h3 class="u-text-xl u-font-bold u-mb-4">自動化可能な業務</h3>
+                        <ul class="u-list-disc u-ml-6 u-space-y-2">
+                            <li>書類処理・データ入力</li>
+                            <li>メール対応・問い合わせ対応</li>
+                            <li>レポート作成・集計作業</li>
+                            <li>在庫管理・発注処理</li>
+                            <li>請求書処理・経費精算</li>
+                            <li>顧客データ管理</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn--primary">
+                        相談する
+                    </a>
+                </div>
+                <div class="u-flex u-justify-center u-items-center">
+                    <div class="u-relative">
+                        <div class="u-w-64 u-h-64 u-border-8 u-border-primary u-rotate-12" aria-hidden="true"></div>
+                        <div class="u-w-64 u-h-64 u-border-8 u-border-accent u-rotate-45" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入プロセス -->
+    <section class="o-section o-section--dark" aria-labelledby="process-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title u-text-white" id="process-title">導入プロセス</h2>
+                <p class="o-section__subtitle u-text-white u-opacity-80">
+                    お客様に最適なソリューションを確実に提供するための5つのステップ
+                </p>
+            </header>
+            
+            <div class="o-grid o-grid--1">
+                <div class="u-space-y-8">
+                    <div class="o-flex">
+                        <div class="u-text-4xl u-font-black u-text-accent u-mr-6">01</div>
+                        <div>
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">ヒアリング</h3>
+                            <p class="u-text-white u-opacity-80">
+                                お客様の課題や目標を詳しくお伺いし、最適なソリューションを検討します。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="o-flex">
+                        <div class="u-text-4xl u-font-black u-text-accent u-mr-6">02</div>
+                        <div>
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">提案・設計</h3>
+                            <p class="u-text-white u-opacity-80">
+                                技術的な実現可能性を検証し、具体的な実装計画をご提案します。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="o-flex">
+                        <div class="u-text-4xl u-font-black u-text-accent u-mr-6">03</div>
+                        <div>
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">開発・実装</h3>
+                            <p class="u-text-white u-opacity-80">
+                                アジャイル開発手法により、迅速かつ柔軟に開発を進めます。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="o-flex">
+                        <div class="u-text-4xl u-font-black u-text-accent u-mr-6">04</div>
+                        <div>
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">テスト・検証</h3>
+                            <p class="u-text-white u-opacity-80">
+                                品質基準を満たすまで、徹底的にテストと改善を行います。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="o-flex">
+                        <div class="u-text-4xl u-font-black u-text-accent u-mr-6">05</div>
+                        <div>
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">導入・運用支援</h3>
+                            <p class="u-text-white u-opacity-80">
+                                スムーズな導入と、継続的な改善をサポートします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金体系 -->
+    <section class="o-section" aria-labelledby="pricing-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title" id="pricing-title">料金体系</h2>
+                <p class="o-section__subtitle">
+                    プロジェクトの規模や内容に応じた、柔軟な料金プランをご用意
+                </p>
+            </header>
+            
+            <div class="o-grid o-grid--3">
+                <article class="card card--large">
+                    <div class="card__header">
+                        <h3 class="card__title">コンサルティング</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="u-text-3xl u-font-black u-text-primary u-mb-4">
+                            30万円〜/月
+                        </p>
+                        <p class="card__text">
+                            AI導入に向けた戦略立案から技術選定まで、
+                            専門家がサポートします。
+                        </p>
+                    </div>
+                    <div class="card__footer">
+                        <a href="contact.html" class="btn btn--secondary btn--block">
+                            詳細を見る
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card card--large card--accent">
+                    <div class="card__header">
+                        <h3 class="card__title">開発プロジェクト</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="u-text-3xl u-font-black u-text-primary u-mb-4">
+                            500万円〜
+                        </p>
+                        <p class="card__text">
+                            要件定義から開発、テスト、導入まで、
+                            フルサポートでAIシステムを構築します。
+                        </p>
+                    </div>
+                    <div class="card__footer">
+                        <a href="contact.html" class="btn btn--primary btn--block">
+                            詳細を見る
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card card--large">
+                    <div class="card__header">
+                        <h3 class="card__title">運用保守</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="u-text-3xl u-font-black u-text-primary u-mb-4">
+                            50万円〜/月
+                        </p>
+                        <p class="card__text">
+                            導入後の継続的な改善、パフォーマンス監視、
+                            アップデートを行います。
+                        </p>
+                    </div>
+                    <div class="card__footer">
+                        <a href="contact.html" class="btn btn--secondary btn--block">
+                            詳細を見る
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="o-section o-section--dark" aria-labelledby="cta-title">
+        <div class="o-container u-text-center">
+            <h2 class="o-section__title u-text-white" id="cta-title">
+                AI導入のご相談はお気軽に
+            </h2>
+            <p class="lead u-mb-8 u-text-white u-opacity-80">
+                まずは無料相談から。お客様のビジネスに最適なAIソリューションをご提案します。
+            </p>
+            <a href="contact.html" class="btn btn--primary btn--lg">
+                無料相談を申し込む
+            </a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container o-container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                        <span>AI-DEV'S</span>
+                    </div>
+                    <p class="footer__description">
+                        未来を築くAI開発
+                    </p>
+                </div>
+                
+                <nav class="footer__nav" role="navigation" aria-label="フッターナビゲーション">
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">サービス</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="services.html#ai-development" class="footer__nav-link">AI開発</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#data-analysis" class="footer__nav-link">データ分析</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#automation" class="footer__nav-link">自動化</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">会社情報</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="about.html" class="footer__nav-link">私たちについて</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#works" class="footer__nav-link">実績</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#careers" class="footer__nav-link">採用情報</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">お問い合わせ</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="contact.html" class="footer__nav-link">お問い合わせフォーム</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#privacy" class="footer__nav-link">プライバシーポリシー</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#terms" class="footer__nav-link">利用規約</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AI-DEV'S. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modules/core.js"></script>
+</body>
+</html>

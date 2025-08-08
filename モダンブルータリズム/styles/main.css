@@ -50,6 +50,7 @@
 @import "04-objects/_grid.css";
 @import "04-objects/_media.css";
 @import "04-objects/_section.css";
+@import "04-objects/_timeline.css";
 
 /* ========================================================================
    05. Components - UIコンポーネント
@@ -61,6 +62,8 @@
 @import "05-components/_hero.css";
 @import "05-components/_card.css";
 @import "05-components/_footer.css";
+@import "05-components/_form.css";
+@import "05-components/_faq.css";
 
 /* ========================================================================
    06. Utilities - ユーティリティクラス

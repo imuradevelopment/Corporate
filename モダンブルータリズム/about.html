@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私たちについて | AI-DEV'S</title>
+    <meta name="description" content="AI-DEV'Sは最先端のAI技術と深い業界知識を組み合わせて、企業のデジタル変革を支援するテクノロジーカンパニーです。">
+    
+    <!-- CSSファイル（1つに統合） -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="nav" id="mainNav" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav__container o-container">
+            <a href="index.html" class="nav__logo" aria-label="AI-DEV'S ホームページ">
+                <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                <span>AI-DEV'S</span>
+            </a>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+            </button>
+            
+            <ul class="nav__menu" id="navMenu" role="menubar">
+                <li class="nav__item" role="none">
+                    <a href="services.html" class="nav__link" role="menuitem">サービス</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="about.html" class="nav__link nav__link--active" role="menuitem">私たちについて</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="#works" class="nav__link" role="menuitem">実績</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="contact.html" class="nav__link" role="menuitem">お問い合わせ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero hero--centered" role="banner" aria-labelledby="hero-title">
+        <div class="hero__container o-container">
+            <div class="hero__content">
+                <h1 class="hero__title" id="hero-title">
+                    私たちについて
+                </h1>
+                <p class="hero__text">
+                    AI技術の最前線で、未来を創造する
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ミッションセクション -->
+    <section class="o-section" aria-labelledby="mission-title">
+        <div class="o-container">
+            <div class="o-grid o-grid--2 o-grid--center">
+                <div>
+                    <h2 class="o-section__title" id="mission-title">ミッション</h2>
+                    <p class="lead u-mb-6">
+                        AI技術を通じて、すべての企業が持つ可能性を最大限に引き出し、
+                        より良い未来を創造することが私たちの使命です。
+                    </p>
+                    <p class="u-text-secondary u-mb-6">
+                        私たちは、単なる技術提供者ではありません。お客様のビジネスパートナーとして、
+                        共に成長し、共に挑戦し、共に成功を創り出します。
+                    </p>
+                    <a href="services.html" class="btn btn--primary">
+                        サービスを見る
+                    </a>
+                </div>
+                <div class="u-flex u-justify-center u-items-center">
+                    <div class="u-w-64 u-h-64 u-border-8 u-border-primary u-rotate-45" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 価値観セクション -->
+    <section class="o-section o-section--dark" aria-labelledby="values-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title u-text-white" id="values-title">私たちの価値観</h2>
+            </header>
+            
+            <div class="o-grid o-grid--3">
+                <article class="card card--dark">
+                    <div class="card__header">
+                        <div class="card__meta" aria-label="価値観番号">01</div>
+                        <h3 class="card__title">革新への情熱</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__text">
+                            常に最新の技術を追求し、革新的なソリューションを提供します。
+                            現状に満足せず、より良い方法を探求し続けます。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="card card--dark">
+                    <div class="card__header">
+                        <div class="card__meta" aria-label="価値観番号">02</div>
+                        <h3 class="card__title">誠実な対話</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__text">
+                            お客様との透明で誠実なコミュニケーションを大切にします。
+                            技術的な複雑さを分かりやすく説明し、共に解決策を見出します。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="card card--dark">
+                    <div class="card__header">
+                        <div class="card__meta" aria-label="価値観番号">03</div>
+                        <h3 class="card__title">持続的成長</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__text">
+                            短期的な成果だけでなく、長期的な価値創造を重視します。
+                            お客様のビジネスが持続的に成長できる基盤を構築します。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- チームセクション -->
+    <section class="o-section" aria-labelledby="team-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title" id="team-title">私たちのチーム</h2>
+                <p class="o-section__subtitle">
+                    多様な専門性を持つプロフェッショナルが集結
+                </p>
+            </header>
+            
+            <div class="o-grid o-grid--4">
+                <div class="u-text-center">
+                    <div class="u-text-5xl u-font-black u-text-primary" aria-label="25人">25</div>
+                    <div class="u-text-lg u-text-secondary">AIエンジニア</div>
+                </div>
+                <div class="u-text-center">
+                    <div class="u-text-5xl u-font-black u-text-primary" aria-label="15人">15</div>
+                    <div class="u-text-lg u-text-secondary">データサイエンティスト</div>
+                </div>
+                <div class="u-text-center">
+                    <div class="u-text-5xl u-font-black u-text-primary" aria-label="10人">10</div>
+                    <div class="u-text-lg u-text-secondary">プロジェクトマネージャー</div>
+                </div>
+                <div class="u-text-center">
+                    <div class="u-text-5xl u-font-black u-text-primary" aria-label="20人">20</div>
+                    <div class="u-text-lg u-text-secondary">ビジネスコンサルタント</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 沿革セクション -->
+    <section class="o-section o-section--dark" aria-labelledby="history-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title u-text-white" id="history-title">沿革</h2>
+            </header>
+            
+            <div class="o-grid o-grid--1">
+                <div class="o-timeline">
+                    <div class="o-timeline__item">
+                        <div class="o-timeline__date u-text-accent">2015</div>
+                        <div class="o-timeline__content">
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">創業</h3>
+                            <p class="u-text-white u-opacity-80">
+                                AI技術の可能性を信じる3人のエンジニアによって設立
+                            </p>
+                        </div>
+                    </div>
+                    <div class="o-timeline__item">
+                        <div class="o-timeline__date u-text-accent">2018</div>
+                        <div class="o-timeline__content">
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">事業拡大</h3>
+                            <p class="u-text-white u-opacity-80">
+                                大手企業との提携により、エンタープライズ向けサービスを開始
+                            </p>
+                        </div>
+                    </div>
+                    <div class="o-timeline__item">
+                        <div class="o-timeline__date u-text-accent">2020</div>
+                        <div class="o-timeline__content">
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">研究開発部門設立</h3>
+                            <p class="u-text-white u-opacity-80">
+                                最先端のAI研究に特化した専門部門を設立
+                            </p>
+                        </div>
+                    </div>
+                    <div class="o-timeline__item">
+                        <div class="o-timeline__date u-text-accent">2024</div>
+                        <div class="o-timeline__content">
+                            <h3 class="u-text-xl u-font-bold u-text-white u-mb-2">グローバル展開</h3>
+                            <p class="u-text-white u-opacity-80">
+                                アジア・欧米市場への本格進出を開始
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="o-section" aria-labelledby="cta-title">
+        <div class="o-container u-text-center">
+            <h2 class="o-section__title" id="cta-title">
+                一緒に未来を創りませんか？
+            </h2>
+            <p class="lead u-mb-8">
+                AI技術で新しい価値を創造したい企業様、ぜひお気軽にご相談ください。
+            </p>
+            <a href="contact.html" class="btn btn--primary btn--lg">
+                お問い合わせはこちら
+            </a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container o-container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                        <span>AI-DEV'S</span>
+                    </div>
+                    <p class="footer__description">
+                        未来を築くAI開発
+                    </p>
+                </div>
+                
+                <nav class="footer__nav" role="navigation" aria-label="フッターナビゲーション">
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">サービス</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="services.html#ai-development" class="footer__nav-link">AI開発</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#data-analysis" class="footer__nav-link">データ分析</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#automation" class="footer__nav-link">自動化</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">会社情報</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="about.html" class="footer__nav-link">私たちについて</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#works" class="footer__nav-link">実績</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#careers" class="footer__nav-link">採用情報</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">お問い合わせ</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="contact.html" class="footer__nav-link">お問い合わせフォーム</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#privacy" class="footer__nav-link">プライバシーポリシー</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#terms" class="footer__nav-link">利用規約</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AI-DEV'S. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modules/core.js"></script>
+</body>
+</html>

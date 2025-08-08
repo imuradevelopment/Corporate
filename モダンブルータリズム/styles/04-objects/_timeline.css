@@ -1,0 +1,217 @@
+/**
+ * タイムラインオブジェクト
+ * OOCSS: .o-timeline
+ * 
+ * ブルータリズムの特徴：
+ * - 太いライン
+ * - 強いコントラスト
+ * - 幾何学的な形状
+ */
+
+/* ========================================================================
+   タイムラインコンテナ
+   ======================================================================== */
+
+.o-timeline {
+  position: relative;
+  padding-left: var(--space-12);
+}
+
+/* 縦のライン */
+.o-timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--color-primary);
+}
+
+/* ========================================================================
+   タイムラインアイテム
+   ======================================================================== */
+
+.o-timeline__item {
+  position: relative;
+  padding-bottom: var(--space-8);
+}
+
+.o-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* ドット */
+.o-timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-primary);
+  border: 4px solid var(--color-bg-inverse);
+  z-index: 1;
+}
+
+/* ========================================================================
+   タイムラインコンテンツ
+   ======================================================================== */
+
+.o-timeline__date {
+  position: absolute;
+  left: -120px;
+  top: -2px;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  color: var(--color-primary);
+  text-align: right;
+  width: 80px;
+}
+
+.o-timeline__content {
+  padding-left: var(--space-4);
+}
+
+/* ========================================================================
+   バリエーション
+   ======================================================================== */
+
+/* 中央配置タイムライン */
+.o-timeline--centered {
+  padding-left: 0;
+}
+
+.o-timeline--centered::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.o-timeline--centered .o-timeline__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.o-timeline--centered .o-timeline__item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.o-timeline--centered .o-timeline__item::before {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.o-timeline--centered .o-timeline__date {
+  position: static;
+  width: calc(50% - var(--space-8));
+  text-align: center;
+}
+
+.o-timeline--centered .o-timeline__content {
+  width: calc(50% - var(--space-8));
+  padding: 0;
+}
+
+/* 横向きタイムライン */
+.o-timeline--horizontal {
+  display: flex;
+  gap: var(--space-6);
+  padding-left: 0;
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+}
+
+.o-timeline--horizontal::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-primary);
+}
+
+.o-timeline--horizontal .o-timeline__item {
+  flex: 0 0 auto;
+  padding-bottom: var(--space-8);
+  min-width: 200px;
+}
+
+.o-timeline--horizontal .o-timeline__item::before {
+  left: 50%;
+  bottom: 8px;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+.o-timeline--horizontal .o-timeline__date {
+  position: static;
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.o-timeline--horizontal .o-timeline__content {
+  text-align: center;
+  padding-left: 0;
+}
+
+/* ========================================================================
+   レスポンシブ
+   ======================================================================== */
+
+@media (max-width: 768px) {
+  .o-timeline {
+    padding-left: var(--space-8);
+  }
+  
+  .o-timeline::before {
+    left: 12px;
+  }
+  
+  .o-timeline__item::before {
+    left: -20px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .o-timeline__date {
+    position: static;
+    margin-bottom: var(--space-2);
+    text-align: left;
+    width: auto;
+    font-size: var(--font-size-xl);
+  }
+  
+  .o-timeline__content {
+    padding-left: 0;
+  }
+  
+  /* 中央配置は通常レイアウトに */
+  .o-timeline--centered {
+    padding-left: var(--space-8);
+  }
+  
+  .o-timeline--centered::before {
+    left: 12px;
+    transform: none;
+  }
+  
+  .o-timeline--centered .o-timeline__item {
+    display: block;
+  }
+  
+  .o-timeline--centered .o-timeline__item::before {
+    left: -20px;
+    transform: none;
+  }
+  
+  .o-timeline--centered .o-timeline__date,
+  .o-timeline--centered .o-timeline__content {
+    width: 100%;
+    text-align: left;
+  }
+}

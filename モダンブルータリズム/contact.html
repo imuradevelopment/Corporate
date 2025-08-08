@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | AI-DEV'S</title>
+    <meta name="description" content="AI-DEV'Sへのお問い合わせはこちらから。AI開発やデータ分析に関するご相談を承っています。">
+    
+    <!-- CSSファイル（1つに統合） -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="nav" id="mainNav" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav__container o-container">
+            <a href="index.html" class="nav__logo" aria-label="AI-DEV'S ホームページ">
+                <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                <span>AI-DEV'S</span>
+            </a>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+                <span class="nav__toggle-line" aria-hidden="true"></span>
+            </button>
+            
+            <ul class="nav__menu" id="navMenu" role="menubar">
+                <li class="nav__item" role="none">
+                    <a href="services.html" class="nav__link" role="menuitem">サービス</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="about.html" class="nav__link" role="menuitem">私たちについて</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="#works" class="nav__link" role="menuitem">実績</a>
+                </li>
+                <li class="nav__item" role="none">
+                    <a href="contact.html" class="nav__link nav__link--active" role="menuitem">お問い合わせ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero hero--centered" role="banner" aria-labelledby="hero-title">
+        <div class="hero__container o-container">
+            <div class="hero__content">
+                <h1 class="hero__title" id="hero-title">
+                    お問い合わせ
+                </h1>
+                <p class="hero__text">
+                    AI導入のご相談から、技術的なご質問まで、お気軽にお問い合わせください
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせフォーム -->
+    <section class="o-section" aria-labelledby="contact-form-title">
+        <div class="o-container">
+            <div class="o-grid o-grid--2">
+                <!-- フォーム -->
+                <div>
+                    <h2 class="o-section__title" id="contact-form-title">お問い合わせフォーム</h2>
+                    
+                    <form class="form" id="contactForm" action="#" method="POST">
+                        <div class="form__group">
+                            <label for="company" class="form__label">会社名 <span class="u-text-accent">*</span></label>
+                            <input type="text" id="company" name="company" class="form__control" required>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="name" class="form__label">お名前 <span class="u-text-accent">*</span></label>
+                            <input type="text" id="name" name="name" class="form__control" required>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="email" class="form__label">メールアドレス <span class="u-text-accent">*</span></label>
+                            <input type="email" id="email" name="email" class="form__control" required>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="phone" class="form__label">電話番号</label>
+                            <input type="tel" id="phone" name="phone" class="form__control">
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="inquiry-type" class="form__label">お問い合わせ種別 <span class="u-text-accent">*</span></label>
+                            <select id="inquiry-type" name="inquiry-type" class="form__control" required>
+                                <option value="">選択してください</option>
+                                <option value="ai-development">AI開発について</option>
+                                <option value="data-analysis">データ分析について</option>
+                                <option value="automation">業務自動化について</option>
+                                <option value="consultation">無料相談希望</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="message" class="form__label">お問い合わせ内容 <span class="u-text-accent">*</span></label>
+                            <textarea id="message" name="message" rows="6" class="form__control" required></textarea>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label class="form__checkbox">
+                                <input type="checkbox" name="privacy" required>
+                                <span>
+                                    <a href="#privacy" class="u-text-primary u-underline">プライバシーポリシー</a>に同意する
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--lg btn--block">
+                            送信する
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- 連絡先情報 -->
+                <div>
+                    <div class="u-sticky u-top-24">
+                        <h2 class="o-section__title">その他のお問い合わせ方法</h2>
+                        
+                        <div class="card u-mb-6">
+                            <div class="card__body">
+                                <h3 class="u-text-xl u-font-bold u-mb-4">お電話でのお問い合わせ</h3>
+                                <p class="u-text-3xl u-font-black u-text-primary u-mb-2">
+                                    03-1234-5678
+                                </p>
+                                <p class="u-text-sm u-text-secondary">
+                                    受付時間：平日 9:00〜18:00
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="card u-mb-6">
+                            <div class="card__body">
+                                <h3 class="u-text-xl u-font-bold u-mb-4">メールでのお問い合わせ</h3>
+                                <p class="u-text-xl u-font-bold u-text-primary">
+                                    info@ai-devs.jp
+                                </p>
+                                <p class="u-text-sm u-text-secondary u-mt-2">
+                                    2営業日以内にご返信いたします
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card__body">
+                                <h3 class="u-text-xl u-font-bold u-mb-4">オフィス所在地</h3>
+                                <p class="u-mb-2">
+                                    〒100-0001<br>
+                                    東京都千代田区千代田1-1-1<br>
+                                    AIビルディング 10F
+                                </p>
+                                <p class="u-text-sm u-text-secondary">
+                                    最寄駅：東京駅 徒歩5分
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくあるご質問 -->
+    <section class="o-section o-section--dark" aria-labelledby="faq-title">
+        <div class="o-container">
+            <header class="o-section__header">
+                <h2 class="o-section__title u-text-white" id="faq-title">よくあるご質問</h2>
+            </header>
+            
+            <div class="o-grid o-grid--1">
+                <div class="u-space-y-6">
+                    <details class="faq">
+                        <summary class="faq__question">
+                            相談は無料ですか？
+                        </summary>
+                        <div class="faq__answer">
+                            はい、初回のご相談は無料です。お客様の課題をお伺いし、
+                            弊社でお手伝いできることがあるか検討させていただきます。
+                        </div>
+                    </details>
+                    
+                    <details class="faq">
+                        <summary class="faq__question">
+                            どのような規模の企業が対象ですか？
+                        </summary>
+                        <div class="faq__answer">
+                            スタートアップから大企業まで、規模を問わずご支援しています。
+                            お客様の規模や予算に応じた最適なソリューションをご提案します。
+                        </div>
+                    </details>
+                    
+                    <details class="faq">
+                        <summary class="faq__question">
+                            AI開発の期間はどのくらいですか？
+                        </summary>
+                        <div class="faq__answer">
+                            プロジェクトの規模や複雑さによりますが、
+                            小規模なPoCであれば1〜2ヶ月、本格的なシステム開発は3〜6ヶ月程度が目安です。
+                        </div>
+                    </details>
+                    
+                    <details class="faq">
+                        <summary class="faq__question">
+                            導入後のサポートはありますか？
+                        </summary>
+                        <div class="faq__answer">
+                            はい、導入後も継続的なサポートを提供しています。
+                            システムの保守・運用から、パフォーマンスの改善提案まで幅広くサポートします。
+                        </div>
+                    </details>
+                    
+                    <details class="faq">
+                        <summary class="faq__question">
+                            データのセキュリティは大丈夫ですか？
+                        </summary>
+                        <div class="faq__answer">
+                            お客様のデータセキュリティを最優先に考えています。
+                            ISO27001に準拠したセキュリティ体制のもと、安全にデータを取り扱います。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container o-container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <div class="nav__logo-icon" aria-hidden="true">AI</div>
+                        <span>AI-DEV'S</span>
+                    </div>
+                    <p class="footer__description">
+                        未来を築くAI開発
+                    </p>
+                </div>
+                
+                <nav class="footer__nav" role="navigation" aria-label="フッターナビゲーション">
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">サービス</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="services.html#ai-development" class="footer__nav-link">AI開発</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#data-analysis" class="footer__nav-link">データ分析</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="services.html#automation" class="footer__nav-link">自動化</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">会社情報</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="about.html" class="footer__nav-link">私たちについて</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#works" class="footer__nav-link">実績</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#careers" class="footer__nav-link">採用情報</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">お問い合わせ</h3>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="contact.html" class="footer__nav-link">お問い合わせフォーム</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#privacy" class="footer__nav-link">プライバシーポリシー</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#terms" class="footer__nav-link">利用規約</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 AI-DEV'S. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/modules/core.js"></script>
+</body>
+</html>

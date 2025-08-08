@@ -1,0 +1,210 @@
+/**
+ * FAQコンポーネント
+ * BEM記法: .faq, .faq__question, .faq__answer
+ * 
+ * ブルータリズムの特徴：
+ * - 太いボーダー
+ * - 角張った形状
+ * - 強いコントラスト
+ * - アコーディオン効果
+ */
+
+/* ========================================================================
+   FAQ詳細要素
+   ======================================================================== */
+
+.faq {
+  background-color: var(--color-bg-secondary);
+  border: 4px solid var(--color-text-inverse);
+  margin-bottom: var(--space-4);
+  transition: all 300ms ease;
+}
+
+.faq:last-child {
+  margin-bottom: 0;
+}
+
+/* オープン状態 */
+.faq[open] {
+  background-color: var(--color-bg-tertiary);
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 0 var(--color-accent);
+}
+
+/* ========================================================================
+   FAQ質問（サマリー）
+   ======================================================================== */
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  position: relative;
+  transition: all 200ms ease;
+}
+
+/* デフォルトの三角形を非表示 */
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+/* カスタムアイコン */
+.faq__question::after {
+  content: "+";
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  color: var(--color-accent);
+  transition: transform 200ms ease;
+  line-height: 1;
+}
+
+/* オープン時のアイコン回転 */
+.faq[open] .faq__question::after {
+  transform: rotate(45deg);
+}
+
+/* ホバー効果 */
+.faq__question:hover {
+  color: var(--color-accent);
+}
+
+/* ========================================================================
+   FAQ回答
+   ======================================================================== */
+
+.faq__answer {
+  padding: 0 var(--space-6) var(--space-6);
+  color: var(--color-text-inverse);
+  opacity: 0.8;
+  line-height: var(--line-height-relaxed);
+  animation: fadeIn 300ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================================================
+   FAQバリエーション
+   ======================================================================== */
+
+/* ボーダーレス */
+.faq--borderless {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.faq--borderless:last-child {
+  border-bottom: none;
+}
+
+.faq--borderless[open] {
+  transform: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.faq--borderless .faq__question {
+  padding: var(--space-4) 0;
+}
+
+.faq--borderless .faq__answer {
+  padding: 0 0 var(--space-4);
+}
+
+/* コンパクト */
+.faq--compact .faq__question {
+  padding: var(--space-4);
+  font-size: var(--font-size-base);
+}
+
+.faq--compact .faq__answer {
+  padding: 0 var(--space-4) var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+/* ナンバリング付き */
+.faq--numbered {
+  counter-increment: faq-counter;
+}
+
+.faq--numbered .faq__question::before {
+  content: counter(faq-counter, decimal-leading-zero);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-black);
+  color: var(--color-accent);
+  margin-right: var(--space-4);
+}
+
+/* ========================================================================
+   FAQグループ
+   ======================================================================== */
+
+.faq-group {
+  counter-reset: faq-counter;
+}
+
+.faq-group__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* ========================================================================
+   レスポンシブ
+   ======================================================================== */
+
+@media (max-width: 768px) {
+  .faq {
+    border-width: 3px;
+  }
+  
+  .faq[open] {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 0 var(--color-accent);
+  }
+  
+  .faq__question {
+    padding: var(--space-4);
+    font-size: var(--font-size-base);
+  }
+  
+  .faq__question::after {
+    font-size: var(--font-size-xl);
+  }
+  
+  .faq__answer {
+    padding: 0 var(--space-4) var(--space-4);
+    font-size: var(--font-size-sm);
+  }
+  
+  .faq--numbered .faq__question::before {
+    font-size: var(--font-size-2xl);
+    margin-right: var(--space-3);
+  }
+}
