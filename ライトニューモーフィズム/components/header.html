@@ -4,8 +4,11 @@
       <span class="logo"></span>
       <span>AI-Dev's</span>
     </a>
-    <div class="menu">
-      <a data-href="@/index.html" class="active">Home</a>
+    <button class="hamburger" id="menu-toggle" aria-label="メニューを開閉">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu" id="site-menu">
+      <a data-href="@/index.html">Home</a>
       <a data-href="@/pages/about.html">About</a>
       <a data-href="@/pages/services.html">Services</a>
       <a data-href="@/pages/works.html">Works</a>
@@ -13,18 +16,4 @@
       <a data-href="@/pages/contact.html">Contact</a>
     </div>
   </nav>
-  <script>
-    (function(){
-      var isInPages = window.location.pathname.includes('/pages/');
-      var prefix = isInPages ? '../' : '';
-      document.querySelectorAll('header a[data-href]').forEach(function(a){
-        var target = a.getAttribute('data-href');
-        if(!target) return;
-        a.setAttribute('href', prefix + target.replace(/^@\//,'').replace(/^\.\//,''));
-        if (a.textContent.trim().toLowerCase() === 'home' && window.location.pathname.endsWith('/index.html')) {
-          a.classList.add('active');
-        }
-      });
-    })();
-  </script>
 </header>
