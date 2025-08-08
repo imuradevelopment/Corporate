@@ -1,4 +1,9 @@
 /* Entry stylesheet (build-less). Keep visual unchanged. */
 @import url("../assets/css/black-glass.css");
+@import url("pages/home.css");
+@import url("pages/about.css");
+@import url("pages/services.css");
+@import url("pages/portfolio.css");
+@import url("pages/contact.css");
 
 
