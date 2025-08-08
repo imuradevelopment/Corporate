@@ -86,22 +86,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-brand">AI-Dev's</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">ホーム</a></li>
-                <li><a href="about.html" class="nav-link">会社概要</a></li>
-                <li><a href="services.html" class="nav-link">サービス</a></li>
-                <li><a href="portfolio.html" class="nav-link">実績</a></li>
-                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <div data-include="header"></div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -374,57 +359,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3 class="nav-brand footer-brand">AI-Dev's</h3>
-                    <p style="color: var(--text-muted); line-height: 1.6;">
-                        AI技術で未来を創造する<br>
-                        革新的なソリューションプロバイダー
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading">サービス</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html#ai-development">AI開発</a></li>
-                        <li><a href="services.html#data-analytics">データ分析</a></li>
-                        <li><a href="services.html#system-development">システム開発</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading">企業情報</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html">会社概要</a></li>
-                        <li><a href="portfolio.html">導入実績</a></li>
-                        <li><a href="contact.html">お問い合わせ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading">フォローする</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 AI-Dev's. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div data-include="footer"></div>
 
     <!-- JavaScript -->
     <script>
@@ -509,7 +444,6 @@
         animateParticles();
 
     </script>
-    <!-- Mobile Menu Script -->
-    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/include.js"></script>
 </body>
 </html>
