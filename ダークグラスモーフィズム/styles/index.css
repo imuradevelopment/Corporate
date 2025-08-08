@@ -13,17 +13,17 @@
 @import url("05-components/hero.css");
 @import url("05-components/cards.css");
 @import url("05-components/footer.css");
+@import url("05-components/page-header.css");
+@import url("05-components/timeline.css");
+@import url("05-components/services.css");
+@import url("05-components/portfolio.css");
+@import url("05-components/contact.css");
 @import url("06-utilities/responsive.css");
 
 /* Legacy theme stylesheet (unchanged visuals) */
 /* Legacy theme stylesheet (temporary during migration) */
 /* @import url("../assets/css/black-glass.css"); */
 
-/* Page-level scope (temporary until fully componentized) */
-@import url("pages/home.css");
-@import url("pages/about.css");
-@import url("pages/services.css");
-@import url("pages/portfolio.css");
-@import url("pages/contact.css");
+/* Page-level scope (removed after componentization) */
 
 
