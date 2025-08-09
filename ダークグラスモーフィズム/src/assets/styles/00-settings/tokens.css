@@ -67,4 +67,12 @@
   --focus-ring: 0 0 0 3px rgba(6, 182, 212, 0.5);
 }
 
+/* Focus visibility defaults */
+:focus-visible { outline: none; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible { box-shadow: var(--focus-ring); }
+
 

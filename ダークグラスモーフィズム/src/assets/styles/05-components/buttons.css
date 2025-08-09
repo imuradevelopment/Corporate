@@ -13,6 +13,7 @@
   text-transform: none;
   letter-spacing: 0.025em;
 }
+.c-button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .c-button::after {
   content: '';
   position: absolute;
@@ -38,6 +39,7 @@
   box-shadow: 0 0 30px rgba(6, 182, 212, 0.7), 0 6px 30px rgba(6, 182, 212, 0.6);
 }
 .c-button--primary:hover::before { opacity: 1; }
+.c-button--primary:focus-visible { box-shadow: var(--focus-ring), 0 0 0 2px rgba(0,0,0,0.3) inset; }
 
 .c-button--glass { background: var(--black-glass);
   backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -46,5 +48,6 @@
 .c-button--glass:hover { background: var(--black-glass-hover); border-color: var(--glass-border-hover);
   transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
 }
+.c-button--glass:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--glass-shadow); border-color: var(--accent-cyan); }
 
 

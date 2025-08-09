@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  function prefersReducedMotion() {
+  function isReducedMotionPreferred() {
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
   function initAOS() {
     if (!window.AOS) return;
     // 低刺激環境ではAOSを無効化
-    if (prefersReducedMotion && prefersReducedMotion()) {
+    if (isReducedMotionPreferred && isReducedMotionPreferred()) {
       try { window.AOS.init({ disable: true }); } catch {}
       return;
     }
@@ -55,20 +55,30 @@
     var count = typeof opts.count === 'number' ? opts.count : 30;
 
     var canvas = document.getElementById(canvasId);
-    if (!canvas || prefersReducedMotion()) return;
+    if (!canvas || isReducedMotionPreferred()) return;
     var ctx = canvas.getContext('2d');
 
+    var dpr = Math.max(1, window.devicePixelRatio || 1);
+    var viewWidth = 0;
+    var viewHeight = 0;
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      var displayWidth = window.innerWidth;
+      var displayHeight = window.innerHeight;
+      viewWidth = displayWidth;
+      viewHeight = displayHeight;
+      canvas.style.width = displayWidth + 'px';
+      canvas.style.height = displayHeight + 'px';
+      canvas.width = Math.floor(displayWidth * dpr);
+      canvas.height = Math.floor(displayHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
     window.addEventListener('resize', resize);
 
     var particles = [];
     function Particle() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+      this.x = Math.random() * viewWidth;
+      this.y = Math.random() * viewHeight;
       this.size = Math.random() * 2 + 0.5;
       this.speedX = Math.random() * 0.5 - 0.25;
       this.speedY = Math.random() * 0.5 - 0.25;
@@ -77,8 +87,8 @@
     Particle.prototype.update = function () {
       this.x += this.speedX;
       this.y += this.speedY;
-      if (this.x > canvas.width) this.x = 0; else if (this.x < 0) this.x = canvas.width;
-      if (this.y > canvas.height) this.y = 0; else if (this.y < 0) this.y = canvas.height;
+      if (this.x > viewWidth) this.x = 0; else if (this.x < 0) this.x = viewWidth;
+      if (this.y > viewHeight) this.y = 0; else if (this.y < 0) this.y = viewHeight;
     };
     Particle.prototype.draw = function () {
       ctx.fillStyle = color.replace(/\d?\.\d+\)/, this.opacity + ')') || color;
@@ -92,7 +102,7 @@
     var running = true;
     function frame() {
       if (!running) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, viewWidth, viewHeight);
       particles.forEach(function (p) { p.update(); p.draw(); });
       if (connectLines) {
         for (var i = 0; i < particles.length; i++) {
