@@ -1,0 +1,176 @@
+name: Cleanup Deleted Branches from GitHub Pages
+
+on:
+  delete:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 0 * * 0'  # 毎週日曜日の深夜に実行
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get all remote branches
+        id: branches
+        run: |
+          # 現在存在するブランチを取得
+          EXISTING_BRANCHES=$(git branch -r | grep -v HEAD | grep -v gh-pages | sed 's/origin\///' | tr '\n' ' ')
+          echo "existing_branches=$EXISTING_BRANCHES" >> $GITHUB_OUTPUT
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Ensure .nojekyll
+        run: |
+          # GitHub Pages の Jekyll 処理を無効化
+          touch gh-pages/.nojekyll
+
+      - name: Clean up deleted branches
+        run: |
+          cd gh-pages
+          
+          # 現在のディレクトリ一覧を取得
+          for dir in */; do
+            if [ -d "$dir" ] && [ "$dir" != "assets/" ] && [ "$dir" != "components/" ]; then
+              dir_name=$(echo $dir | sed 's/\/$//')
+              
+              # ディレクトリ名からブランチ名を推定（ハイフンをスラッシュに戻す）
+              # 注意: これは完全な変換ではない（例: feature-add-dashはfeature/add/dashになってしまう）
+              # しかし、実際にはディレクトリ名とブランチ名の対応を確認する
+              branch_exists=false
+              for existing_branch in ${{ steps.branches.outputs.existing_branches }}; do
+                # ブランチ名をディレクトリ名形式に変換
+                existing_branch_dir=$(echo $existing_branch | sed 's/\//-/g')
+                if [ "$dir_name" = "$existing_branch_dir" ]; then
+                  branch_exists=true
+                  break
+                fi
+              done
+              
+              # 存在しないブランチのディレクトリを削除
+              if [ "$branch_exists" = false ]; then
+                echo "Removing directory for deleted branch: $dir"
+                rm -rf "$dir"
+              fi
+            fi
+          done
+
+      - name: Update index.html
+        run: |
+          cd gh-pages
+          
+          # index.htmlを生成（外部CDN不使用 / 純粋HTML+CSS+JS）
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>AI-Dev's - ブランチ一覧</title>
+            <style>
+              :root { color-scheme: dark light; }
+              body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #0b0f14; color: #e5e7eb; }
+              .container { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+              h1 { text-align: center; font-size: 28px; margin: 0 0 24px; }
+              .accent { color: #22c55e; }
+              .meta { text-align: center; color: #9ca3af; margin-bottom: 24px; font-size: 14px; }
+              .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+              .card { display: block; padding: 16px; border-radius: 12px; background: #111827; color: inherit; text-decoration: none; border: 1px solid #1f2937; }
+              .card:hover { background: #0f172a; border-color: #334155; }
+              .card-title { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 18px; }
+              .badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #064e3b; color: #34d399; }
+              .url { color: #34d399; font-size: 12px; word-break: break-all; }
+              .note { margin-top: 32px; padding: 16px; border-radius: 12px; background: #111827; border: 1px solid #1f2937; }
+              .note h3 { margin: 0 0 8px; font-size: 16px; }
+              .note ul { margin: 0; padding-left: 18px; color: #9ca3af; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1><span class="accent">AI-Dev's</span> ブランチ一覧</h1>
+              <div class="meta">最終更新: <span id="update-time"></span></div>
+              <div id="branch-list" class="grid"></div>
+              <div class="note">
+                <h3>自動デプロイについて</h3>
+                <ul>
+                  <li>全てのブランチが自動的に GitHub Pages にデプロイされます</li>
+                  <li>新しいブランチを作成してプッシュすると、数分後に公開されます</li>
+                  <li>ブランチを削除すると、対応するページも自動的に削除されます</li>
+                  <li>各デザインは <code>/ブランチ名/</code> で公開されます</li>
+                </ul>
+              </div>
+            </div>
+            <script>
+              const deployedBranches = [
+          EOF
+
+          # デプロイ済みのディレクトリを検出してJSONに追加
+          for dir in */; do
+            if [ -d "$dir" ]; then
+              dir_name=$(echo $dir | sed 's/\/$//')
+              echo "                { name: '$dir_name', dir: '$dir_name' }," >> index.html
+            fi
+          done
+
+          cat >> index.html << 'EOF'
+              ];
+
+              function getBranchType(name) {
+                const n = name.toLowerCase();
+                if (n === 'main' || n === 'master') return { emoji: '🏠', label: 'main' };
+                if (n.startsWith('feature-') || n.includes('feature')) return { emoji: '✨', label: 'feature' };
+                if (n.startsWith('release-') || n.includes('release')) return { emoji: '🏷️', label: 'release' };
+                if (n.startsWith('hotfix-') || n.includes('hotfix')) return { emoji: '🔥', label: 'hotfix' };
+                if (n.includes('fix')) return { emoji: '🐛', label: 'fix' };
+                if (n.includes('docs')) return { emoji: '📘', label: 'docs' };
+                if (n.includes('test')) return { emoji: '🧪', label: 'test' };
+                return { emoji: '🌿', label: 'branch' };
+              }
+
+              function render() {
+                const container = document.getElementById('branch-list');
+                deployedBranches.forEach(branch => {
+                  const type = getBranchType(branch.name);
+                  const url = `./${branch.dir}/`;
+                  const a = document.createElement('a');
+                  a.className = 'card';
+                  a.href = url;
+                  a.target = '_blank';
+                  a.innerHTML = `
+                    <div class="card-title">${type.emoji} ${branch.name} <span class="badge">${type.label}</span></div>
+                    <div class="url">${url}</div>
+                  `;
+                  container.appendChild(a);
+                });
+              }
+
+              document.getElementById('update-time').textContent = new Date().toLocaleString('ja-JP');
+              render();
+            </script>
+          </body>
+          </html>
+          EOF
+      - name: Commit and push
+        run: |
+          cd gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Cleanup deleted branches"
+            git push origin gh-pages
+          fi

@@ -1,0 +1,184 @@
+name: Deploy All Branches to GitHub Pages
+
+on:
+  push:
+    branches:
+      - '**'  # 全てのブランチでトリガー
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup branch info
+        id: branch_info
+        run: |
+          CURRENT_BRANCH=${GITHUB_REF#refs/heads/}
+          BRANCH_DIR=$(echo $CURRENT_BRANCH | sed 's/\//-/g')
+          echo "current_branch=$CURRENT_BRANCH" >> $GITHUB_OUTPUT
+          echo "branch_dir=$BRANCH_DIR" >> $GITHUB_OUTPUT
+
+      - name: Setup gh-pages branch
+        run: |
+          # gh-pagesブランチが存在するか確認
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            echo "gh-pages branch exists, checking out..."
+            git fetch origin gh-pages
+            git worktree add gh-pages gh-pages
+          else
+            echo "gh-pages branch does not exist, creating..."
+            git checkout --orphan gh-pages
+            git rm -rf . || true
+            echo "GitHub Pages" > index.html
+            git add index.html
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git commit -m "Initial gh-pages branch"
+            git push origin gh-pages
+            git checkout ${GITHUB_REF#refs/heads/}
+            git worktree add gh-pages gh-pages
+          fi
+
+      - name: Ensure .nojekyll
+        run: |
+          # GitHub Pages の Jekyll 処理を無効化
+          touch gh-pages/.nojekyll
+
+      - name: Copy current branch content
+        run: |
+          if [ "${{ steps.branch_info.outputs.current_branch }}" = "main" ] || [ "${{ steps.branch_info.outputs.current_branch }}" = "master" ]; then
+            # main/master ブランチは一覧ページのみ生成（実体のコンテンツは配置しない）
+            :
+          else
+            # デザインブランチは src/ があればその中身を公開ディレクトリ直下に配置
+            mkdir -p gh-pages/${{ steps.branch_info.outputs.branch_dir }}
+            if [ ! -d "src" ]; then
+              echo "Error: src/ ディレクトリが見つかりません。このリポジトリでは src/ が必須です。" >&2
+              exit 1
+            fi
+            rsync -av --delete --exclude='.git' --exclude='.github' --exclude='gh-pages' src/ gh-pages/${{ steps.branch_info.outputs.branch_dir }}/
+          fi
+
+      - name: Get all branches
+        id: branches
+        run: |
+          # リモートの全ブランチを取得（メインリポジトリから）
+          git fetch origin
+          BRANCHES=$(git branch -r | grep origin | grep -v HEAD | grep -v gh-pages | sed 's/origin\///' | tr '\n' ' ')
+          echo "all_branches=$BRANCHES" >> $GITHUB_OUTPUT
+
+      - name: Generate branch index
+        run: |
+          cat > gh-pages/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>AI-Dev's - ブランチ一覧</title>
+            <style>
+              :root { color-scheme: dark light; }
+              body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #0b0f14; color: #e5e7eb; }
+              .container { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+              h1 { text-align: center; font-size: 28px; margin: 0 0 24px; }
+              .accent { color: #22c55e; }
+              .meta { text-align: center; color: #9ca3af; margin-bottom: 24px; font-size: 14px; }
+              .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+              .card { display: block; padding: 16px; border-radius: 12px; background: #111827; color: inherit; text-decoration: none; border: 1px solid #1f2937; }
+              .card:hover { background: #0f172a; border-color: #334155; }
+              .card-title { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 18px; }
+              .badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #064e3b; color: #34d399; }
+              .url { color: #34d399; font-size: 12px; word-break: break-all; }
+              .note { margin-top: 32px; padding: 16px; border-radius: 12px; background: #111827; border: 1px solid #1f2937; }
+              .note h3 { margin: 0 0 8px; font-size: 16px; }
+              .note ul { margin: 0; padding-left: 18px; color: #9ca3af; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1><span class="accent">AI-Dev's</span> ブランチ一覧</h1>
+              <div class="meta">最終更新: <span id="update-time"></span></div>
+              <div id="branch-list" class="grid"></div>
+              <div class="note">
+                <h3>自動デプロイについて</h3>
+                <ul>
+                  <li>全てのブランチが自動的に GitHub Pages にデプロイされます</li>
+                  <li>新しいブランチを作成してプッシュすると、数分後に公開されます</li>
+                  <li>ブランチを削除すると、対応するページも自動的に削除されます</li>
+                  <li>各デザインは <code>/ブランチ名/</code> で公開されます</li>
+                </ul>
+              </div>
+            </div>
+            <script>
+              const deployedBranches = [
+          EOF
+
+          # デプロイ済みのディレクトリを検出してJSONに追加
+          cd gh-pages
+          for dir in */; do
+            if [ -d "$dir" ]; then
+              branch_name=$(echo $dir | sed 's/\///')
+              echo "                { name: '$branch_name', dir: '$branch_name' }," >> index.html
+            fi
+          done
+
+          cat >> index.html << 'EOF'
+              ];
+
+              function getBranchType(name) {
+                const n = name.toLowerCase();
+                if (n === 'main' || n === 'master') return { emoji: '🏠', label: 'main' };
+                if (n.startsWith('feature-') || n.includes('feature')) return { emoji: '✨', label: 'feature' };
+                if (n.startsWith('release-') || n.includes('release')) return { emoji: '🏷️', label: 'release' };
+                if (n.startsWith('hotfix-') || n.includes('hotfix')) return { emoji: '🔥', label: 'hotfix' };
+                if (n.includes('fix')) return { emoji: '🐛', label: 'fix' };
+                if (n.includes('docs')) return { emoji: '📘', label: 'docs' };
+                if (n.includes('test')) return { emoji: '🧪', label: 'test' };
+                return { emoji: '🌿', label: 'branch' };
+              }
+
+              function generateBranchList() {
+                const container = document.getElementById('branch-list');
+                deployedBranches.forEach(branch => {
+                  const type = getBranchType(branch.name);
+                  const url = `./${branch.dir}/`;
+                  const a = document.createElement('a');
+                  a.className = 'card';
+                  a.href = url;
+                  a.target = '_blank';
+                  a.innerHTML = `
+                    <div class="card-title">${type.emoji} ${branch.name} <span class="badge">${type.label}</span></div>
+                    <div class="url">${url}</div>
+                  `;
+                  container.appendChild(a);
+                });
+              }
+
+              document.getElementById('update-time').textContent = new Date().toLocaleString('ja-JP');
+              generateBranchList();
+            </script>
+          </body>
+          </html>
+          EOF
+
+      - name: Commit and push
+        run: |
+          cd gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Deploy ${{ steps.branch_info.outputs.current_branch }} branch"
+            git push origin gh-pages
+          fi
+

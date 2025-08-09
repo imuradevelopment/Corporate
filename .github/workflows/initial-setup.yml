@@ -1,0 +1,62 @@
+name: Initial GitHub Pages Setup
+
+on:
+  workflow_dispatch:  # 手動実行のみ
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git rm -rf .
+          echo "GitHub Pages - AI-Dev's" > index.html
+          # GitHub Pages の Jekyll 処理を無効化
+          touch .nojekyll
+          git add index.html
+          git add .nojekyll
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Initial gh-pages branch"
+          git push origin gh-pages --force
+
+      - name: Enable GitHub Pages
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            try {
+              await github.rest.repos.createPagesSite({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                source: {
+                  branch: 'gh-pages',
+                  path: '/'
+                }
+              });
+              console.log('GitHub Pages enabled successfully');
+            } catch (error) {
+              if (error.status === 409) {
+                console.log('GitHub Pages is already enabled');
+                
+                // 既存の設定を更新
+                await github.rest.repos.updateInformationAboutPagesSite({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  source: {
+                    branch: 'gh-pages',
+                    path: '/'
+                  }
+                });
+              } else {
+                throw error;
+              }
+            }
