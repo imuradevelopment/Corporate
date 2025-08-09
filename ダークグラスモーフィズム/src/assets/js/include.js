@@ -38,11 +38,64 @@
     });
   }
 
+  function adjustPathsForDirectoryDepth() {
+    // pages/ 配下かどうかで相対パスを補正（HTML自体は変更しない）
+    const isInPages = /\/pages\//.test(location.pathname);
+
+    // 1) アセット参照の補正（assets/, components/ がルート直下想定のため）
+    //    link[href], script[src], img[src], meta og/twitter 画像
+    if (isInPages) {
+      document.querySelectorAll('link[href]').forEach((el) => {
+        const href = el.getAttribute('href');
+        if (!href) return;
+        if (/^(?:\.\/)?assets\//.test(href)) el.setAttribute('href', '../' + href.replace(/^\.\//, ''));
+        if (/^(?:\.\/)?components\//.test(href)) el.setAttribute('href', '../' + href.replace(/^\.\//, ''));
+      });
+      document.querySelectorAll('script[src]').forEach((el) => {
+        const src = el.getAttribute('src');
+        if (!src) return;
+        if (/^(?:\.\/)?assets\//.test(src)) el.setAttribute('src', '../' + src.replace(/^\.\//, ''));
+        if (/^(?:\.\/)?components\//.test(src)) el.setAttribute('src', '../' + src.replace(/^\.\//, ''));
+      });
+      document.querySelectorAll('img[src]').forEach((el) => {
+        const src = el.getAttribute('src');
+        if (!src) return;
+        if (/^(?:\.\/)?assets\//.test(src)) el.setAttribute('src', '../' + src.replace(/^\.\//, ''));
+      });
+      // OGP/Twitter画像
+      document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach((el) => {
+        const content = el.getAttribute('content');
+        if (!content) return;
+        if (/^(?:\.\/)?assets\//.test(content)) el.setAttribute('content', '../' + content.replace(/^\.\//, ''));
+      });
+    }
+
+    // 2) ページ内リンク補正
+    //    - ルート: about/services/portfolio/contact は pages/ 配下にある
+    //    - pages/ 配下: index.html は 1 つ上にある
+    document.querySelectorAll('a[href]').forEach((a) => {
+      const href = a.getAttribute('href');
+      if (!href || /^(https?:)?\/\//.test(href) || href.startsWith('#')) return;
+
+      const pageNames = ['about.html', 'services.html', 'portfolio.html', 'contact.html'];
+      if (!isInPages && pageNames.includes(href) && !href.startsWith('pages/')) {
+        a.setAttribute('href', 'pages/' + href);
+        return;
+      }
+      if (isInPages && href === 'index.html') {
+        a.setAttribute('href', '../index.html');
+      }
+    });
+  }
+
   async function include(selector, url) {
     const host = document.querySelector(selector);
     if (!host) return;
     try {
-      const res = await fetch(url);
+      // pages/ 配下では 1 つ上の components/ を参照
+      const isInPages = /\/pages\//.test(location.pathname);
+      const prefix = isInPages ? '../' : '';
+      const res = await fetch(prefix + url);
       const html = await res.text();
       host.innerHTML = html;
       adjustLinks(host);
@@ -138,6 +191,7 @@
   }
 
   window.addEventListener('DOMContentLoaded', () => {
+    adjustPathsForDirectoryDepth();
     include('[data-include="header"]', 'components/header.html');
     include('[data-include="footer"]', 'components/footer.html');
   });
