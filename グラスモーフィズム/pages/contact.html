@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-Dev'sへのお問い合わせ - プロジェクトのご相談、お見積もりはこちらから">
+  <meta name="keywords" content="お問い合わせ, 相談, 見積もり, AI-Dev's, コンタクト">
+  
+  <meta property="og:title" content="お問い合わせ | AI-Dev's">
+  <meta property="og:description" content="プロジェクトのご相談、お見積もりはこちらから">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-devs.com/contact">
+  
+  <title>お問い合わせ | AI-Dev's</title>
+  
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+</head>
+<body>
+  <a href="#main" class="u-sr-only">メインコンテンツへスキップ</a>
+  
+  <header class="c-header" data-js="header">
+    <div class="o-container c-header__container">
+      <a href="../index.html" class="c-header__logo">
+        <span class="c-header__logo-icon">AI</span>
+        <span class="c-header__logo-text">AI-Dev's</span>
+      </a>
+      
+      <nav class="c-header__nav" data-js="nav">
+        <ul class="c-header__nav-list">
+          <li class="c-header__nav-item">
+            <a href="../index.html" class="c-header__nav-link">ホーム</a>
+          </li>
+          <li class="c-header__nav-item">
+            <a href="./about.html" class="c-header__nav-link">私たちについて</a>
+          </li>
+          <li class="c-header__nav-item">
+            <a href="./services.html" class="c-header__nav-link">サービス</a>
+          </li>
+          <li class="c-header__nav-item">
+            <a href="./portfolio.html" class="c-header__nav-link">実績</a>
+          </li>
+          <li class="c-header__nav-item">
+            <a href="./contact.html" class="c-header__nav-link c-header__nav-link--active">お問い合わせ</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="c-header__actions">
+        <button class="c-button c-button--glass c-button--sm">無料相談</button>
+      </div>
+      
+      <button class="c-header__menu-toggle" data-js="menu-toggle">
+        <span class="c-header__menu-toggle-icon"></span>
+      </button>
+    </div>
+  </header>
+  
+  <main id="main">
+    <section class="o-section u-pt-20">
+      <div class="o-container">
+        <div class="u-text-center u-mb-12">
+          <h1 class="u-text-gradient u-animate-fade-in">お問い合わせ</h1>
+          <p class="u-mt-4 u-animate-fade-in u-animate-delay-100">
+            プロジェクトのご相談、お見積もりなど、お気軽にお問い合わせください
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="o-section">
+      <div class="o-container o-container--4xl">
+        <div class="o-grid o-grid--cols-2 o-grid--gap-12">
+          <div data-aos="fade-right">
+            <div class="c-glass-card u-mb-6">
+              <div class="c-glass-card__header">
+                <h2 class="c-glass-card__title">お問い合わせフォーム</h2>
+                <p class="c-glass-card__subtitle">必要事項をご記入ください</p>
+              </div>
+              <div class="c-glass-card__content">
+                <form class="c-form" data-js="contact-form">
+                  <div class="o-grid o-grid--cols-2 o-grid--gap-4">
+                    <div class="c-form__group">
+                      <label class="c-form__label c-form__label--required" for="company">会社名</label>
+                      <input type="text" id="company" name="company" class="c-form__input" required>
+                    </div>
+                    
+                    <div class="c-form__group">
+                      <label class="c-form__label c-form__label--required" for="name">お名前</label>
+                      <input type="text" id="name" name="name" class="c-form__input" required>
+                    </div>
+                  </div>
+                  
+                  <div class="o-grid o-grid--cols-2 o-grid--gap-4">
+                    <div class="c-form__group">
+                      <label class="c-form__label c-form__label--required" for="email">メールアドレス</label>
+                      <input type="email" id="email" name="email" class="c-form__input" required>
+                    </div>
+                    
+                    <div class="c-form__group">
+                      <label class="c-form__label" for="phone">電話番号</label>
+                      <input type="tel" id="phone" name="phone" class="c-form__input">
+                    </div>
+                  </div>
+                  
+                  <div class="c-form__group">
+                    <label class="c-form__label c-form__label--required" for="service">ご興味のあるサービス</label>
+                    <select id="service" name="service" class="c-form__select" required>
+                      <option value="">選択してください</option>
+                      <option value="ai">AI開発</option>
+                      <option value="web">Web開発</option>
+                      <option value="system">システム開発</option>
+                      <option value="consulting">コンサルティング</option>
+                      <option value="other">その他</option>
+                    </select>
+                  </div>
+                  
+                  <div class="c-form__group">
+                    <label class="c-form__label" for="budget">ご予算</label>
+                    <select id="budget" name="budget" class="c-form__select">
+                      <option value="">選択してください</option>
+                      <option value="under-500k">〜50万円</option>
+                      <option value="500k-1m">50万円〜100万円</option>
+                      <option value="1m-5m">100万円〜500万円</option>
+                      <option value="5m-10m">500万円〜1000万円</option>
+                      <option value="over-10m">1000万円以上</option>
+                      <option value="undecided">未定</option>
+                    </select>
+                  </div>
+                  
+                  <div class="c-form__group">
+                    <label class="c-form__label c-form__label--required" for="message">お問い合わせ内容</label>
+                    <textarea id="message" name="message" class="c-form__textarea" rows="6" required></textarea>
+                    <span class="c-form__help">プロジェクトの概要、ご要望、課題などをお聞かせください</span>
+                  </div>
+                  
+                  <div class="c-form__group">
+                    <div class="c-form__checkbox-wrapper">
+                      <input type="checkbox" id="privacy" name="privacy" class="c-form__checkbox" required>
+                      <label for="privacy" class="c-form__checkbox-label">
+                        <a href="#" class="u-text-gradient">プライバシーポリシー</a>に同意します
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div class="c-form__actions">
+                    <button type="submit" class="c-button c-button--primary c-button--lg c-button--block">
+                      送信する
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <div data-aos="fade-left">
+            <div class="c-glass-card u-mb-6">
+              <div class="c-glass-card__header">
+                <h3 class="c-glass-card__title">お問い合わせ先</h3>
+              </div>
+              <div class="c-glass-card__content">
+                <div class="u-mb-6">
+                  <h4 class="u-text-gradient u-mb-2">📧 メール</h4>
+                  <p>info@ai-devs.com</p>
+                  <p class="u-text-sm u-text-muted">24時間受付</p>
+                </div>
+                
+                <div class="u-mb-6">
+                  <h4 class="u-text-gradient u-mb-2">📞 電話</h4>
+                  <p>03-1234-5678</p>
+                  <p class="u-text-sm u-text-muted">平日 9:00-18:00</p>
+                </div>
+                
+                <div>
+                  <h4 class="u-text-gradient u-mb-2">📍 所在地</h4>
+                  <p>〒100-0005</p>
+                  <p>東京都千代田区丸の内1-1-1</p>
+                  <p>AIビルディング 10F</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="c-glass-card u-mb-6">
+              <div class="c-glass-card__header">
+                <h3 class="c-glass-card__title">よくあるご質問</h3>
+              </div>
+              <div class="c-glass-card__content">
+                <details class="u-mb-4">
+                  <summary class="u-cursor-pointer u-text-gradient">相談は無料ですか？</summary>
+                  <p class="u-mt-2">はい、初回のご相談は無料です。お客様のご要望をヒアリングし、最適なソリューションをご提案させていただきます。</p>
+                </details>
+                
+                <details class="u-mb-4">
+                  <summary class="u-cursor-pointer u-text-gradient">プロジェクトの期間はどのくらいですか？</summary>
+                  <p class="u-mt-2">プロジェクトの規模や内容により異なりますが、小規模なものは1-2ヶ月、大規模なものは6ヶ月以上かかる場合があります。</p>
+                </details>
+                
+                <details class="u-mb-4">
+                  <summary class="u-cursor-pointer u-text-gradient">遠方でも対応可能ですか？</summary>
+                  <p class="u-mt-2">はい、オンラインでの打ち合わせにも対応しており、全国どこからでもご依頼いただけます。</p>
+                </details>
+                
+                <details>
+                  <summary class="u-cursor-pointer u-text-gradient">保守・運用もお願いできますか？</summary>
+                  <p class="u-mt-2">はい、開発後の保守・運用サポートも承っております。24時間365日の監視体制も構築可能です。</p>
+                </details>
+              </div>
+            </div>
+            
+            <div class="c-glass-card">
+              <div class="c-glass-card__header">
+                <h3 class="c-glass-card__title">レスポンスタイム</h3>
+              </div>
+              <div class="c-glass-card__content">
+                <div class="o-flex o-flex--justify-between u-mb-3">
+                  <span>お問い合わせへの返信</span>
+                  <span class="u-text-gradient">1営業日以内</span>
+                </div>
+                <div class="o-flex o-flex--justify-between u-mb-3">
+                  <span>お見積もりの作成</span>
+                  <span class="u-text-gradient">3営業日以内</span>
+                </div>
+                <div class="o-flex o-flex--justify-between">
+                  <span>緊急サポート</span>
+                  <span class="u-text-gradient">2時間以内</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="o-section c-glass">
+      <div class="o-container">
+        <div class="u-text-center u-mb-12">
+          <h2 class="u-text-gradient" data-aos="fade-up">アクセス</h2>
+        </div>
+        
+        <div class="c-glass-card" data-aos="fade-up">
+          <div class="c-glass-card__content">
+            <div style="width: 100%; height: 400px; background: var(--glass-background); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+              <p class="u-text-gradient">Google Maps</p>
+            </div>
+            
+            <div class="o-grid o-grid--cols-3 o-grid--gap-4 u-mt-6">
+              <div class="u-text-center">
+                <h4 class="u-text-gradient u-mb-2">🚃 電車でお越しの場合</h4>
+                <p class="u-text-sm">東京駅 丸の内北口より徒歩5分</p>
+                <p class="u-text-sm">大手町駅 A1出口より徒歩3分</p>
+              </div>
+              <div class="u-text-center">
+                <h4 class="u-text-gradient u-mb-2">🚗 お車でお越しの場合</h4>
+                <p class="u-text-sm">ビル地下に有料駐車場完備</p>
+                <p class="u-text-sm">30分 300円</p>
+              </div>
+              <div class="u-text-center">
+                <h4 class="u-text-gradient u-mb-2">✈️ 空港からお越しの場合</h4>
+                <p class="u-text-sm">羽田空港より約30分</p>
+                <p class="u-text-sm">成田空港より約60分</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="o-section">
+      <div class="o-container">
+        <div class="c-glass c-glass--gradient u-p-12 u-text-center">
+          <h2 class="u-mb-6" data-aos="fade-up">
+            まずはお気軽にご相談ください
+          </h2>
+          <p class="u-mb-8" data-aos="fade-up" data-aos-delay="100">
+            お客様のビジネス課題を解決する最適なソリューションをご提案します。<br>
+            初回相談は無料です。
+          </p>
+          <div class="o-flex o-flex--justify-center o-flex--gap-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="tel:0312345678" class="c-button c-button--primary c-button--lg">
+              📞 今すぐ電話する
+            </a>
+            <a href="mailto:info@ai-devs.com" class="c-button c-button--glass c-button--lg">
+              📧 メールで相談
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="c-footer">
+    <div class="o-container">
+      <div class="c-footer__container">
+        <div class="c-footer__brand">
+          <a href="../index.html" class="c-footer__logo">
+            <span class="c-footer__logo-icon">AI</span>
+            <span class="c-footer__logo-text">AI-Dev's</span>
+          </a>
+          <p class="c-footer__description">
+            AI技術とWeb開発の融合により、革新的なソリューションを提供し、お客様のビジネスの成長と成功を支援します。
+          </p>
+          <div class="c-footer__social">
+            <a href="#" class="c-footer__social-link" aria-label="Twitter">
+              <span>𝕏</span>
+            </a>
+            <a href="#" class="c-footer__social-link" aria-label="GitHub">
+              <span>◉</span>
+            </a>
+            <a href="#" class="c-footer__social-link" aria-label="LinkedIn">
+              <span>in</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="c-footer__column">
+          <h3 class="c-footer__column-title">サービス</h3>
+          <ul class="c-footer__links">
+            <li><a href="./services.html#ai-development" class="c-footer__link">AI開発</a></li>
+            <li><a href="./services.html#web-development" class="c-footer__link">Web開発</a></li>
+            <li><a href="./services.html#system-development" class="c-footer__link">システム開発</a></li>
+            <li><a href="./services.html#consulting" class="c-footer__link">コンサルティング</a></li>
+          </ul>
+        </div>
+        
+        <div class="c-footer__column">
+          <h3 class="c-footer__column-title">会社情報</h3>
+          <ul class="c-footer__links">
+            <li><a href="./about.html" class="c-footer__link">会社概要</a></li>
+            <li><a href="./portfolio.html" class="c-footer__link">実績紹介</a></li>
+            <li><a href="#" class="c-footer__link">採用情報</a></li>
+            <li><a href="#" class="c-footer__link">ニュース</a></li>
+          </ul>
+        </div>
+        
+        <div class="c-footer__column">
+          <h3 class="c-footer__column-title">ニュースレター</h3>
+          <p class="u-mb-4">最新情報をお届けします</p>
+          <form class="c-footer__newsletter-form">
+            <input type="email" placeholder="メールアドレス" class="c-footer__newsletter-input" required>
+            <button type="submit" class="c-footer__newsletter-button">登録</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="c-footer__bottom">
+        <p class="c-footer__copyright">
+          &copy; 2024 AI-Dev's. All rights reserved.
+        </p>
+        <ul class="c-footer__bottom-links">
+          <li><a href="#" class="c-footer__bottom-link">プライバシーポリシー</a></li>
+          <li><a href="#" class="c-footer__bottom-link">利用規約</a></li>
+          <li><a href="./contact.html" class="c-footer__bottom-link">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/animations.js" defer></script>
+  <script src="../assets/js/contact.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+@custom-media --xs (min-width: 475px);
+@custom-media --sm (min-width: 640px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1024px);
+@custom-media --xl (min-width: 1280px);
+@custom-media --2xl (min-width: 1536px);
+@custom-media --3xl (min-width: 1920px);
+
+@custom-media --xs-only (min-width: 475px) and (max-width: 639px);
+@custom-media --sm-only (min-width: 640px) and (max-width: 767px);
+@custom-media --md-only (min-width: 768px) and (max-width: 1023px);
+@custom-media --lg-only (min-width: 1024px) and (max-width: 1279px);
+@custom-media --xl-only (min-width: 1280px) and (max-width: 1535px);
+@custom-media --2xl-only (min-width: 1536px) and (max-width: 1919px);
+
+@custom-media --xs-down (max-width: 474px);
+@custom-media --sm-down (max-width: 639px);
+@custom-media --md-down (max-width: 767px);
+@custom-media --lg-down (max-width: 1023px);
+@custom-media --xl-down (max-width: 1279px);
+@custom-media --2xl-down (max-width: 1535px);
+
+@custom-media --hover (hover: hover) and (pointer: fine);
+@custom-media --touch (hover: none) and (pointer: coarse);
+@custom-media --reduced-motion (prefers-reduced-motion: reduce);
+@custom-media --high-contrast (prefers-contrast: high);
+@custom-media --dark-mode (prefers-color-scheme: dark);
+@custom-media --light-mode (prefers-color-scheme: light);
