@@ -9,11 +9,29 @@
     <!-- Local assets only -->
     <link rel="icon" href="../assets/img/favicon.png">
     <link rel="preload" href="../assets/fonts/Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
     
-    <!-- Custom CSS (build-less entry) -->
-    <link rel="stylesheet" href="../assets/styles/index.css">
+    <!-- CSS: ITCSS順で直読み（@import禁止） -->
+    <link rel="stylesheet" href="../assets/styles/00-settings/tokens.css">
+    <link rel="stylesheet" href="../assets/styles/02-generic/reset.css">
+    <link rel="stylesheet" href="../assets/styles/02-generic/animations.css">
+    <link rel="stylesheet" href="../assets/styles/02-generic/background.css">
+    <link rel="stylesheet" href="../assets/styles/03-elements/typography.css">
+    <link rel="stylesheet" href="../assets/styles/04-objects/layout.css">
+    <link rel="stylesheet" href="../assets/styles/04-objects/grid.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/buttons.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/navigation.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/hero.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/cards.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/footer.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/page-header.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/timeline.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/services.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/portfolio.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/contact.css">
+    <link rel="stylesheet" href="../assets/styles/05-components/kicker.css">
+    <link rel="stylesheet" href="../assets/styles/06-utilities/responsive.css">
+    <link rel="stylesheet" href="../assets/styles/06-utilities/utilities.css">
     
     <!-- Open Graph -->
     <meta property="og:title" content="サービス - AI-Dev's">
@@ -406,7 +424,6 @@
     <div data-include="footer"></div>
 
     <!-- JavaScript -->
-    <script defer src="../assets/vendor/aos/aos.js"></script>
     <script defer src="../assets/js/config.js"></script>
     <script defer src="../assets/js/common.js"></script>
     <script defer>

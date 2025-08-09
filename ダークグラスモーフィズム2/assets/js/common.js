@@ -6,13 +6,35 @@
   }
 
   function initAOS() {
-    if (!window.AOS) return;
-    // 低刺激環境ではAOSを無効化
+    // ライブラリ不使用の軽量アニメーション（IntersectionObserver）
+    var items = document.querySelectorAll('[data-aos]');
+    if (!items.length) return;
+
+    // 低刺激環境では即時表示
     if (isReducedMotionPreferred && isReducedMotionPreferred()) {
-      try { window.AOS.init({ disable: true }); } catch {}
+      items.forEach(function (el) { el.classList.add('is-inview'); });
       return;
     }
-    window.AOS.init({ duration: 1000, once: true, offset: 100, easing: 'ease-out-cubic' });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var delayRaw = el.getAttribute('data-aos-delay');
+          var delay = Number(delayRaw);
+          if (Number.isFinite(delay)) {
+            el.style.setProperty('--aos-delay', delay + 'ms');
+          }
+          // 1フレーム遅延でクラス付与（トランジション発火を安定化）
+          requestAnimationFrame(function () {
+            el.classList.add('is-inview');
+          });
+          observer.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    items.forEach(function (el) { observer.observe(el); });
   }
 
   function initCounters() {

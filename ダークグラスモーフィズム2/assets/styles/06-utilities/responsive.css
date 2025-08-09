@@ -15,6 +15,8 @@
   .c-nav__container { padding: 0 1rem; }
   .c-hero__bg, #particle-canvas { width: 100vw; max-width: 100%; }
   body::before, body::after { width: 100vw; max-width: 100%; }
+  /* 省電力: モバイルでブラー量を軽減 */
+  :root { --glass-blur: 8px; }
 }
 
 
