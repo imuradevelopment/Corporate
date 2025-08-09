@@ -1,0 +1,8 @@
+.text-center { text-align: center; }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.hide-on-mobile { display: none; }
+@media (min-width: 720px) { .hide-on-mobile { display: initial; } }
+
+

@@ -1,0 +1,43 @@
+:root {
+  /* brand palette */
+  --color-bg: #0b0f14;
+  --color-surface: #0f1621;
+  --color-surface-2: #121a26;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+
+  --color-primary: #00e5ff;   /* neon cyan */
+  --color-secondary: #ff00e5; /* neon magenta */
+  --color-accent: #00ff88;    /* neon green */
+
+  /* spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* radius */
+  --radius-1: 8px;
+  --radius-2: 12px;
+  --radius-3: 16px;
+
+  /* neon glow */
+  --glow-cyan: 0 0 8px rgba(0, 229, 255, 0.6), 0 0 18px rgba(0, 229, 255, 0.35);
+  --glow-magenta: 0 0 8px rgba(255, 0, 229, 0.6), 0 0 18px rgba(255, 0, 229, 0.35);
+  --glow-green: 0 0 8px rgba(0, 255, 136, 0.6), 0 0 18px rgba(0, 255, 136, 0.35);
+
+  /* shadows */
+  --shadow-1: 0 6px 24px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: light) {
+  :root { color-scheme: light dark; }
+}
+
+

@@ -1,0 +1,17 @@
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.grid { display: grid; gap: var(--space-8); }
+.grid--2 { grid-template-columns: repeat(1, 1fr); }
+.grid--3 { grid-template-columns: repeat(1, 1fr); }
+
+@media (min-width: 720px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stack > * + * { margin-top: var(--space-6); }
+
+

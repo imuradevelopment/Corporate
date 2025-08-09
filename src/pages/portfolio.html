@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>実績 — AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sの制作実績" />
+    <meta name="theme-color" content="#0b0f14" />
+
+    <link rel="stylesheet" href="../assets/styles/01-settings/colors.css" />
+    <link rel="stylesheet" href="../assets/styles/01-settings/typography.css" />
+    <link rel="stylesheet" href="../assets/styles/02-tools/a11y.css" />
+    <link rel="stylesheet" href="../assets/styles/03-generic/reset.css" />
+    <link rel="stylesheet" href="../assets/styles/04-elements/base.css" />
+    <link rel="stylesheet" href="../assets/styles/05-objects/layout.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/button.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/header.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/card.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/footer.css" />
+    <link rel="stylesheet" href="../assets/styles/07-utilities/utilities.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">コンテンツへスキップ</a>
+    <header class="site-header" data-js="header">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="../index.html" aria-label="AI-Dev's ホーム">
+          <span class="site-header__logo" aria-hidden="true">◆</span>
+          <span class="site-header__brand-text">AI-Dev's</span>
+        </a>
+        <button class="site-header__toggle" data-js="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="メニューを開閉">
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-header__nav" id="site-nav" data-js="nav">
+          <ul class="site-header__list">
+            <li class="site-header__item"><a class="site-header__link" href="../index.html">ホーム</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./about.html">私たちについて</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./services.html">サービス</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./portfolio.html" aria-current="page">実績</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section">
+      <div class="container">
+        <h1 class="section__title">実績</h1>
+        <div class="grid grid--3">
+          <article class="card">
+            <img class="card__media" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='300'%3E%3Crect width='480' height='300' rx='16' fill='%230f1621'/%3E%3C/svg%3E" alt="実績サムネイルA" width="480" height="300" loading="lazy" />
+            <h2 class="card__title">プロジェクト A</h2>
+            <p class="card__body">要件定義から運用まで一貫支援。</p>
+          </article>
+          <article class="card">
+            <img class="card__media" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='300'%3E%3Crect width='480' height='300' rx='16' fill='%230f1621'/%3E%3C/svg%3E" alt="実績サムネイルB" width="480" height="300" loading="lazy" />
+            <h2 class="card__title">プロジェクト B</h2>
+            <p class="card__body">アクセシビリティと美の両立。</p>
+          </article>
+          <article class="card">
+            <img class="card__media" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='300'%3E%3Crect width='480' height='300' rx='16' fill='%230f1621'/%3E%3C/svg%3E" alt="実績サムネイルC" width="480" height="300" loading="lazy" />
+            <h2 class="card__title">プロジェクト C</h2>
+            <p class="card__body">ネオンとガラスのUIを最適化。</p>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__copy">© <span id="js-year"></span> AI-Dev's</p>
+        <ul class="site-footer__links">
+          <li><a href="./about.html">会社情報</a></li>
+          <li><a href="./services.html">サービス</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>私たちについて — AI-Dev's</title>
+    <meta name="description" content="AI-Dev'sの企業情報と理念" />
+    <meta name="theme-color" content="#0b0f14" />
+
+    <link rel="stylesheet" href="../assets/styles/01-settings/colors.css" />
+    <link rel="stylesheet" href="../assets/styles/01-settings/typography.css" />
+    <link rel="stylesheet" href="../assets/styles/02-tools/a11y.css" />
+    <link rel="stylesheet" href="../assets/styles/03-generic/reset.css" />
+    <link rel="stylesheet" href="../assets/styles/04-elements/base.css" />
+    <link rel="stylesheet" href="../assets/styles/05-objects/layout.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/button.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/header.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/card.css" />
+    <link rel="stylesheet" href="../assets/styles/06-components/footer.css" />
+    <link rel="stylesheet" href="../assets/styles/07-utilities/utilities.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">コンテンツへスキップ</a>
+    <header class="site-header" data-js="header">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="../index.html" aria-label="AI-Dev's ホーム">
+          <span class="site-header__logo" aria-hidden="true">◆</span>
+          <span class="site-header__brand-text">AI-Dev's</span>
+        </a>
+        <button class="site-header__toggle" data-js="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="メニューを開閉">
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+          <span class="site-header__toggle-line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-header__nav" id="site-nav" data-js="nav">
+          <ul class="site-header__list">
+            <li class="site-header__item"><a class="site-header__link" href="../index.html">ホーム</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./about.html" aria-current="page">私たちについて</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./services.html">サービス</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./portfolio.html">実績</a></li>
+            <li class="site-header__item"><a class="site-header__link" href="./contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section">
+      <div class="container">
+        <h1 class="section__title">私たちについて</h1>
+        <p class="section__lead">AI-Dev's は、AIとデザインの力で価値ある体験を創造するチームです。</p>
+        <div class="grid grid--2">
+          <article class="card">
+            <h2 class="card__title">ミッション</h2>
+            <p class="card__body">人と技術が調和するプロダクトを、壊れない土台の上に作り続けること。</p>
+          </article>
+          <article class="card">
+            <h2 class="card__title">バリュー</h2>
+            <p class="card__body">速さ・堅牢性・可読性。美しいコードと優しい体験を両立します。</p>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__copy">© <span id="js-year"></span> AI-Dev's</p>
+        <ul class="site-footer__links">
+          <li><a href="./about.html" aria-current="page">会社情報</a></li>
+          <li><a href="./services.html">サービス</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+  </html>
+
+
