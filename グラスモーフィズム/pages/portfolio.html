@@ -37,12 +37,82 @@
 
     <main id="main" class="section">
       <div class="container">
+        <div class="breadcrumbs"><a href="../index.html">ホーム</a> / 事例</div>
         <h1 class="section-title">事例</h1>
-        <div class="grid cols-3">
-          <article class="glass-card card"><h2>事例A</h2><p class="dim">FinTechコーポレート</p></article>
-          <article class="glass-card card"><h2>事例B</h2><p class="dim">ヘルスケアブランド</p></article>
-          <article class="glass-card card"><h2>事例C</h2><p class="dim">SaaSプロダクト</p></article>
+
+        <div class="filter">
+          <span class="filter__label">分類:</span>
+          <span class="badge">FinTech</span>
+          <span class="badge">ヘルスケア</span>
+          <span class="badge">SaaS</span>
+          <span class="badge">高速化</span>
+          <span class="badge">アクセシビリティ</span>
         </div>
+
+        <div class="case-grid">
+          <article class="glass-card card case-card">
+            <div class="case-card__media">16:9</div>
+            <h2 class="case-card__title">FinTechコーポレート</h2>
+            <p class="case-card__desc">透明感のあるUIと堅牢なアクセシビリティ設計。</p>
+            <div class="tag-list">
+              <span class="tag">INP改善</span>
+              <span class="tag">AA基準</span>
+              <span class="tag">CVR+22%</span>
+            </div>
+          </article>
+          <article class="glass-card card case-card">
+            <div class="case-card__media">16:9</div>
+            <h2 class="case-card__title">ヘルスケアブランド</h2>
+            <p class="case-card__desc">やさしいタイポと余白設計で読みやすさを向上。</p>
+            <div class="tag-list">
+              <span class="tag">LCP-0.8s</span>
+              <span class="tag">視認性</span>
+              <span class="tag">離脱-12%</span>
+            </div>
+          </article>
+          <article class="glass-card card case-card">
+            <div class="case-card__media">16:9</div>
+            <h2 class="case-card__title">SaaSプロダクト</h2>
+            <p class="case-card__desc">ビルドレスで高速なデリバリーと安定保守。</p>
+            <div class="tag-list">
+              <span class="tag">ITCSS</span>
+              <span class="tag">初期表示-35%</span>
+              <span class="tag">MTTR短縮</span>
+            </div>
+          </article>
+        </div>
+
+        <section class="section">
+          <div class="metrics">
+            <div class="metric">
+              <p class="metric__num">-0.8s</p>
+              <p class="metric__label">平均LCP短縮</p>
+            </div>
+            <div class="metric">
+              <p class="metric__num">+18%</p>
+              <p class="metric__label">平均CVR改善</p>
+            </div>
+            <div class="metric">
+              <p class="metric__num">-60%</p>
+              <p class="metric__label">デプロイ時間短縮</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="case-detail">
+            <div class="case-detail__media">16:9</div>
+            <div>
+              <h3>ケーススタディ: FinTechコーポレート</h3>
+              <p>金融系UIにおける視認性と信頼性の両立をテーマに、色・コントラスト・動きの最小化を設計。フォーム入力のINP改善、フォーカス可視化、キーボード操作の完全対応により、CVR +22%を実現。</p>
+              <ul>
+                <li>フォームUXの最適化（検証とABテスト）</li>
+                <li>アクセシビリティ監査と改善（AA基準）</li>
+                <li>軽量化（画像最適化、不要JS削減）</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 

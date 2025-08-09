@@ -98,6 +98,12 @@
     const handleResize = () => { if (mq.matches) setOpen(false); };
     mq.addEventListener?.('change', handleResize);
     window.addEventListener('resize', handleResize, { passive: true });
+
+    // Visual header state on scroll
+    const headerEl = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (headerEl) headerEl.classList.toggle('header--scrolled', window.scrollY > 50);
+    }, { passive: true });
   }
 
   function applySeoMetaFallbacks() {
