@@ -1,0 +1,10 @@
+.site-footer {
+  border-top: 1px solid rgba(226, 232, 240, 0.06);
+  background: rgba(15,22,33,0.6);
+  backdrop-filter: saturate(130%) blur(6px);
+}
+.site-footer__inner { display: flex; align-items: center; justify-content: space-between; padding: var(--space-6) 0; }
+.site-footer__copy { color: var(--color-muted); }
+.site-footer__links { list-style: none; display: flex; gap: var(--space-6); padding: 0; margin: 0; }
+
+

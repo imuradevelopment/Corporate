@@ -1,0 +1,15 @@
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 16px;
+  border-radius: var(--radius-2);
+  border: 1px solid rgba(226,232,240,0.08);
+  background: rgba(255,255,255,0.02);
+  color: var(--color-text);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.button:hover { transform: translateY(-1px); }
+.button--primary { background: linear-gradient(90deg, rgba(0,229,255,0.15), rgba(255,0,229,0.15)); border-color: rgba(0,229,255,0.4); }
+.button--ghost { background: transparent; border-color: rgba(226,232,240,0.12); }
+.button--glow { box-shadow: var(--glow-cyan); }
+
+

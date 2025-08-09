@@ -1,0 +1,27 @@
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(226, 232, 240, 0.08);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-6);
+}
+.card--glow { box-shadow: var(--glow-cyan), var(--shadow-1); }
+.card__icon { font-size: 28px; margin-bottom: var(--space-4); }
+.card__title { margin-bottom: var(--space-2); font-weight: 700; }
+.card__body { color: var(--color-muted); }
+.card__media { width: 100%; height: auto; border-radius: var(--radius-1); margin-bottom: var(--space-4); border: 1px solid rgba(226,232,240,0.08); }
+
+/* simple form styles (BEM within .form block) */
+.form { display: grid; gap: var(--space-6); }
+.form__field { display: grid; gap: var(--space-2); }
+.form__label { color: var(--color-muted); }
+.form__input, .form__textarea {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  color: var(--color-text);
+  border-radius: var(--radius-1);
+  padding: 10px 12px;
+}
+.form__input:focus, .form__textarea:focus { outline: 2px solid rgba(0,229,255,0.5); box-shadow: var(--glow-cyan); }
+
+
