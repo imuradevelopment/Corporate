@@ -7,7 +7,7 @@
   .hero { padding-top: 60px; }
   .hero-content { padding: 0 1rem; }
   .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
-  .btn { width: 100%; font-size: 0.875rem; padding: 12px 24px; }
+  .c-button { width: 100%; font-size: 0.875rem; padding: 12px 24px; }
   .glass-card { padding: var(--space-lg); }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
   .case-grid, .stats-grid, .feature-grid { grid-template-columns: 1fr; }
