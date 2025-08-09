@@ -1,4 +1,3 @@
-/* Local variable font (Inter) */
 @font-face {
   font-family: 'Inter';
   src: url('../../fonts/Inter-roman.var.woff2') format('woff2-variations');
@@ -7,7 +6,6 @@
   font-display: swap;
 }
 
-/* Design Tokens (:root) - extracted from black-glass.css */
 :root {
   /* Dark Gradient Background Colors */
   --gradient-1: #1a1c3d;
@@ -27,11 +25,19 @@
   --accent-cyan: #06b6d4;
   --accent-purple: #8b5cf6;
   --accent-pink: #ec4899;
+  --accent-cyan-rgb: 6, 182, 212;
+  --accent-purple-rgb: 139, 92, 246;
+  --accent-pink-rgb: 236, 72, 153;
+
+  /* Backgrounds */
+  --bg-secondary: rgba(255, 255, 255, 0.02);
 
   /* Text Colors */
   --text-primary: rgba(255, 255, 255, 0.95);
   --text-secondary: rgba(255, 255, 255, 0.75);
   --text-muted: rgba(255, 255, 255, 0.5);
+  --text-on-accent: #000000;
+  --color-white: #ffffff;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -44,6 +50,29 @@
 
   /* Typography */
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 20px;
+
+  /* Durations */
+  --dur-fast: 0.2s;
+  --dur-normal: 0.3s;
+  --dur-slow: 0.6s;
+
+  /* Focus */
+  --focus-ring: 0 0 0 3px rgba(6, 182, 212, 0.5);
 }
+
+/* Focus visibility defaults */
+:focus-visible { outline: none; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible { box-shadow: var(--focus-ring); }
 
 

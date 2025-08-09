@@ -10,6 +10,6 @@ h2 { font-size: clamp(2rem, 4vw + 0.5rem, 3rem); margin-bottom: var(--space-md);
 h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: var(--space-sm); }
 
 p { color: var(--text-secondary); line-height: 1.8; }
-a { color: var(--accent-cyan); text-decoration: none; transition: all 0.3s ease; }
+a { color: var(--accent-cyan); text-decoration: none; transition: all var(--dur-normal) ease; }
 
 

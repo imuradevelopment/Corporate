@@ -8,6 +8,7 @@
     
     <!-- Local assets only -->
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="preload" href="assets/fonts/Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/vendor/aos/aos.css">
     <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
     
@@ -20,6 +21,7 @@
     <meta property="og:image" content="assets/img/ogp.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
+    <link rel="canonical" href="">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -29,72 +31,74 @@
 </head>
 <body>
     <noscript>
-        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+        <div class="ns-bar">
             JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
-            <nav style="margin-top:8px;">
-                <a href="index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
-                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
-                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
-                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
-                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            <nav class="u-mt-sm ns-links">
+                <a href="index.html">ホーム</a>
+                <a href="pages/about.html">会社概要</a>
+                <a href="pages/services.html">サービス</a>
+                <a href="pages/portfolio.html">実績</a>
+                <a href="pages/contact.html">お問い合わせ</a>
             </nav>
         </div>
     </noscript>
     <div data-include="header"></div>
 
+    <main id="main" role="main">
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
+    <section class="c-hero">
+        <div class="c-hero__bg">
             <canvas id="particle-canvas" aria-hidden="true"></canvas>
         </div>
         
-        <div class="container hero-content">
-            <h1 class="hero-title">
-                <span style="font-weight: 300; font-size: 0.8em; letter-spacing: 0.1em; opacity: 0.8;">NEXT GENERATION</span><br>
-                <span style="font-weight: 800;">次世代の<span class="gradient-text">AI技術</span>で</span><br>
-                <span style="font-weight: 700;">ビジネスを革新する</span>
+        <div class="o-container c-hero__content">
+            <h1 class="c-hero__title">
+                <span class="u-fw-300 u-fs-08em u-ls-01em u-opacity-08">NEXT GENERATION</span><br>
+                <span class="u-fw-800">次世代の<span class="u-gradient-text">AI技術</span>で</span><br>
+                <span class="u-fw-700">ビジネスを革新する</span>
             </h1>
             
-            <p class="hero-subtitle">
+            <p class="c-hero__subtitle">
                 最先端の人工知能とデータサイエンスを駆使し、<br>
                 あなたのビジネスに新たな価値を創造します
             </p>
             
-            <div class="hero-buttons">
-                <a href="services.html" class="btn btn-primary">
+            <div class="c-hero__buttons">
+                <a href="pages/services.html" class="c-button c-button--primary">
                     サービスを見る
-                    <i class="fas fa-arrow-right" aria-hidden="true" style="margin-left: 8px;"></i>
+                    <i class="fas fa-arrow-right u-ml-xs" aria-hidden="true"></i>
                 </a>
-                <a href="contact.html" class="btn btn-glass">
+                <a href="pages/contact.html" class="c-button c-button--glass">
                     無料相談を予約
-                    <i class="fas fa-calendar" aria-hidden="true" style="margin-left: 8px;"></i>
+                    <i class="fas fa-calendar u-ml-xs" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR SERVICES</span>
-                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">提供サービス</h2>
-                <p class="hero-subtitle" style="margin-top: 1rem;">
+    <section class="o-section">
+        <div class="o-container">
+            <div class="text-center u-mb-2xl" data-aos="fade-up">
+                <span class="c-kicker c-kicker--cyan">OUR SERVICES</span>
+                <h2 class="u-fw-800 u-ls-neg-003 u-mt-sm">提供サービス</h2>
+                <p class="c-hero__subtitle u-mt-sm">
                     最先端のAI技術でビジネスの課題を解決します
                 </p>
             </div>
             
-            <div class="feature-grid">
+            <div class="c-feature-grid">
                 <!-- AI Development -->
-                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
+                <div class="c-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c-feature__icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">AI開発</h3>
-                    <p class="feature-description">
+                    <h3 class="c-feature__title u-fw-700 u-ls-neg-002">AI開発</h3>
+                    <p class="c-feature__description">
                         機械学習、ディープラーニング、自然言語処理など、最新のAI技術を活用したカスタムソリューション開発
                     </p>
-                    <ul class="feature-list">
+                    <ul class="c-feature__list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             画像認識・音声認識システム
@@ -111,15 +115,15 @@
                 </div>
                 
                 <!-- Data Analytics -->
-                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
+                <div class="c-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c-feature__icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">データ分析</h3>
-                    <p class="feature-description">
+                    <h3 class="c-feature__title u-fw-700 u-ls-neg-002">データ分析</h3>
+                    <p class="c-feature__description">
                         ビッグデータの収集・処理・分析を通じて、ビジネスに価値のあるインサイトを抽出
                     </p>
-                    <ul class="feature-list">
+                    <ul class="c-feature__list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             リアルタイムデータ処理
@@ -136,15 +140,15 @@
                 </div>
                 
                 <!-- System Development -->
-                <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
+                <div class="c-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="c-feature__icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="feature-title" style="font-weight: 700; letter-spacing: -0.02em;">システム開発</h3>
-                    <p class="feature-description">
+                    <h3 class="c-feature__title u-fw-700 u-ls-neg-002">システム開発</h3>
+                    <p class="c-feature__description">
                         スケーラブルで高性能なWebアプリケーション・モバイルアプリの設計・開発
                     </p>
-                    <ul class="feature-list">
+                    <ul class="c-feature__list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             クラウドネイティブ開発
@@ -164,108 +168,112 @@
     </section>
 
     <!-- Case Studies Section -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">CASE STUDIES</span>
-                <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">導入実績</h2>
-                <p class="hero-subtitle" style="margin-top: 1rem;">
+    <section class="o-section u-bg-secondary">
+        <div class="o-container">
+            <div class="text-center u-mb-2xl" data-aos="fade-up">
+                <span class="c-kicker c-kicker--purple">CASE STUDIES</span>
+                <h2 class="u-fw-800 u-ls-neg-003 u-mt-sm">導入実績</h2>
+                <p class="c-hero__subtitle u-mt-sm">
                     様々な業界で、AI技術による革新的な成果を実現
                 </p>
             </div>
             
-            <div class="case-grid">
+            <div class="c-case-grid">
                 <!-- Manufacturing Case -->
-                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="case-header">
-                        <div class="case-icon">
+                <div class="c-card c-case-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c-case-card__header">
+                        <div class="c-case-card__icon">
                             <i class="fas fa-industry"></i>
                         </div>
-                        <span class="case-metric">+15%</span>
+                        <span class="c-case-card__metric">+15%</span>
                     </div>
-                    <h4 class="case-title">大手製造業A社</h4>
-                    <p class="case-description">
+                    <h4 class="c-case-card__title">大手製造業A社</h4>
+                    <p class="c-case-card__description">
                         AIによる予知保全システムで設備稼働率を大幅改善。年間1.2億円のコスト削減を実現
                     </p>
                 </div>
                 
                 <!-- E-commerce Case -->
-                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="case-header">
-                        <div class="case-icon">
+                <div class="c-card c-case-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c-case-card__header">
+                        <div class="c-case-card__icon">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <span class="case-metric">+30%</span>
+                        <span class="c-case-card__metric">+30%</span>
                     </div>
-                    <h4 class="case-title">ECプラットフォームB社</h4>
-                    <p class="case-description">
+                    <h4 class="c-case-card__title">ECプラットフォームB社</h4>
+                    <p class="c-case-card__description">
                         パーソナライズドAI推薦で売上を大幅向上。カート放棄率を25%削減
                     </p>
                 </div>
                 
                 <!-- Healthcare Case -->
-                <div class="glass-card case-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="case-header">
-                        <div class="case-icon">
+                <div class="c-card c-case-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="c-case-card__header">
+                        <div class="c-case-card__icon">
                             <i class="fas fa-hospital"></i>
                         </div>
-                        <span class="case-metric">+25%</span>
+                        <span class="c-case-card__metric">+25%</span>
                     </div>
-                    <h4 class="case-title">総合医療機関C</h4>
-                    <p class="case-description">
+                    <h4 class="c-case-card__title">総合医療機関C</h4>
+                    <p class="c-case-card__description">
                         画像診断支援AIで診断精度を向上。早期発見率を2倍に改善
                     </p>
                 </div>
             </div>
             
-            <div class="text-center" style="margin-top: 3rem;" data-aos="fade-up" data-aos-delay="400">
-                <a href="portfolio.html" class="btn btn-glass">
+            <div class="text-center u-mt-xl" data-aos="fade-up" data-aos-delay="400">
+                <a href="pages/portfolio.html" class="c-button c-button--glass">
                     全ての実績を見る
-                    <i class="fas fa-arrow-right" aria-hidden="true" style="margin-left: 8px;"></i>
+                    <i class="fas fa-arrow-right u-ml-xs" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Statistics Section -->
-    <section class="section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number counter" data-target="50">50</div>
-                    <div class="stat-label">完了プロジェクト</div>
+    <section class="o-section">
+        <div class="o-container">
+            <div class="c-stats-grid">
+                <div class="c-card c-stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c-stat-card__number counter" data-target="50">50</div>
+                    <div class="c-stat-card__label">完了プロジェクト</div>
                 </div>
                 
-                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number counter" data-target="30">30</div>
-                    <div class="stat-label">パートナー企業</div>
+                <div class="c-card c-stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c-stat-card__number counter" data-target="30">30</div>
+                    <div class="c-stat-card__label">パートナー企業</div>
                 </div>
                 
-                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number">
+                <div class="c-card c-stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="c-stat-card__number">
                         <span class="counter" data-target="95">95</span>%
                     </div>
-                    <div class="stat-label">顧客満足度</div>
+                    <div class="c-stat-card__label">顧客満足度</div>
                 </div>
                 
-                <div class="black-glass stat-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">サポート体制</div>
+                <div class="c-card c-stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="c-stat-card__number">24/7</div>
+                    <div class="c-stat-card__label">サポート体制</div>
                 </div>
             </div>
         </div>
     </section>
 
+    </main>
+
     <div data-include="footer"></div>
 
     <!-- JavaScript -->
     <script defer src="assets/vendor/aos/aos.js"></script>
+    <script defer src="assets/js/config.js"></script>
     <script defer src="assets/js/common.js"></script>
     <script defer>
       window.addEventListener('DOMContentLoaded', function () {
         Common.initAOS();
         Common.initCounters();
-        Common.initParticles({ count: 50, color: 'rgba(6, 182, 212, 0.4)', connectLines: true });
+        var isNarrow = window.innerWidth < 768;
+        Common.initParticles({ count: isNarrow ? 25 : 50, color: 'rgba(6, 182, 212, 0.4)', connectLines: true });
       });
     </script>
     <script defer src="assets/js/include.js"></script>

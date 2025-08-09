@@ -54,7 +54,7 @@
       return { emoji: '🌿', label: 'branch' };
     }
 
-    function render() {
+    function generateBranchList() {
       const container = document.getElementById('branch-list');
       deployedBranches.forEach(branch => {
         const type = getBranchType(branch.name);
@@ -72,7 +72,7 @@
     }
 
     document.getElementById('update-time').textContent = new Date().toLocaleString('ja-JP');
-    render();
+    generateBranchList();
   </script>
 </body>
 </html>

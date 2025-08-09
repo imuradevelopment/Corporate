@@ -1,5 +1,5 @@
 /* Layout objects */
-.container {
+.o-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -8,9 +8,26 @@
   z-index: 1;
 }
 
-.section {
+.o-section {
   padding: var(--space-3xl) 0;
   position: relative;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-cyan);
+  color: var(--text-on-accent);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  z-index: 1001;
+  transition: top var(--dur-normal) ease;
+}
+.skip-link:focus {
+  top: 8px;
+  box-shadow: var(--focus-ring);
 }
 
 

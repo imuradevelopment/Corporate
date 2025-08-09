@@ -1,18 +1,18 @@
 /* Portfolio */
-.filter-btn { padding: 8px 20px; background: var(--black-glass); border: 1px solid var(--glass-border); border-radius: 20px; color: var(--text-secondary); cursor: pointer; transition: all 0.3s ease; font-size: 0.875rem; font-weight: 500; }
-.filter-btn.active { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); color: white; border-color: transparent; }
-.filter-btn:hover:not(.active) { background: var(--black-glass-hover); border-color: var(--glass-border-hover); }
-.portfolio-item { position: relative; overflow: hidden; height: 100%; cursor: pointer; }
-.portfolio-item > div:first-child { transition: all 0.3s ease; }
-.portfolio-item:hover > div:first-child i { transform: scale(1.1); opacity: 0.5 !important; }
-.portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.3s ease; }
-.portfolio-item:hover .portfolio-overlay { opacity: 1; }
-.metric-card { position: relative; text-align: center; padding: 2rem; }
-.metric-number { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+.c-filter__button { padding: 8px 20px; background: var(--black-glass); border: 1px solid var(--glass-border); border-radius: 20px; color: var(--text-secondary); cursor: pointer; transition: all 0.3s ease; font-size: 0.875rem; font-weight: 500; }
+.c-filter__button.is-active { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); color: white; border-color: transparent; }
+.c-filter__button:hover:not(.is-active) { background: var(--black-glass-hover); border-color: var(--glass-border-hover); }
+.c-portfolio__item { position: relative; overflow: hidden; height: 100%; cursor: pointer; }
+.c-portfolio__item > div:first-child { transition: all 0.3s ease; }
+.c-portfolio__item:hover > div:first-child i { transform: scale(1.1); opacity: 0.5 !important; }
+.c-portfolio__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.3s ease; }
+.c-portfolio__item:hover .c-portfolio__overlay { opacity: 1; }
+.c-metric-card { position: relative; text-align: center; padding: 2rem; }
+.c-metric-card__number { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem; }
-.testimonial-card { position: relative; padding: 2rem; }
-.testimonial-card::before { content: '"'; position: absolute; top: 0; left: 1rem; font-size: 4rem; color: var(--accent-cyan); opacity: 0.2; font-family: Georgia, serif; }
-.client-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+.c-testimonial-card { position: relative; padding: 2rem; }
+.c-testimonial-card::before { content: '"'; position: absolute; top: 0; left: 1rem; font-size: 4rem; color: var(--accent-cyan); opacity: 0.2; font-family: Georgia, serif; }
+.c-testimonial-card__avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: 700; }
 
 
