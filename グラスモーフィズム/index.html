@@ -39,14 +39,15 @@
       <section class="hero section">
         <div class="container hero__inner">
           <div>
-            <h1 class="hero__title">価値を磨き、未来を澄ます。</h1>
-            <p class="lead mb-5">グラスモーフィズムの透明感で、ブランドの信頼と先進性を両立。高速・軽量・アクセシブルなウェブ体験を提供します。</p>
-            <div class="hero__cta">
+            <h1 class="hero__title reveal-text">価値を磨き、<span class="gradient-text">未来を澄ます。</span></h1>
+            <p class="lead mb-5 reveal-text">グラスモーフィズムの透明感で、ブランドの信頼と先進性を両立。<br>高速・軽量・アクセシブルなウェブ体験を提供します。</p>
+            <div class="hero__cta reveal-text">
               <a class="btn" href="pages/contact.html">お問い合わせ</a>
               <a class="btn btn--ghost" href="pages/portfolio.html">事例を見る</a>
             </div>
+            <div class="scroll-indicator" aria-label="スクロールダウン"></div>
           </div>
-          <div class="glass-card card">
+          <div class="glass-card card glass-layer hover-zone">
             <div class="grid">
               <div class="feature">
                 <img class="feature__icon" src="assets/img/logo.svg" alt="高速" width="48" height="48" loading="lazy" />
@@ -79,7 +80,7 @@
           <span class="kicker">OUR SERVICES</span>
           <h2 class="section-title">サービス</h2>
           <div class="grid cols-3">
-            <article class="glass-card card">
+            <article class="glass-card card glass-layer hover-zone">
               <h3>Webサイト制作</h3>
               <p class="dim">要件定義からデザイン・実装・運用まで一貫支援。</p>
               <div class="tag-list mt-3">
@@ -88,7 +89,7 @@
                 <span class="tag">実装/保守</span>
               </div>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card glass-layer hover-zone">
               <h3>UI/UX改善</h3>
               <p class="dim">計測と検証にもとづく継続的な改善で成果を最大化。</p>
               <div class="tag-list mt-3">
@@ -97,7 +98,7 @@
                 <span class="tag">INP最適化</span>
               </div>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card glass-layer hover-zone">
               <h3>パフォーマンス最適化</h3>
               <p class="dim">CWV/アクセシビリティ基準を満たす軽量化。</p>
               <div class="tag-list mt-3">
@@ -114,8 +115,22 @@
         <div class="container">
           <span class="kicker">CASE STUDIES</span>
           <h2 class="section-title">最近の事例</h2>
+          <div class="metrics mb-6">
+            <div class="metric">
+              <p class="stat-number" data-target="150">0</p>
+              <p class="metric__label">プロジェクト完了</p>
+            </div>
+            <div class="metric">
+              <p class="stat-number" data-target="98">0</p>
+              <p class="metric__label">顧客満足度 %</p>
+            </div>
+            <div class="metric">
+              <p class="stat-number" data-target="2000">0</p>
+              <p class="metric__label">改善したLCP (ms)</p>
+            </div>
+          </div>
           <div class="grid cols-3">
-            <article class="glass-card card">
+            <article class="glass-card card glass-card--gradient hover-zone">
               <h3>FinTechコーポレート</h3>
               <p class="dim">透明感のあるUIと堅牢なアクセシビリティ。</p>
               <ul class="mt-3 dim">
@@ -124,7 +139,7 @@
                 <li>問い合わせCV+28%</li>
               </ul>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card glass-card--blur-heavy hover-zone">
               <h3>ヘルスケアブランド</h3>
               <p class="dim">やさしい色彩と視認性のバランス。</p>
               <ul class="mt-3 dim">
@@ -133,7 +148,7 @@
                 <li>直帰率-14%</li>
               </ul>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card glass-card--neon hover-zone">
               <h3>SaaSプロダクト</h3>
               <p class="dim">軽量コードで高速ローンチを実現。</p>
               <ul class="mt-3 dim">
@@ -150,8 +165,9 @@
         <div class="container">
           <span class="kicker">PRICING</span>
           <h2 class="section-title">料金プラン</h2>
+          <p class="lead center mb-6">プロジェクトの規模と要件に応じた柔軟な料金体系</p>
           <div class="pricing">
-            <article class="glass-card card plan">
+            <article class="glass-card card plan hover-zone">
               <h3 class="plan__title">Starter</h3>
               <p class="plan__price">¥300,000〜</p>
               <ul class="plan__features">
@@ -160,7 +176,7 @@
                 <li>基本アクセス解析</li>
               </ul>
             </article>
-            <article class="glass-card card plan plan--highlight">
+            <article class="glass-card card plan plan--highlight glass-layer hover-zone">
               <h3 class="plan__title">Growth</h3>
               <p class="plan__price">¥800,000〜</p>
               <ul class="plan__features">
@@ -169,7 +185,7 @@
                 <li>CWV/アクセシビリティ監査</li>
               </ul>
             </article>
-            <article class="glass-card card plan">
+            <article class="glass-card card plan hover-zone">
               <h3 class="plan__title">Enterprise</h3>
               <p class="plan__price">¥1,500,000〜</p>
               <ul class="plan__features">
@@ -187,15 +203,15 @@
           <span class="kicker">TESTIMONIALS</span>
           <h2 class="section-title">お客様の声</h2>
           <div class="testimonials cols-3">
-            <article class="glass-card card">
+            <article class="glass-card card hover-zone">
               <p class="testimonial__quote">リニューアル後、ページの読み込みが体感で速くなり、CVRが大きく改善しました。</p>
               <p class="testimonial__author">プロダクト責任者・S社</p>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card hover-zone">
               <p class="testimonial__quote">アクセシビリティ改善により問い合わせ導線が明確になり、離脱が減りました。</p>
               <p class="testimonial__author">広報担当・H社</p>
             </article>
-            <article class="glass-card card">
+            <article class="glass-card card hover-zone">
               <p class="testimonial__quote">ビルドレス運用でリリースが軽くなり、改善サイクルが加速しました。</p>
               <p class="testimonial__author">開発責任者・X社</p>
             </article>
@@ -205,7 +221,42 @@
 
       <section class="section">
         <div class="container">
-          <div class="cta-band glass-card">
+          <h2 class="section-title center">なぜ私たちを選ぶのか</h2>
+          <div class="grid cols-3 mb-6">
+            <div class="glass-card card hover-zone">
+              <h3>🚀 最新技術</h3>
+              <p class="dim">最新のWeb標準とパフォーマンス最適化技術を駆使し、業界最高水準の体験を実現</p>
+            </div>
+            <div class="glass-card card hover-zone">
+              <h3>💎 品質保証</h3>
+              <p class="dim">Core Web Vitals、アクセシビリティ、SEOの各指標で高スコアを保証</p>
+            </div>
+            <div class="glass-card card hover-zone">
+              <h3>🔄 継続改善</h3>
+              <p class="dim">リリース後も定期的な監査と改善提案により、常に最高の状態を維持</p>
+            </div>
+          </div>
+          
+          <div class="timeline mb-6">
+            <div class="timeline__item">
+              <h3 class="timeline__title">無料相談</h3>
+              <p class="timeline__content">現状の課題と目標をヒアリング。改善の方向性をご提案</p>
+            </div>
+            <div class="timeline__item">
+              <h3 class="timeline__title">要件定義</h3>
+              <p class="timeline__content">詳細な要件と技術仕様を策定。スケジュールと見積もりを確定</p>
+            </div>
+            <div class="timeline__item">
+              <h3 class="timeline__title">デザイン・開発</h3>
+              <p class="timeline__content">アジャイル開発で段階的に実装。定期的なレビューで品質を担保</p>
+            </div>
+            <div class="timeline__item">
+              <h3 class="timeline__title">公開・運用</h3>
+              <p class="timeline__content">本番環境への展開と継続的な改善サポート</p>
+            </div>
+          </div>
+
+          <div class="cta-band glass-card glass-layer hover-zone">
             <h3 class="cta-band__title">今のサイト、もっと速く・分かりやすくできます。</h3>
             <p class="dim">無料診断で、ボトルネックと改善方針をご提案します。</p>
             <div class="cta-band__actions">
