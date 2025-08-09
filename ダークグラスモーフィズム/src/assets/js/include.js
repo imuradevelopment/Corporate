@@ -98,6 +98,8 @@
       const res = await fetch(prefix + url);
       const html = await res.text();
       host.innerHTML = html;
+      // 動的に挿入したナビ等にも相対補正を適用
+      adjustPathsForDirectoryDepth();
       adjustLinks(host);
       initHeaderInteractions();
     } catch (e) {
@@ -109,6 +111,8 @@
         };
         const key = selector.includes('header') ? 'header' : 'footer';
         host.innerHTML = templates[key];
+        // 動的に挿入したナビ等にも相対補正を適用
+        adjustPathsForDirectoryDepth();
         adjustLinks(host);
         initHeaderInteractions();
       } else {
