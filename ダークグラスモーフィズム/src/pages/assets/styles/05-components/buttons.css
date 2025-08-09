@@ -1,0 +1,51 @@
+/* Buttons (BEM: c-button) */
+.btn { /* legacy naming kept for compatibility */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: none;
+  letter-spacing: 0.025em;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.btn:active::after { width: 300px; height: 300px; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+  color: white; border: none;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 4px 20px rgba(6, 182, 212, 0.4);
+  position: relative;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+  opacity: 0; transition: opacity 0.3s ease; z-index: -1;
+}
+.btn-primary:hover { transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.7), 0 6px 30px rgba(6, 182, 212, 0.6);
+}
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-glass { background: var(--black-glass);
+  backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border); color: var(--text-primary); box-shadow: var(--glass-shadow);
+}
+.btn-glass:hover { background: var(--black-glass-hover); border-color: var(--glass-border-hover);
+  transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+}
+
+
