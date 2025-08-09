@@ -1,6 +1,0 @@
-# Font Placeholder
-This is a placeholder for the Inter variable font.
-In production, download Inter-var.woff2 from:
-https://github.com/rsms/inter/tree/master/docs/font-files
-
-The font is used with @font-face in typography.css
