@@ -32,14 +32,14 @@
 </head>
 <body>
     <noscript>
-        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+        <div class="ns-bar">
             JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
-            <nav style="margin-top:8px;">
-                <a href="../index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
-                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
-                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
-                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
-                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            <nav class="u-mt-sm ns-links">
+                <a href="../index.html">ホーム</a>
+                <a href="about.html">会社概要</a>
+                <a href="services.html">サービス</a>
+                <a href="portfolio.html">実績</a>
+                <a href="contact.html">お問い合わせ</a>
             </nav>
         </div>
     </noscript>
@@ -407,12 +407,14 @@
 
     <!-- JavaScript -->
     <script defer src="../assets/vendor/aos/aos.js"></script>
+    <script defer src="../assets/js/config.js"></script>
     <script defer src="../assets/js/common.js"></script>
     <script defer>
       window.addEventListener('DOMContentLoaded', function () {
         Common.initAOS();
         Common.initServiceTabs();
-        Common.initParticles({ count: 30, color: 'rgba(6, 182, 212, 0.4)' });
+        var isNarrow = window.innerWidth < 768;
+        Common.initParticles({ count: isNarrow ? 15 : 30, color: 'rgba(6, 182, 212, 0.4)' });
       });
     </script>
     <script defer src="../assets/js/include.js"></script>

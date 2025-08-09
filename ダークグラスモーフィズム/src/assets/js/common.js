@@ -176,19 +176,42 @@
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var message = document.getElementById('message').value;
+      var error = document.getElementById('form-error');
+      if (!error) {
+        error = document.createElement('div');
+        error.id = 'form-error';
+        error.setAttribute('role', 'alert');
+        error.setAttribute('aria-live', 'polite');
+        error.style.minHeight = '1.25rem';
+        error.style.marginBottom = '0.5rem';
+        error.style.color = 'var(--accent-pink)';
+        form.insertBefore(error, form.firstChild);
+      }
+
+      function setError(msg, focusId) {
+        error.textContent = msg;
+        if (focusId) {
+          var el = document.getElementById(focusId);
+          if (el) el.focus();
+        }
+      }
+
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
       if (!name || !email || !message) {
-        alert('必須項目を入力してください。');
+        setError('必須項目を入力してください。', !name ? 'name' : !email ? 'email' : 'message');
         return;
       }
       var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        alert('有効なメールアドレスを入力してください。');
+        setError('有効なメールアドレスを入力してください。', 'email');
         return;
       }
-      alert('お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。');
+
+      // Success
+      error.style.color = 'var(--accent-cyan)';
+      error.textContent = 'お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。';
       form.reset();
     });
   }

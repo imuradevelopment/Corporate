@@ -305,13 +305,15 @@
 
     <!-- JavaScript -->
     <script defer src="../assets/vendor/aos/aos.js"></script>
+    <script defer src="../assets/js/config.js"></script>
     <script defer src="../assets/js/common.js"></script>
     <script defer>
       window.addEventListener('DOMContentLoaded', function () {
         Common.initAOS();
         Common.initPortfolioFilter();
         Common.initCounters();
-        Common.initParticles({ count: 30, color: 'rgba(236, 72, 153, 0.4)' });
+        var isNarrow = window.innerWidth < 768;
+        Common.initParticles({ count: isNarrow ? 15 : 30, color: 'rgba(236, 72, 153, 0.4)' });
       });
     </script>
     <script defer src="../assets/js/include.js"></script>

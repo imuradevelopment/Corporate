@@ -92,6 +92,38 @@
     });
   }
 
+  function applySeoMetaFallbacks() {
+    try {
+      const cfg = window.SiteConfig || {};
+      const baseUrl = (cfg.baseUrl || '').replace(/\/$/, '');
+      if (!baseUrl) return; // no-op until configured
+
+      // canonical
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical && (!canonical.getAttribute('href') || canonical.getAttribute('href') === '')) {
+        const path = location.pathname.replace(/^\//, '');
+        const abs = baseUrl + '/' + path;
+        canonical.setAttribute('href', abs);
+      }
+
+      // og:url
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl && (!ogUrl.getAttribute('content') || ogUrl.getAttribute('content') === '')) {
+        const path = location.pathname.replace(/^\//, '');
+        const abs = baseUrl + '/' + path;
+        ogUrl.setAttribute('content', abs);
+      }
+
+      // og:image / twitter:image absolute override if provided
+      if (cfg.ogImageAbsoluteUrl) {
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        const twImage = document.querySelector('meta[name="twitter:image"]');
+        ogImage && ogImage.setAttribute('content', cfg.ogImageAbsoluteUrl);
+        twImage && twImage.setAttribute('content', cfg.ogImageAbsoluteUrl);
+      }
+    } catch {}
+  }
+
   async function include(selector, url) {
     const host = document.querySelector(selector);
     if (!host) return;
@@ -200,6 +232,7 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     adjustPathsForDirectoryDepth();
+    applySeoMetaFallbacks();
     include('[data-include="header"]', 'components/header.html');
     include('[data-include="footer"]', 'components/footer.html');
   });

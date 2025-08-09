@@ -32,14 +32,14 @@
 </head>
 <body>
     <noscript>
-        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+        <div class="ns-bar">
             JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
-            <nav style="margin-top:8px;">
-                <a href="../index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
-                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
-                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
-                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
-                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            <nav class="u-mt-sm ns-links">
+                <a href="../index.html">ホーム</a>
+                <a href="about.html">会社概要</a>
+                <a href="services.html">サービス</a>
+                <a href="portfolio.html">実績</a>
+                <a href="contact.html">お問い合わせ</a>
             </nav>
         </div>
     </noscript>
@@ -70,7 +70,8 @@
                     <!-- Form -->
                     <div class="c-card" data-aos="fade-right">
                         <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">お問い合わせフォーム</h2>
-                        <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                         <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div id="form-error" role="alert" aria-live="polite" class="u-text-muted" style="min-height:1.25rem;"></div>
                             <div>
                                 <label for="name" class="c-form__label">お名前 *</label>
                                 <input type="text" id="name" name="name" autocomplete="name" required class="c-form__control" placeholder="山田 太郎">
@@ -237,11 +238,13 @@
 
     <!-- JavaScript -->
     <script defer src="../assets/vendor/aos/aos.js"></script>
+    <script defer src="../assets/js/config.js"></script>
     <script defer src="../assets/js/common.js"></script>
     <script defer>
       window.addEventListener('DOMContentLoaded', function () {
         Common.initAOS();
-        Common.initParticles({ count: 30, color: 'rgba(6, 182, 212, 0.4)' });
+        var isNarrow = window.innerWidth < 768;
+        Common.initParticles({ count: isNarrow ? 15 : 30, color: 'rgba(6, 182, 212, 0.4)' });
         Common.initContactFormValidation();
         // Map placeholder
         var mapContainer = document.getElementById('map');
