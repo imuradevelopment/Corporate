@@ -312,14 +312,21 @@
     `;
     document.body.appendChild(progressBar);
     
+    let ticking = false;
     function updateProgress() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       progressBar.style.width = `${progress}%`;
+      ticking = false;
     }
-    
-    window.addEventListener('scroll', updateProgress);
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
     updateProgress();
   }
 
