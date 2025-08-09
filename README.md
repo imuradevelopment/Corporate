@@ -86,6 +86,66 @@ src/
     vendor/                 # 外部ライブラリ（CDN禁止）
 ```
 
+### 🔌 file://対応ヘッダー/フッター分割 — `include.js` 仕様と使い方
+
+ビルド無し・CDN無し・HTTPサーバ無しでも、`components/header.html` と `components/footer.html` を各ページへインクルードできます。GitHub Pages配下や `pages/` サブディレクトリでも相対パスが自動で補正されます。
+
+- 使い方（最小手順）
+  1. 置き場: `src/components/header.html` / `src/components/footer.html`
+  2. コンポーネント内リンクは `data-href` で記述（`@/`始まり）
+     - 例: `<a class="nav__link" data-href="@/about.html">私たちについて</a>`
+  3. 各ページにプレースホルダを置く
+     ```html
+     <div data-include="header"></div>
+     <!-- ... main contents ... -->
+     <div data-include="footer"></div>
+     ```
+  4. スクリプトを末尾で読み込む
+     - ルート `index.html`: `
+       <script defer src="assets/js/include.js"></script>`
+     - `pages/*`: `
+       <script defer src="../assets/js/include.js"></script>`
+
+- 主要仕様（抜粋）
+  - data-href解決: `@/path` や `./path` を相対 `href` へ変換
+  - ディレクトリ深度補正: `pages/` 配下では `assets/`/`components/` を自動で `../` 付与。ページ内リンクは
+    - ルート: `about.html` → `pages/about.html`
+    - `pages/` 配下: `index.html` → `../index.html`
+  - file://フォールバック: `fetch(prefix + components/*.html)` が失敗した場合でも、最小のヘッダー/フッターHTMLを直接挿入して継続表示
+  - アクセシビリティ: モバイルメニュー開閉（トグル/外側クリック/ESC/リサイズ）、現在ページへ `aria-current="page"` 付与、`#js-year` に年号自動挿入
+  - SEO補完（任意）: `rel=canonical` と `og:url` が空なら `location` から補完。OG/Twitter画像URLを絶対化
+
+- 注意点
+  - 先頭スラッシュ（`/`）の絶対パスは使用しない（Pages配下で崩れるため）
+  - 画像/CSS/JS は `assets/` 配下に置く（CDN禁止）
+  - JS無効時も最低限の遷移を担保したい場合は、各ページに `<noscript>` でナビゲーションの簡易リンクを用意
+
+- 最小例
+  - `components/header.html`
+    ```html
+    <nav class="nav" aria-label="メイン">
+      <a class="nav__link" data-href="@/index.html">ホーム</a>
+      <a class="nav__link" data-href="@/about.html">私たちについて</a>
+      <a class="nav__link" data-href="@/services.html">サービス</a>
+      <a class="nav__link" data-href="@/portfolio.html">事例</a>
+      <a class="nav__link" data-href="@/contact.html">お問い合わせ</a>
+    </nav>
+    ```
+  - `src/index.html`
+    ```html
+    <div data-include="header"></div>
+    <!-- contents -->
+    <div data-include="footer"></div>
+    <script defer src="assets/js/include.js"></script>
+    ```
+  - `src/pages/about.html`
+    ```html
+    <div data-include="header"></div>
+    <!-- contents -->
+    <div data-include="footer"></div>
+    <script defer src="../assets/js/include.js"></script>
+    ```
+
 #### ディレクトリ運用ルール
 - **index.html** … 必ずトップページ、`src/`直下に1つだけ
 - **pages/** … サブページを配置（トップから相対リンクでアクセス）

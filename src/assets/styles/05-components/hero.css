@@ -1,0 +1,21 @@
+/* Hero */
+.c-hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px; }
+.c-hero__bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+#particle-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.6; }
+.c-hero::before {
+  content: ''; position: absolute; width: 100%; height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
+  animation: floatAnimation 15s ease-in-out infinite;
+}
+.c-hero__content { text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.c-hero__title { margin-bottom: var(--space-lg); animation: fadeInUp 1s ease; }
+.u-gradient-text { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; }
+.c-hero__subtitle { font-size: clamp(1.125rem, 2vw, 1.5rem); color: var(--text-secondary); margin-bottom: var(--space-xl);
+  max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 1s ease 0.2s backwards; }
+.c-hero__buttons { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease 0.4s backwards; }
+
+

@@ -1,0 +1,13 @@
+/* Timeline (About) */
+.c-timeline__line { position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.3) 50%, transparent 100%); }
+.c-timeline__item { position: relative; padding: 2rem 0; }
+.c-timeline__dot { position: absolute; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; background: var(--accent-cyan);
+  border-radius: 50%; box-shadow: 0 0 20px rgba(6, 182, 212, 0.6); }
+.c-team-card { position: relative; overflow: hidden; transition: all 0.3s ease; }
+.c-team-card:hover { transform: translateY(-8px); }
+.c-value__icon { width: 80px; height: 80px; background: var(--black-glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border);
+  border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
+.c-card:hover .c-value__icon { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); transform: rotate(-10deg) scale(1.1); }
+
+

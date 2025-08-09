@@ -1,0 +1,20 @@
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .o-container { padding: 0 1rem; }
+  .o-section { padding: var(--space-2xl) 0; }
+  h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+  .c-hero { padding-top: 60px; }
+  .c-hero__content { padding: 0 1rem; }
+  .c-hero__buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+  .c-button { width: 100%; font-size: 0.875rem; padding: 12px 24px; }
+  .c-card { padding: var(--space-lg); }
+  .c-footer__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .c-case-grid, .c-stats-grid, .c-feature-grid { grid-template-columns: 1fr; }
+  .c-nav { padding: 0.75rem 0; }
+  .c-nav__container { padding: 0 1rem; }
+  .c-hero__bg, #particle-canvas { width: 100vw; max-width: 100%; }
+  body::before, body::after { width: 100vw; max-width: 100%; }
+}
+
+

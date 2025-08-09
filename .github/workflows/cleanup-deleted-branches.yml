@@ -63,6 +63,12 @@ jobs:
               if [ "$branch_exists" = false ]; then
                 echo "Removing directory for deleted branch: $dir"
                 rm -rf "$dir"
+                # zip も削除（ディレクトリ名はスラッシュをハイフンに変換したブランチ名に一致する想定）
+                zip_name="zips/${dir_name}-src.zip"
+                if [ -f "$zip_name" ]; then
+                  echo "Removing zip for deleted branch: $zip_name"
+                  rm -f "$zip_name"
+                fi
               fi
             fi
           done
