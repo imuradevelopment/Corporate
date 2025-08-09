@@ -20,6 +20,10 @@
     .note { margin-top: 32px; padding: 16px; border-radius: 12px; background: #111827; border: 1px solid #1f2937; }
     .note h3 { margin: 0 0 8px; font-size: 16px; }
     .note ul { margin: 0; padding-left: 18px; color: #9ca3af; }
+    .actions { margin-top: 10px; display: flex; gap: 8px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+    .btn--preview { background: #0f172a; border: 1px solid #334155; color: #e5e7eb; }
+    .btn--zip { background: #31c3ff; color: #0b0f14; border: none; }
   </style>
 </head>
 <body>
@@ -61,26 +65,18 @@
       deployedBranches.forEach(branch => {
         const type = getBranchType(branch.name);
         const url = `./${branch.dir}/`;
-        const a = document.createElement('a');
-        a.className = 'card';
-        a.href = url;
-        a.target = '_blank';
-        a.innerHTML = `
+        const card = document.createElement('div');
+        card.className = 'card';
+        const zipBtn = branch.zip ? `<a class="btn btn--zip" href="${branch.zip}">Download src.zip</a>` : '';
+        card.innerHTML = `
           <div class="card-title">${type.emoji} ${branch.name} <span class="badge">${type.label}</span></div>
           <div class="url">${url}</div>
+          <div class="actions">
+            <a class="btn btn--preview" href="${url}" target="_blank">Preview</a>
+            ${zipBtn}
+          </div>
         `;
-        container.appendChild(a);
-
-        if (branch.zip) {
-          const z = document.createElement('a');
-          z.className = 'card';
-          z.href = branch.zip;
-          z.innerHTML = `
-            <div class="card-title">⬇ ${branch.name} <span class="badge">src.zip</span></div>
-            <div class="url">${branch.zip}</div>
-          `;
-          container.appendChild(z);
-        }
+        container.appendChild(card);
       });
     }
 
