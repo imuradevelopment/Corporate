@@ -123,8 +123,8 @@
   }
 
   function initServiceTabs() {
-    var tabs = document.querySelectorAll('.service-tab');
-    var details = document.querySelectorAll('.service-detail');
+    var tabs = document.querySelectorAll('.c-service__tab');
+    var details = document.querySelectorAll('.c-service__detail');
     if (!tabs.length || !details.length) return;
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
@@ -139,14 +139,14 @@
   }
 
   function initPortfolioFilter() {
-    var filterBtns = document.querySelectorAll('.filter-btn');
-    var items = document.querySelectorAll('.portfolio-item');
+    var filterBtns = document.querySelectorAll('.c-filter__button');
+    var items = document.querySelectorAll('.c-portfolio__item');
     if (!filterBtns.length || !items.length) return;
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var filter = btn.getAttribute('data-filter');
-        filterBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
+        filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
         items.forEach(function (item) {
           if (filter === 'all' || item.getAttribute('data-category') === filter) {
             item.style.display = 'block';

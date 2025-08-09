@@ -30,14 +30,14 @@
 </head>
 <body>
     <noscript>
-        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+        <div class="ns-bar">
             JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
-            <nav style="margin-top:8px;">
-                <a href="../index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
-                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
-                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
-                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
-                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            <nav class="u-mt-sm ns-links">
+                <a href="../index.html">ホーム</a>
+                <a href="about.html">会社概要</a>
+                <a href="services.html">サービス</a>
+                <a href="portfolio.html">実績</a>
+                <a href="contact.html">お問い合わせ</a>
             </nav>
         </div>
     </noscript>
@@ -51,9 +51,9 @@
         </div>
         <div class="o-container" style="position: relative; z-index: 2;">
             <div data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">ABOUT US</span>
+                <span class="c-kicker c-kicker--cyan">ABOUT US</span>
                 <h1 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">会社概要</h1>
-                <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">
+                <p class="c-hero__subtitle" style="margin-top: 1rem; max-width: 600px;">
                     AI技術の力で、すべての企業に革新をもたらす
                 </p>
             </div>
@@ -63,7 +63,7 @@
     <!-- Mission & Vision -->
     <section class="o-section">
         <div class="o-container">
-            <div class="o-grid o-grid--cols-2 gap-4" style="max-width: 1000px; margin: 0 auto;">
+            <div class="o-grid o-grid--cols-2" style="max-width: 1000px; margin: 0 auto;">
                 <div class="c-card" data-aos="fade-right">
                     <div class="value-icon">
                         <i class="fas fa-rocket" style="color: var(--accent-cyan);"></i>
@@ -72,7 +72,7 @@
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
                         AI技術の民主化を通じて、すべての企業が革新的なソリューションを実現できる世界を創造します。
                     </p>
-                    <ul class="feature-list">
+                    <ul class="c-feature__list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             最先端技術へのアクセスを容易に
@@ -96,7 +96,7 @@
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
                         2030年までに、AIが当たり前に活用される社会を実現し、人類の創造性を最大限に引き出します。
                     </p>
-                    <ul class="feature-list">
+                    <ul class="c-feature__list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             AIと人間の共創社会
@@ -119,13 +119,13 @@
     <section class="o-section" style="background: var(--bg-secondary);">
         <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR VALUES</span>
+                <span class="c-kicker c-kicker--purple">OUR VALUES</span>
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">企業価値観</h2>
             </div>
             
-            <div class="o-grid o-grid--cols-4 gap-4" style="max-width: 1000px; margin: 0 auto;">
+            <div class="o-grid o-grid--cols-4" style="max-width: 1000px; margin: 0 auto;">
                 <div class="c-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="100">
-                    <div class="value-icon" style="margin: 0 auto 1.5rem;">
+                    <div class="c-value__icon" style="margin: 0 auto 1.5rem;">
                         <i class="fas fa-lightbulb" style="color: var(--accent-cyan);"></i>
                     </div>
                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">革新</h3>
@@ -135,7 +135,7 @@
                 </div>
                 
                 <div class="c-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="200">
-                    <div class="value-icon" style="margin: 0 auto 1.5rem;">
+                    <div class="c-value__icon" style="margin: 0 auto 1.5rem;">
                         <i class="fas fa-handshake" style="color: var(--accent-purple);"></i>
                     </div>
                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">信頼</h3>
@@ -145,7 +145,7 @@
                 </div>
                 
                 <div class="c-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="300">
-                    <div class="value-icon" style="margin: 0 auto 1.5rem;">
+                    <div class="c-value__icon" style="margin: 0 auto 1.5rem;">
                         <i class="fas fa-users" style="color: var(--accent-pink);"></i>
                     </div>
                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">協働</h3>
@@ -155,7 +155,7 @@
                 </div>
                 
                 <div class="c-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="400">
-                    <div class="value-icon" style="margin: 0 auto 1.5rem;">
+                    <div class="c-value__icon" style="margin: 0 auto 1.5rem;">
                         <i class="fas fa-graduation-cap" style="color: var(--accent-cyan);"></i>
                     </div>
                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">成長</h3>
@@ -176,10 +176,10 @@
             </div>
             
             <div style="position: relative; max-width: 800px; margin: 0 auto;">
-                <div class="timeline-line"></div>
+                <div class="c-timeline__line"></div>
                 
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-dot"></div>
+                <div class="c-timeline__item" data-aos="fade-up">
+                    <div class="c-timeline__dot"></div>
                     <div class="c-card" style="width: 45%; margin-left: auto;">
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan);">2020年</h3>
                         <h4 style="font-size: 1.125rem; font-weight: 600; margin: 0.5rem 0;">会社設立</h4>
@@ -189,8 +189,8 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline-dot"></div>
+                <div class="c-timeline__item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c-timeline__dot"></div>
                     <div class="c-card" style="width: 45%; margin-right: auto;">
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--accent-purple);">2021年</h3>
                         <h4 style="font-size: 1.125rem; font-weight: 600; margin: 0.5rem 0;">初の大型プロジェクト</h4>
@@ -200,8 +200,8 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-dot"></div>
+                <div class="c-timeline__item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c-timeline__dot"></div>
                     <div class="c-card" style="width: 45%; margin-left: auto;">
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--accent-pink);">2022年</h3>
                         <h4 style="font-size: 1.125rem; font-weight: 600; margin: 0.5rem 0;">事業拡大</h4>
@@ -211,8 +211,8 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-dot"></div>
+                <div class="c-timeline__item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="c-timeline__dot"></div>
                     <div class="c-card" style="width: 45%; margin-right: auto;">
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan);">2023年</h3>
                         <h4 style="font-size: 1.125rem; font-weight: 600; margin: 0.5rem 0;">国際展開</h4>
@@ -233,8 +233,8 @@
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">経営陣</h2>
             </div>
             
-            <div class="grid grid-cols-3 gap-4" style="max-width: 900px; margin: 0 auto;">
-                <div class="glass-card team-card" style="overflow: hidden;" data-aos="fade-up" data-aos-delay="100">
+            <div class="o-grid o-grid--cols-3" style="max-width: 900px; margin: 0 auto;">
+                <div class="c-card c-team-card" data-aos="fade-up" data-aos-delay="100">
                     <div style="height: 200px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border);">
                         <div style="text-align: center;">
                                 <i class="fas fa-user-tie" aria-hidden="true" style="font-size: 4rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
@@ -252,7 +252,7 @@
                     </div>
                 </div>
                 
-                <div class="glass-card team-card" style="overflow: hidden;" data-aos="fade-up" data-aos-delay="200">
+                <div class="c-card c-team-card" data-aos="fade-up" data-aos-delay="200">
                     <div style="height: 200px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border);">
                         <div style="text-align: center;">
                                 <i class="fas fa-code" aria-hidden="true" style="font-size: 4rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 
-                <div class="glass-card team-card" style="overflow: hidden;" data-aos="fade-up" data-aos-delay="300">
+                <div class="c-card c-team-card" data-aos="fade-up" data-aos-delay="300">
                     <div style="height: 200px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--glass-border);">
                         <div style="text-align: center;">
                                 <i class="fas fa-chart-line" aria-hidden="true" style="font-size: 4rem; color: var(--accent-pink); margin-bottom: 1rem;"></i>
@@ -292,9 +292,9 @@
     </section>
 
     <!-- CTA -->
-    <section class="section">
-        <div class="container">
-            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
+    <section class="o-section">
+        <div class="o-container">
+            <div class="c-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
                 <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
                     一緒に未来を創りましょう
                 </h2>

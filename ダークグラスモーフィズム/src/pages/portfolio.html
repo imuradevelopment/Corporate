@@ -30,14 +30,14 @@
 </head>
 <body>
     <noscript>
-        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+        <div class="ns-bar">
             JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
-            <nav style="margin-top:8px;">
-                <a href="../index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
-                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
-                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
-                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
-                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            <nav class="u-mt-sm ns-links">
+                <a href="../index.html">ホーム</a>
+                <a href="about.html">会社概要</a>
+                <a href="services.html">サービス</a>
+                <a href="portfolio.html">実績</a>
+                <a href="contact.html">お問い合わせ</a>
             </nav>
         </div>
     </noscript>
@@ -49,11 +49,11 @@
         <div class="c-hero__bg">
             <canvas id="particle-canvas" aria-hidden="true"></canvas>
         </div>
-        <div class="o-container" style="position: relative; z-index: 2;">
+        <div class="o-container u-relative" style="z-index: 2;">
             <div data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR PORTFOLIO</span>
-                <h1 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">実績</h1>
-                <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">
+                <span class="c-kicker c-kicker--cyan">OUR PORTFOLIO</span>
+                <h1 class="u-fw-800 u-ls-neg-003 u-mt-sm">実績</h1>
+                <p class="c-hero__subtitle u-mt-sm u-max-600">
                     様々な業界で実現した、AI技術による革新的なソリューション
                 </p>
             </div>
@@ -63,7 +63,7 @@
     <!-- Filter Buttons -->
     <section class="o-section">
         <div class="o-container">
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;" data-aos="fade-up">
+            <div class="u-flex u-jc-center u-gap-md" style="flex-wrap: wrap; margin-bottom: 3rem;" data-aos="fade-up">
                 <button class="c-filter__button is-active" data-filter="all">すべて</button>
                 <button class="c-filter__button" data-filter="ai">AI開発</button>
                 <button class="c-filter__button" data-filter="data">データ分析</button>
@@ -73,20 +73,20 @@
     </section>
 
     <!-- Portfolio Grid -->
-    <section class="o-section" style="padding-top: 0;">
+    <section class="o-section u-pt-0">
         <div class="o-container">
-            <div class="o-grid o-grid--cols-3 gap-4" id="portfolio-grid" role="list">
+            <div class="o-grid o-grid--cols-3" id="portfolio-grid" role="list">
                 <!-- AI Project 1 -->
-                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="100" role="listitem">
-                    <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-industry" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
-                        <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-brain" aria-hidden="true" style="color: var(--accent-cyan); margin-right: 8px;"></i>
-                            <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
+                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="100" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
+                    <div class="u-square-300 u-center u-relative u-overflow-hidden u-grad-soft-cyan">
+                        <i class="fas fa-industry u-fs-5rem u-accent-cyan u-opacity-03" aria-hidden="true"></i>
+                        <div class="u-abs u-top-20 u-right-20 c-kicker c-kicker--cyan u-fs-sm u-radius-pill" style="backdrop-filter: blur(12px);">
+                            <i class="fas fa-brain u-accent-cyan u-mr-xs" aria-hidden="true"></i>
+                            <span class="u-fw-500">AIプロジェクト</span>
                         </div>
                     </div>
                     <div class="c-portfolio__overlay">
-                        <span style="display: inline-block; padding: 4px 12px; background: rgba(6, 182, 212, 0.3); border: 1px solid rgba(6, 182, 212, 0.5); border-radius: 15px; font-size: 0.75rem; color: #06b6d4; margin-bottom: 0.5rem;">AI開発</span>
+                        <span class="c-kicker c-kicker--cyan u-fs-sm" style="padding:4px 12px; border-radius:15px;">AI開発</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">製造業向け予知保全AI</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
                             機械の異常を事前に検知し、計画外停止を90%削減
@@ -95,7 +95,7 @@
                 </div>
                 
                 <!-- Data Project 1 -->
-                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="200" role="listitem">
+                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="200" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-shopping-cart" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -113,7 +113,7 @@
                 </div>
                 
                 <!-- System Project 1 -->
-                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="300" role="listitem">
+                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="300" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-store" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -131,7 +131,7 @@
                 </div>
                 
                 <!-- AI Project 2 -->
-                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="400" role="listitem">
+                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="400" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-hospital" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -149,7 +149,7 @@
                 </div>
                 
                 <!-- Data Project 2 -->
-                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="500" role="listitem">
+                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="500" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-university" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -167,7 +167,7 @@
                 </div>
                 
                 <!-- System Project 2 -->
-                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="600" role="listitem">
+                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="600" role="listitem" style="opacity:1;transform:scale(1);transition:opacity .3s ease, transform .3s ease;">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-network-wired" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -191,11 +191,11 @@
     <section class="o-section" style="background: var(--bg-secondary);">
         <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">SUCCESS METRICS</span>
+                <span class="c-kicker c-kicker--purple">SUCCESS METRICS</span>
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">成果指標</h2>
             </div>
             
-            <div class="o-grid o-grid--cols-4 gap-4">
+            <div class="o-grid o-grid--cols-4">
                 <div class="c-card c-metric-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="metric-number counter" data-target="98">98</div>
                     <p style="color: var(--text-secondary); font-size: 1rem;">%</p>
@@ -227,17 +227,17 @@
     <section class="o-section">
         <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
-                <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">TESTIMONIALS</span>
+                <span class="c-kicker c-kicker--cyan">TESTIMONIALS</span>
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">お客様の声</h2>
             </div>
             
-            <div class="o-grid o-grid--cols-3 gap-4" style="max-width: 1000px; margin: 0 auto;">
+            <div class="o-grid o-grid--cols-3" style="max-width: 1000px; margin: 0 auto;">
                 <div class="c-card c-testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
                         AI-Dev'sの予知保全システムにより、設備の稼働率が大幅に向上しました。ROIは導入から6ヶ月で達成できました。
                     </p>
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="client-avatar">A</div>
+                        <div class="c-testimonial-card__avatar">A</div>
                         <div>
                             <p style="font-weight: 600;">製造業A社</p>
                             <p style="color: var(--text-muted); font-size: 0.875rem;">製造部門責任者</p>
@@ -250,7 +250,7 @@
                         データ分析プラットフォームの導入により、意思決定スピードが3倍になりました。今では欠かせないツールです。
                     </p>
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="client-avatar">B</div>
+                        <div class="c-testimonial-card__avatar">B</div>
                         <div>
                             <p style="font-weight: 600;">小売業B社</p>
                             <p style="color: var(--text-muted); font-size: 0.875rem;">経営企画部長</p>
@@ -263,7 +263,7 @@
                         医療画像診断AIの精度は想像以上でした。医師の負担軽減と診断精度向上を同時に実現できています。
                     </p>
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="client-avatar">C</div>
+                        <div class="c-testimonial-card__avatar">C</div>
                         <div>
                             <p style="font-weight: 600;">医療機関C</p>
                             <p style="color: var(--text-muted); font-size: 0.875rem;">院長</p>

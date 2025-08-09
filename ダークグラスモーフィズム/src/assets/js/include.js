@@ -179,7 +179,7 @@
     mobileMenuBtn.addEventListener('click', openMobileMenu);
     mobileMenuClose?.addEventListener('click', closeMobileMenu);
     mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
-    document.querySelectorAll('.mobile-menu-nav .nav-link').forEach((l) => {
+    document.querySelectorAll('.c-nav__mobile-nav .c-nav__link').forEach((l) => {
       l.addEventListener('click', closeMobileMenu);
     });
 
