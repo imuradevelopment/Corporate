@@ -1,5 +1,5 @@
 /* Layout objects */
-.container {
+.o-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-.section {
+.o-section {
   padding: var(--space-3xl) 0;
   position: relative;
 }

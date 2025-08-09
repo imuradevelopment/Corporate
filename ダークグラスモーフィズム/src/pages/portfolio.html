@@ -45,11 +45,11 @@
     <main id="main" role="main">
 
     <!-- Page Header -->
-    <section class="page-header">
-        <div class="hero-bg">
+    <section class="c-page-header">
+        <div class="c-hero__bg">
             <canvas id="particle-canvas" aria-hidden="true"></canvas>
         </div>
-        <div class="container" style="position: relative; z-index: 2;">
+        <div class="o-container" style="position: relative; z-index: 2;">
             <div data-aos="fade-up">
                 <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">OUR PORTFOLIO</span>
                 <h1 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">実績</h1>
@@ -61,23 +61,23 @@
     </section>
 
     <!-- Filter Buttons -->
-    <section class="section">
-        <div class="container">
+    <section class="o-section">
+        <div class="o-container">
             <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">すべて</button>
-                <button class="filter-btn" data-filter="ai">AI開発</button>
-                <button class="filter-btn" data-filter="data">データ分析</button>
-                <button class="filter-btn" data-filter="system">システム開発</button>
+                <button class="c-filter__button is-active" data-filter="all">すべて</button>
+                <button class="c-filter__button" data-filter="ai">AI開発</button>
+                <button class="c-filter__button" data-filter="data">データ分析</button>
+                <button class="c-filter__button" data-filter="system">システム開発</button>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Grid -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="grid grid-cols-3 gap-4" id="portfolio-grid">
+    <section class="o-section" style="padding-top: 0;">
+        <div class="o-container">
+            <div class="o-grid o-grid--cols-3 gap-4" id="portfolio-grid" role="list">
                 <!-- AI Project 1 -->
-                <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="100">
+                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="100" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-industry" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -85,7 +85,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(6, 182, 212, 0.3); border: 1px solid rgba(6, 182, 212, 0.5); border-radius: 15px; font-size: 0.75rem; color: #06b6d4; margin-bottom: 0.5rem;">AI開発</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">製造業向け予知保全AI</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -95,7 +95,7 @@
                 </div>
                 
                 <!-- Data Project 1 -->
-                <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="200">
+                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="200" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-shopping-cart" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -103,7 +103,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(139, 92, 246, 0.5); border-radius: 15px; font-size: 0.75rem; color: #8b5cf6; margin-bottom: 0.5rem;">データ分析</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">小売業向け需要予測</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -113,7 +113,7 @@
                 </div>
                 
                 <!-- System Project 1 -->
-                <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="300">
+                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="300" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-store" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -121,7 +121,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(236, 72, 153, 0.3); border: 1px solid rgba(236, 72, 153, 0.5); border-radius: 15px; font-size: 0.75rem; color: #ec4899; margin-bottom: 0.5rem;">システム開発</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">ECプラットフォーム構築</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -131,7 +131,7 @@
                 </div>
                 
                 <!-- AI Project 2 -->
-                <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="400">
+                <div class="c-card c-portfolio__item" data-category="ai" data-aos="fade-up" data-aos-delay="400" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-hospital" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -139,7 +139,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(6, 182, 212, 0.3); border: 1px solid rgba(6, 182, 212, 0.5); border-radius: 15px; font-size: 0.75rem; color: #06b6d4; margin-bottom: 0.5rem;">AI開発</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">医療画像診断AI</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -149,7 +149,7 @@
                 </div>
                 
                 <!-- Data Project 2 -->
-                <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="500">
+                <div class="c-card c-portfolio__item" data-category="data" data-aos="fade-up" data-aos-delay="500" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-university" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -157,7 +157,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(139, 92, 246, 0.5); border-radius: 15px; font-size: 0.75rem; color: #8b5cf6; margin-bottom: 0.5rem;">データ分析</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">金融リスク分析</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -167,7 +167,7 @@
                 </div>
                 
                 <!-- System Project 2 -->
-                <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="600">
+                <div class="c-card c-portfolio__item" data-category="system" data-aos="fade-up" data-aos-delay="600" role="listitem">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <i class="fas fa-network-wired" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
@@ -175,7 +175,7 @@
                             <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
                         </div>
                     </div>
-                    <div class="portfolio-overlay">
+                    <div class="c-portfolio__overlay">
                         <span style="display: inline-block; padding: 4px 12px; background: rgba(236, 72, 153, 0.3); border: 1px solid rgba(236, 72, 153, 0.5); border-radius: 15px; font-size: 0.75rem; color: #ec4899; margin-bottom: 0.5rem;">システム開発</span>
                         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">IoTプラットフォーム</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary);">
@@ -188,33 +188,33 @@
     </section>
 
     <!-- Success Metrics -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container">
+    <section class="o-section" style="background: var(--bg-secondary);">
+        <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
                 <span style="display: inline-block; padding: 8px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; font-size: 0.875rem; color: #8b5cf6; margin-bottom: 1rem; letter-spacing: 0.1em;">SUCCESS METRICS</span>
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">成果指標</h2>
             </div>
             
-            <div class="grid grid-cols-4 gap-4">
-                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="o-grid o-grid--cols-4 gap-4">
+                <div class="c-card c-metric-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="metric-number counter" data-target="98">98</div>
                     <p style="color: var(--text-secondary); font-size: 1rem;">%</p>
                     <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">プロジェクト成功率</p>
                 </div>
                 
-                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="c-card c-metric-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="metric-number counter" data-target="150">150</div>
                     <p style="color: var(--text-secondary); font-size: 1rem;">%</p>
                     <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">平均ROI</p>
                 </div>
                 
-                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="c-card c-metric-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="metric-number counter" data-target="3">3</div>
                     <p style="color: var(--text-secondary); font-size: 1rem;">ヶ月</p>
                     <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">平均導入期間</p>
                 </div>
                 
-                <div class="glass-card metric-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="c-card c-metric-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="metric-number counter" data-target="100">100</div>
                     <p style="color: var(--text-secondary); font-size: 1rem;">万+</p>
                     <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">処理データ数/日</p>
@@ -224,15 +224,15 @@
     </section>
 
     <!-- Client Testimonials -->
-    <section class="section">
-        <div class="container">
+    <section class="o-section">
+        <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
                 <span style="display: inline-block; padding: 8px 16px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 20px; font-size: 0.875rem; color: #06b6d4; margin-bottom: 1rem; letter-spacing: 0.1em;">TESTIMONIALS</span>
                 <h2 style="font-weight: 800; letter-spacing: -0.03em; margin-top: 1rem;">お客様の声</h2>
             </div>
             
-            <div class="grid grid-cols-3 gap-4" style="max-width: 1000px; margin: 0 auto;">
-                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="o-grid o-grid--cols-3 gap-4" style="max-width: 1000px; margin: 0 auto;">
+                <div class="c-card c-testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
                         AI-Dev'sの予知保全システムにより、設備の稼働率が大幅に向上しました。ROIは導入から6ヶ月で達成できました。
                     </p>
@@ -245,7 +245,7 @@
                     </div>
                 </div>
                 
-                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="c-card c-testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
                         データ分析プラットフォームの導入により、意思決定スピードが3倍になりました。今では欠かせないツールです。
                     </p>
@@ -258,7 +258,7 @@
                     </div>
                 </div>
                 
-                <div class="glass-card testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="c-card c-testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
                         医療画像診断AIの精度は想像以上でした。医師の負担軽減と診断精度向上を同時に実現できています。
                     </p>
@@ -275,9 +275,9 @@
     </section>
 
     <!-- CTA -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
+    <section class="o-section" style="background: var(--bg-secondary);">
+        <div class="o-container">
+            <div class="c-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
                 <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
                     次はあなたの番です
                 </h2>
