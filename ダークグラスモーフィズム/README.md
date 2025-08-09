@@ -1,6 +1,6 @@
 # AI-Dev's Corporate Site
 
-AI技術企業のコーポレートサイトです。
+AI技術企業の静的コーポレートサイトです。フレームワークやビルドツールに依存せず、HTML/CSS/バニラJSで構成しています。
 
 ## 🌐 デモサイト
 
@@ -13,72 +13,61 @@ https://imuradevelopment.github.io/Corporate/
 ## 🚀 特徴
 
 - **サーバー不要**: HTMLファイルを直接ブラウザで開いても動作
-- **レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
-- **ダークテーマ**: 目に優しいダークモードデザイン
-- **アニメーション**: AOS (Animate On Scroll)による滑らかなアニメーション
-- **自動デプロイ**: GitHub Actionsで全ブランチを自動的にGitHub Pagesにデプロイ
-- **ブランチカードは別タブで開く**
-- **URLの重複スラッシュ問題は解消済み**
+- **レスポンシブ**: モバイル/タブレット/デスクトップ
+- **ダークテーマ**: デザイントークンによる一元管理
+- **アニメーション**: AOS（CDN） + 軽量パーティクル
+- **共通化**: `components/header.html`/`footer.html` を `assets/js/include.js` で読込
+- **共通JS**: `assets/js/common.js` にページ横断の処理を集約
 
 ## 🛠 技術スタック
 
-- **HTML/CSS/JavaScript**: フレームワークを使用しないバニラ実装
-- **Tailwind CSS**: ユーティリティファーストのCSSフレームワーク（CDN）
-- **Font Awesome**: アイコンライブラリ（CDN）
-- **AOS**: スクロールアニメーションライブラリ
+- HTML5, CSS（ITCSS構成）, Vanilla JS
+- Font Awesome（CDN）, AOS（CDN）
 
 ## 📁 ディレクトリ構造
 
 ```
-Corporate/
-├── index.html          # ホームページ
+CorporateSite/
+├── index.html          # ホーム
 ├── about.html          # 会社概要
-├── services.html       # サービス紹介
+├── services.html       # サービス
 ├── portfolio.html      # 実績
 ├── contact.html        # お問い合わせ
-├── assets/
-│   ├── css/
-│   │   └── style.css   # カスタムCSS
-│   └── js/
-│       ├── main.js     # メインJavaScript
-│       └── components.js # コンポーネントローダー
-└── .github/
-    └── workflows/      # GitHub Actions設定
+├── components/
+│   ├── header.html     # 共有ヘッダー（モバイルメニュー含む）
+│   └── footer.html     # 共有フッター
+└── assets/
+    ├── styles/
+    │   ├── index.css   # ITCSSエントリ
+    │   └── 00-06/*     # トークン/要素/オブジェクト/コンポーネント/ユーティリティ
+    └── js/
+        ├── include.js  # コンポーネント読込・リンク解決・モバイルメニュー
+        └── common.js   # AOS/カウンター/パーティクル/ページ固有初期化
 ```
 
-## 🔧 開発方法
+## 🔧 ローカル確認
 
-### ローカルで確認
 ```bash
-# リポジトリをクローン
+# クローン
 git clone https://github.com/imuradevelopment/Corporate.git
 cd Corporate
 
-# ブラウザで直接開く（サーバー不要）
-open index.html  # macOS
-start index.html # Windows
+# そのままブラウザで開く or 簡易サーバ
+python -m http.server 8000
+# http://localhost:8000 へアクセス
 ```
 
-### 新しいブランチで開発
-```bash
-# 新しいブランチを作成
-git checkout -b デザイン名
+## ✨ 実装ノート
 
-# 開発・コミット
-git add .
-git commit -m "Add new design"
-
-git push origin デザイン名
-# 数分後にプレビュー可能
-# https://imuradevelopment.github.io/Corporate/デザイン名/
-```
+- すべての`<script>`は`defer`で読み込み（描画ブロック回避）
+- No-JSフォールバックを全ページに追加
+- モバイルメニューはARIA/ESC/フォーカストラップ対応
+- GitHub Pages配下でもリンクが壊れにくいよう`data-href`を`include.js`で解決
 
 ## 📝 GitHub Pages 自動デプロイ
 
-- mainブランチは「ブランチ一覧ページ」専用（index.htmlのみ自動生成、main自体は一覧に表示されません）
+- mainブランチは「ブランチ一覧ページ」専用
 - 各デザインブランチは `/ブランチ名/` でプレビュー可能
-- branches.htmlは廃止され、index.htmlのみが自動生成されます
-- ブランチカードはデフォルトで別タブで開きます
 
 ## 📄 ライセンス
 

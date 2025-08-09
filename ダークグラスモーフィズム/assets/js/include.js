@@ -2,21 +2,42 @@
 (function () {
   'use strict';
 
-  function resolveHref(raw, isInSubdir) {
-    const prefix = isInSubdir ? '' : '';
-    // '@/path' or './path' → relative from site root (branch root)
-    return raw.replace(/^@\//, '').replace(/^\.\//, '');
+  function getBasePath() {
+    // GitHub Pages 配下やサブディレクトリでも動作するベースパス計算
+    // 例: https://username.github.io/Corporate/branch/...
+    const path = location.pathname;
+    // 先頭のスラッシュを除去し、先頭ディレクトリを基準にする
+    // 本プロジェクトはブランチルート直下にHTMLがある前提のため、空を返す
+    return '';
+  }
+
+  function resolveHref(raw) {
+    const cleaned = raw.replace(/^@\//, '').replace(/^\.\//, '');
+    const base = getBasePath();
+    return base ? base + cleaned : cleaned;
   }
 
   function adjustLinks(root) {
-    const isInSubdir = true; // files live at branch root; keep simple
     root.querySelectorAll('a[data-href]').forEach((a) => {
       const t = a.getAttribute('data-href');
       if (!t) return;
-      a.setAttribute('href', resolveHref(t, isInSubdir));
+      a.setAttribute('href', resolveHref(t));
     });
     const y = root.querySelector('#y');
     if (y) y.textContent = new Date().getFullYear();
+
+    // 現在ページのaria-current設定
+    const current = location.pathname.split('/').pop() || 'index.html';
+    root.querySelectorAll('a[href]').forEach((a) => {
+      try {
+        const href = a.getAttribute('href');
+        if (!href) return;
+        const target = href.split('?')[0].split('#')[0];
+        if (target === current) {
+          a.setAttribute('aria-current', 'page');
+        }
+      } catch {}
+    });
   }
 
   async function include(selector, url) {
@@ -54,15 +75,47 @@
 
     if (!mobileMenu || !mobileMenuBtn) return;
 
+    function trapFocus(container) {
+      const focusable = container.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return () => {};
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      function handler(e) {
+        if (e.key !== 'Tab') return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+      container.addEventListener('keydown', handler);
+      return () => container.removeEventListener('keydown', handler);
+    }
+
+    let releaseFocus = () => {};
+
     function openMobileMenu() {
       mobileMenu.classList.add('active');
       mobileMenuOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      releaseFocus = trapFocus(mobileMenu);
+      setTimeout(() => {
+        const first = mobileMenu.querySelector('a, button');
+        first && first.focus();
+      }, 0);
     }
     function closeMobileMenu() {
       mobileMenu.classList.remove('active');
       mobileMenuOverlay.classList.remove('active');
       document.body.style.overflow = '';
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      releaseFocus();
+      mobileMenuBtn.focus();
     }
     mobileMenuBtn.addEventListener('click', openMobileMenu);
     mobileMenuClose?.addEventListener('click', closeMobileMenu);
@@ -76,6 +129,13 @@
       if (!navbar) return;
       if (window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
+    });
+
+    // ESC でクローズ
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
     });
   }
 

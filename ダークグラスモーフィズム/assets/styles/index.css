@@ -1,7 +1,6 @@
 /* Entry stylesheet (build-less). Keep visual unchanged. */
 /* ITCSS order */
 @import url("00-settings/tokens.css");
-@import url("01-tools/.gitkeep");
 @import url("02-generic/reset.css");
 @import url("02-generic/animations.css");
 @import url("02-generic/background.css");

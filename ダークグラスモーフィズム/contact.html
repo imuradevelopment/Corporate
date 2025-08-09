@@ -16,13 +16,25 @@
     
     <!-- AOS (Animate On Scroll) CDN -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Custom CSS (build-less entry) -->
     <link rel="stylesheet" href="assets/styles/index.css">
     
 </head>
 <body>
+    <noscript>
+        <div style="padding: 8px; background: #222; color: #fff; text-align:center;">
+            JavaScriptが無効です。簡易ナビゲーションのみ表示されます。
+            <nav style="margin-top:8px;">
+                <a href="index.html" style="color:#0bf; margin:0 8px;">ホーム</a>
+                <a href="about.html" style="color:#0bf; margin:0 8px;">会社概要</a>
+                <a href="services.html" style="color:#0bf; margin:0 8px;">サービス</a>
+                <a href="portfolio.html" style="color:#0bf; margin:0 8px;">実績</a>
+                <a href="contact.html" style="color:#0bf; margin:0 8px;">お問い合わせ</a>
+            </nav>
+        </div>
+    </noscript>
     <div data-include="header"></div>
 
     <!-- Page Header -->
@@ -214,131 +226,21 @@
     <div data-include="footer"></div>
 
     <!-- JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Contact form validation
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Simple validation
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                if (!name || !email || !message) {
-                    alert('必須項目を入力してください。');
-                    return;
-                }
-                
-                // Email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('有効なメールアドレスを入力してください。');
-                    return;
-                }
-                
-                // Success message
-                alert('お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。');
-                contactForm.reset();
-            });
-        }
-
-        // Simple particle animation for header
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
-        const particles = [];
-        const particleCount = 30;
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-            
-            draw() {
-                ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        // Create particles
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            
-            requestAnimationFrame(animateParticles);
-        }
-        
-        animateParticles();
-
+    <script defer src="assets/js/common.js"></script>
+    <script defer>
+      window.addEventListener('DOMContentLoaded', function () {
+        Common.initAOS();
+        Common.initParticles({ count: 30, color: 'rgba(6, 182, 212, 0.4)' });
+        Common.initContactFormValidation();
         // Map placeholder
-        const mapContainer = document.getElementById('map');
+        var mapContainer = document.getElementById('map');
         if (mapContainer) {
-            // In a real implementation, you would initialize a map library here
-            // For now, we'll just show a placeholder
-            setTimeout(() => {
-                mapContainer.innerHTML = `
-                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; gap: 1rem;">
-                        <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--accent-cyan); opacity: 0.5;"></i>
-                        <p style="color: var(--text-secondary);">インタラクティブな地図を表示</p>
-                    </div>
-                `;
-            }, 1000);
+          setTimeout(function () {
+            mapContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:1rem;"><i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--accent-cyan); opacity: 0.5;"></i><p style="color: var(--text-secondary);">インタラクティブな地図を表示</p></div>';
+          }, 1000);
         }
+      });
     </script>
-    <script src="assets/js/include.js"></script>
+    <script defer src="assets/js/include.js"></script>
 </body>
 </html>
