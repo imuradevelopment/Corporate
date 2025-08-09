@@ -1,4 +1,4 @@
-.c-button, .btn {
+.c-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   text-transform: none;
   letter-spacing: 0.025em;
 }
-.c-button::after, .btn::after {
+.c-button::after {
   content: '';
   position: absolute;
   top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%;
@@ -21,29 +21,29 @@
   transform: translate(-50%, -50%);
   transition: width var(--dur-slow) ease, height var(--dur-slow) ease;
 }
-.c-button:active::after, .btn:active::after { width: 300px; height: 300px; }
+.c-button:active::after { width: 300px; height: 300px; }
 
-.c-button--primary, .btn-primary {
+.c-button--primary {
   background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   color: var(--color-white); border: none;
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 4px 20px rgba(6, 182, 212, 0.4);
   position: relative;
 }
-.c-button--primary::before, .btn-primary::before {
+.c-button--primary::before {
   content: ''; position: absolute; inset: 0; border-radius: 12px;
   background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
   opacity: 0; transition: opacity 0.3s ease; z-index: -1;
 }
-.c-button--primary:hover, .btn-primary:hover { transform: translateY(-2px) scale(1.02);
+.c-button--primary:hover { transform: translateY(-2px) scale(1.02);
   box-shadow: 0 0 30px rgba(6, 182, 212, 0.7), 0 6px 30px rgba(6, 182, 212, 0.6);
 }
-.c-button--primary:hover::before, .btn-primary:hover::before { opacity: 1; }
+.c-button--primary:hover::before { opacity: 1; }
 
-.c-button--glass, .btn-glass { background: var(--black-glass);
+.c-button--glass { background: var(--black-glass);
   backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border); color: var(--text-primary); box-shadow: var(--glass-shadow);
 }
-.c-button--glass:hover, .btn-glass:hover { background: var(--black-glass-hover); border-color: var(--glass-border-hover);
+.c-button--glass:hover { background: var(--black-glass-hover); border-color: var(--glass-border-hover);
   transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
 }
 
