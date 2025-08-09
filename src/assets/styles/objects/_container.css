@@ -1,0 +1,71 @@
+.o-container {
+  width: 100%;
+  max-width: var(--max-width-7xl);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.o-container--xs {
+  max-width: var(--max-width-xs);
+}
+
+.o-container--sm {
+  max-width: var(--max-width-sm);
+}
+
+.o-container--md {
+  max-width: var(--max-width-md);
+}
+
+.o-container--lg {
+  max-width: var(--max-width-lg);
+}
+
+.o-container--xl {
+  max-width: var(--max-width-xl);
+}
+
+.o-container--2xl {
+  max-width: var(--max-width-2xl);
+}
+
+.o-container--3xl {
+  max-width: var(--max-width-3xl);
+}
+
+.o-container--4xl {
+  max-width: var(--max-width-4xl);
+}
+
+.o-container--5xl {
+  max-width: var(--max-width-5xl);
+}
+
+.o-container--6xl {
+  max-width: var(--max-width-6xl);
+}
+
+.o-container--full {
+  max-width: var(--max-width-full);
+  padding: 0;
+}
+
+.o-container--no-padding {
+  padding: 0;
+}
+
+.o-section {
+  padding: var(--section-padding) 0;
+}
+
+.o-section--sm {
+  padding: calc(var(--section-padding) * 0.5) 0;
+}
+
+.o-section--lg {
+  padding: calc(var(--section-padding) * 1.5) 0;
+}
+
+.o-section--xl {
+  padding: calc(var(--section-padding) * 2) 0;
+}

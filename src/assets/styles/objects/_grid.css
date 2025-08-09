@@ -1,0 +1,138 @@
+.o-grid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+.o-grid--cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.o-grid--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.o-grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.o-grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.o-grid--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.o-grid--cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.o-grid--cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.o-grid--auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.o-grid--auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.o-grid--gap-0 {
+  gap: 0;
+}
+
+.o-grid--gap-1 {
+  gap: var(--spacing-1);
+}
+
+.o-grid--gap-2 {
+  gap: var(--spacing-2);
+}
+
+.o-grid--gap-3 {
+  gap: var(--spacing-3);
+}
+
+.o-grid--gap-4 {
+  gap: var(--spacing-4);
+}
+
+.o-grid--gap-5 {
+  gap: var(--spacing-5);
+}
+
+.o-grid--gap-6 {
+  gap: var(--spacing-6);
+}
+
+.o-grid--gap-8 {
+  gap: var(--spacing-8);
+}
+
+.o-grid--gap-10 {
+  gap: var(--spacing-10);
+}
+
+.o-grid--gap-12 {
+  gap: var(--spacing-12);
+}
+
+.o-grid--align-start {
+  align-items: start;
+}
+
+.o-grid--align-center {
+  align-items: center;
+}
+
+.o-grid--align-end {
+  align-items: end;
+}
+
+.o-grid--align-stretch {
+  align-items: stretch;
+}
+
+.o-grid--justify-start {
+  justify-items: start;
+}
+
+.o-grid--justify-center {
+  justify-items: center;
+}
+
+.o-grid--justify-end {
+  justify-items: end;
+}
+
+.o-grid--justify-stretch {
+  justify-items: stretch;
+}
+
+@media (max-width: 767px) {
+  .o-grid--cols-2,
+  .o-grid--cols-3,
+  .o-grid--cols-4,
+  .o-grid--cols-5,
+  .o-grid--cols-6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .o-grid--cols-3,
+  .o-grid--cols-4,
+  .o-grid--cols-5,
+  .o-grid--cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .o-grid--cols-5,
+  .o-grid--cols-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

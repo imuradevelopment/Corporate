@@ -1,0 +1,198 @@
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base) var(--ease-in-out);
+}
+
+.c-button:hover {
+  transform: translateY(-2px);
+}
+
+.c-button:active {
+  transform: translateY(0);
+}
+
+.c-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.c-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c-button--primary {
+  color: var(--color-text-primary);
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.c-button--primary:hover {
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+.c-button--secondary {
+  color: var(--color-text-primary);
+  background: var(--gradient-secondary);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.c-button--secondary:hover {
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+.c-button--glass {
+  color: var(--color-text-primary);
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--blur-base));
+  -webkit-backdrop-filter: blur(var(--blur-base));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass-sm);
+}
+
+.c-button--glass:hover {
+  background: var(--glass-background-hover);
+  border-color: var(--glass-border-light);
+  box-shadow: var(--shadow-glass);
+}
+
+.c-button--glass-primary {
+  color: var(--color-primary-light);
+  background: rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(var(--blur-base));
+  -webkit-backdrop-filter: blur(var(--blur-base));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: var(--shadow-glass-sm);
+}
+
+.c-button--glass-primary:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: var(--shadow-glass), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.c-button--outline {
+  color: var(--color-primary-light);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+.c-button--outline:hover {
+  color: var(--color-text-primary);
+  background: var(--color-primary);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.c-button--ghost {
+  color: var(--color-text-primary);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.c-button--ghost:hover {
+  background: var(--glass-background);
+  border-color: var(--glass-border);
+}
+
+.c-button--sm {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+}
+
+.c-button--lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+}
+
+.c-button--xl {
+  padding: var(--spacing-5) var(--spacing-10);
+  font-size: var(--font-size-xl);
+}
+
+.c-button--block {
+  display: flex;
+  width: 100%;
+}
+
+.c-button--icon {
+  padding: var(--spacing-3);
+}
+
+.c-button--icon.c-button--sm {
+  padding: var(--spacing-2);
+}
+
+.c-button--icon.c-button--lg {
+  padding: var(--spacing-4);
+}
+
+.c-button--rounded {
+  border-radius: var(--radius-full);
+}
+
+.c-button--square {
+  border-radius: 0;
+}
+
+.c-button--loading {
+  position: relative;
+  color: transparent;
+}
+
+.c-button--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin: -0.5em 0 0 -0.5em;
+  border: 2px solid var(--color-text-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: button-spin 0.6s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.c-button-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.c-button-group .c-button {
+  border-radius: 0;
+}
+
+.c-button-group .c-button:first-child {
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+.c-button-group .c-button:last-child {
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.c-button-group .c-button + .c-button {
+  margin-left: -1px;
+}
