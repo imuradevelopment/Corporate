@@ -6,13 +6,15 @@
 (function () {
   'use strict';
 
-  window.SiteConfig = window.SiteConfig || {
-    // Example: 'https://example.com' or 'https://username.github.io/repo'
-    baseUrl: '',
+  var origin = '';
+  try { origin = (location && location.origin) ? location.origin : ''; } catch {}
 
-    // Optional absolute URL for social cards (overrides <meta property="og:image"> and twitter:image)
-    // Example: 'https://example.com/assets/img/ogp.png'
-    ogImageAbsoluteUrl: ''
+  window.SiteConfig = window.SiteConfig || {
+    // 本番URL。未設定時は location.origin を既定値に使用
+    baseUrl: origin,
+
+    // ソーシャルカード。未設定時は既定の OGP 画像を絶対URL化
+    ogImageAbsoluteUrl: origin ? origin + '/assets/img/ogp.png' : ''
   };
 })();
 

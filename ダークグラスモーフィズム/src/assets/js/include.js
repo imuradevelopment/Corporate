@@ -95,31 +95,39 @@
   function applySeoMetaFallbacks() {
     try {
       const cfg = window.SiteConfig || {};
-      const baseUrl = (cfg.baseUrl || '').replace(/\/$/, '');
-      if (!baseUrl) return; // no-op until configured
+      const configuredBase = (cfg.baseUrl || '').replace(/\/$/, '');
+      const originBase = (location && location.origin) ? location.origin : '';
+      const base = configuredBase || originBase;
 
       // canonical
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical && (!canonical.getAttribute('href') || canonical.getAttribute('href') === '')) {
-        const path = location.pathname.replace(/^\//, '');
-        const abs = baseUrl + '/' + path;
+        // 優先: 設定されたbase。なければオリジン。クエリ/ハッシュは除外
+        const abs = base ? base + location.pathname : location.href.split(/[?#]/)[0];
         canonical.setAttribute('href', abs);
       }
 
       // og:url
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl && (!ogUrl.getAttribute('content') || ogUrl.getAttribute('content') === '')) {
-        const path = location.pathname.replace(/^\//, '');
-        const abs = baseUrl + '/' + path;
+        const abs = base ? base + location.pathname : location.href.split(/[?#]/)[0];
         ogUrl.setAttribute('content', abs);
       }
 
-      // og:image / twitter:image absolute override if provided
+      // og:image / twitter:image 絶対URL化
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      const twImage = document.querySelector('meta[name="twitter:image"]');
       if (cfg.ogImageAbsoluteUrl) {
-        const ogImage = document.querySelector('meta[property="og:image"]');
-        const twImage = document.querySelector('meta[name="twitter:image"]');
         ogImage && ogImage.setAttribute('content', cfg.ogImageAbsoluteUrl);
         twImage && twImage.setAttribute('content', cfg.ogImageAbsoluteUrl);
+      } else {
+        const ensureAbs = (val) => {
+          if (!val) return '';
+          if (/^https?:\/\//i.test(val)) return val;
+          try { return new URL(val, location.href).toString(); } catch { return val; }
+        };
+        if (ogImage) ogImage.setAttribute('content', ensureAbs(ogImage.getAttribute('content') || 'assets/img/ogp.png'));
+        if (twImage) twImage.setAttribute('content', ensureAbs(twImage.getAttribute('content') || 'assets/img/ogp.png'));
       }
     } catch {}
   }
@@ -215,12 +223,16 @@
       l.addEventListener('click', closeMobileMenu);
     });
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function () {
-      if (!navbar) return;
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    });
+    // Navbar scroll effect (passive listener)
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!navbar) return;
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      },
+      { passive: true }
+    );
 
     // ESC でクローズ
     window.addEventListener('keydown', function (e) {

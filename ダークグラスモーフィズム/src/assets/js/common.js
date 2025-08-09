@@ -91,7 +91,11 @@
       if (this.y > viewHeight) this.y = 0; else if (this.y < 0) this.y = viewHeight;
     };
     Particle.prototype.draw = function () {
-      ctx.fillStyle = color.replace(/\d?\.\d+\)/, this.opacity + ')') || color;
+      // 安全にアルファ値を置換（rgba想定）。不一致時はそのまま使用
+      var rgbaMatch = color.match(/^rgba\((\s*\d+\s*),(\s*\d+\s*),(\s*\d+\s*),(\s*\d*\.?\d+\s*)\)$/);
+      ctx.fillStyle = rgbaMatch
+        ? 'rgba(' + rgbaMatch[1].trim() + ',' + rgbaMatch[2].trim() + ',' + rgbaMatch[3].trim() + ',' + this.opacity + ')'
+        : color;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
@@ -111,7 +115,11 @@
             var dx = a.x - b.x, dy = a.y - b.y;
             var dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 150) {
-              ctx.strokeStyle = color.replace(/\d?\.\d+\)/, (0.1 * (1 - dist / 150)) + ')');
+              var alpha = 0.1 * (1 - dist / 150);
+              var rgbaMatch2 = color.match(/^rgba\((\s*\d+\s*),(\s*\d+\s*),(\s*\d+\s*),(\s*\d*\.?\d+\s*)\)$/);
+              ctx.strokeStyle = rgbaMatch2
+                ? 'rgba(' + rgbaMatch2[1].trim() + ',' + rgbaMatch2[2].trim() + ',' + rgbaMatch2[3].trim() + ',' + alpha + ')'
+                : color;
               ctx.lineWidth = 0.5;
               ctx.beginPath();
               ctx.moveTo(a.x, a.y);
