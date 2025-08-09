@@ -32,10 +32,8 @@
       try {
         const href = a.getAttribute('href');
         if (!href) return;
-        const target = href.split('?')[0].split('#')[0];
-        if (target === current) {
-          a.setAttribute('aria-current', 'page');
-        }
+        const target = href.split('?')[0].split('#')[0].replace('./', '');
+        if (target === current) a.setAttribute('aria-current', 'page');
       } catch {}
     });
   }

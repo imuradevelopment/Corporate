@@ -1,3 +1,12 @@
+/* Local variable font (Inter) */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-roman.var.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Design Tokens (:root) - extracted from black-glass.css */
 :root {
   /* Dark Gradient Background Colors */
@@ -34,7 +43,7 @@
   --space-3xl: 6rem;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 }
 
 

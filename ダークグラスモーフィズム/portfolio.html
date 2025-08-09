@@ -6,17 +6,10 @@
     <title>実績 - AI-Dev's</title>
     <meta name="description" content="AI-Dev'sの実績をご紹介します。AI開発、データ分析、システム開発の成功事例をご覧ください。">
     
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS (Animate On Scroll) CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Local assets only -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
     
     <!-- Custom CSS (build-less entry) -->
     <link rel="stylesheet" href="assets/styles/index.css">
@@ -40,7 +33,7 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="hero-bg">
-            <canvas id="particle-canvas"></canvas>
+            <canvas id="particle-canvas" aria-hidden="true"></canvas>
         </div>
         <div class="container" style="position: relative; z-index: 2;">
             <div data-aos="fade-up">
@@ -72,9 +65,9 @@
                 <!-- AI Project 1 -->
                 <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="100">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-industry" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
+                        <i class="fas fa-industry" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-brain" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                            <i class="fas fa-brain" aria-hidden="true" style="color: var(--accent-cyan); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
                         </div>
                     </div>
@@ -90,9 +83,9 @@
                 <!-- Data Project 1 -->
                 <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="200">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-shopping-cart" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
+                        <i class="fas fa-shopping-cart" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-chart-bar" style="color: var(--accent-purple); margin-right: 8px;"></i>
+                            <i class="fas fa-chart-bar" aria-hidden="true" style="color: var(--accent-purple); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
                         </div>
                     </div>
@@ -108,9 +101,9 @@
                 <!-- System Project 1 -->
                 <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="300">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-store" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
+                        <i class="fas fa-store" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-code" style="color: var(--accent-pink); margin-right: 8px;"></i>
+                            <i class="fas fa-code" aria-hidden="true" style="color: var(--accent-pink); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
                         </div>
                     </div>
@@ -126,7 +119,7 @@
                 <!-- AI Project 2 -->
                 <div class="glass-card portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="400">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-hospital" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
+                        <i class="fas fa-hospital" aria-hidden="true" style="font-size: 5rem; color: var(--accent-cyan); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
                             <i class="fas fa-brain" style="color: var(--accent-cyan); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">AIプロジェクト</span>
@@ -144,9 +137,9 @@
                 <!-- Data Project 2 -->
                 <div class="glass-card portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="500">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-university" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
+                        <i class="fas fa-university" aria-hidden="true" style="font-size: 5rem; color: var(--accent-purple); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-chart-bar" style="color: var(--accent-purple); margin-right: 8px;"></i>
+                            <i class="fas fa-chart-bar" aria-hidden="true" style="color: var(--accent-purple); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">データ分析</span>
                         </div>
                     </div>
@@ -162,9 +155,9 @@
                 <!-- System Project 2 -->
                 <div class="glass-card portfolio-item" data-category="system" data-aos="fade-up" data-aos-delay="600">
                     <div style="height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                        <i class="fas fa-network-wired" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
+                        <i class="fas fa-network-wired" aria-hidden="true" style="font-size: 5rem; color: var(--accent-pink); opacity: 0.3;"></i>
                         <div style="position: absolute; top: 20px; right: 20px; background: var(--black-glass); backdrop-filter: blur(12px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);">
-                            <i class="fas fa-code" style="color: var(--accent-pink); margin-right: 8px;"></i>
+                            <i class="fas fa-code" aria-hidden="true" style="color: var(--accent-pink); margin-right: 8px;"></i>
                             <span style="font-size: 0.875rem; font-weight: 500;">システム開発</span>
                         </div>
                     </div>
@@ -294,6 +287,7 @@
     <div data-include="footer"></div>
 
     <!-- JavaScript -->
+    <script defer src="assets/vendor/aos/aos.js"></script>
     <script defer src="assets/js/common.js"></script>
     <script defer>
       window.addEventListener('DOMContentLoaded', function () {
