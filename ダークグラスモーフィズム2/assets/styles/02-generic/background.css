@@ -1,0 +1,35 @@
+/* Background Gradient Layers */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at top left, var(--gradient-1) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, var(--gradient-2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, var(--gradient-3) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, var(--gradient-4) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  z-index: -2;
+}
+
+/* Animated gradient orbs */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  animation: gradientShift 20s ease infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
