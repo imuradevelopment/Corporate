@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>技術ブログ — Company</title>
+    <meta name="description" content="Webパフォーマンス、アクセシビリティ、グラスモーフィズムに関する技術情報を発信しています。" />
+    <meta name="theme-color" content="#33c3ff" />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content="技術ブログ — Company" />
+    <meta property="og:description" content="Webパフォーマンス、アクセシビリティ、グラスモーフィズムに関する技術情報を発信しています。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../assets/img/ogp.png" />
+    <meta property="og:url" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="技術ブログ — Company" />
+    <meta name="twitter:description" content="Webパフォーマンス、アクセシビリティ、グラスモーフィズムに関する技術情報を発信しています。" />
+    <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+    <link rel="preload" href="../assets/styles/main.css" as="style" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="canonical" href="" />
+  </head>
+  <body>
+    <a href="#main" class="visually-hidden">コンテンツへスキップ</a>
+    <noscript>
+      <nav class="ns-nav">
+        <a href="../index.html">ホーム</a>
+        <a href="about.html">私たちについて</a>
+        <a href="services.html">サービス</a>
+        <a href="portfolio.html">事例</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="news.html">ニュース</a>
+        <a href="blog.html">ブログ</a>
+      </nav>
+    </noscript>
+    <div data-include="header"></div>
+
+    <main id="main" class="section">
+      <div class="container">
+        <header class="mb-6">
+          <div class="breadcrumbs">
+            <a href="../index.html">ホーム</a> / 技術ブログ
+          </div>
+          <h1 class="section-title reveal-text">技術ブログ</h1>
+          <p class="lead reveal-text center">Webの最新技術と<span class="gradient-text">実践的なノウハウ</span>をお届けします。</p>
+        </header>
+
+        <!-- Categories Filter -->
+        <section class="section" style="padding-top: 0;">
+          <div class="blog-filter glass-card card">
+            <h2>カテゴリー</h2>
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-filter="all">すべて</button>
+              <button class="filter-btn" data-filter="performance">パフォーマンス</button>
+              <button class="filter-btn" data-filter="accessibility">アクセシビリティ</button>
+              <button class="filter-btn" data-filter="design">デザイン</button>
+              <button class="filter-btn" data-filter="frontend">フロントエンド</button>
+              <button class="filter-btn" data-filter="tools">ツール・環境</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Article -->
+        <section class="section">
+          <span class="kicker">FEATURED ARTICLE</span>
+          <h2 class="section-title">注目の記事</h2>
+          <article class="featured-article glass-card card glass-layer hover-zone">
+            <div class="featured-article-content">
+              <div class="article-meta">
+                <span class="article-date">2024.12.10</span>
+                <span class="article-category article-category--performance">パフォーマンス</span>
+                <span class="article-readtime">読了時間: 8分</span>
+              </div>
+              <h3 class="featured-article-title">Core Web Vitals 2024: LCPを1秒台に改善する実践テクニック</h3>
+              <p class="featured-article-summary">
+                最新のCore Web Vitals指標に対応したパフォーマンス最適化の実践的な手法を詳しく解説します。
+                画像最適化、CSSの読み込み戦略、JavaScriptの遅延実行など、
+                実際のプロジェクトで効果の高かった手法を具体的なコード例とともに紹介。
+              </p>
+              <div class="article-tags">
+                <span class="tag">Core Web Vitals</span>
+                <span class="tag">LCP</span>
+                <span class="tag">画像最適化</span>
+                <span class="tag">WebP/AVIF</span>
+              </div>
+              <a href="#" class="btn btn--ghost">記事を読む</a>
+            </div>
+            <div class="featured-article-visual">
+              <div class="featured-placeholder">Core Web Vitals Chart</div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Recent Articles -->
+        <section class="section">
+          <span class="kicker">RECENT POSTS</span>
+          <h2 class="section-title">最新の記事</h2>
+          <div class="blog-grid">
+            <article class="blog-post glass-card card hover-zone" data-category="accessibility">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">ARIA Labels</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.11.28</span>
+                  <span class="article-category article-category--accessibility">アクセシビリティ</span>
+                </div>
+                <h3 class="blog-post-title">ARIA属性を正しく使いこなす：実装パターン集</h3>
+                <p class="blog-post-summary">
+                  スクリーンリーダーユーザーのための適切なARIA属性の使い方を、
+                  コンポーネント別に実装例とともに解説します。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">ARIA</span>
+                  <span class="tag">Screen Reader</span>
+                  <span class="tag">WCAG</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 6分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-post glass-card card hover-zone" data-category="design">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">Glassmorphism UI</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.11.20</span>
+                  <span class="article-category article-category--design">デザイン</span>
+                </div>
+                <h3 class="blog-post-title">グラスモーフィズムデザインの科学：視認性を保つblur値の決め方</h3>
+                <p class="blog-post-summary">
+                  美しさと機能性を両立するグラスモーフィズムデザインの
+                  実装における技術的な考慮点を解説します。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">Glassmorphism</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">backdrop-filter</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 5分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-post glass-card card hover-zone" data-category="frontend">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">Build-less Architecture</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.11.15</span>
+                  <span class="article-category article-category--frontend">フロントエンド</span>
+                </div>
+                <h3 class="blog-post-title">ビルドレスアーキテクチャのメリット・デメリット</h3>
+                <p class="blog-post-summary">
+                  モダンブラウザの機能を活かしたビルドツール不要の
+                  開発環境構築について、実践例とともに解説します。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">ES Modules</span>
+                  <span class="tag">Build-less</span>
+                  <span class="tag">Developer Experience</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 7分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-post glass-card card hover-zone" data-category="performance">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">INP Optimization</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.11.08</span>
+                  <span class="article-category article-category--performance">パフォーマンス</span>
+                </div>
+                <h3 class="blog-post-title">INP改善の実践：ユーザーインタラクションを200ms以下に</h3>
+                <p class="blog-post-summary">
+                  Interaction to Next Paint (INP) の測定と改善方法を
+                  具体的な実装例とともに詳しく解説します。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">INP</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">User Experience</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 9分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-post glass-card card hover-zone" data-category="tools">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">Lighthouse CI</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.10.30</span>
+                  <span class="article-category article-category--tools">ツール・環境</span>
+                </div>
+                <h3 class="blog-post-title">Lighthouse CIでパフォーマンス監視を自動化する</h3>
+                <p class="blog-post-summary">
+                  GitHub ActionsとLighthouse CIを使った
+                  継続的なパフォーマンス監視の設定方法を解説します。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">Lighthouse</span>
+                  <span class="tag">GitHub Actions</span>
+                  <span class="tag">CI/CD</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 4分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-post glass-card card hover-zone" data-category="accessibility">
+              <div class="blog-post-image">
+                <div class="blog-placeholder">Color Contrast</div>
+              </div>
+              <div class="blog-post-content">
+                <div class="article-meta">
+                  <span class="article-date">2024.10.25</span>
+                  <span class="article-category article-category--accessibility">アクセシビリティ</span>
+                </div>
+                <h3 class="blog-post-title">色覚多様性を考慮したカラーパレット設計</h3>
+                <p class="blog-post-summary">
+                  色覚特性の違いを理解し、すべてのユーザーにとって
+                  使いやすいカラーパレットの作り方を学びます。
+                </p>
+                <div class="article-tags">
+                  <span class="tag">Color Theory</span>
+                  <span class="tag">Accessibility</span>
+                  <span class="tag">Inclusive Design</span>
+                </div>
+                <div class="blog-post-footer">
+                  <span class="read-time">読了時間: 6分</span>
+                  <a href="#" class="read-more">続きを読む</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="section">
+          <div class="blog-newsletter glass-card card glass-layer">
+            <h2>技術情報を定期配信</h2>
+            <p class="newsletter-desc">
+              最新のWeb技術トレンドやパフォーマンス最適化のTipsを
+              月1回のペースでお届けします。
+            </p>
+            <form class="newsletter-form" action="#" method="post">
+              <div class="newsletter-input-group">
+                <input 
+                  class="newsletter-input" 
+                  type="email" 
+                  name="email" 
+                  placeholder="メールアドレスを入力" 
+                  required 
+                />
+                <button class="btn" type="submit">購読する</button>
+              </div>
+              <label class="newsletter-agreement">
+                <input type="checkbox" name="agreement" required />
+                <span><a href="privacy.html">プライバシーポリシー</a>に同意する</span>
+              </label>
+            </form>
+          </div>
+        </section>
+
+        <!-- Popular Tags -->
+        <section class="section">
+          <span class="kicker">POPULAR TAGS</span>
+          <h2 class="section-title">人気のタグ</h2>
+          <div class="popular-tags glass-card card">
+            <a href="#" class="popular-tag">Core Web Vitals</a>
+            <a href="#" class="popular-tag">アクセシビリティ</a>
+            <a href="#" class="popular-tag">グラスモーフィズム</a>
+            <a href="#" class="popular-tag">パフォーマンス最適化</a>
+            <a href="#" class="popular-tag">WCAG 2.1</a>
+            <a href="#" class="popular-tag">CSS</a>
+            <a href="#" class="popular-tag">JavaScript</a>
+            <a href="#" class="popular-tag">HTML5</a>
+            <a href="#" class="popular-tag">Lighthouse</a>
+            <a href="#" class="popular-tag">ビルドレス</a>
+            <a href="#" class="popular-tag">INP</a>
+            <a href="#" class="popular-tag">LCP</a>
+            <a href="#" class="popular-tag">ARIA</a>
+            <a href="#" class="popular-tag">フロントエンド</a>
+          </div>
+        </section>
+
+        <section class="section" style="padding-top: 0;">
+          <div class="cta-band glass-card glass-layer hover-zone">
+            <h3 class="cta-band__title">技術的な課題はありませんか？</h3>
+            <p class="dim">パフォーマンス改善やアクセシビリティ対応など、技術的なご相談を承ります。</p>
+            <div class="cta-band__actions">
+              <a class="btn" href="contact.html">技術相談する</a>
+              <a class="btn btn--ghost" href="services.html">サービス詳細</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div data-include="footer"></div>
+
+    <script defer src="../assets/js/include.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="assets/styles/main.css" />
   </head>
   <body>
+    <div class="dynamic-bg-container" aria-hidden="true">
+      <div class="floating-element floating-element--1"></div>
+      <div class="floating-element floating-element--2"></div>
+      <div class="floating-element floating-element--3"></div>
+    </div>
     <a href="#main" class="visually-hidden">コンテンツへスキップ</a>
     <noscript>
       <nav class="ns-nav">
@@ -215,6 +220,205 @@
               <p class="testimonial__quote">ビルドレス運用でリリースが軽くなり、改善サイクルが加速しました。</p>
               <p class="testimonial__author">開発責任者・X社</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">NEWS & UPDATES</span>
+          <h2 class="section-title">ニュース・お知らせ</h2>
+          <div class="grid cols-3 mb-6">
+            <article class="glass-card card hover-zone">
+              <div class="news-date">2024.12.15</div>
+              <h3>新サービス「Performance Audit Pro」リリース</h3>
+              <p class="dim">Webサイトのパフォーマンス監査に特化したプレミアムサービスを開始しました。</p>
+              <a href="pages/news.html" class="btn btn--small btn--ghost">詳細を見る</a>
+            </article>
+            <article class="glass-card card hover-zone">
+              <div class="news-date">2024.12.01</div>
+              <h3>年末年始営業のお知らせ</h3>
+              <p class="dim">12月29日〜1月3日は休業とさせていただきます。緊急時はメールにてお問い合わせください。</p>
+              <a href="pages/news.html" class="btn btn--small btn--ghost">詳細を見る</a>
+            </article>
+            <article class="glass-card card hover-zone">
+              <div class="news-date">2024.11.20</div>
+              <h3>技術ブログ開設のお知らせ</h3>
+              <p class="dim">Webパフォーマンスとアクセシビリティに関する技術情報を発信する公式ブログを開設しました。</p>
+              <a href="pages/blog.html" class="btn btn--small btn--ghost">ブログを見る</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">TECHNOLOGY STACK</span>
+          <h2 class="section-title">技術スタック</h2>
+          <p class="lead center mb-6">最新技術と実績ある手法を組み合わせ、持続可能なソリューションを提供</p>
+          <div class="tech-stack mb-6">
+            <div class="tech-category">
+              <h3>Frontend</h3>
+              <div class="tech-grid">
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">HTML5</span>
+                  <span class="tech-desc">セマンティックマークアップ</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">CSS3</span>
+                  <span class="tech-desc">モダンレイアウト・アニメーション</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">JavaScript ES6+</span>
+                  <span class="tech-desc">高性能インタラクション</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">React/Vue</span>
+                  <span class="tech-desc">コンポーネント開発</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-category">
+              <h3>Performance</h3>
+              <div class="tech-grid">
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">Lighthouse</span>
+                  <span class="tech-desc">品質計測・改善</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">WebP/AVIF</span>
+                  <span class="tech-desc">次世代画像フォーマット</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">CDN</span>
+                  <span class="tech-desc">グローバル配信最適化</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">HTTP/3</span>
+                  <span class="tech-desc">高速プロトコル</span>
+                </div>
+              </div>
+            </div>
+            <div class="tech-category">
+              <h3>Accessibility</h3>
+              <div class="tech-grid">
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">WCAG 2.1</span>
+                  <span class="tech-desc">アクセシビリティ標準</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">ARIA</span>
+                  <span class="tech-desc">支援技術対応</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">axe-core</span>
+                  <span class="tech-desc">自動テスト</span>
+                </div>
+                <div class="tech-item glass-card card hover-zone">
+                  <span class="tech-name">Screen Reader</span>
+                  <span class="tech-desc">読み上げ最適化</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">TRUSTED PARTNERS</span>
+          <h2 class="section-title">パートナー企業</h2>
+          <p class="lead center mb-6">信頼できるパートナー企業と連携し、包括的なソリューションを提供</p>
+          <div class="partners-grid">
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">TechCorp</div>
+              <p class="partner-desc">クラウドインフラ・DevOps支援</p>
+            </div>
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">Design Studio</div>
+              <p class="partner-desc">ブランディング・UI設計</p>
+            </div>
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">Analytics Pro</div>
+              <p class="partner-desc">データ分析・マーケティング支援</p>
+            </div>
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">Security Plus</div>
+              <p class="partner-desc">セキュリティ監査・対策</p>
+            </div>
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">Content Lab</div>
+              <p class="partner-desc">コンテンツ制作・SEO支援</p>
+            </div>
+            <div class="partner-item glass-card card hover-zone">
+              <div class="partner-logo">Mobile First</div>
+              <p class="partner-desc">モバイルアプリ開発</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <span class="kicker">FAQ</span>
+          <h2 class="section-title">よくある質問</h2>
+          <div class="faq-list">
+            <details class="faq-item glass-card card hover-zone">
+              <summary class="faq-question">
+                <h3>プロジェクトの期間はどれくらいですか？</h3>
+                <span class="faq-toggle">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>プロジェクトの規模により異なりますが、一般的には以下のような期間となります：</p>
+                <ul>
+                  <li>Starterプラン: 2-4週間</li>
+                  <li>Growthプラン: 6-10週間</li>
+                  <li>Enterpriseプラン: 12-20週間</li>
+                </ul>
+                <p>詳細な要件をヒアリングした後、正確なスケジュールをご提示します。</p>
+              </div>
+            </details>
+            <details class="faq-item glass-card card hover-zone">
+              <summary class="faq-question">
+                <h3>既存サイトのリニューアルも対応可能ですか？</h3>
+                <span class="faq-toggle">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>はい、既存サイトのリニューアルも承っております。現状分析から始まり、段階的な移行プランをご提案します。SEOの評価を維持しながら、パフォーマンスとユーザビリティを向上させます。</p>
+              </div>
+            </details>
+            <details class="faq-item glass-card card hover-zone">
+              <summary class="faq-question">
+                <h3>保守・運用サポートはありますか？</h3>
+                <span class="faq-toggle">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>月額制の保守プランをご用意しています：</p>
+                <ul>
+                  <li>ベーシック: 月額3万円〜（セキュリティ更新・軽微修正）</li>
+                  <li>スタンダード: 月額8万円〜（コンテンツ更新・パフォーマンス監視）</li>
+                  <li>プレミアム: 月額15万円〜（機能追加・継続改善）</li>
+                </ul>
+              </div>
+            </details>
+            <details class="faq-item glass-card card hover-zone">
+              <summary class="faq-question">
+                <h3>CMSの導入は可能ですか？</h3>
+                <span class="faq-toggle">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>はい、お客様のニーズに合わせて適切なCMSをご提案します。WordPressをはじめ、Headless CMSやJamstackアーキテクチャにも対応可能です。運用のしやすさと技術的な要件のバランスを考慮してご提案します。</p>
+              </div>
+            </details>
+            <details class="faq-item glass-card card hover-zone">
+              <summary class="faq-question">
+                <h3>アクセシビリティ対応のレベルは？</h3>
+                <span class="faq-toggle">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>WCAG 2.1 AAレベルを標準として対応しています。スクリーンリーダー対応、キーボード操作、適切なカラーコントラストの確保など、包括的なアクセシビリティ対応を行います。必要に応じてAAAレベルの対応も可能です。</p>
+              </div>
+            </details>
           </div>
         </div>
       </section>
