@@ -5,6 +5,7 @@
   const menuToggle = document.querySelector('[data-js="menu-toggle"]');
   const nav = document.querySelector('[data-js="nav"]');
   let lastScrollTop = 0;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -26,15 +27,16 @@
 
   function handleMenuToggle() {
     const isOpen = nav.classList.contains('c-header__nav--open');
-    
     if (isOpen) {
       nav.classList.remove('c-header__nav--open');
       menuToggle.classList.remove('c-header__menu-toggle--active');
       document.body.style.overflow = '';
+      menuToggle.setAttribute('aria-expanded', 'false');
     } else {
       nav.classList.add('c-header__nav--open');
       menuToggle.classList.add('c-header__menu-toggle--active');
       document.body.style.overflow = 'hidden';
+      menuToggle.setAttribute('aria-expanded', 'true');
     }
   }
 
@@ -145,7 +147,8 @@
   }
 
   function handleFormSubmit() {
-    const forms = document.querySelectorAll('form');
+    // 問い合わせフォームは専用スクリプトで処理するため除外
+    const forms = Array.from(document.querySelectorAll('form')).filter(f => !f.matches('[data-js="contact-form"]'));
     
     forms.forEach(form => {
       form.addEventListener('submit', function(e) {
@@ -191,7 +194,7 @@
       });
     }
     
-    window.addEventListener('scroll', updateParallax);
+    window.addEventListener('scroll', updateParallax, { passive: true });
   }
 
   function handleMouseGlow() {
@@ -238,17 +241,33 @@
 
   function init() {
     if (header) {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
     }
     
     if (menuToggle && nav) {
+      if (!nav.id) nav.id = 'site-nav';
+      menuToggle.setAttribute('aria-controls', nav.id);
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'メニューを開閉');
       menuToggle.addEventListener('click', handleMenuToggle);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('c-header__nav--open')) {
+          nav.classList.remove('c-header__nav--open');
+          menuToggle.classList.remove('c-header__menu-toggle--active');
+          document.body.style.overflow = '';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
     
     setActiveNavLink();
     handleGlassEffect();
-    createGlassParticles();
+    // 低負荷設定やトップページ以外ではパーティクルを生成しない
+    const isTopPage = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '';
+    if (!reduceMotion && isTopPage) {
+      createGlassParticles();
+    }
     handleSmoothScroll();
     handleFormSubmit();
     handleParallax();
