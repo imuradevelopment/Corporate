@@ -6,30 +6,39 @@
   }
 
   function initAOS() {
-    if (window.AOS) {
-      window.AOS.init({ duration: 1000, once: true, offset: 100, easing: 'ease-out-cubic' });
+    if (!window.AOS) return;
+    // 低刺激環境ではAOSを無効化
+    if (prefersReducedMotion && prefersReducedMotion()) {
+      try { window.AOS.init({ disable: true }); } catch {}
+      return;
     }
+    window.AOS.init({ duration: 1000, once: true, offset: 100, easing: 'ease-out-cubic' });
   }
 
   function initCounters() {
     var counters = document.querySelectorAll('.counter');
-    var speed = 200;
+    var durationMs = 1000; // 総所要時間の目安
     counters.forEach(function (counter) {
-      function animate() {
-        var value = +counter.getAttribute('data-target');
-        var data = +counter.innerText;
-        var time = value / speed;
-        if (data < value) {
-          counter.innerText = Math.ceil(data + time);
-          setTimeout(animate, 1);
-        } else {
-          counter.innerText = value;
-        }
+      var targetRaw = counter.getAttribute('data-target');
+      var targetVal = Number(targetRaw);
+      if (!Number.isFinite(targetVal)) return; // 不正値は無視
+
+      var startVal = Number(counter.innerText.replace(/[^\d.-]/g, ''));
+      if (!Number.isFinite(startVal)) startVal = 0;
+
+      var startTime = 0;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min(1, (ts - startTime) / durationMs);
+        var eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        var current = Math.round(startVal + (targetVal - startVal) * eased);
+        counter.innerText = String(current);
+        if (progress < 1) requestAnimationFrame(step);
       }
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            animate();
+            requestAnimationFrame(step);
             observer.unobserve(entry.target);
           }
         });
@@ -80,7 +89,9 @@
 
     for (var i = 0; i < count; i++) particles.push(new Particle());
 
+    var running = true;
     function frame() {
+      if (!running) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(function (p) { p.update(); p.draw(); });
       if (connectLines) {
@@ -103,6 +114,12 @@
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
+
+    // タブ非表示時は描画を停止（省電力）
+    document.addEventListener('visibilitychange', function () {
+      running = !document.hidden;
+      if (running) requestAnimationFrame(frame);
+    });
   }
 
   function initServiceTabs() {

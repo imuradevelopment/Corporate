@@ -77,13 +77,17 @@
       const href = a.getAttribute('href');
       if (!href || /^(https?:)?\/\//.test(href) || href.startsWith('#')) return;
 
+      // ハッシュ付きのリンクにも対応するため、判定はパス本体で行い、設定時にハッシュを復元する
+      const [hrefPath, hrefHash] = href.split('#');
+      const hashSuffix = hrefHash ? '#' + hrefHash : '';
+
       const pageNames = ['about.html', 'services.html', 'portfolio.html', 'contact.html'];
-      if (!isInPages && pageNames.includes(href) && !href.startsWith('pages/')) {
-        a.setAttribute('href', 'pages/' + href);
+      if (!isInPages && pageNames.includes(hrefPath) && !hrefPath.startsWith('pages/')) {
+        a.setAttribute('href', 'pages/' + hrefPath + hashSuffix);
         return;
       }
-      if (isInPages && href === 'index.html') {
-        a.setAttribute('href', '../index.html');
+      if (isInPages && (hrefPath === 'index.html' || hrefPath === './index.html')) {
+        a.setAttribute('href', '../index.html' + hashSuffix);
       }
     });
   }
