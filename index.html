@@ -39,8 +39,9 @@
   </div>
   <script>
     const deployedBranches = [
-                { name: 'グラスモーフィズム', dir: 'グラスモーフィズム' },
-                { name: 'ダークグラスモーフィズム', dir: 'ダークグラスモーフィズム' },
+                { name: 'zips', dir: 'zips' },
+                { name: 'グラスモーフィズム', dir: 'グラスモーフィズム', zip: 'zips/グラスモーフィズム-src.zip' },
+                { name: 'ダークグラスモーフィズム', dir: 'ダークグラスモーフィズム', zip: 'zips/ダークグラスモーフィズム-src.zip' },
     ];
 
     function getBranchType(name) {
@@ -69,6 +70,17 @@
           <div class="url">${url}</div>
         `;
         container.appendChild(a);
+
+        if (branch.zip) {
+          const z = document.createElement('a');
+          z.className = 'card';
+          z.href = branch.zip;
+          z.innerHTML = `
+            <div class="card-title">⬇ ${branch.name} <span class="badge">src.zip</span></div>
+            <div class="url">${branch.zip}</div>
+          `;
+          container.appendChild(z);
+        }
       });
     }
 
