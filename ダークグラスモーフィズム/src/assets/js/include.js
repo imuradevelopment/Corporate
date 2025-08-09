@@ -102,9 +102,9 @@
       const res = await fetch(prefix + url);
       const html = await res.text();
       host.innerHTML = html;
-      // 動的に挿入したナビ等にも相対補正を適用
-      adjustPathsForDirectoryDepth();
+      // 先に data-href を href へ解決し、その後にディレクトリ深度の補正を適用
       adjustLinks(host);
+      adjustPathsForDirectoryDepth();
       initHeaderInteractions();
     } catch (e) {
       // file:// などでの fetch 失敗時フォールバック
@@ -115,9 +115,9 @@
         };
         const key = selector.includes('header') ? 'header' : 'footer';
         host.innerHTML = templates[key];
-        // 動的に挿入したナビ等にも相対補正を適用
-        adjustPathsForDirectoryDepth();
+        // 先に data-href を href へ解決し、その後にディレクトリ深度の補正を適用
         adjustLinks(host);
+        adjustPathsForDirectoryDepth();
         initHeaderInteractions();
       } else {
         console.error('include failed:', url, e);
