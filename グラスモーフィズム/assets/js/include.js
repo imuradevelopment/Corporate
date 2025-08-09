@@ -138,9 +138,11 @@
       const res = await fetch(prefix + url);
       const html = await res.text();
       host.innerHTML = html;
+      // 1) data-href → href を先に解決
+      adjustLinks(host);
+      // 2) 次にアセット/リンクのディレクトリ深度補正
       adjustAssetPathsForDirectoryDepth(host);
       adjustPathsForDirectoryDepth();
-      adjustLinks(host);
       initGlassHeaderInteractions(host);
     } catch (e) {
       if (location.protocol === 'file:') {
@@ -180,9 +182,11 @@
         };
         const key = selector.includes('header') ? 'header' : 'footer';
         host.innerHTML = templates[key];
+        // 1) data-href → href を先に解決
+        adjustLinks(host);
+        // 2) 次にアセット/リンクのディレクトリ深度補正
         adjustAssetPathsForDirectoryDepth(host);
         adjustPathsForDirectoryDepth();
-        adjustLinks(host);
         initGlassHeaderInteractions(host);
         const y = host.querySelector('#js-year');
         if (y) y.textContent = String(new Date().getFullYear());
