@@ -63,52 +63,74 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="o-section">
+    <section class="o-section o-section--angled">
         <div class="o-container">
             <div style="max-width: 1200px; margin: 0 auto;">
                 <div class="o-grid o-grid--cols-2">
                     <!-- Form -->
                     <div class="c-card" data-aos="fade-right">
-                        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">お問い合わせフォーム</h2>
-                         <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                         <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">お問い合わせフォーム</h2>
+                         <div class="c-stepper" aria-hidden="true">
+                           <div class="c-stepper__dot is-active"></div>
+                           <div class="c-stepper__line"></div>
+                           <div class="c-stepper__dot"></div>
+                           <div class="c-stepper__line"></div>
+                           <div class="c-stepper__dot"></div>
+                         </div>
+                          <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
                             <div id="form-error" role="alert" aria-live="polite" class="u-text-muted" style="min-height:1.25rem;"></div>
-                            <div>
+
+                            <div class="c-form__group is-active" data-step="1">
+                              <div>
                                 <label for="name" class="c-form__label">お名前 *</label>
                                 <input type="text" id="name" name="name" autocomplete="name" required class="c-form__control" placeholder="山田 太郎">
-                            </div>
-                            
-                            <div>
+                                <div class="c-error-msg" id="err-name"></div>
+                              </div>
+                              <div>
                                 <label for="email" class="c-form__label">メールアドレス *</label>
                                 <input type="email" id="email" name="email" autocomplete="email" required class="c-form__control" placeholder="example@email.com">
+                                <div class="c-error-msg" id="err-email"></div>
+                              </div>
+                              <div class="c-form__nav">
+                                <span class="c-form__hint">必須事項をご入力ください</span>
+                                <button type="button" class="c-button c-button--primary" id="next-1">次へ</button>
+                              </div>
                             </div>
-                            
-                            <div>
+
+                            <div class="c-form__group" data-step="2">
+                              <div>
                                 <label for="company" class="c-form__label">会社名</label>
                                 <input type="text" id="company" name="company" autocomplete="organization" class="c-form__control" placeholder="株式会社サンプル">
-                            </div>
-                            
-                            <div>
+                              </div>
+                              <div>
                                 <label for="service" class="c-form__label">ご希望のサービス</label>
                                 <select id="service" name="service" class="c-form__control">
-                                    <option value="">選択してください</option>
-                                    <option value="ai">AI開発</option>
-                                    <option value="data">データ分析</option>
-                                    <option value="system">システム開発</option>
-                                    <option value="consulting">コンサルティング</option>
-                                    <option value="other">その他</option>
+                                  <option value="">選択してください</option>
+                                  <option value="ai">AI開発</option>
+                                  <option value="data">データ分析</option>
+                                  <option value="system">システム開発</option>
+                                  <option value="consulting">コンサルティング</option>
+                                  <option value="other">その他</option>
                                 </select>
+                              </div>
+                              <div class="c-form__nav">
+                                <button type="button" class="c-button c-button--glass" id="prev-2">戻る</button>
+                                <button type="button" class="c-button c-button--primary" id="next-2">次へ</button>
+                              </div>
                             </div>
-                            
-                            <div>
+
+                            <div class="c-form__group" data-step="3">
+                              <div>
                                 <label for="message" class="c-form__label">お問い合わせ内容 *</label>
                                 <textarea id="message" name="message" rows="6" required class="c-form__control" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                                <div class="c-error-msg" id="err-message"></div>
+                              </div>
+                              <div class="c-form__nav">
+                                <button type="button" class="c-button c-button--glass" id="prev-3">戻る</button>
+                                <button type="submit" class="c-button c-button--primary">送信する</button>
+                              </div>
                             </div>
-                            
-                            <button type="submit" class="c-button c-button--primary" style="width: 100%;">
-                                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
-                                送信する
-                            </button>
-                        </form>
+                          </form>
                     </div>
                     
                     <!-- Contact Information -->
@@ -173,7 +195,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="o-section" style="background: var(--bg-secondary);">
+    <section class="o-section o-section--wave" style="background: var(--bg-secondary);">
         <div class="o-container">
             <div class="text-center" style="margin-bottom: 4rem;" data-aos="fade-up">
                 <span class="c-kicker c-kicker--purple">FAQ</span>
@@ -216,7 +238,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="o-section">
+    <section class="o-section o-section--angled">
         <div class="o-container">
             <div class="c-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 4rem;">
                 <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">

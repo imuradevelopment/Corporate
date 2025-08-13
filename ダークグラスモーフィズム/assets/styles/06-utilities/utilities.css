@@ -28,6 +28,7 @@
 .u-mr-xs { margin-right: var(--space-xs); }
 .u-p-2xl { padding: var(--space-2xl); }
 .u-pt-0 { padding-top: 0; }
+.
 
 /* Sizing & radius */
 .u-max-600 { max-width: 600px; }
@@ -47,6 +48,7 @@
 .u-fs-5rem { font-size: 5rem; }
 .u-fs-8rem { font-size: 8rem; }
 .u-fs-08em { font-size: 0.8em; }
+.u-fs-1125rem { font-size: 1.125rem; }
 .u-text-secondary { color: var(--text-secondary); }
 .u-text-muted { color: var(--text-muted); }
 .u-accent-cyan { color: var(--accent-cyan); }
@@ -55,6 +57,7 @@
 .u-opacity-08 { opacity: 0.8; }
 .u-opacity-05 { opacity: 0.5; }
 .u-opacity-03 { opacity: 0.3; }
+.u-blur-12 { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .u-fw-300 { font-weight: 300; }
 .u-fw-500 { font-weight: 500; }
 .u-fw-700 { font-weight: 700; }

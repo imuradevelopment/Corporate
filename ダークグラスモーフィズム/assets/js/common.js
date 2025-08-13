@@ -179,9 +179,166 @@
     });
   }
 
+  function initCardTilt(options) {
+    var opts = options || {};
+    var selector = opts.selector || '.c-card';
+    var maxRotate = typeof opts.maxRotate === 'number' ? opts.maxRotate : 8; // degrees
+    var scale = typeof opts.scale === 'number' ? opts.scale : 1.02;
+    var reduce = isReducedMotionPreferred && isReducedMotionPreferred();
+    if (reduce) return; // respect reduced motion
+
+    var cards = document.querySelectorAll(selector);
+    cards.forEach(function (card) {
+      card.classList.add('has-tilt');
+      var rect;
+      function enter() {
+        rect = card.getBoundingClientRect();
+        card.style.transition = 'transform 150ms ease, box-shadow 150ms ease';
+      }
+      function leave() {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      }
+      function move(e) {
+        if (!rect) rect = card.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var dx = (e.clientX - cx) / (rect.width / 2);
+        var dy = (e.clientY - cy) / (rect.height / 2);
+        var rx = Math.max(-1, Math.min(1, dy)) * maxRotate; // invert Y for natural tilt
+        var ry = Math.max(-1, Math.min(1, -dx)) * maxRotate;
+        card.style.transform = 'perspective(800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(' + scale + ')';
+        card.style.boxShadow = '0 30px 40px -10px rgba(0,0,0,0.5), 0 20px 25px -15px rgba(0,0,0,0.3)';
+      }
+      card.addEventListener('pointerenter', enter);
+      card.addEventListener('pointermove', move);
+      card.addEventListener('pointerleave', leave);
+    });
+  }
+
+  function initHeroParallax() {
+    var canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    var reduce = isReducedMotionPreferred && isReducedMotionPreferred();
+    if (reduce) return;
+    var container = canvas.parentElement;
+    var strength = 12; // px max translate
+    function onMove(e) {
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      var x = (e.clientX / w - 0.5) * 2; // -1..1
+      var y = (e.clientY / h - 0.5) * 2;
+      container.style.transform = 'translate3d(' + (-x * strength) + 'px,' + (-y * strength) + 'px,0)';
+    }
+    function onLeave() {
+      container.style.transform = '';
+    }
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('pointerleave', onLeave, { passive: true });
+  }
+
+  function initAOSOptimize() {
+    try {
+      if (!window.AOS) return;
+      if (isReducedMotionPreferred && isReducedMotionPreferred()) return;
+
+      var elements = document.querySelectorAll('[data-aos]');
+      var AREA_THRESHOLD = 70000; // px^2
+      elements.forEach(function (el) {
+        if (!el.getAttribute('data-aos-duration')) {
+          var r = el.getBoundingClientRect();
+          var area = Math.max(1, r.width * r.height);
+          var dur = area > AREA_THRESHOLD ? 500 : 900; // 大きい要素は短め、小さい要素は長め
+          el.setAttribute('data-aos-duration', String(dur));
+        }
+      });
+
+      // Stagger children inside grids
+      var grids = document.querySelectorAll('.o-grid');
+      grids.forEach(function (grid) {
+        var delay = 0;
+        var step = 100;
+        grid.querySelectorAll('[data-aos]').forEach(function (child) {
+          if (!child.getAttribute('data-aos-delay')) {
+            child.setAttribute('data-aos-delay', String(delay));
+            delay += step;
+          }
+        });
+      });
+
+      // Recalculate AOS positions with new attributes
+      if (window.AOS && typeof window.AOS.refreshHard === 'function') {
+        window.AOS.refreshHard();
+      } else if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+      }
+    } catch {}
+  }
+
   function initContactFormValidation() {
     var form = document.getElementById('contact-form');
     if (!form) return;
+    // stepper
+    var groups = form.querySelectorAll('.c-form__group');
+    var dots = document.querySelectorAll('.c-stepper__dot');
+    var current = 0;
+    function setStep(idx) {
+      groups.forEach(function (g, i) { g.classList.toggle('is-active', i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i <= idx); });
+      current = idx;
+    }
+    function next() { if (current < groups.length - 1) setStep(current + 1); }
+    function prev() { if (current > 0) setStep(current - 1); }
+
+    var next1 = document.getElementById('next-1');
+    var next2 = document.getElementById('next-2');
+    var prev2 = document.getElementById('prev-2');
+    var prev3 = document.getElementById('prev-3');
+    next1 && next1.addEventListener('click', function () {
+      var nameEl = document.getElementById('name');
+      var emailEl = document.getElementById('email');
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var ok = true;
+      // name
+      if (!nameEl.value.trim()) {
+        ok = false; showFieldError(nameEl, 'err-name', 'お名前を入力してください');
+      } else { clearFieldError(nameEl, 'err-name'); }
+      // email
+      if (!emailEl.value.trim() || !emailRegex.test(emailEl.value.trim())) {
+        ok = false; showFieldError(emailEl, 'err-email', '有効なメールアドレスを入力してください');
+      } else { clearFieldError(emailEl, 'err-email'); }
+      if (ok) next();
+    });
+    next2 && next2.addEventListener('click', function () { next(); });
+    prev2 && prev2.addEventListener('click', function () { prev(); });
+    prev3 && prev3.addEventListener('click', function () { prev(); });
+
+    function showFieldError(input, errId, msg) {
+      input.classList.add('c-input--error');
+      var e = document.getElementById(errId);
+      if (e) e.textContent = msg;
+    }
+    function clearFieldError(input, errId) {
+      input.classList.remove('c-input--error');
+      var e = document.getElementById(errId);
+      if (e) e.textContent = '';
+    }
+
+    // realtime validation
+    ['input', 'blur', 'change'].forEach(function (ev) {
+      form.addEventListener(ev, function (e) {
+        var t = e.target;
+        if (!(t instanceof HTMLElement)) return;
+        if (t.id === 'name') {
+          if (!t.value.trim()) showFieldError(t, 'err-name', 'お名前を入力してください'); else clearFieldError(t, 'err-name');
+        } else if (t.id === 'email') {
+          var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t.value.trim());
+          if (!ok) showFieldError(t, 'err-email', '有効なメールアドレスを入力してください'); else clearFieldError(t, 'err-email');
+        } else if (t.id === 'message') {
+          if (!t.value.trim()) showFieldError(t, 'err-message', 'お問い合わせ内容を入力してください'); else clearFieldError(t, 'err-message');
+        }
+      }, true);
+    });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var error = document.getElementById('form-error');
@@ -207,6 +364,7 @@
       var name = document.getElementById('name').value.trim();
       var email = document.getElementById('email').value.trim();
       var message = document.getElementById('message').value.trim();
+      var service = (document.getElementById('service') || {}).value || '';
       if (!name || !email || !message) {
         setError('必須項目を入力してください。', !name ? 'name' : !email ? 'email' : 'message');
         return;
@@ -220,7 +378,23 @@
       // Success
       error.style.color = 'var(--accent-cyan)';
       error.textContent = 'お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。';
+      // 軽い送信UIフィードバック（低刺激環境を尊重）
+      try {
+        var reduce = isReducedMotionPreferred && isReducedMotionPreferred();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.7';
+          if (!reduce) submitBtn.style.transform = 'scale(0.98)';
+          setTimeout(function () {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
+            submitBtn.style.transform = '';
+          }, 800);
+        }
+      } catch {}
       form.reset();
+      setStep(0);
     });
   }
 
@@ -231,6 +405,9 @@
     initServiceTabs: initServiceTabs,
     initPortfolioFilter: initPortfolioFilter,
     initContactFormValidation: initContactFormValidation,
+    initCardTilt: initCardTilt,
+    initHeroParallax: initHeroParallax,
+    initAOSOptimize: initAOSOptimize,
   };
 })();
 
