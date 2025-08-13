@@ -1,0 +1,32 @@
+/* Section separators */
+
+.o-section--angled {
+  position: relative;
+}
+.o-section--angled::before,
+.o-section--angled::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; height: 80px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  pointer-events: none;
+}
+.o-section--angled::before { top: -40px; transform: skewY(-2deg); transform-origin: 0 0; }
+.o-section--angled::after { bottom: -40px; transform: skewY(2deg); transform-origin: 100% 100%; }
+
+.o-section--wave {
+  position: relative;
+  overflow: hidden;
+}
+.o-section--wave::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; height: 60px;
+  background: radial-gradient(150% 60px at 50% -20px, rgba(255,255,255,0.08), transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .o-section--angled::before, .o-section--angled::after { height: 56px; }
+}
+
+

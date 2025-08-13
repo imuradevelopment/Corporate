@@ -1,0 +1,16 @@
+/* Progressive form (stepper) */
+
+.c-stepper { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; }
+.c-stepper__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--glass-border); transition: all var(--dur-normal) ease; }
+.c-stepper__dot.is-active { background: var(--accent-cyan); box-shadow: 0 0 12px rgba(6, 182, 212, 0.6); }
+.c-stepper__line { flex: 1; height: 2px; background: var(--glass-border); }
+
+.c-form__group { display: none; }
+.c-form__group.is-active { display: block; animation: fadeInUp 0.3s ease; }
+.c-form__nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.5rem; }
+.c-form__hint { color: var(--text-muted); font-size: 0.875rem; margin-top: 0.25rem; }
+
+.c-input--error { border-color: var(--accent-pink) !important; }
+.c-error-msg { color: var(--accent-pink); font-size: 0.875rem; min-height: 1.25rem; margin-top: 0.25rem; }
+
+

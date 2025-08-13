@@ -242,9 +242,98 @@
     });
   }
 
+  function prefersReducedMotion() {
+    try { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; }
+  }
+
+  function initScrollEnhancements() {
+    if (document.getElementById('scroll-progress') || document.getElementById('backtotop')) return;
+
+    // Scroll progress bar
+    const progress = document.createElement('div');
+    progress.id = 'scroll-progress';
+    progress.className = 'c-scroll-progress';
+    const bar = document.createElement('div');
+    bar.className = 'c-scroll-progress__bar';
+    bar.setAttribute('role', 'progressbar');
+    bar.setAttribute('aria-label', 'スクロール進捗');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', '100');
+    bar.setAttribute('aria-valuenow', '0');
+    progress.appendChild(bar);
+    document.body.appendChild(progress);
+
+    // Back to top button
+    const back = document.createElement('button');
+    back.id = 'backtotop';
+    back.type = 'button';
+    back.className = 'c-backtotop';
+    back.setAttribute('aria-label', 'ページ先頭へ');
+    back.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+    document.body.appendChild(back);
+
+    // Saturation toggle button (top-right)
+    const toggle = document.createElement('button');
+    toggle.id = 'saturation-toggle';
+    toggle.type = 'button';
+    toggle.className = 'c-backtotop';
+    toggle.style.right = '76px';
+    toggle.setAttribute('aria-label', '彩度切り替え');
+    toggle.innerHTML = '<i class="fas fa-adjust" aria-hidden="true"></i>';
+    document.body.appendChild(toggle);
+
+    function update() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const pct = Math.min(100, Math.max(0, (scrollTop / max) * 100));
+      bar.style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', String(Math.round(pct)));
+      if (scrollTop > 400) back.classList.add('is-visible'); else back.classList.remove('is-visible');
+      if (scrollTop > 100) toggle.classList.add('is-visible'); else toggle.classList.remove('is-visible');
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(function () { update(); ticking = false; });
+      }
+    }, { passive: true });
+    window.addEventListener('resize', function () { update(); }, { passive: true });
+    update();
+
+    back.addEventListener('click', function () {
+      if (prefersReducedMotion()) window.scrollTo(0, 0);
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Saturation toggle behavior
+    const stateKey = 'ui-saturation';
+    function applySaturation(state) {
+      if (state === 'muted') {
+        document.documentElement.style.filter = 'saturate(0.8)';
+      } else if (state === 'vivid') {
+        document.documentElement.style.filter = 'saturate(1.15)';
+      } else {
+        document.documentElement.style.filter = '';
+      }
+    }
+    let sat = localStorage.getItem(stateKey) || 'default';
+    applySaturation(sat);
+    toggle.addEventListener('click', function () {
+      sat = sat === 'default' ? 'vivid' : sat === 'vivid' ? 'muted' : 'default';
+      localStorage.setItem(stateKey, sat);
+      applySaturation(sat);
+    });
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
     adjustPathsForDirectoryDepth();
     applySeoMetaFallbacks();
+    initScrollEnhancements();
+    try { window.Common && Common.initHeroParallax && Common.initHeroParallax(); } catch {}
+    try { window.Common && Common.initCardTilt && Common.initCardTilt({ selector: '.c-card' }); } catch {}
+    try { window.Common && Common.initAOSOptimize && Common.initAOSOptimize(); } catch {}
     include('[data-include="header"]', 'components/header.html');
     include('[data-include="footer"]', 'components/footer.html');
   });

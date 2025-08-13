@@ -7,6 +7,30 @@
 .c-portfolio__item:hover > div:first-child i { transform: scale(1.1); opacity: 0.5 !important; }
 .c-portfolio__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.3s ease; }
 .c-portfolio__item:hover .c-portfolio__overlay { opacity: 1; }
+
+/* Micro hover: floating badge shimmer */
+.c-portfolio__overlay .c-kicker,
+.c-portfolio__overlay span[style*="border-radius: 15px"] {
+  position: relative;
+  overflow: hidden;
+}
+.c-portfolio__overlay .c-kicker::after,
+.c-portfolio__overlay span[style*="border-radius: 15px"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%; height: 100%; width: 40%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.25), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.c-portfolio__item:hover .c-portfolio__overlay .c-kicker::after,
+.c-portfolio__item:hover .c-portfolio__overlay span[style*="border-radius: 15px"]::after { opacity: 1; animation: badgeShine 0.8s ease forwards; }
+
+@keyframes badgeShine {
+  0% { left: -120%; }
+  100% { left: 160%; }
+}
 .c-metric-card { position: relative; text-align: center; padding: 2rem; }
 .c-metric-card__number { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem; }

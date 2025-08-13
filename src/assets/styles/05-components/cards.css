@@ -11,9 +11,14 @@
 .c-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
   background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
   transform: rotate(45deg); transition: all 0.6s ease; opacity: 0; }
-.c-card:hover { background: var(--black-glass-hover); border-color: var(--glass-border-hover); transform: translateY(-8px) scale(1.02);
+.c-card::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-xl);
+  padding: 1px; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s ease; }
+.c-card:hover:not(.has-tilt) { background: var(--black-glass-hover); border-color: var(--glass-border-hover); transform: translateY(-8px) scale(1.02);
   box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 30px 40px -10px rgba(0,0,0,0.5), 0 20px 25px -15px rgba(0,0,0,0.3); }
 .c-card:hover::before { opacity: 1; animation: shine 0.6s ease; }
+.c-card:hover::after { opacity: 0.6; }
 
 .c-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-lg); }
 .c-feature__icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
